@@ -37,7 +37,10 @@
 					<%} else if(item.type == "复选框"){%>
 						<#check id="${item.en}" name="${item.en}" value="${item.value!}" />
 					<%}else if(item.type == "图标框"){%>
-                        <div id="${item.en}" name="${item.en}" value="${item.value!}" class="eova-icon"></div>
+						<div id="${item.en}" name="${item.en}" value="${item.value!}" class="eova-icon"></div>
+                        
+					<%}else if(item.type == "编辑框"){%>
+                        <#edit id="${item.en}" name="${item.en}" value="${item.value!}"/>
 					<%} else {// 默认为文本框<#text id="${item.en}" name="${item.en}" value="${item.value!}" isNoN="${item.isNotNull!}" />%>
                         <div id="${item.en}" name="${item.en}" value="${item.value!}" class="eova-text"></div>
 					<%}%>
