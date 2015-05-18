@@ -75,6 +75,14 @@ public class CrudController extends Controller {
 		new Crud(this, CrudConfig.LIST);
 		render("/eova/template/crud/add.html");
 	}
+	
+	/**
+	 * 新增 包含多媒体
+	 */
+	public void toAddMulti() {
+		new Crud(this, CrudConfig.LIST);
+		render("/eova/template/crud/addMulti.html");
+	}
 
 	/**
 	 * 修改
@@ -145,7 +153,7 @@ public class CrudController extends Controller {
 	 */
 	@SuppressWarnings("rawtypes")
 	public void add() {
-
+		System.out.println("----------add------------");
 		final Crud crud = new Crud(this, CrudConfig.ADD);
 
 		// 初始化业务拦截器

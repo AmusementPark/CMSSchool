@@ -42,6 +42,18 @@
 .combo-arrow {
   background: url('images/combo_arrow.png') no-repeat center center;
 }
+
+.combo-clear
+{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(eova_icon.png);
+  background-repeat: no-repeat;
+  background-color: #ECF3FF;
+  border: 0;
+  cursor: pointer;
+}
 .combo,
 .combo-panel {
   background-color: #ffffff;

@@ -1,4 +1,5 @@
-<form id="${id}" method="post" class="form">
+<form id="${id}" method="post" class="form" ${isMulti! == "true"? "enctype='multipart/form-data'": "" }
+${target! == null ? "" : "target='" + target + "'" }  >
 	<table class="table" style="width: 100%;">
 		<%for(item in items){%>
 			<%if(item.type == "自增框"){%>
@@ -41,6 +42,8 @@
                         
 					<%}else if(item.type == "编辑框"){%>
                         <#edit id="${item.en}" name="${item.en}" value="${item.value!}"/>
+					<%}else if(item.type == "文件"){%>
+                        <#file id="${item.en}" name="${item.en}" value="${item.value!}"/>
 					<%} else {// 默认为文本框<#text id="${item.en}" name="${item.en}" value="${item.value!}" isNoN="${item.isNotNull!}" />%>
                         <div id="${item.en}" name="${item.en}" value="${item.value!}" class="eova-text"></div>
 					<%}%>
@@ -74,6 +77,8 @@
 						<div id="${item.en}" name="${item.en}" value="${item.value!}" class="eova-icon"></div>
 					<%}else if(item.type == "编辑框"){%>
                         <#edit id="${item.en}" name="${item.en}" value="${item.value!}"/>
+					<%}else if(item.type == "文件"){%>
+                        <#file id="${item.en}" name="${item.en}" value="${item.value!}"/>
 					<%} else {// 默认为文本框<#text id="${item.en}" name="${item.en}" value="${item.value!}" isNoN="${item.isNotNull!}" />%>
                         <div id="${item.en}" name="${item.en}" value="${item.value!}" class="eova-text"></div>
 					<%}%>

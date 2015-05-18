@@ -14,6 +14,7 @@ import com.alibaba.druid.wall.WallFilter;
 import com.eova.beetl.IsTrueFun;
 import com.eova.common.utils.xx;
 import com.eova.common.utils.db.MysqlUtil;
+import com.eova.common.utils.file.FileUtil;
 import com.eova.core.IndexController;
 import com.eova.core.auth.AuthController;
 import com.eova.core.menu.MenuController;
@@ -91,6 +92,9 @@ public class EovaConfig extends JFinalConfig {
 		// Map<String, Object> sharedVars = new HashMap<String, Object>();
 		// sharedVars.put("app_name", "日照市云游网络科技有限公司");
 		// BeetlRenderFactory.groupTemplate.setSharedVars(sharedVars);
+		
+		FileUtil.LOCAL_DIR = getProperty("local_dir");
+		FileUtil.WEB_DIR = getProperty("web_dir");
 	}
 
 	/**
