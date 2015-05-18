@@ -26,7 +26,7 @@
 			
 			<div class="field" title="${item.cn}[${item.en}]">
 			<div class="lbl">${item.cn}:</div>
-				<%if(item.type == "下拉框"){%>0
+				<%if(item.type == "下拉框"){%>
 					<%// 是否多选%>
 					<%if(isTrue(item.isMultiple)){%>
 						<div><#combo id="${item.en}" name="${item.en}" code="${item.objectCode}" value="${item.value!}" isQuery="true" multiple="true" /></div>
