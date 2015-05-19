@@ -20,6 +20,7 @@ import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.IAtom;
 import com.jfinal.plugin.activerecord.Record;
 import com.eova.common.utils.xx;
+import com.eova.common.utils.file.FileUtil;
 import com.eova.common.utils.util.ExceptionUtil;
 
 /**
@@ -248,9 +249,21 @@ public class CrudController extends Controller {
 					// 删除动作
 					if (!xx.isEmpty(pkValues)) {
 						String[] pks = pkValues.split(",");
+						List<MetaItem> eis = crud.getItemList();
 						for (String pk : pks) {
 							// 根据主键删除对象
+							Integer pkNum = Integer.parseInt(pk);
+							Record record = Db.use(crud.getDs()).findById(crud.getView(), crud.getPkName(), pkNum);
 							Db.use(crud.getDs()).deleteById(crud.getView(), crud.getPkName(), pk);
+							for(MetaItem meta : eis){
+								if(MetaItem.TYPE_FILE.equals(meta.getStr("type"))){
+									String path = record.getStr(meta.getStr("en"));
+									if(path != null)
+										FileUtil.deleteByWebPath(path);
+								}
+							}
+							// 若有文件类型，删除对应的文件
+							
 						}
 					}
 

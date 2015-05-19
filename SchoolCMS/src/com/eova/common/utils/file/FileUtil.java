@@ -74,4 +74,13 @@ public class FileUtil {
 		String result = localDir.replaceFirst(LOCAL_DIR, WEB_DIR);
 		return result;
 	}
+	
+	public static void deleteByWebPath(String webPath){
+		if(webPath.indexOf(WEB_DIR) >= 0){
+			String localPath = webPath.replaceFirst(WEB_DIR, LOCAL_DIR);
+			File file = new File(localPath);
+			if(file.exists())
+				file.delete();
+		}
+	}
 }
