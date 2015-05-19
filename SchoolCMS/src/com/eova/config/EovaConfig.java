@@ -84,7 +84,9 @@ public class EovaConfig extends JFinalConfig {
 		me.setMainRenderFactory(new BeetlRenderFactory());
 		// POST内容最大500M(安装包上传)
 		me.setMaxPostSize(1024 * 1024 * 500);
-
+		
+		me.setEncoding("UTF-8");
+		
 		GroupTemplate group = BeetlRenderFactory.groupTemplate;
 		// 注册函数
 		group.registerFunction("isTrue", new IsTrueFun());
