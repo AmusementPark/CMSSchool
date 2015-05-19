@@ -15,6 +15,7 @@ import com.eova.common.utils.file.FileUtil;
 import com.eova.config.PageConst;
 import com.eova.model.MetaItem;
 import com.eova.model.MetaObject;
+import com.eova.model.User;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
@@ -37,7 +38,7 @@ public class CrudManager {
 	 * @param pkName 主键字段名
 	 * @return 其它对象数据集
 	 */
-	public static Map<String, Record> buildData(Controller c, List<MetaItem> eis, Record record, String pkName) {
+	public static Map<String, Record> buildData(Controller c, List<MetaItem> eis, Record record, String pkName, boolean isInsert) {
 		Map<String, Record> reMap = new HashMap<String, Record>();
 		//如果有文件， 先处理文件
 		for (MetaItem item : eis) {
@@ -64,27 +65,35 @@ public class CrudManager {
 			if (type.equals(MetaItem.TYPE_FILE)){
 				continue;
 			}
+			
 
 			// 是否正在新增数据
-			boolean isInsert = false;
+//			boolean isInsert = false;
 			
 			// 新增跳过自增长字段(新增时为空)
 			if (xx.isEmpty(value) && type.equals(MetaItem.TYPE_AUTO)) {
-				isInsert = true;
+//				isInsert = true;
 				continue;
 			}
 			
-			// 新增时，移除禁止新增的字段
-			boolean isAdd = item.getBoolean("isAdd");
-			if (isInsert && !isAdd) {
-				record.remove(key);
-				continue;
-			}
-			// 更新时，移除禁止更新的字段
-			boolean isUpdate = item.getBoolean("isUpdate");
-			if (!isInsert && !isUpdate) {
-				record.remove(key);
-				continue;
+			//判断字段是否关联当前用户
+			if (type.equals(MetaItem.TYPE_USER)){
+				User user = (User) c.getSession().getAttribute("user");
+				value = user.getStr("loginId");
+				record.set(key, value);
+			} else {
+				// 新增时，移除禁止新增的字段
+				boolean isAdd = item.getBoolean("isAdd");
+				if (isInsert && !isAdd) {
+					record.remove(key);
+					continue;
+				}
+				// 更新时，移除禁止更新的字段
+				boolean isUpdate = item.getBoolean("isUpdate");
+				if (!isInsert && !isUpdate) {
+					record.remove(key);
+					continue;
+				}
 			}
 
 			// 复选框需要特转换值

@@ -70,6 +70,7 @@ var eova_iconDialog = function(input, span) {
 // Find 查询框
 var eova_findDialog = function(input, inputcn, url) {
 	// 弹出窗口
+	url = encodeURI(url);
 	var dialog = parent.sy.modalDialog({
 		title : '请选择数据',
 		url : url,

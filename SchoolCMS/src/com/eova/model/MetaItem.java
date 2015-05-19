@@ -33,6 +33,7 @@ public class MetaItem extends BaseModel<MetaItem> {
 	public static final String TYPE_COMBO = "下拉框";
 	public static final String TYPE_CHECK = "复选框";
 	public static final String TYPE_FILE = "文件";
+	public static final String TYPE_USER = "当前用户"; //当前用户
 
 	/**
 	 * 获取对象详情

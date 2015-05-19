@@ -164,7 +164,7 @@ public class CrudController extends Controller {
 		List<MetaItem> eis = crud.getItemList();
 
 		// 构建对象数据
-		final Map<String, Record> reMap = CrudManager.buildData(this, eis, record, crud.getPkName());
+		final Map<String, Record> reMap = CrudManager.buildData(this, eis, record, crud.getPkName(), true);
 
 		// 事务(默认为TRANSACTION_READ_COMMITTED)
 		boolean flag = Db.tx(new IAtom() {
@@ -301,7 +301,7 @@ public class CrudController extends Controller {
 
 		// 获取基础数据
 		final MetaObject eo = crud.getObject();
-		final Map<String, Record> reMap = CrudManager.buildData(this, crud.getItemList(), record, crud.getPkName());
+		final Map<String, Record> reMap = CrudManager.buildData(this, crud.getItemList(), record, crud.getPkName(), false);
 		final Object pkValue = record.get(crud.getPkName());
 
 		// 事务(默认为TRANSACTION_READ_COMMITTED)
@@ -351,6 +351,73 @@ public class CrudController extends Controller {
 			} catch (Exception e) {
 				buildException(e);
 				renderJson(new Easy("修改成功,后置任务执行异常!<p title=\"" + info + "\">" + error + "</p>"));
+				return;
+			}
+		}
+
+		renderJson(new Easy());
+	}
+	
+	
+	// 审核
+	public void approve(){
+		final Crud crud = new Crud(this, CrudConfig.DELETE);
+
+		// 初始化业务拦截器
+		initIntercept(crud.getBizIntercept());
+
+		// 获取基础数据
+		final MetaObject eo = crud.getObject();
+		// 获取主键的值 格式:pkval1,pkval2,pkval3
+		String str = getPara(1);
+		final String pkValues = str.substring(0, str.length() - 1);
+		
+		//获取是否通过
+		String pass = getPara(2);
+		final boolean value = "pass".equals(pass) ? true :false;
+
+		// 事务(默认为TRANSACTION_READ_COMMITTED)
+		boolean flag = Db.tx(new IAtom() {
+			public boolean run() throws SQLException {
+				try {
+
+					// 删除动作
+					if (!xx.isEmpty(pkValues)) {
+						String[] pks = pkValues.split(",");
+						Record record = new Record();
+						String key = crud.getPkName();
+						String view = crud.getView();
+						for (String pk : pks) {
+							record.set(key, pk);
+							record.set("flag", value);
+							Db.use(crud.getDs()).update(view, record);
+							
+						}
+					}
+					
+				} catch (Exception e) {
+					buildException(e);
+					return false;
+				}
+				return true;
+			}
+		});
+
+		if (!flag) {
+			renderJson(new Easy("审核失败<p title=\"" + info + "\">" + error + "</p>"));
+			return;
+		}
+
+		// 记录新增日志
+		EovaLog.dao.info(this, EovaLog.APPROVE, eo.getStr("code") + "[" + pkValues + "]");
+
+		// 审核成功之后
+		if (intercept != null) {
+			try {
+				intercept.deleteSucceed(pkValues);
+			} catch (Exception e) {
+				buildException(e);
+				renderJson(new Easy("审核成功,后置任务执行异常!<p title=\"" + info + "\">" + error + "</p>"));
 				return;
 			}
 		}
