@@ -29,6 +29,9 @@ public class EovaLog extends BaseModel<EovaLog> {
 	/**删除**/
 	public static final int DELETE = 3;
 	
+	/**审核**/
+	public static final int APPROVE = 4;
+	
 	/**
 	 * 操作日志
 	 * @param con

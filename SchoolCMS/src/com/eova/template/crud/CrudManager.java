@@ -38,7 +38,7 @@ public class CrudManager {
 	 * @param pkName 主键字段名
 	 * @return 其它对象数据集
 	 */
-	public static Map<String, Record> buildData(Controller c, List<MetaItem> eis, Record record, String pkName) {
+	public static Map<String, Record> buildData(Controller c, List<MetaItem> eis, Record record, String pkName, boolean isInsert) {
 		Map<String, Record> reMap = new HashMap<String, Record>();
 		//如果有文件， 先处理文件
 		for (MetaItem item : eis) {
@@ -68,11 +68,11 @@ public class CrudManager {
 			
 
 			// 是否正在新增数据
-			boolean isInsert = false;
+//			boolean isInsert = false;
 			
 			// 新增跳过自增长字段(新增时为空)
 			if (xx.isEmpty(value) && type.equals(MetaItem.TYPE_AUTO)) {
-				isInsert = true;
+//				isInsert = true;
 				continue;
 			}
 			
