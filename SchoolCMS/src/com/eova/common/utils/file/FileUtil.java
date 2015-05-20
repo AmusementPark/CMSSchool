@@ -9,7 +9,7 @@ public class FileUtil {
 	/**允许上传的图片类型**/
 	public static final String IMG_TYPE = ".jpg|.gif|.png|.bmp";
 	/**允许上传的所有文件类型**/
-	public static final String ALL_TYPE = ".jpg|.jepg|.gif|.png|.bmp|.gz|.rar|.zip|.pdf|.txt|.swf|.mp3|.jar|.apk|.ipa";
+	public static final String ALL_TYPE = ".jpg|.jepg|.gif|.png|.bmp|.gz|.rar|.zip|.pdf|.txt|.swf|.mp3|.doc";
 	
 	public static String LOCAL_DIR;
 	
