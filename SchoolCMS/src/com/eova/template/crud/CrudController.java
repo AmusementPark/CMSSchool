@@ -388,12 +388,14 @@ public class CrudController extends Controller {
 		//获取是否通过
 		String pass = getPara(2);
 		final boolean value = "pass".equals(pass) ? true :false;
+		
+		//获取状态字段名
+		final String name = getPara(3);
 
 		// 事务(默认为TRANSACTION_READ_COMMITTED)
 		boolean flag = Db.tx(new IAtom() {
 			public boolean run() throws SQLException {
 				try {
-
 					// 删除动作
 					if (!xx.isEmpty(pkValues)) {
 						String[] pks = pkValues.split(",");
@@ -402,9 +404,8 @@ public class CrudController extends Controller {
 						String view = crud.getView();
 						for (String pk : pks) {
 							record.set(key, pk);
-							record.set("flag", value);
-							Db.use(crud.getDs()).update(view, record);
-							
+							record.set(name, value);
+							Db.use(crud.getDs()).update(view, record);							
 						}
 					}
 					
