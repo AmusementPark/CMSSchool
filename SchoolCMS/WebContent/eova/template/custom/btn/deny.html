@@ -15,7 +15,7 @@ var crud_deny = function() {
 	for (var i = 0; i < array.length; i++) { //组成一个字符串，ID主键用逗号隔开  
 		id2 = id2 + array[i].grid_pk + ",";
 	}
-	confirmDeny(grid, '/singleGrid/approve/${menu.code}-' + id2 + '-' + 'deny');
+	confirmDeny(grid, '/singleGrid/approve/${menu.code}-' + id2 + '-' + 'deny' + "-cmmt_status");
 };
 
 var confirmDeny = function(grid, url){

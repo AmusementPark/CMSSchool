@@ -15,7 +15,7 @@ var crud_approve = function() {
 	for (var i = 0; i < array.length; i++) { //组成一个字符串，ID主键用逗号隔开  
 		id2 = id2 + array[i].grid_pk + ",";
 	}
-	confirmApprove(grid, '/singleGrid/approve/${menu.code}-' + id2 + '-' + 'pass');
+	confirmApprove(grid, '/singleGrid/approve/${menu.code}-' + id2 + '-' + 'pass' + '-' + 'cmmt_status');
 };
 
 var confirmApprove = function(grid, url){
