@@ -396,6 +396,7 @@ public class CrudController extends Controller {
 		boolean flag = Db.tx(new IAtom() {
 			public boolean run() throws SQLException {
 				try {
+
 					// 删除动作
 					if (!xx.isEmpty(pkValues)) {
 						String[] pks = pkValues.split(",");
@@ -405,7 +406,8 @@ public class CrudController extends Controller {
 						for (String pk : pks) {
 							record.set(key, pk);
 							record.set(name, value);
-							Db.use(crud.getDs()).update(view, record);							
+							Db.use(crud.getDs()).update(view, record);
+							
 						}
 					}
 					

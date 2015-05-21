@@ -330,7 +330,6 @@ INSERT INTO `eova_menu` VALUES ('11', 'sys_auth_role', '角色管理', 'singleGr
 INSERT INTO `eova_menu` VALUES ('12', 'sys_log', '系统日志', 'singleGrid', 'icon-tablemultiple', '3', '2', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('19', 'biz_player', '玩家管理', 'singleGrid', 'icon-group', '0', '3', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('21', '1111', '我的目录', 'dir', '', '1', '3', '0', '', '');
-
 -- ----------------------------
 -- Table structure for `eova_menu_object`
 -- ----------------------------
