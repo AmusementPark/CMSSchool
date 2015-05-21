@@ -1,7 +1,9 @@
 <%layout("/layout/default.html",{'title' : '主页'}){%>
 
-<body>
+<body ng-app>
 Hello ${name!}
+<br>
+{{"angular is alive"}}
 <br>
 <#edit id="editor" name="comment" value="${comment!}"/>
 </body>
