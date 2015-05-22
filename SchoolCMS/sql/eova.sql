@@ -364,7 +364,7 @@ CREATE TABLE `eova_object` (
   `code` varchar(50) NOT NULL COMMENT '对象编码',
   `name` varchar(50) NOT NULL COMMENT '对象名称',
   `view` varchar(255) DEFAULT '' COMMENT '查询数据视图',
-  `table` varchar(50) NOT NULL COMMENT '保存数据主表',
+  `table` varchar(50) NOT NULL DEFAULT '' COMMENT '保存数据主表',
   `pkName` varchar(50) NOT NULL COMMENT '主键',
   `dataSource` varchar(50) DEFAULT 'main' COMMENT '数据源',
   `isSingleSelect` tinyint(1) DEFAULT '1' COMMENT '是否单选',
