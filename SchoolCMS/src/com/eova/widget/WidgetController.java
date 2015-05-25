@@ -15,6 +15,7 @@ import com.eova.config.PageConst;
 import com.eova.engine.EovaExp;
 import com.eova.model.MetaItem;
 import com.eova.model.MetaObject;
+import com.eova.model.User;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.JsonKit;
 import com.jfinal.plugin.activerecord.Db;
@@ -164,6 +165,8 @@ public class WidgetController extends Controller {
 	public void comboJson() {
 		String objectCode = getPara(0);
 		String en = getPara(1);
+		
+		System.err.println(getRequest().getRequestURI());
 
 		// 根据Code和字段获取表达式
 		MetaItem ei = MetaItem.dao.getByObjectCodeAndEn(objectCode, en);
@@ -175,9 +178,14 @@ public class WidgetController extends Controller {
 		// 根据表达式获取SQL进行查询
 		// 下拉框表达式 别名固定为 ID,CN,否则页面无法获取
 		String select = EovaExp.getSelect(exp);
-		String from = EovaExp.getFrom(exp);
-		String where = EovaExp.getWhere(exp);
-		String ds = EovaExp.getDs(exp);
+		String from   = EovaExp.getFrom(exp);
+		String where  = EovaExp.getWhere(exp);
+		String ds     = EovaExp.getDs(exp);
+		
+		User user = getSessionAttr("user");
+		if ( objectCode.equals("eova_user_code") && (Integer)user.get("rid") != 1 ) {
+		    where = " where id > 1";
+		}
 
 		// 获取条件
 		List<String> parmList = new ArrayList<String>();
@@ -213,10 +221,20 @@ public class WidgetController extends Controller {
 
 		// Get MetaObject Code
 		String code = getPara(0);
+		System.err.println(getRequest().getRequestURI()); 
+		String sysAdminFilter = "";
 
+		User user = getSessionAttr("user");
+		if ( code.equals("eova_user_code") && (Integer)user.get("rid") != 1 ) {
+		    sysAdminFilter = " where rid > 1";
+		}
+		if ( code.equals("eova_role_code") && (Integer)user.get("rid") != 1 ) {
+            sysAdminFilter = " where id > 1";
+		}
+		
 		// Get MetaObject and MetaItem List
 		MetaObject eo = MetaObject.dao.getByCode(code);
-		List<MetaItem> eis = MetaItem.dao.queryByObjectCode(code);
+		List<MetaItem> eis = MetaItem.dao.queryByObjectCode(code); 
 
 		// 获取分页参数
 		int pageNumber = getParaToInt(PageConst.PAGENUM, 1);
@@ -224,7 +242,7 @@ public class WidgetController extends Controller {
 
 		// 获取条件
 		List<String> parmList = new ArrayList<String>();
-		String where = WidgetManager.getWhere(this, eis, parmList, "");
+		String where = WidgetManager.getWhere(this, eis, parmList, sysAdminFilter);      // 过滤程序开发权限
 		// 转换SQL参数为Obj[]
 		Object[] parm = new Object[parmList.size()];
 		parmList.toArray(parm);

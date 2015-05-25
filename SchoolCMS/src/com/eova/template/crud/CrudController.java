@@ -387,7 +387,7 @@ public class CrudController extends Controller {
 		
 		//获取是否通过
 		String pass = getPara(2);
-		final boolean value = "pass".equals(pass) ? true :false;
+		final int value = "pass".equals(pass) ? 1 : -1;
 		
 		//获取状态字段名
 		final String name = getPara(3);
@@ -396,7 +396,6 @@ public class CrudController extends Controller {
 		boolean flag = Db.tx(new IAtom() {
 			public boolean run() throws SQLException {
 				try {
-
 					// 删除动作
 					if (!xx.isEmpty(pkValues)) {
 						String[] pks = pkValues.split(",");
@@ -407,10 +406,8 @@ public class CrudController extends Controller {
 							record.set(key, pk);
 							record.set(name, value);
 							Db.use(crud.getDs()).update(view, record);
-							
 						}
 					}
-					
 				} catch (Exception e) {
 					buildException(e);
 					return false;
