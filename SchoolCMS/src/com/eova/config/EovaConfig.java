@@ -31,7 +31,6 @@ import com.eova.model.Role;
 import com.eova.model.RoleBtn;
 import com.eova.model.User;
 import com.eova.service.ServiceManager;
-import com.eova.template.crud.CrudConfig;
 import com.eova.template.crud.CrudController;
 import com.eova.widget.WidgetController;
 import com.eova.widget.grid.GridController;
@@ -84,16 +83,16 @@ public class EovaConfig extends JFinalConfig {
 		me.setMainRenderFactory(new BeetlRenderFactory());
 		// POST内容最大500M(安装包上传)
 		me.setMaxPostSize(1024 * 1024 * 500);
-		
+		// UTF-8编码
 		me.setEncoding("UTF-8");
 		
 		GroupTemplate group = BeetlRenderFactory.groupTemplate;
 		// 注册函数
 		group.registerFunction("isTrue", new IsTrueFun());
 		// 设置全局变量
-		// Map<String, Object> sharedVars = new HashMap<String, Object>();
-		// sharedVars.put("app_name", "日照市云游网络科技有限公司");
-		// BeetlRenderFactory.groupTemplate.setSharedVars(sharedVars);
+//		Map<String, Object> sharedVars = new HashMap<String, Object>();
+//		sharedVars.put("app_name", "日照市云游网络科技有限公司");
+//		BeetlRenderFactory.groupTemplate.setSharedVars(sharedVars);
 		
 		FileUtil.LOCAL_DIR = getProperty("local_dir");
 		FileUtil.WEB_DIR = getProperty("web_dir");
@@ -105,7 +104,7 @@ public class EovaConfig extends JFinalConfig {
 	public void configRoute(Routes me) {
 		System.err.println("Config Routes Starting...");
 		me.add("/", IndexController.class);
-		me.add(CrudConfig.contro, CrudController.class);
+		me.add("/singleGrid", CrudController.class);
 		me.add("/widget", WidgetController.class);
 		me.add("/grid", GridController.class);
 		me.add("/metadata", MetaDataController.class);

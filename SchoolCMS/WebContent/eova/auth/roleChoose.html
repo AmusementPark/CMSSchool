@@ -80,8 +80,7 @@ $(function() {
             field: 'name',
             title: '菜单',
             width: '180'
-        },
-        {
+        },{
             field: 'btnName',
             title: '功能',
             width: '800',
@@ -103,6 +102,7 @@ $(function() {
                 url: '/auth/getRoleFunJson/${rid}',
                 dataType: 'json',
                 success: function(data) {
+                	debugger;
                 	console.log("成功...");
                     // 将返回数据转换为JSON对象
                 	var list = eval(data);
