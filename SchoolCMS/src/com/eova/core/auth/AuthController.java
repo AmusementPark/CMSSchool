@@ -33,7 +33,6 @@ public class AuthController extends Controller {
 	 */
 	public void toRoleChoose() {
 		setAttr("rid", getPara(0));
- 
 		render("/eova/auth/roleChoose.html");
 	}
 	
@@ -89,21 +88,16 @@ public class AuthController extends Controller {
 	 * 显示已授权功能点
 	 */
 	public void showFunTree() {
+	    
 		int rid = getParaToInt(0);
 		if (xx.isEmpty(rid)) {
 			renderJson(new Easy("参数缺失!"));
 			return;
 		}
-		// 获取角色授权
-		List<RoleBtn> funList = RoleBtn.dao.queryByRid(rid);
-		// String[] ids = role.getStr("fun").split(",");
-		// 已授权集合
-		// List<String> funList = Arrays.asList(ids);
-
-		// 获取菜单
-		List<Menu> menuList = Menu.dao.queryByParentId(0);
-		// 获取所有按钮
-		List<Button> btnList = Button.dao.queryAllByCache();
+		
+		List<RoleBtn> funList = RoleBtn.dao.queryByRid(rid); // 获取角色授权
+		List<Menu> menuList = Menu.dao.queryByParentId(0); // 获取菜单
+		List<Button> btnList = Button.dao.queryAllByCache(); // 获取所有按钮
 
 		StringBuilder sb = new StringBuilder("[");
 		for (Menu menu : menuList) {
@@ -195,7 +189,7 @@ public class AuthController extends Controller {
 		// Role role = Role.dao.findById(rid);
 		// role.set("fun", checks);
 		// role.update();
-
+		
 		renderJson(new Easy());
 	}
 }

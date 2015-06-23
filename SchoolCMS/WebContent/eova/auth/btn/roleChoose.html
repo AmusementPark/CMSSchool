@@ -9,7 +9,7 @@ var eova_roleChoose = function() {
 	if (isSelected(row)){
 		var dialog = parent.sy.modalDialog({
 	 		title : '['+ row.name +']可用功能选择',
-	 		url : '/auth/toRoleChoose/' + row.id,
+	 		url : '/auth/toRoleChoose/' + row.rid,   // Simon.Zhu 程序错误使用row.id 应该使用角色id即row.rid.
 	 		buttons : [ {
 	 			text : '确定',
 	 			handler : function() {

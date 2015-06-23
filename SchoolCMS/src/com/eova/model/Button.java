@@ -32,7 +32,7 @@ public class Button extends BaseModel<Button> {
 	 * @return
 	 */
 	public List<Button> queryByMenuCode(String menuCode, int rid) {
-		return Button.dao.find("select * from eova_button where menuCode = ? and ui != '' and id in (select bid from eova_role_btn where rid = ?) order by indexNum", menuCode, rid);
+		return super.find("select * from eova_button where menuCode = ? and ui != '' and id in (select bid from eova_role_btn where rid = ?) order by indexNum", menuCode, rid);
 	}
 	
 	/**

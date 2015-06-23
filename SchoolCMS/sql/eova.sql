@@ -20,12 +20,12 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `eova_button`;
 CREATE TABLE `eova_button` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id`       int(11)      NOT NULL AUTO_INCREMENT,
   `menuCode` varchar(255) NOT NULL DEFAULT '' COMMENT '菜单Code',
-  `name` varchar(255) NOT NULL DEFAULT '' COMMENT '按钮名称',
-  `ui` varchar(255) NOT NULL DEFAULT '' COMMENT '按钮UI路径',
-  `bs` varchar(500) DEFAULT '' COMMENT '按钮BS路径',
-  `indexNum` int(11) DEFAULT '0' COMMENT '排序',
+  `name`     varchar(255) NOT NULL DEFAULT '' COMMENT '按钮名称',
+  `ui`       varchar(255) NOT NULL DEFAULT '' COMMENT '按钮UI路径',
+  `bs`       varchar(500) DEFAULT '' COMMENT '按钮BS路径',
+  `indexNum` int(11)      DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
@@ -70,9 +70,9 @@ INSERT INTO `eova_button` VALUES ('32','sys_auth_role',   '权限分配', '/eova
 -- ----------------------------
 DROP TABLE IF EXISTS `eova_dict`;
 CREATE TABLE `eova_dict` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id`    int(11)     NOT NULL AUTO_INCREMENT,
   `value` varchar(50) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `name`  varchar(50) NOT NULL,
   `class` varchar(50) NOT NULL,
   `field` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
@@ -81,14 +81,14 @@ CREATE TABLE `eova_dict` (
 -- ----------------------------
 -- Records of eova_dict
 -- ----------------------------
-INSERT INTO `eova_dict` VALUES ('1', 'main', '默认', 'eova_object', 'dataSource');
-INSERT INTO `eova_dict` VALUES ('2', 'eova', 'EOVA', 'eova_object', 'dataSource');
-INSERT INTO `eova_dict` VALUES ('3', 'string', '字符', 'eova_item', 'dataType');
-INSERT INTO `eova_dict` VALUES ('4', 'number', '数字', 'eova_item', 'dataType');
-INSERT INTO `eova_dict` VALUES ('5', 'time', '时间', 'eova_item', 'dataType');
-INSERT INTO `eova_dict` VALUES ('6', '1', '新增', 'eova_log', 'type');
-INSERT INTO `eova_dict` VALUES ('7', '2', '修改', 'eova_log', 'type');
-INSERT INTO `eova_dict` VALUES ('8', '3', '删除', 'eova_log', 'type');
+INSERT INTO `eova_dict` VALUES ('1', 'main',   '默认', 'eova_object', 'dataSource');
+INSERT INTO `eova_dict` VALUES ('2', 'eova',   'EOVA', 'eova_object', 'dataSource');
+INSERT INTO `eova_dict` VALUES ('3', 'string', '字符', 'eova_item',   'dataType');
+INSERT INTO `eova_dict` VALUES ('4', 'number', '数字', 'eova_item',   'dataType');
+INSERT INTO `eova_dict` VALUES ('5', 'time',   '时间', 'eova_item',   'dataType');
+INSERT INTO `eova_dict` VALUES ('6', '1',      '新增', 'eova_log',    'type');
+INSERT INTO `eova_dict` VALUES ('7', '2',      '修改', 'eova_log',    'type');
+INSERT INTO `eova_dict` VALUES ('8', '3',      '删除', 'eova_log',    'type');
 
 -- ----------------------------
 -- Table structure for `eova_item`
@@ -333,44 +333,44 @@ CREATE TABLE `eova_role_btn` (
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of eova_role_btn, 默认只有开发程序员开启这些功能
+-- Records of eova_role_btn, 默认只有开发程序员开启这些功能, 显示在角色管理权限授权.
 -- ----------------------------
-INSERT INTO `eova_role_btn` VALUES ('206', '0', '44', '0');
-INSERT INTO `eova_role_btn` VALUES ('207', '0', '45', '0');
-INSERT INTO `eova_role_btn` VALUES ('208', '0', '46', '0');
-INSERT INTO `eova_role_btn` VALUES ('209', '0', '47', '0');
-INSERT INTO `eova_role_btn` VALUES ('210', '0', '7',  '0');
-INSERT INTO `eova_role_btn` VALUES ('211', '0', '29', '0');
-INSERT INTO `eova_role_btn` VALUES ('212', '0', '30', '0');
-INSERT INTO `eova_role_btn` VALUES ('213', '0', '31', '0');
-INSERT INTO `eova_role_btn` VALUES ('214', '0', '8',  '0');
-INSERT INTO `eova_role_btn` VALUES ('215', '0', '26', '0');
-INSERT INTO `eova_role_btn` VALUES ('216', '0', '27', '0');
-INSERT INTO `eova_role_btn` VALUES ('217', '0', '28', '0');
-INSERT INTO `eova_role_btn` VALUES ('218', '0', '32', '0');
-INSERT INTO `eova_role_btn` VALUES ('219', '0', '9',  '0');
-INSERT INTO `eova_role_btn` VALUES ('220', '0', '1',  '0');
-INSERT INTO `eova_role_btn` VALUES ('221', '0', '10', '0');
-INSERT INTO `eova_role_btn` VALUES ('222', '0', '11', '0');
-INSERT INTO `eova_role_btn` VALUES ('223', '0', '12', '0');
-INSERT INTO `eova_role_btn` VALUES ('224', '0', '23', '0');
-INSERT INTO `eova_role_btn` VALUES ('225', '0', '2',  '0');
-INSERT INTO `eova_role_btn` VALUES ('226', '0', '16', '0');
-INSERT INTO `eova_role_btn` VALUES ('227', '0', '17', '0');
-INSERT INTO `eova_role_btn` VALUES ('228', '0', '18', '0');
-INSERT INTO `eova_role_btn` VALUES ('229', '0', '3',  '0');
-INSERT INTO `eova_role_btn` VALUES ('230', '0', '19', '0');
-INSERT INTO `eova_role_btn` VALUES ('231', '0', '20', '0');
-INSERT INTO `eova_role_btn` VALUES ('232', '0', '21', '0');
-INSERT INTO `eova_role_btn` VALUES ('233', '0', '22', '0');
-INSERT INTO `eova_role_btn` VALUES ('234', '0', '4',  '0');
-INSERT INTO `eova_role_btn` VALUES ('235', '0', '13', '0');
-INSERT INTO `eova_role_btn` VALUES ('236', '0', '14', '0');
-INSERT INTO `eova_role_btn` VALUES ('237', '0', '15', '0');
-INSERT INTO `eova_role_btn` VALUES ('238', '0', '5',  '0');
-INSERT INTO `eova_role_btn` VALUES ('239', '0', '24', '0');
-INSERT INTO `eova_role_btn` VALUES ('240', '0', '25', '0');
-INSERT INTO `eova_role_btn` VALUES ('241', '0', '6',  '0');
+-- INSERT INTO `eova_role_btn` VALUES ('206', '0', '44', '0');
+-- INSERT INTO `eova_role_btn` VALUES ('207', '0', '45', '0');
+-- INSERT INTO `eova_role_btn` VALUES ('208', '0', '46', '0');
+-- INSERT INTO `eova_role_btn` VALUES ('209', '0', '47', '0');
+INSERT INTO `eova_role_btn` VALUES ('1', '0', '7',  '0');
+INSERT INTO `eova_role_btn` VALUES ('2', '0', '29', '0');
+INSERT INTO `eova_role_btn` VALUES ('3', '0', '30', '0');
+INSERT INTO `eova_role_btn` VALUES ('4', '0', '31', '0');
+INSERT INTO `eova_role_btn` VALUES ('5', '0', '8',  '0');
+INSERT INTO `eova_role_btn` VALUES ('6', '0', '26', '0');
+INSERT INTO `eova_role_btn` VALUES ('7', '0', '27', '0');
+INSERT INTO `eova_role_btn` VALUES ('8', '0', '28', '0');
+INSERT INTO `eova_role_btn` VALUES ('9', '0', '32', '0');
+INSERT INTO `eova_role_btn` VALUES ('10', '0', '9',  '0');
+INSERT INTO `eova_role_btn` VALUES ('11', '0', '1',  '0');
+INSERT INTO `eova_role_btn` VALUES ('12', '0', '10', '0');
+INSERT INTO `eova_role_btn` VALUES ('13', '0', '11', '0');
+INSERT INTO `eova_role_btn` VALUES ('14', '0', '12', '0');
+INSERT INTO `eova_role_btn` VALUES ('15', '0', '23', '0');
+INSERT INTO `eova_role_btn` VALUES ('16', '0', '2',  '0');
+INSERT INTO `eova_role_btn` VALUES ('17', '0', '16', '0');
+INSERT INTO `eova_role_btn` VALUES ('18', '0', '17', '0');
+INSERT INTO `eova_role_btn` VALUES ('19', '0', '18', '0');
+INSERT INTO `eova_role_btn` VALUES ('20', '0', '3',  '0');
+INSERT INTO `eova_role_btn` VALUES ('21', '0', '19', '0');
+INSERT INTO `eova_role_btn` VALUES ('22', '0', '20', '0');
+INSERT INTO `eova_role_btn` VALUES ('23', '0', '21', '0');
+INSERT INTO `eova_role_btn` VALUES ('24', '0', '22', '0');
+INSERT INTO `eova_role_btn` VALUES ('25', '0', '4',  '0');
+INSERT INTO `eova_role_btn` VALUES ('26', '0', '13', '0');
+INSERT INTO `eova_role_btn` VALUES ('27', '0', '14', '0');
+INSERT INTO `eova_role_btn` VALUES ('28', '0', '15', '0');
+INSERT INTO `eova_role_btn` VALUES ('29', '0', '5',  '0');
+INSERT INTO `eova_role_btn` VALUES ('30', '0', '24', '0');
+INSERT INTO `eova_role_btn` VALUES ('31', '0', '25', '0');
+INSERT INTO `eova_role_btn` VALUES ('32', '0', '6',  '0');
 
 -- ----------------------------
 -- 表 `eova_user`, 记录用户

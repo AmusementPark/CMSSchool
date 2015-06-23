@@ -45,7 +45,6 @@ public class IndexController extends Controller {
 	}
 
 	public void toIndex() {
-
 		render("/eova/index.html");
 	}
 
@@ -58,15 +57,15 @@ public class IndexController extends Controller {
 	public void toIcon() {
 		render("/plugin/eovaicon/icon.html");
 	}
+	
 	public void toUe() {
 		render("/eova/uedemo.html");
 	}
-
+	
 	public void toTest() {
 		render("/eova/icon.html");
 	}
 
-	
 	public void toLogin() {
 		render("/eova/login.html");
 	}
