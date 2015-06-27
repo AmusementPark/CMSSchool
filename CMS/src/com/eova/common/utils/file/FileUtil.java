@@ -1,6 +1,8 @@
 package com.eova.common.utils.file;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class FileUtil {
 
@@ -8,7 +10,10 @@ public class FileUtil {
 	public static final String IMG_TYPE = ".jpg|.gif|.png|.bmp";
 	/**允许上传的所有文件类型**/
 	public static final String ALL_TYPE = ".jpg|.jepg|.gif|.png|.bmp|.gz|.rar|.zip|.pdf|.txt|.swf|.mp3|.jar|.apk|.ipa";
-
+	
+	public static String LOCAL_DIR;
+	
+	public static String WEB_DIR;
 	/**
 	 * 检测文件大小
 	 * @param file 文件
@@ -51,5 +56,30 @@ public class FileUtil {
 	public static void main(String[] args) {
 		String s = getFileType("12321.jpg");
 		System.out.println(s);
+	}
+	
+	private static SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+	public static String createDir(){
+		String today = sf.format(new Date());
+		String dir = LOCAL_DIR + "/" + today;
+		File file = new File(dir);
+		if(!file.exists() || !file.isDirectory()){
+			file.mkdir();
+		}
+		return dir;
+	}
+	
+	public static String convertToWebPath(String localDir){
+		String result = localDir.replaceFirst(LOCAL_DIR, WEB_DIR);
+		return result;
+	}
+	
+	public static void deleteByWebPath(String webPath){
+		if(webPath.indexOf(WEB_DIR) >= 0){
+			String localPath = webPath.replaceFirst(WEB_DIR, LOCAL_DIR);
+			File file = new File(localPath);
+			if(file.exists())
+				file.delete();
+		}
 	}
 }

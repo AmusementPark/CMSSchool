@@ -1,4 +1,5 @@
-<form id="${id}" method="post" class="form">
+<form id="${id}" method="post" class="form" ${isMulti! == "true"? "enctype='multipart/form-data'": ""}
+${target! == null ? "" : "target='" + target + "'" } >
 	<div class="eova-form">
 		<%for(item in items){%>
 			<%if(item.type == "自增框"){%>

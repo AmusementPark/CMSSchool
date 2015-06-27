@@ -81,6 +81,14 @@ public class CrudController extends Controller {
 		setAttr("itemList", crud.getItemList());
 		render("/eova/template/crud/add.html");
 	}
+	
+	/**
+	 * 新增 包含多媒体
+	 */
+	public void toAddMulti() {
+		new Crud(this, CrudConfig.LIST);
+		render("/eova/template/crud/addMulti.html");
+	}
 
 	/**
 	 * 修改
@@ -250,6 +258,15 @@ public class CrudController extends Controller {
 							// 根据主键删除对象
 							if (!xx.isEmpty(crud.getTable())) {
 								Db.use(crud.getDs()).deleteById(crud.getTable(), crud.getPkName(), pk);
+								List<MetaItem> eis = crud.getItemList();
+								for(MetaItem meta : eis){
+									if(MetaItem.TYPE_FILE.equals(meta.getStr("type"))){
+										String path = record.getStr(meta.getStr("en"));
+										if(path != null)
+											FileUtil.deleteByWebPath(path);
+									}
+								}
+								// 若有文件类型，删除对应的文件
 							} else {
 								// update view
 								CrudManager.deleteView(eo.getStr("code"), pk);

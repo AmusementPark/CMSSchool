@@ -1,0 +1,52 @@
+<%layout("/eova/layout/default.html",{'title' : '新增' + obj.name }){%>
+
+<script type="text/javascript">
+	var slideMsg = function(str,$pjq){
+		$pjq.messager.show({
+	        title:'操作提示',
+	        msg:str,
+	        timeout:1500,
+	        showType:'slide'
+	    });
+	};
+	
+	var $dialog_w;
+	var $grid_w;
+	var $pjq_w;
+	var submitNow = function($dialog, $grid, $pjq) {
+		var url="/singleGrid/add/${menu.code}"
+		$("#addForm")[0].action = url;
+		$("#addForm")[0].submit();
+		$dialog_w = $dialog;
+		$grid_w = $grid;
+		$pjq_w = $pjq;
+		
+	};
+	var submitForm = function($dialog, $grid, $pjq) {
+		if ($.html5Validate.isAllpass($('#addForm'))) {
+			submitNow($dialog, $grid, $pjq);
+		}
+	};
+	
+	var complete = function(){
+		console.info("----------------complete-------------------");
+		var pres = $("#respFrame")[0].contentDocument.getElementsByTagName("pre")
+		if(pres.length > 0){
+			var result = eval("(" + pres[0].innerHTML + ")");
+			if (result.success) {
+				//$pjq.messager.alert('提示', result.msg, 'info');
+				slideMsg("新增${obj.Name}成功！", $pjq_w);
+				$grid_w.datagrid('load');
+				$dialog_w.dialog('destroy');
+			} else {
+				$pjq_w.messager.alert('提示', result.msg, 'error');
+			}
+		}
+	};
+</script>
+<body>
+<#form id="addForm" name="addForm" items="${itemList}" isMulti="true" target="respFrame"/>
+
+<iframe id="respFrame" name="respFrame" onload="complete()" style="visibility: hidden;"></iframe>
+</body>
+<%}%>

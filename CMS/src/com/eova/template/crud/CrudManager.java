@@ -19,7 +19,8 @@ import com.eova.model.MetaObject;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
-
+import com.jfinal.upload.UploadFile;
+import com.eova.common.utils.file.FileUtil;
 /**
  * CRUD模板 业务
  * 
@@ -39,7 +40,18 @@ public class CrudManager {
 	 */
 	public static Map<String, Record> buildData(Controller c, List<MetaItem> eis, Record record, String pkName, boolean isInsert) {
 		Map<String, Record> reMap = new HashMap<String, Record>();
-
+		//如果有文件， 先处理文件
+		for (MetaItem item : eis) {
+			// 控件类型
+			String type = item.getStr("type");
+			if (type.equals(MetaItem.TYPE_FILE)){
+				String key = item.getStr("en");
+				String dir = FileUtil.createDir();
+				UploadFile file = c.getFile(key, dir);
+				String value = FileUtil.convertToWebPath(dir + "/" + file.getFileName());
+				record.set(key, value);
+			}
+		}
 		// 获取字段当前的值
 		for (MetaItem item : eis) {
 			// 控件类型
@@ -48,7 +60,11 @@ public class CrudManager {
 			String key = item.getStr("en");
 			// 获当前字段更新后的值,默认空值
 			String value = c.getPara(key, "");
-
+			
+			//文件需要特殊处理
+			if (type.equals(MetaItem.TYPE_FILE)){
+				continue;
+			}
 			// 新增跳过自增长字段(新增时为空)
 			if (xx.isEmpty(value) && type.equals(MetaItem.TYPE_AUTO)) {
 				continue;

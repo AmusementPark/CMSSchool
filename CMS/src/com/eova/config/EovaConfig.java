@@ -16,6 +16,7 @@ import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.wall.WallFilter;
 import com.eova.common.utils.xx;
 import com.eova.common.utils.db.MysqlUtil;
+import com.eova.common.utils.file.FileUtil;
 import com.eova.core.IndexController;
 import com.eova.core.auth.AuthController;
 import com.eova.core.menu.MenuController;
@@ -103,6 +104,9 @@ public class EovaConfig extends JFinalConfig {
 		PageConst.init(sharedVars);
 
 		BeetlRenderFactory.groupTemplate.setSharedVars(sharedVars);
+		
+		FileUtil.LOCAL_DIR = getProperty("local_dir");
+		FileUtil.WEB_DIR = getProperty("web_dir");
 	}
 
 	/**

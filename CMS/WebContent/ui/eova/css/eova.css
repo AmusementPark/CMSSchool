@@ -181,3 +181,16 @@ div[class^="eova"] i:hover {
 .red {
 	color: #CC3300  ;
 }
+
+.combo-clear
+{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(eova_icon.png);
+  background-repeat: no-repeat;
+  background-color: #ECF3FF;
+  border: 0;
+  cursor: pointer;
+  background-position: center 0
+}
