@@ -119,12 +119,14 @@ CREATE TABLE `eova_item` (
   `isUpdate` tinyint(1) DEFAULT '1' COMMENT '是否可修改字段',
   `isEdit` tinyint(1) DEFAULT '1' COMMENT '是否可编辑字段',
   `isNotNull` tinyint(1) DEFAULT '1' COMMENT '是否必填',
+  `placeholder` varchar(255) DEFAULT '' COMMENT '输入提示',
+  `validate` varchar(255) DEFAULT '' COMMENT '校验表达式',
   `valueExp` varchar(255) DEFAULT '' COMMENT '默认值表达式',
   `width` int(4) DEFAULT '130' COMMENT '控件宽度',
   `height` int(4) DEFAULT '20' COMMENT '控件高度',
   `isMultiple` tinyint(1) DEFAULT '0' COMMENT '是否多选',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=158 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of eova_item
