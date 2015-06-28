@@ -59,7 +59,10 @@ CREATE TABLE `sch_bankuai` (
 )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 insert into `sch_bankuai` values ('1001', '1', '通知公告', '1', '1');
-insert into `sch_bankuai` values ('2001', '2', '优秀教师', '1', '1');
+
+insert into `sch_bankuai` values ('2001', '2', '学校介绍', '1', '1');
+insert into `sch_bankuai` values ('2002', '2', '优秀教师', '2', '1');
+insert into `sch_bankuai` values ('2003', '2', '校园风光', '3', '1');
 
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bankuai_mc','sch_bankuai_oc');
 
@@ -87,8 +90,6 @@ CREATE TABLE `sch_news` (
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- ---------------------------------------------------------------------------------
 
-
-
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('xiao_yuan_gong_gao','校园公告','sch_news','news_type');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('xiao_nei_xin_wen',  '校内新闻','sch_news','news_type');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('xiao_wai_xin_wen',  '校外新闻','sch_news','news_type');
@@ -107,42 +108,77 @@ insert into `eova_button` (`menuCode`,`name`,`ui`,`bs`,`indexNum`) values ('sch_
 insert into `eova_button` (`menuCode`,`name`,`ui`,`bs`,`indexNum`) values ('sch_news_mc','修改','/eova/template/crud/btn/update.html','crud/update','1');
 insert into `eova_button` (`menuCode`,`name`,`ui`,`bs`,`indexNum`) values ('sch_news_mc','删除','/eova/template/crud/btn/dels.html','crud/delete','2');
 
+-- --------------------------------------------------------------------------------- 新闻关联附件文件表
+-- 需求点: 此表仅为一个关联表. 用于表示某篇文章含有多少附件.
+DROP TABLE IF EXISTS `sch_news_attachment`;
+CREATE TABLE `sch_news_attachment` (
+	`id` 				INT(11) 		NOT NULL AUTO_INCREMENT,	-- ID
+	`news_id`			INT(11)			NOT NULL,					-- 新闻ID
+	`file_id`			INT(11)			NOT NULL,					-- 文件ID
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 文件表
 -- 需求点:
 -- 1. 文件只考虑文本文件和图片文件
 -- 2. 分为内网文件和外网文件
+-- 3. 管理员负责上传重要文件
 DROP TABLE IF EXISTS `sch_files`;
 CREATE TABLE `sch_files` (
-  `id` 				BIGINT(20) 		NOT NULL AUTO_INCREMENT,
-  `file_title`  	VARCHAR(150) 	NOT NULL,
-  `file_type`   	TINYINT 		NOT NULL,				-- 文件分类.
-  `file_path`  	 	VARCHAR(200) 	DEFAULT NULL,			-- 文件路径.  在admin不用显示
-  --`file_author` 	VARCHAR(30)  	DEFAULT NULL,			-- 文件上传者.
-  `file_author` 	INT(11)  		DEFAULT NULL,			-- 文件上传者.
-  `file_auth`		int,									-- 文件权限
+  `id` 				int(11) 		NOT NULL AUTO_INCREMENT,
+  `file_name`	  	varchar(150) 	NOT NULL,
+  `file_cmmt`		text			NOT NULL,						-- 文件备注
+  `file_type`   	varchar(10) 	NOT NULL,						-- 文件分类.
+  `file_path`  	 	varchar(200) 	DEFAULT NULL,					-- 文件路径.  在admin不用显示
+  --`file_author` 	VARCHAR(30)  	DEFAULT NULL,					-- 文件上传者.
+  `file_author` 	int(11)  		DEFAULT NULL,					-- 文件上传者.
+  `file_auth`		int,											-- 文件权限
   `file_time`   	TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 评论表
-DROP TABLE IF EXISTS `drw_comment_class`;
-CREATE TABLE `drw_comment_class` (
-  `id`				BIGINT(20) 		NOT NULL AUTO_INCREMENT,
-  `cmmt_class_id`	BIGINT(20) 		NOT NULL,
-  `cmmt_name`		VARCHAR(40)		NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
-
-DROP TABLE IF EXISTS `drw_comment`;
-CREATE TABLE `drw_comment` (
-  `id` 				BIGINT(20) 		NOT NULL AUTO_INCREMENT,
-  `cmmt_class_id`	BIGINT(20) 		NOT NULL,
-  `cmmt_to`			BIGINT(20) 		NOT NULL DEFAULT 0,
-  `cmmt_content` 	TEXT			NOT NULL,
-  `cmmt_author` 	VARCHAR(30) 	DEFAULT NULL,
-  `cmmt_status` 	TINYINT 		DEFAULT 0,				-- -1: 未通过. 0: 待审核. 1: 已通过
+-- 需求点:
+-- 1. 任何一个资源都可以被评论
+-- 2. 只有管理员可以审核评论
+DROP TABLE IF EXISTS `sch_cmmt`;
+CREATE TABLE `sch_cmmt` (
+  `id` 				INT(11) 		NOT NULL AUTO_INCREMENT,
+  `cmmt_author` 	INT(11) 		NOT NULL,						-- 评论者.
+  `cmmt_content` 	TEXT			NOT NULL,						-- 评论内容
+  `cmmt_status` 	CHAR	 		DEFAULT 0,						-- 1: 未通过. 0: 待审核. 1: 已通过
   `cmmt_time` 		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------------------------------- 回复表
+-- 需求点:
+-- 1. 管理员可以回复评论.
+-- 2. 板块管理员可以回复板块. 管理员可以回复任何评论.
+DROP TABLE IF EXISTS `sch_reply`;
+CREATE TABLE `sch_reply` (
+  `id`				INT(11)			NOT NULL AUTO_INCREMENT,
+  `rpy_author`		INT(11)			NOT NULL,
+  `rpy_content`		TEXT			NOT NULL,
+  `rpy_time`		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------------------------------- 评论资源映射
+DROP TABLE IF EXISTS `sch_news_cmmt`;
+CREATE TABLE `sch_news_cmmt` (
+  `id`				INT(11)			NOT NULL AUTO_INCREMENT,
+  `rpy_id`			INT(11)			NOT NULL,
+  `news_id`			INT(11)			NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------------------------------- 评论回复映射
+-- 需求点: 无
+DROP TABLE IF EXISTS `sch_cmmt_reply`;
+CREATE TABLE `sch_reply_news` (
+  `id`				INT(11)			NOT NULL AUTO_INCREMENT,
+  `rpy_id`			INT(11)			NOT NULL,
+  `res_id`			INT(11)			NOT	NULL,
+  `res_type`		VARCHAR(20)		NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
 
 -- --------------------------------------------------------------------------------- 照片表
 
