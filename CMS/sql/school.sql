@@ -55,6 +55,8 @@ CREATE TABLE `sch_bankuai` (
 	`bk_name`			varchar(60)		not null,					-- 板块名, 20个字符限定
 	`bk_index`			int				not null,					-- 板块排序
 	`bk_active`			char			not null, 					-- 板块是否激活
+	-- 板块LOGO
+	-- 板块额外资源...
 	PRIMARY KEY (`id`)
 )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
