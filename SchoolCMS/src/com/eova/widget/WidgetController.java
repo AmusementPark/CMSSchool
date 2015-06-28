@@ -182,10 +182,10 @@ public class WidgetController extends Controller {
 		String where  = EovaExp.getWhere(exp);
 		String ds     = EovaExp.getDs(exp);
 		
-		User user = getSessionAttr("user");
-		if ( objectCode.equals("eova_user_code") && (Integer)user.get("rid") != 1 ) {
-		    where = " where id > 1";
-		}
+//		User user = getSessionAttr("user");
+//		if ( objectCode.equals("eova_user_code") && (Integer)user.get("rid") != 1 ) {
+//		    where = " where id > 1";
+//		}
 
 		// 获取条件
 		List<String> parmList = new ArrayList<String>();
@@ -214,27 +214,36 @@ public class WidgetController extends Controller {
 		renderJson(json);
 	}
 
+	// 开发者权限只分配给sys用户.
+	private void filterSysAdmin() {
+	    int rid = (Integer)((User)getSessionAttr("user")).get("rid");
+	    System.err.println(rid);
+	    
+//	    if ( code.equals("eova_user_code") && (Integer)user.get("rid") != 0 ) {
+//	        sysAdminFilter = " where rid > 1";
+//	    }
+//	    if ( code.equals("eova_role_code") && (Integer)user.get("rid") != 0 ) {
+//	        sysAdminFilter = " where id > 1";
+//	    }
+	}
 	/**
 	 * 获取列表数据JSON
 	 */
 	public void gridJson() {
-
-		// Get MetaObject Code
-		String code = getPara(0);
-		System.err.println(getRequest().getRequestURI()); 
-		String sysAdminFilter = "";
-
-		User user = getSessionAttr("user");
-		if ( code.equals("eova_user_code") && (Integer)user.get("rid") != 1 ) {
-		    sysAdminFilter = " where rid > 1";
-		}
-		if ( code.equals("eova_role_code") && (Integer)user.get("rid") != 1 ) {
-            sysAdminFilter = " where id > 1";
-		}
+	    
+	    System.err.println(getRequest().getRequestURI());  
+	    
+		String code         = getPara(0);
+		String customFilter = "";
+		
+		filterSysAdmin();
 		
 		// Get MetaObject and MetaItem List
 		MetaObject eo = MetaObject.dao.getByCode(code);
 		List<MetaItem> eis = MetaItem.dao.queryByObjectCode(code); 
+		
+//		String filter = eo.getStr("filterWhere");
+//		where = (filter.length() == 0) ? "" : " where "+filter;
 
 		// 获取分页参数
 		int pageNumber = getParaToInt(PageConst.PAGENUM, 1);
@@ -242,7 +251,7 @@ public class WidgetController extends Controller {
 
 		// 获取条件
 		List<String> parmList = new ArrayList<String>();
-		String where = WidgetManager.getWhere(this, eis, parmList, sysAdminFilter);      // 过滤程序开发权限
+		String where = WidgetManager.getWhere(this, eis, parmList, customFilter);      // 过滤程序开发权限
 		// 转换SQL参数为Obj[]
 		Object[] parm = new Object[parmList.size()];
 		parmList.toArray(parm);
@@ -262,7 +271,7 @@ public class WidgetController extends Controller {
 		// 将分页数据转换成JSON
 		String json = JsonKit.toJson(page.getList());
 		json = "{\"total\":" + page.getTotalRow() + ",\"rows\":" + json + "}";
-		System.out.println(json);
+		System.err.println(json);
 
 		renderJson(json);
 	}

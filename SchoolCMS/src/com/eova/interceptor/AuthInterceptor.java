@@ -12,6 +12,7 @@ import com.eova.model.Menu;
 import com.eova.model.User;
 import com.jfinal.aop.Interceptor;
 import com.jfinal.core.ActionInvocation;
+import com.jfinal.core.Controller;
 
 /**
  * 权限验证
@@ -66,7 +67,16 @@ public class AuthInterceptor implements Interceptor {
 //				return;
 //			}
 		}
-
+		// 程序员开发配置权限仅提供给程序员.
+		// 管理员身份无权操作程序员开发权限.
+		if (actionKey.startsWith("/crud/") || actionKey.startsWith("/widget/")) {
+		    ///widget/comboJson/eova_user_code-rid
+            Controller ctrl = ai.getController();
+            User user = ai.getController().getSessionAttr("user");
+            String params[] = user.getAttrNames();
+            System.out.println("权限验证！" + user.get("rid"));
+        }
+		
 		ai.invoke();
 		// if (actionKey.startsWith("/crud/") ||
 		// actionKey.startsWith("/widget/")) {

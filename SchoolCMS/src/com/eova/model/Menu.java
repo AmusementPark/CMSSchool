@@ -39,6 +39,7 @@ public class Menu extends BaseModel<Menu> {
 	 */
 	public String getUrl(){
 		String url = this.getStr("url");
+		System.err.println(this.getStr("type"));
 		if (xx.isEmpty(url)) {
 			return '/' + this.getStr("type") + "/list/" +this.getStr("code");
 		}

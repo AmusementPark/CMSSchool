@@ -16,57 +16,38 @@ import com.jfinal.plugin.activerecord.Record;
 public class MenuIntercept implements CrudIntercept {
 
 	public void addBefore(Record record) throws Exception {
-		// TODO Auto-generated method stub
-		
+	    System.out.println(this.getClass().getName()+":addBefore ->");
 	}
 
 	public void addAfter(Record record) throws Exception {
-		// TODO Auto-generated method stub
-		
+	    System.out.println(this.getClass().getName()+":addAfter ->");
 	}
 
 	public void addSucceed(Record record) throws Exception {
-		// TODO Auto-generated method stub
-		
+	    System.out.println(this.getClass().getName()+":addSucceed ->");
 	}
 
 	public void deleteBefore(String pkValues) throws Exception {
 		Menu menu = Menu.dao.findById(pkValues); 
-		
 		String code = menu.getStr("code");
 		
-		// 删除菜单按钮关联权限
-		RoleBtn.dao.deleteByMenuCode(code);
-		
-		// 删除菜单关联按钮
-		Button.dao.deleteByMenuCode(code);
-		
-		// 删除菜单关联对象
-		MenuObject.dao.deleteByMenuCode(code);
+		RoleBtn.dao.deleteByMenuCode(code);       // 删除菜单按钮关联权限
+		Button.dao.deleteByMenuCode(code);        // 删除菜单关联按钮
+		MenuObject.dao.deleteByMenuCode(code);    // 删除菜单关联对象
 	}
 
 	public void deleteAfter(String pkValues) throws Exception {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void deleteSucceed(String pkValues) throws Exception {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void updateBefore(Record record) throws Exception {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void updateAfter(Record record) throws Exception {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void updateSucceed(Record record) throws Exception {
-		// TODO Auto-generated method stub
-		
 	}
 }

@@ -12,7 +12,7 @@
 					pagination : true,
 					<%if(isEmpty(url)){%>
 					<%// 默认模式%>
-					url : '/widget/gridJson/${obj.code}',
+					url : '/widget/gridJson/${obj.code}-args',
 					<%}else{%>
 					<%// 自定义URL%>
 					url : '${url}',

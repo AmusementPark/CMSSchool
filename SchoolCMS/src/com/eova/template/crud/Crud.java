@@ -94,7 +94,7 @@ public class Crud {
 
 		this.menuCode = c.getPara(0);
 
-		// 获取菜单
+		// 获取菜单. 根据list生成时填充的菜单code获取对应菜单
 		Menu menu = Menu.dao.findByCode(menuCode);
 		this.bizIntercept = menu.getStr("bizIntercept");
 		
@@ -102,11 +102,11 @@ public class Crud {
 		List<MenuObject> objectCodes = MenuObject.dao.queryByMenuCode(menuCode);
 		String objectCode = objectCodes.get(0).getStr("objectCode");
 
-		this.object = MetaObject.dao.getByCode(objectCode);
-		this.itemList = MetaItem.dao.queryByObjectCode(objectCode);
+		this.object = MetaObject.dao.getByCode(objectCode);               // 根据ObjectCode获取eova_object对象
+		this.itemList = MetaItem.dao.queryByObjectCode(objectCode);       // 根据ObjectCode获取eova_item对象.
 		// 根据权限获取功能按钮
 		User user = c.getSessionAttr("user");
-		this.btnList = Button.dao.queryByMenuCode(menuCode, user.getInt("rid"));
+		this.btnList = Button.dao.queryByMenuCode(menuCode, user.getInt("rid")); 
 
 		this.view = object.getStr("view");
 		if (xx.isEmpty(view)) {
