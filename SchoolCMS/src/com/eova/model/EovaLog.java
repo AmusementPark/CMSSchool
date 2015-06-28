@@ -23,12 +23,11 @@ public class EovaLog extends BaseModel<EovaLog> {
 	public static final EovaLog dao = new EovaLog();
 
 	/**新增**/
-	public static final int ADD = 1;
+	public static final int ADD     = 1;
 	/**修改**/
-	public static final int UPDATE = 2;
+	public static final int UPDATE  = 2;
 	/**删除**/
-	public static final int DELETE = 3;
-	
+	public static final int DELETE  = 3;
 	/**审核**/
 	public static final int APPROVE = 4;
 	

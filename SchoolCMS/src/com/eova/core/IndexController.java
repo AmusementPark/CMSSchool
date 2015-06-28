@@ -145,7 +145,6 @@ public class IndexController extends Controller {
 		setSessionAttr("user", user);
 		// 重定向到首页
 		redirect("/");
-
 	}
 
 	/**

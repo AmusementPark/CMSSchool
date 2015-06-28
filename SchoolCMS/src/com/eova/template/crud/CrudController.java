@@ -73,6 +73,8 @@ public class CrudController extends Controller {
 	 * 新增
 	 */
 	public void toAdd() {
+	    System.err.println(getPara());
+	    System.err.println(getRequest().getRequestURI());
 		new Crud(this, CrudConfig.LIST);
 		render("/eova/template/crud/add.html");
 	}
@@ -263,7 +265,6 @@ public class CrudController extends Controller {
 								}
 							}
 							// 若有文件类型，删除对应的文件
-							
 						}
 					}
 

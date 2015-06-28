@@ -19,6 +19,7 @@ import com.eova.core.IndexController;
 import com.eova.core.auth.AuthController;
 import com.eova.core.menu.MenuController;
 import com.eova.core.object.MetaDataController;
+import com.eova.interceptor.AdminInterceptor;
 import com.eova.interceptor.AuthInterceptor;
 import com.eova.interceptor.LoginInterceptor;
 import com.eova.model.Button;
@@ -189,6 +190,7 @@ public class EovaConfig extends JFinalConfig {
 		me.add(new LoginInterceptor());
 		// 权限验证拦截
 		me.add(new AuthInterceptor());
+		me.add(new AdminInterceptor());
 	}
 
 	/**
