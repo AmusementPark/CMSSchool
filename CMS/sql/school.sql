@@ -42,25 +42,25 @@ insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_home_gdgl_
 -- --------------------------------------------------------------------------------- 板块管理菜单
 INSERT INTO `eova_menu` VALUES ('201',  'sch_bkmgr_mc',      '板块管理', 'dir', 'icon-bricks','4', '2', '0', '', '');
 
-INSERT INTO `eova_menu` VALUES ('2001', 'sch_bkmgr_xxsy_mc', '学校首页', 'singleGrid', 'icon-bricks','1', '201', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2002', 'sch_bkmgr_xxgk_mc', '学校概况', 'singleGrid', 'icon-bricks','2', '201', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2003', 'sch_bkmgr_xwzx_mc', '新闻中心', 'singleGrid', 'icon-bricks','3', '201', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2004', 'sch_bkmgr_jxky_mc', '教学科研', 'singleGrid', 'icon-bricks','4', '201', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2005', 'sch_bkmgr_dqzc_mc', '党群之窗', 'singleGrid', 'icon-bricks','5', '201', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2006', 'sch_bkmgr_dyjy_mc', '德育教育', 'singleGrid', 'icon-bricks','6', '201', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2007', 'sch_bkmgr_tsjy_mc', '特色教育', 'singleGrid', 'icon-bricks','7', '201', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2008', 'sch_bkmgr_gjjl_mc', '国际交流', 'singleGrid', 'icon-bricks','8', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('20101', 'sch_bkmgr_xxsy_mc', '学校首页', 'singleGrid', 'icon-bricks','1', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('20102', 'sch_bkmgr_xxgk_mc', '学校概况', 'singleGrid', 'icon-bricks','2', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('20103', 'sch_bkmgr_xwzx_mc', '新闻中心', 'singleGrid', 'icon-bricks','3', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('20104', 'sch_bkmgr_jxky_mc', '教学科研', 'singleGrid', 'icon-bricks','4', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('20105', 'sch_bkmgr_dqzc_mc', '党群之窗', 'singleGrid', 'icon-bricks','5', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('20106', 'sch_bkmgr_dyjy_mc', '德育教育', 'singleGrid', 'icon-bricks','6', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('20107', 'sch_bkmgr_tsjy_mc', '特色教育', 'singleGrid', 'icon-bricks','7', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('20108', 'sch_bkmgr_gjjl_mc', '国际交流', 'singleGrid', 'icon-bricks','8', '201', '0', '', '');
 
 -- 学校首页
-INSERT INTO `eova_button` VALUES ('20101','sch_bkmgr_xxsy_mc','查询', '', '', '0');
-INSERT INTO `eova_button` VALUES ('20102','sch_bkmgr_xxsy_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
-INSERT INTO `eova_button` VALUES ('20103','sch_bkmgr_xxsy_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
-INSERT INTO `eova_button` VALUES ('20104','sch_bkmgr_xxsy_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('201011','sch_bkmgr_xxsy_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('201012','sch_bkmgr_xxsy_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('201013','sch_bkmgr_xxsy_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('201014','sch_bkmgr_xxsy_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- 学校概况
-INSERT INTO `eova_button` VALUES ('20201','sch_bkmgr_xxgk_mc','查询', '', '', '0');
-INSERT INTO `eova_button` VALUES ('20202','sch_bkmgr_xxgk_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
-INSERT INTO `eova_button` VALUES ('20203','sch_bkmgr_xxgk_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
-INSERT INTO `eova_button` VALUES ('20204','sch_bkmgr_xxgk_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('201021','sch_bkmgr_xxgk_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('201022','sch_bkmgr_xxgk_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('201023','sch_bkmgr_xxgk_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('201024','sch_bkmgr_xxgk_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 索引表
 -- 需求点: 无
 DROP TABLE IF EXISTS `sch_index`;
@@ -78,6 +78,11 @@ insert into `sch_index` values ('5', '党群之窗');
 insert into `sch_index` values ('6', '德育教育');
 insert into `sch_index` values ('7', '特色教育');
 insert into `sch_index` values ('8', '国际交流');
+
+-- INSERT INTO `eova_menu` VALUES ('202',  'sch_index_mc',      '索引管理', 'dir', 'icon-bricks','4', '2', '0', '', '');
+-- INSERT INTO `eova_menu_object` (`menuCode`,`objectCode`) VALUES ('sch_index_mc','sch_index_oc');
+-- INSERT INTO `eova_button` VALUES ('202011','sch_index_mc','查询', '', '', '0');
+-- INSERT INTO `eova_button` VALUES ('202012','sch_index_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
 -- --------------------------------------------------------------------------------- 板块表, 每个页面索引下会有若干板块
 -- 需求点:
 -- 1. 试验功能, 客户并未提及, 不过我们可以做试验 
@@ -139,67 +144,67 @@ insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_
 -- insert into `eova_button` (`menuCode`,`name`,`ui`,`bs`,`indexNum`) values ('sch_news_mc','删除','/eova/template/crud/btn/dels.html','crud/delete','2');
 -- --------------------------------------------------------------------------------- 学校首页板块CRUD权限
 -- 新闻管理
-INSERT INTO `eova_button` VALUES ('10101','sch_home_xwgl_mc','查询', '', '', '0');
-INSERT INTO `eova_button` VALUES ('10102','sch_home_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
-INSERT INTO `eova_button` VALUES ('10103','sch_home_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
-INSERT INTO `eova_button` VALUES ('10104','sch_home_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('101011','sch_home_xwgl_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('101012','sch_home_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('101013','sch_home_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('101014','sch_home_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- 滚动管理
-INSERT INTO `eova_button` VALUES ('10111','sch_home_gdgl_mc','查询', '', '', '0');
-INSERT INTO `eova_button` VALUES ('10112','sch_home_gdgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
-INSERT INTO `eova_button` VALUES ('10113','sch_home_gdgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
-INSERT INTO `eova_button` VALUES ('10114','sch_home_gdgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('101021','sch_home_gdgl_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('101022','sch_home_gdgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('101023','sch_home_gdgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('101024','sch_home_gdgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- 链接管理
-INSERT INTO `eova_button` VALUES ('10121','sch_home_ljgl_mc','查询', '', '', '0');
-INSERT INTO `eova_button` VALUES ('10122','sch_home_ljgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
-INSERT INTO `eova_button` VALUES ('10123','sch_home_ljgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
-INSERT INTO `eova_button` VALUES ('10124','sch_home_ljgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('101031','sch_home_ljgl_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('101032','sch_home_ljgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('101033','sch_home_ljgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('101034','sch_home_ljgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 学校概况板块CRUD权限
 -- 新闻管理
-INSERT INTO `eova_button` VALUES ('10201','sch_xxgk_xwgl_mc','查询', '', '', '0');
-INSERT INTO `eova_button` VALUES ('10202','sch_xxgk_xwgl_mc','新增', '//eova/template/crud/btn/add.html',   '',            '1');
-INSERT INTO `eova_button` VALUES ('10203','sch_xxgk_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
-INSERT INTO `eova_button` VALUES ('10204','sch_xxgk_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('102011','sch_xxgk_xwgl_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('102012','sch_xxgk_xwgl_mc','新增', '//eova/template/crud/btn/add.html',   '',            '1');
+INSERT INTO `eova_button` VALUES ('102013','sch_xxgk_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('102014','sch_xxgk_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- 文件管理
-INSERT INTO `eova_button` VALUES ('10211','sch_xxgk_wjgl_mc','查询', '', '', '0');
-INSERT INTO `eova_button` VALUES ('10212','sch_xxgk_wjgl_mc','新增', '/eova/menu/btn/add.html',             '',            '1');
-INSERT INTO `eova_button` VALUES ('10213','sch_xxgk_wjgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
-INSERT INTO `eova_button` VALUES ('10214','sch_xxgk_wjgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('102021','sch_xxgk_wjgl_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('102022','sch_xxgk_wjgl_mc','新增', '/eova/menu/btn/add.html',             '',            '1');
+INSERT INTO `eova_button` VALUES ('102023','sch_xxgk_wjgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('102024','sch_xxgk_wjgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 新闻中心板块CRUD权限
 -- 新闻管理
-INSERT INTO `eova_button` VALUES ('10301','sch_xwzx_xwgl_mc','查询', '', '', '0');
-INSERT INTO `eova_button` VALUES ('10302','sch_xwzx_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
-INSERT INTO `eova_button` VALUES ('10303','sch_xwzx_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
-INSERT INTO `eova_button` VALUES ('10304','sch_xwzx_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('103011','sch_xwzx_xwgl_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('103012','sch_xwzx_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('103013','sch_xwzx_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('103014','sch_xwzx_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 教学科研板块CRUD权限
 -- 新闻管理
-INSERT INTO `eova_button` VALUES ('10401','sch_jxky_xwgl_mc','查询', '', '', '0');
-INSERT INTO `eova_button` VALUES ('10402','sch_jxky_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
-INSERT INTO `eova_button` VALUES ('10403','sch_jxky_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
-INSERT INTO `eova_button` VALUES ('10404','sch_jxky_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('104011','sch_jxky_xwgl_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('104012','sch_jxky_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('104013','sch_jxky_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('104014','sch_jxky_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 党群之窗板块CRUD权限
 -- 新闻管理
-INSERT INTO `eova_button` VALUES ('10501','sch_dqzc_xwgl_mc','查询', '', '', '0');
-INSERT INTO `eova_button` VALUES ('10502','sch_dqzc_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
-INSERT INTO `eova_button` VALUES ('10503','sch_dqzc_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
-INSERT INTO `eova_button` VALUES ('10504','sch_dqzc_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('105011','sch_dqzc_xwgl_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('105012','sch_dqzc_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('105013','sch_dqzc_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('105014','sch_dqzc_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 德育教育板块CRUD权限
 -- 新闻管理
-INSERT INTO `eova_button` VALUES ('10601','sch_dyjy_xwgl_mc','查询', '', '', '0');
-INSERT INTO `eova_button` VALUES ('10602','sch_dyjy_xwgl_mc','新增', '/eova/menu/btn/add.html',             '',            '1');
-INSERT INTO `eova_button` VALUES ('10603','sch_dyjy_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
-INSERT INTO `eova_button` VALUES ('10604','sch_dyjy_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('106011','sch_dyjy_xwgl_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('106012','sch_dyjy_xwgl_mc','新增', '/eova/menu/btn/add.html',             '',            '1');
+INSERT INTO `eova_button` VALUES ('106013','sch_dyjy_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('106014','sch_dyjy_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 特色教育板块CRUD权限
 -- 新闻管理
-INSERT INTO `eova_button` VALUES ('10701','sch_tsjy_xwgl_mc','查询', '', '', '0');
-INSERT INTO `eova_button` VALUES ('10702','sch_tsjy_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
-INSERT INTO `eova_button` VALUES ('10703','sch_tsjy_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
-INSERT INTO `eova_button` VALUES ('10704','sch_tsjy_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('107011','sch_tsjy_xwgl_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('107012','sch_tsjy_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('107013','sch_tsjy_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('107014','sch_tsjy_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 国际交流板块CRUD权限
 -- 新闻管理
-INSERT INTO `eova_button` VALUES ('10801','sch_gjjl_xwgl_mc','查询', '', '', '0');
-INSERT INTO `eova_button` VALUES ('10802','sch_gjjl_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
-INSERT INTO `eova_button` VALUES ('10803','sch_gjjl_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
-INSERT INTO `eova_button` VALUES ('10804','sch_gjjl_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('108011','sch_gjjl_xwgl_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('108012','sch_gjjl_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('108013','sch_gjjl_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('108014','sch_gjjl_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- ============================================================================================================================
 -- --------------------------------------------------------------------------------- 新闻关联附件文件表
 -- 需求点: 此表仅为一个关联表. 用于表示某篇文章含有多少附件.
