@@ -114,7 +114,7 @@ CREATE TABLE `sch_news` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- ---------------------------------------------------------------------------------
-insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_news_mc','sch_news_oc');
+-- insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_news_mc','sch_news_oc');
 -- insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('xiao_yuan_gong_gao','校园公告','sch_news','news_type');
 -- insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('xiao_nei_xin_wen',  '校内新闻','sch_news','news_type');
 -- insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('xiao_wai_xin_wen',  '校外新闻','sch_news','news_type');
