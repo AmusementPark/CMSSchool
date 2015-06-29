@@ -42,14 +42,25 @@ insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_home_gdgl_
 -- --------------------------------------------------------------------------------- 板块管理菜单
 INSERT INTO `eova_menu` VALUES ('201',  'sch_bkmgr_mc',      '板块管理', 'dir', 'icon-bricks','4', '2', '0', '', '');
 
-INSERT INTO `eova_menu` VALUES ('2001', 'sch_bkmgr_xxgk_mc', '学校首页', 'singleGrid', 'icon-bricks','1', '200', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2002', 'sch_bkmgr_xxgk_mc', '学校概况', 'singleGrid', 'icon-bricks','2', '200', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2003', 'sch_bkmgr_xwzx_mc', '新闻中心', 'singleGrid', 'icon-bricks','3', '200', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2004', 'sch_bkmgr_jxky_mc', '教学科研', 'singleGrid', 'icon-bricks','4', '200', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2005', 'sch_bkmgr_dqzc_mc', '党群之窗', 'singleGrid', 'icon-bricks','5', '200', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2006', 'sch_bkmgr_dyjy_mc', '德育教育', 'singleGrid', 'icon-bricks','6', '200', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2007', 'sch_bkmgr_tsjy_mc', '特色教育', 'singleGrid', 'icon-bricks','7', '200', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2008', 'sch_bkmgr_gjjl_mc', '国际交流', 'singleGrid', 'icon-bricks','8', '200', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('2001', 'sch_bkmgr_xxsy_mc', '学校首页', 'singleGrid', 'icon-bricks','1', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('2002', 'sch_bkmgr_xxgk_mc', '学校概况', 'singleGrid', 'icon-bricks','2', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('2003', 'sch_bkmgr_xwzx_mc', '新闻中心', 'singleGrid', 'icon-bricks','3', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('2004', 'sch_bkmgr_jxky_mc', '教学科研', 'singleGrid', 'icon-bricks','4', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('2005', 'sch_bkmgr_dqzc_mc', '党群之窗', 'singleGrid', 'icon-bricks','5', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('2006', 'sch_bkmgr_dyjy_mc', '德育教育', 'singleGrid', 'icon-bricks','6', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('2007', 'sch_bkmgr_tsjy_mc', '特色教育', 'singleGrid', 'icon-bricks','7', '201', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('2008', 'sch_bkmgr_gjjl_mc', '国际交流', 'singleGrid', 'icon-bricks','8', '201', '0', '', '');
+
+-- 学校首页
+INSERT INTO `eova_button` VALUES ('20101','sch_bkmgr_xxsy_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('20102','sch_bkmgr_xxsy_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('20103','sch_bkmgr_xxsy_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('20104','sch_bkmgr_xxsy_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+-- 学校概况
+INSERT INTO `eova_button` VALUES ('20201','sch_bkmgr_xxgk_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('20202','sch_bkmgr_xxgk_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('20203','sch_bkmgr_xxgk_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('20204','sch_bkmgr_xxgk_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 索引表
 -- 需求点: 无
 DROP TABLE IF EXISTS `sch_index`;
@@ -105,20 +116,22 @@ insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bankuai_mc
 DROP TABLE IF EXISTS `sch_news`;
 CREATE TABLE `sch_news` (
   `id` 				int(11) 		not null AUTO_INCREMENT,	-- 新闻ID
-  `news_index`		int(11) 	    not null,					-- 新闻所属索引
-  `news_bankuai` 	int(11)			not null,					-- 新闻所属索引下板块.
+  `news_index`		int(11) 	    not null,					-- 新闻所属索引			-- select id ID, idx_name CN from `sch_index` where 1=1;ds=eova
+  `news_bankuai` 	int(11)			not null,					-- 新闻所属索引下板块.  	-- 放置到具体的view中: select id ID, bk_name CN from `sch_bankuai` where bk_parent=1;ds=eova
   `news_title` 		TEXT 			not null,					-- 新闻标题
-  `news_content` 	TEXT 			not null,					-- 新闻内容 , 一张HTML页面
+  `news_content` 	TEXT 			not null,					-- 新闻内容 .一张HTML页面
   `news_author`		VARCHAR(30)		not null,					-- 对应USER表里的LOGINID
-  `news_topic_top`	CHAR,										-- 是否在板块置顶.
-  `news_site_top` 	CHAR,										-- 是否在全站首页置顶.
+  `news_topic_top`	CHAR,										-- 是否在板块置顶.		-- select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_topic_top';ds=eova
+  `news_site_top` 	CHAR,										-- 是否在全站首页置顶.   -- select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_site_top';ds=eova
   `news_time` 		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- ---------------------------------------------------------------------------------
 -- insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_news_mc','sch_news_oc');
--- insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('xiao_yuan_gong_gao','校园公告','sch_news','news_type');
--- insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('xiao_nei_xin_wen',  '校内新闻','sch_news','news_type');
+insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_news','news_topic_top');
+insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_news','news_topic_top');
+insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_news','news_site_top');
+insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_news','news_site_top');
 -- insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('xiao_wai_xin_wen',  '校外新闻','sch_news','news_type');
 -- insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('shang_ji_tong_zhi', '上级通知','sch_news','news_type');
 -- insert into `eova_button` (`menuCode`,`name`,`ui`,`bs`,`indexNum`) values ('sch_news_mc','新增','/eova/template/crud/btn/add.html','crud/add','0');
