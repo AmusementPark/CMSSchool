@@ -37,6 +37,8 @@ insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_dyjy_xwgl_
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_tsjy_xwgl_mc','sch_news_oc');
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_gjjl_xwgl_mc','sch_news_oc');
 
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_home_gdgl_mc','sch_news_xxsy_v_oc');
+
 -- --------------------------------------------------------------------------------- 板块管理菜单
 INSERT INTO `eova_menu` VALUES ('201',  'sch_bkmgr_mc',      '板块管理', 'dir', 'icon-bricks','4', '2', '0', '', '');
 
@@ -260,31 +262,45 @@ CREATE TABLE `sch_reply_news` (
 
 -- --------------------------------------------------------------------------------- 照片表
 
-INSERT INTO eova_menu_object (`menuCode`,`objectCode`) values ('drw_news_mc','drw_news_oc');
-INSERT INTO eova_menu_object (`menuCode`,`objectCode`) values ('drw_files_mc','drw_files_oc');
-INSERT INTO eova_menu_object (`menuCode`,`objectCode`) values ('drw_comment_mc','drw_comment_oc');
+-- INSERT INTO eova_menu_object (`menuCode`,`objectCode`) values ('drw_news_mc','drw_news_oc');
+-- INSERT INTO eova_menu_object (`menuCode`,`objectCode`) values ('drw_files_mc','drw_files_oc');
+-- INSERT INTO eova_menu_object (`menuCode`,`objectCode`) values ('drw_comment_mc','drw_comment_oc');
 
-insert into eova_menu (`code`,`name`,`type`,`icon`,`indexNum`,`parentId`,`isCollapse`,`bizIntercept`,`url`) values (
-'drws_news_mc','新闻管理','singleGrid','icon-layout','1','3','0','','');
-insert into eova_menu (`code`,`name`,`type`,`icon`,`indexNum`,`parentId`,`isCollapse`,`bizIntercept`,`url`) values (
-'drws_comment_mc','评论管理','singleGrid','icon-usercomment2','1','3','0','','');
+-- insert into eova_menu (`code`,`name`,`type`,`icon`,`indexNum`,`parentId`,`isCollapse`,`bizIntercept`,`url`) values (
+-- 'drws_news_mc','新闻管理','singleGrid','icon-layout','1','3','0','','');
+-- insert into eova_menu (`code`,`name`,`type`,`icon`,`indexNum`,`parentId`,`isCollapse`,`bizIntercept`,`url`) values (
+-- 'drws_comment_mc','评论管理','singleGrid','icon-usercomment2','1','3','0','','');
 
 -- ================================================================================= 视图
-CREATE VIEW view_drw_comment_xinwen AS SELECT 
-`id` AS `id`,
-`cmmt_to` AS `cmmt_to`,
-`cmmt_content` AS `cmmt_content`,
-`cmmt_author` AS `cmmt_author`,
-`cmmt_status` AS `cmmt_status`,
-`cmmt_time` AS `cmmt_time`
-FROM `drw_comment` WHERE `cmmt_class_id` = 10000;	-- 新闻评论
+
+DROP VIEW IF EXISTS sch_news_xxsy_v;
+CREATE VIEW sch_news_xxsy_v AS SELECT 
+	`id` 			AS `id`,
+	`news_index` 	AS `news_index`,
+	`news_bankuai` 	AS `news_bankuai`,
+	`news_title` 	AS `news_title`,
+	`news_content` 	AS `news_content`,
+	`news_author` 	AS `news_author`,
+	`news_topic_top`AS `news_topic_top`,
+	`news_site_top` AS `news_site_top`,
+	`news_time` 	AS `news_time`
+FROM `sch_news` WHERE `news_index` = '1';
+
+-- CREATE VIEW view_drw_comment_xinwen AS SELECT 
+-- `id` AS `id`,
+-- `cmmt_to` AS `cmmt_to`,
+-- `cmmt_content` AS `cmmt_content`,
+-- `cmmt_author` AS `cmmt_author`,
+-- `cmmt_status` AS `cmmt_status`,
+-- `cmmt_time` AS `cmmt_time`
+-- FROM `drw_comment` WHERE `cmmt_class_id` = 10000;	-- 新闻评论
 -- ---------------------------------------------------------------------------------
-CREATE VIEW view_drw_comment_kejian AS SELECT 
-`id` AS `id`,
-`cmmt_to` AS `cmmt_to`,
-`cmmt_content` AS `cmmt_content`,
-`cmmt_author` AS `cmmt_author`,
-`cmmt_status` AS `cmmt_status`,
-`cmmt_time` AS `cmmt_time`
-FROM `drw_comment` WHERE `cmmt_class_id` = 10001;	-- 课件评论
+-- CREATE VIEW view_drw_comment_kejian AS SELECT 
+-- `id` AS `id`,
+-- `cmmt_to` AS `cmmt_to`,
+-- `cmmt_content` AS `cmmt_content`,
+-- `cmmt_author` AS `cmmt_author`,
+-- `cmmt_status` AS `cmmt_status`,
+-- `cmmt_time` AS `cmmt_time`
+-- FROM `drw_comment` WHERE `cmmt_class_id` = 10001;	-- 课件评论
 -- =================================================================================
