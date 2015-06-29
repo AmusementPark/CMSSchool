@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 -- --------------------------------------------------------------------------------- 学校运营父菜单
 INSERT INTO `eova_menu` VALUES ('101', 'sch_home_mc', '学校首页', 'dir', 'icon-layoutsidebar','1', '3', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('102', 'sch_xxgk_mc', '学校概况', 'dir', 'icon-foldertable',  '2', '3', '0', '', '');
@@ -6,41 +5,41 @@ INSERT INTO `eova_menu` VALUES ('103', 'sch_xwzx_mc', '新闻中心', 'dir', 'ic
 INSERT INTO `eova_menu` VALUES ('104', 'sch_jxky_mc', '教学科研', 'dir', 'icon-layoutsidebar','4', '3', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('105', 'sch_dqzc_mc', '党群之窗', 'dir', 'icon-foldertable',  '5', '3', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('106', 'sch_dyjy_mc', '德育教育', 'dir', 'icon-comments',     '6', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('107', 'sch_tsjl_mc', '特色教育', 'dir', 'icon-layoutsidebar','7', '3', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('107', 'sch_tsjy_mc', '特色教育', 'dir', 'icon-layoutsidebar','7', '3', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('108', 'sch_gjjl_mc', '国际交流', 'dir', 'icon-foldertable',  '8', '3', '0', '', '');
 -- --------------------------------------------------------------------------------- 学校运营子菜单
 -- 学校首页
-INSERT INTO `eova_menu` VALUES ('10101', 'sch_home_xwgl_mc', '新闻管理', 'dir', 'icon-layoutsidebar','1', '101', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('10102', 'sch_home_gdgl_mc', '滚动管理', 'dir', 'icon-layoutsidebar','2', '101', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('10103', 'sch_home_ljgl_mc', '链接管理', 'dir', 'icon-layoutsidebar','3', '101', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10101', 'sch_home_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '101', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10102', 'sch_home_gdgl_mc', '滚动管理', 'singleGrid', 'icon-layoutsidebar','2', '101', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10103', 'sch_home_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutsidebar','3', '101', '0', '', '');
 -- 学校概况
-INSERT INTO `eova_menu` VALUES ('10201', 'sch_xxgk_xwgl_mc', '新闻管理', 'dir', 'icon-layoutsidebar','1', '102', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('10202', 'sch_xxgk_wjgl_mc', '文件管理', 'dir', 'icon-layoutsidebar','2', '102', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10201', 'sch_xxgk_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '102', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10202', 'sch_xxgk_wjgl_mc', '文件管理', 'singleGrid', 'icon-layoutsidebar','2', '102', '0', '', '');
 -- 新闻中心
-INSERT INTO `eova_menu` VALUES ('10301', 'sch_xwzx_xwgl_mc', '新闻管理', 'dir', 'icon-layoutsidebar','1', '103', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10301', 'sch_xwzx_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '103', '0', '', '');
 -- 教学科研
-INSERT INTO `eova_menu` VALUES ('10401', 'sch_jxky_xwgl_mc', '新闻管理', 'dir', 'icon-layoutsidebar','1', '104', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10401', 'sch_jxky_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '104', '0', '', '');
 -- 党群之窗
-INSERT INTO `eova_menu` VALUES ('10501', 'sch_dqzc_xwgl_mc', '新闻管理', 'dir', 'icon-layoutsidebar','1', '105', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10501', 'sch_dqzc_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '105', '0', '', '');
 -- 德育教育
-INSERT INTO `eova_menu` VALUES ('10601', 'sch_dyjy_xwgl_mc', '新闻管理', 'dir', 'icon-layoutsidebar','1', '106', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10601', 'sch_dyjy_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '106', '0', '', '');
 -- 特色教育
-INSERT INTO `eova_menu` VALUES ('10701', 'sch_tsjl_xwgl_mc', '新闻管理', 'dir', 'icon-layoutsidebar','1', '107', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10701', 'sch_tsjy_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '107', '0', '', '');
 -- 国际交流
-INSERT INTO `eova_menu` VALUES ('10801', 'sch_gjjl_xwgl_mc', '新闻管理', 'dir', 'icon-layoutsidebar','1', '108', '0', '', '');
-=======
--- --------------------------------------------------------------------------------- 学校菜单
-INSERT INTO `eova_menu` VALUES ('101', 'sch_home_mc', '学校首页', 'dir', 'icon-layoutsidebar','1', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('102', 'sch_xxgk_mc', '学校概况', 'dir', 'icon-foldertable',  '2', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('103', 'sch_xwzx_mc', '新闻中心', 'dir', 'icon-comments',     '3', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('104', 'sch_jxky_mc', '教学科研', 'dir', 'icon-layoutsidebar','4', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('105', 'sch_dqzc_mc', '党群之窗', 'dir', 'icon-foldertable',  '5', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('106', 'sch_dyjy_mc', '德育教育', 'dir', 'icon-comments',     '6', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('107', 'sch_tsjl_mc', '特色教育', 'dir', 'icon-layoutsidebar','7', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('108', 'sch_gjjl_mc', '国际交流', 'dir', 'icon-foldertable',  '8', '3', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10801', 'sch_gjjl_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '108', '0', '', '');
+
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_home_xwgl_mc','sch_news_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_xxgk_xwgl_mc','sch_news_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_xwzx_xwgl_mc','sch_news_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_jxky_xwgl_mc','sch_news_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_dqzc_xwgl_mc','sch_news_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_dyjy_xwgl_mc','sch_news_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_tsjy_xwgl_mc','sch_news_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_gjjl_xwgl_mc','sch_news_oc');
 
 -- --------------------------------------------------------------------------------- 板块管理菜单
-INSERT INTO `eova_menu` VALUES ('201',  'sch_bkmgr_mc',      '板块管理', 'singleGrid', 'icon-bricks','4', '2', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('201',  'sch_bkmgr_mc',      '板块管理', 'dir', 'icon-bricks','4', '2', '0', '', '');
+
 INSERT INTO `eova_menu` VALUES ('2001', 'sch_bkmgr_xxgk_mc', '学校首页', 'singleGrid', 'icon-bricks','1', '200', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('2002', 'sch_bkmgr_xxgk_mc', '学校概况', 'singleGrid', 'icon-bricks','2', '200', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('2003', 'sch_bkmgr_xwzx_mc', '新闻中心', 'singleGrid', 'icon-bricks','3', '200', '0', '', '');
@@ -49,39 +48,6 @@ INSERT INTO `eova_menu` VALUES ('2005', 'sch_bkmgr_dqzc_mc', '党群之窗', 'si
 INSERT INTO `eova_menu` VALUES ('2006', 'sch_bkmgr_dyjy_mc', '德育教育', 'singleGrid', 'icon-bricks','6', '200', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('2007', 'sch_bkmgr_tsjy_mc', '特色教育', 'singleGrid', 'icon-bricks','7', '200', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('2008', 'sch_bkmgr_gjjl_mc', '国际交流', 'singleGrid', 'icon-bricks','8', '200', '0', '', '');
->>>>>>> branch 'master' of https://github.com/AmusementPark/CMSSchool.git
-
-<<<<<<< HEAD
-=======
--- INSERT INTO `eova_menu` VALUES ('13', 'sch_news_mc', '新闻管理', 'dir', 'icon-layoutsidebar','1', '3', '0', '', '');
--- INSERT INTO `eova_menu` VALUES ('14', 'sch_file_mc', '文件管理', 'dir', 'icon-foldertable',  '2', '3', '0', '', '');
--- INSERT INTO `eova_menu` VALUES ('15', 'sch_cmmt_mc', '评论管理', 'dir', 'icon-comments',     '3', '3', '0', '', '');
->>>>>>> branch 'master' of https://github.com/AmusementPark/CMSSchool.git
-
-<<<<<<< HEAD
--- --------------------------------------------------------------------------------- 板块管理菜单
-INSERT INTO `eova_menu` VALUES ('201',  'sch_bkmgr_mc',      '板块管理', 'singleGrid', 'icon-bricks','4', '2', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2001', 'sch_bkmgr_xxgk_mc', '学校首页', 'singleGrid', 'icon-bricks','1', '200', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2002', 'sch_bkmgr_xxgk_mc', '学校概况', 'singleGrid', 'icon-bricks','2', '200', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2003', 'sch_bkmgr_xwzx_mc', '新闻中心', 'singleGrid', 'icon-bricks','3', '200', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2004', 'sch_bkmgr_jxky_mc', '教学科研', 'singleGrid', 'icon-bricks','4', '200', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2005', 'sch_bkmgr_dqzc_mc', '党群之窗', 'singleGrid', 'icon-bricks','5', '200', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2006', 'sch_bkmgr_dyjy_mc', '德育教育', 'singleGrid', 'icon-bricks','6', '200', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2007', 'sch_bkmgr_tsjy_mc', '特色教育', 'singleGrid', 'icon-bricks','7', '200', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('2008', 'sch_bkmgr_gjjl_mc', '国际交流', 'singleGrid', 'icon-bricks','8', '200', '0', '', '');
-
--- INSERT INTO `eova_menu` VALUES ('13', 'sch_news_mc', '新闻管理', 'dir', 'icon-layoutsidebar','1', '3', '0', '', '');
--- INSERT INTO `eova_menu` VALUES ('14', 'sch_file_mc', '文件管理', 'dir', 'icon-foldertable',  '2', '3', '0', '', '');
--- INSERT INTO `eova_menu` VALUES ('15', 'sch_cmmt_mc', '评论管理', 'dir', 'icon-comments',     '3', '3', '0', '', '');
-
-=======
->>>>>>> branch 'master' of https://github.com/AmusementPark/CMSSchool.git
--- INSERT INTO `eova_menu` VALUES ('16', 'sch_news_jxzc_mc', '教学之窗', 'singleGrid', 'icon-layoutsidebar','1', '13', '0', '', '');
--- INSERT INTO `eova_menu` VALUES ('17', 'sch_news_kyyd_mc', '科研园地', 'singleGrid', 'icon-layoutsidebar','2', '13', '0', '', '');
--- INSERT INTO `eova_menu` VALUES ('18', 'sch_file_jxzc_mc', '教学之窗', 'singleGrid', 'icon-foldertable','1', '14', '0', '', '');
--- INSERT INTO `eova_menu` VALUES ('19', 'sch_file_kyyd_mc', '科研园地', 'singleGrid', 'icon-foldertable','2', '14', '0', '', '');
--- INSERT INTO `eova_menu` VALUES ('20', 'sch_cmmt_jxzc_mc', '教学之窗', 'singleGrid', 'icon-comments','1', '15', '0', '', '');
--- INSERT INTO `eova_menu` VALUES ('21', 'sch_cmmt_kyyd_mc', '科研园地', 'singleGrid', 'icon-comments','2', '15', '0', '', '');
 -- --------------------------------------------------------------------------------- 索引表
 -- 需求点: 无
 DROP TABLE IF EXISTS `sch_index`;
