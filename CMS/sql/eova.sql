@@ -163,14 +163,14 @@ INSERT INTO `eova_item` VALUES ('30', 'eova_item_code',   '', 'isAuto', '自增�
 INSERT INTO `eova_item` VALUES ('31', 'eova_item_code',   '', 'dataType', '字段类型', '0', 'string', '下拉框', '6', 'select value ID,name CN from `eova_dict` where `class` = \'eova_item\' and field = \'dataType\';ds=eova', '0', '1', '1', '1', '1', '0', '1', '', '', '', '130', '20', '0');
 INSERT INTO `eova_item` VALUES ('32', 'eova_item_code',   '', 'type', '控件类型', '0', 'string', '文本框', '7', '', '0', '1', '1', '1', '1', '0', '1', '', '', '', '130', '20', '0');
 INSERT INTO `eova_item` VALUES ('33', 'eova_item_code',   '', 'indexNum', '排序', '0', 'number', '文本框', '8', '', '0', '1', '1', '1', '1', '0', '1', '', '', '', '130', '20', '0');
-INSERT INTO `eova_item` VALUES ('34', 'eova_item_code',   '', 'exp', '表达式', '0', 'string', '文本域', '31', '', '0', '1', '1', '1', '1', '0', '1', '', '', '', '130', '20', '0');
+INSERT INTO `eova_item` VALUES ('34', 'eova_item_code',   '', 'exp', '表达式', '0', 'string', '文本域', '31', '', '0', '1', '1', '1', '1', '0', '0', '', '', '', '130', '20', '0');
 INSERT INTO `eova_item` VALUES ('35', 'eova_item_code',   '', 'isQuery', '允许查询', '0', 'number', '复选框', '21', '', '0', '1', '1', '1', '1', '0', '1', '', '', '', '130', '20', '0');
 INSERT INTO `eova_item` VALUES ('36', 'eova_item_code',   '', 'isShow', '允许显示', '0', 'number', '复选框', '22', '', '0', '1', '1', '1', '1', '0', '1', '', '', '', '130', '20', '0');
 INSERT INTO `eova_item` VALUES ('37', 'eova_item_code',   '', 'isOrder', '允许排序', '0', 'number', '复选框', '23', '', '0', '1', '1', '1', '1', '0', '1', '', '', '', '130', '20', '0');
 INSERT INTO `eova_item` VALUES ('38', 'eova_item_code',   '', 'isAdd', '允许新增', '0', 'number', '复选框', '24', '', '0', '1', '1', '1', '1', '0', '0', '', '', '', '130', '20', '0');
 INSERT INTO `eova_item` VALUES ('39', 'eova_item_code',   '', 'isUpdate', '允许修改', '0', 'number', '复选框', '25', '', '0', '1', '1', '1', '1', '0', '1', '', '', '', '130', '20', '0');
 INSERT INTO `eova_item` VALUES ('40', 'eova_item_code',   '', 'isNotNull', '是否必填', '0', 'number', '复选框', '25', '', '0', '1', '1', '1', '1', '0', '0', '', '', '', '130', '20', '0');
-INSERT INTO `eova_item` VALUES ('41', 'eova_item_code',   '', 'valueExp', '默认值表达式', '0', 'string', '文本域', '32', '', '0', '1', '1', '1', '1', '0', '1', '', '', '', '130', '20', '0');
+INSERT INTO `eova_item` VALUES ('41', 'eova_item_code',   '', 'valueExp', '默认值表达式', '0', 'string', '文本域', '32', '', '0', '1', '1', '1', '1', '0', '0', '', '', '', '130', '20', '0');
 INSERT INTO `eova_item` VALUES ('42', 'eova_item_code',   '', 'width', '宽度', '0', 'number', '文本框', '17', '', '0', '1', '1', '1', '1', '0', '1', '', '', '', '130', '20', '0');
 INSERT INTO `eova_item` VALUES ('43', 'eova_item_code',   '', 'height', '高度', '0', 'number', '文本框', '18', '', '0', '1', '1', '1', '1', '0', '1', '', '', '', '130', '20', '0');
 INSERT INTO `eova_item` VALUES ('44', 'eova_item_code',   '', 'isMultiple', '允许多选', '0', 'number', '复选框', '26', '', '0', '1', '1', '1', '1', '0', '1', '', '', '', '130', '20', '0');
