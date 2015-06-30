@@ -100,7 +100,91 @@ CREATE TABLE `sch_bankuai` (
 	PRIMARY KEY (`id`)
 )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
+DROP VIEW IF EXISTS sch_bankuai_xxsy_v;
+CREATE VIEW sch_bankuai_xxsy_v AS SELECT 
+	`id` 			AS `id`,
+	`bk_parent` 	AS `bk_parent`,
+	`bk_name` 		AS `bk_name`,
+	`bk_index` 		AS `bk_index`,
+	`bk_active` 	AS `bk_active`
+FROM `sch_bankuai` WHERE `bk_parent` = '1';
+
+DROP VIEW IF EXISTS sch_bankuai_xxgk_v;
+CREATE VIEW sch_bankuai_xxgk_v AS SELECT 
+	`id` 			AS `id`,
+	`bk_parent` 	AS `bk_parent`,
+	`bk_name` 		AS `bk_name`,
+	`bk_index` 		AS `bk_index`,
+	`bk_active` 	AS `bk_active`
+FROM `sch_bankuai` WHERE `bk_parent` = '2';
+
+DROP VIEW IF EXISTS sch_bankuai_xwzx_v;
+CREATE VIEW sch_bankuai_xwzx_v AS SELECT 
+	`id` 			AS `id`,
+	`bk_parent` 	AS `bk_parent`,
+	`bk_name` 		AS `bk_name`,
+	`bk_index` 		AS `bk_index`,
+	`bk_active` 	AS `bk_active`
+FROM `sch_bankuai` WHERE `bk_parent` = '3';
+
+DROP VIEW IF EXISTS sch_bankuai_jxky_v;
+CREATE VIEW sch_bankuai_jxky_v AS SELECT 
+	`id` 			AS `id`,
+	`bk_parent` 	AS `bk_parent`,
+	`bk_name` 		AS `bk_name`,
+	`bk_index` 		AS `bk_index`,
+	`bk_active` 	AS `bk_active`
+FROM `sch_bankuai` WHERE `bk_parent` = '4';
+
+DROP VIEW IF EXISTS sch_bankuai_dqzc_v;
+CREATE VIEW sch_bankuai_dqzc_v AS SELECT 
+	`id` 			AS `id`,
+	`bk_parent` 	AS `bk_parent`,
+	`bk_name` 		AS `bk_name`,
+	`bk_index` 		AS `bk_index`,
+	`bk_active` 	AS `bk_active`
+FROM `sch_bankuai` WHERE `bk_parent` = '5';
+
+DROP VIEW IF EXISTS sch_bankuai_dyjy_v;
+CREATE VIEW sch_bankuai_dyjy_v AS SELECT 
+	`id` 			AS `id`,
+	`bk_parent` 	AS `bk_parent`,
+	`bk_name` 		AS `bk_name`,
+	`bk_index` 		AS `bk_index`,
+	`bk_active` 	AS `bk_active`
+FROM `sch_bankuai` WHERE `bk_parent` = '6';
+
+DROP VIEW IF EXISTS sch_bankuai_tsjy_v;
+CREATE VIEW sch_bankuai_tsjy_v AS SELECT 
+	`id` 			AS `id`,
+	`bk_parent` 	AS `bk_parent`,
+	`bk_name` 		AS `bk_name`,
+	`bk_index` 		AS `bk_index`,
+	`bk_active` 	AS `bk_active`
+FROM `sch_bankuai` WHERE `bk_parent` = '7';
+
+DROP VIEW IF EXISTS sch_bankuai_gjjl_v;
+CREATE VIEW sch_bankuai_gjjl_v AS SELECT 
+	`id` 			AS `id`,
+	`bk_parent` 	AS `bk_parent`,
+	`bk_name` 		AS `bk_name`,
+	`bk_index` 		AS `bk_index`,
+	`bk_active` 	AS `bk_active`
+FROM `sch_bankuai` WHERE `bk_parent` = '8';
+
+
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bkmgr_xxsy_mc','sch_bankuai_xxsy_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bkmgr_xxgk_mc','sch_bankuai_xxgk_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bkmgr_xwzx_mc','sch_bankuai_xwzx_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bkmgr_jxky_mc','sch_bankuai_jxky_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bkmgr_dqzc_mc','sch_bankuai_dqzc_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bkmgr_dyjy_mc','sch_bankuai_dyjy_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bkmgr_tsjy_mc','sch_bankuai_tsjy_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bkmgr_gjjl_mc','sch_bankuai_gjjl_v_oc');
+
+
 insert into `sch_bankuai` values ('1001', '1', '通知公告', '1', '1');
+insert into `sch_bankuai` values ('1002', '1', '校长信箱', '2', '1');
 
 insert into `sch_bankuai` values ('2001', '2', '学校介绍', '1', '1');
 insert into `sch_bankuai` values ('2002', '2', '优秀教师', '2', '1');
