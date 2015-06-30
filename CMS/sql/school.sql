@@ -310,9 +310,8 @@ CREATE TABLE `sch_files` (
   `file_name`	  	varchar(150) 	NOT NULL,
   `file_cmmt`		text			NOT NULL,						-- 文件备注
   `file_type`   	varchar(10) 	NOT NULL,						-- 文件分类.
-  `file_path`  	 	varchar(200) 	DEFAULT NULL,					-- 文件路径.  在admin不用显示
-  --`file_author` 	VARCHAR(30)  	DEFAULT NULL,					-- 文件上传者.
-  `file_author` 	int(11)  		DEFAULT NULL,					-- 文件上传者.
+  `file_path`  	 	varchar(200) 	NOT NULL,						-- 文件路径.  在admin不用显示
+  `file_author` 	VARCHAR(30)  	NOT NULL,						-- 文件上传者.
   `file_auth`		int,											-- 文件权限
   `file_time`   	TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
