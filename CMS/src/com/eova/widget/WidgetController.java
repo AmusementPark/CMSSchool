@@ -6,6 +6,7 @@
  */
 package com.eova.widget;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +44,14 @@ public class WidgetController extends Controller {
 		String url = "/widget/findJson?";
 		
 		String exp = getPara("exp");
+		if(exp != null){
+			try {
+				exp = new String(exp.getBytes("ISO_8859_1"), "utf-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		String code = getPara("code");
 		String field = getPara("field");
 		// 自定义表达式

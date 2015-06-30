@@ -16,6 +16,7 @@ import com.eova.common.utils.xx;
 import com.eova.config.PageConst;
 import com.eova.model.MetaItem;
 import com.eova.model.MetaObject;
+import com.eova.model.User;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
@@ -69,18 +70,23 @@ public class CrudManager {
 			if (xx.isEmpty(value) && type.equals(MetaItem.TYPE_AUTO)) {
 				continue;
 			}
-			
-			// 新增时，移除禁止新增的字段
-			boolean isAdd = item.getBoolean("isAdd");
-			if (isInsert && !isAdd) {
-				record.remove(key);
-				continue;
-			}
-			// 更新时，移除禁止更新的字段
-			boolean isUpdate = item.getBoolean("isUpdate");
-			if (!isInsert && !isUpdate) {
-				record.remove(key);
-				continue;
+			if (type.equals(MetaItem.TYPE_USER)){
+				User user = (User) c.getSession().getAttribute("user");
+				value = user.getStr("loginId");
+				record.set(key, value);
+			} else {
+				// 新增时，移除禁止新增的字段
+				boolean isAdd = item.getBoolean("isAdd");
+				if (isInsert && !isAdd) {
+					record.remove(key);
+					continue;
+				}
+				// 更新时，移除禁止更新的字段
+				boolean isUpdate = item.getBoolean("isUpdate");
+				if (!isInsert && !isUpdate) {
+					record.remove(key);
+					continue;
+				}
 			}
 
 			// 复选框需要特转换值
