@@ -17,6 +17,7 @@ import com.eova.common.utils.file.ImageUtil;
 import com.eova.common.utils.util.ExceptionUtil;
 import com.eova.config.EovaConst;
 import com.eova.model.EovaLog;
+import com.eova.model.KVMapping;
 import com.eova.model.MetaItem;
 import com.eova.model.MetaObject;
 import com.jfinal.core.Controller;
@@ -312,7 +313,7 @@ public class CrudController extends Controller {
 	 * 修改
 	 */
 	public void update() {
-
+ 
 		final Crud crud = new Crud(this, CrudConfig.UPDATE);
 
 		// 初始化业务拦截器
@@ -322,6 +323,17 @@ public class CrudController extends Controller {
 		final MetaObject eo = crud.getObject();
 		final Map<String, Record> reMap = CrudManager.buildData(this, crud.getItemList(), record, crud.getPkName(), false);
 		final Object pkValue = record.get(crud.getPkName());
+		
+        /**
+         * @author Simon.Zhu
+         * 如果在元对象中设置了视图. 那么优先以视图作为操作对象.
+         */
+		if( !xx.isEmpty(crud.getView()) && !crud.getView().equals(crud.getTable()) )  {
+		    List<KVMapping> list = KVMapping.dao.getValByKey(eo.getView());
+		    reMap.put(list.get(0).getStr("val"), record);
+		} else {
+		    reMap.put(eo.getTable(), record);
+		}
 
 		// 事务(默认为TRANSACTION_READ_COMMITTED)
 		boolean flag = Db.tx(new IAtom() {
@@ -333,12 +345,12 @@ public class CrudController extends Controller {
 						intercept.updateBefore(ctrl, record);
 					}
 
-					if (!xx.isEmpty(crud.getTable())) {
-						// update table
-						Db.use(crud.getDs()).update(crud.getTable(), crud.getPkName(), record);
-					} else {
-						// update view
-						CrudManager.operateView(crud.getPkName(), reMap, CrudConfig.UPDATE);
+					if (!xx.isEmpty(crud.getView()) && !crud.getView().equals(crud.getTable())) {
+					    CrudManager.operateView(crud.getPkName(), reMap, CrudConfig.UPDATE);
+					}
+					// 表作为元对象.
+					else {
+					    Db.use(crud.getDs()).update(crud.getTable(), crud.getPkName(), record);
 					}
 
 					// 修改后置任务

@@ -25,6 +25,7 @@ import com.eova.interceptor.AuthInterceptor;
 import com.eova.interceptor.LoginInterceptor;
 import com.eova.model.Button;
 import com.eova.model.EovaLog;
+import com.eova.model.KVMapping;
 import com.eova.model.Menu;
 import com.eova.model.MenuObject;
 import com.eova.model.MetaItem;
@@ -197,6 +198,8 @@ public class EovaConfig extends JFinalConfig {
 		eova_arp.addMapping("eova_role", Role.class);
 		eova_arp.addMapping("eova_role_btn", RoleBtn.class);
 		eova_arp.addMapping("eova_log", EovaLog.class);
+		//
+		eova_arp.addMapping("eova_kv", KVMapping.class);
 		me.add(eova_arp);
 
 		// 记录数据库名称

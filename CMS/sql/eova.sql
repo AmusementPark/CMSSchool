@@ -77,6 +77,15 @@ CREATE TABLE `eova_dict` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
+-- 文本键值对表, 存放通用的一些映射, 不提供给显示
+DROP TABLE IF EXISTS `eova_kv`;
+CREATE TABLE `eova_kv` (
+	`id`    int(11)     	NOT NULL AUTO_INCREMENT,
+	`key`	varchar(100) 	NOT NULL,
+	`val`	varchar(100)	NOT NULL,
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
 -- ----------------------------
 -- Records of eova_dict
 -- ----------------------------

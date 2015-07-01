@@ -78,11 +78,6 @@ insert into `sch_index` values ('5', '党群之窗');
 insert into `sch_index` values ('6', '德育教育');
 insert into `sch_index` values ('7', '特色教育');
 insert into `sch_index` values ('8', '国际交流');
-
--- INSERT INTO `eova_menu` VALUES ('202',  'sch_index_mc',      '索引管理', 'dir', 'icon-bricks','4', '2', '0', '', '');
--- INSERT INTO `eova_menu_object` (`menuCode`,`objectCode`) VALUES ('sch_index_mc','sch_index_oc');
--- INSERT INTO `eova_button` VALUES ('202011','sch_index_mc','查询', '', '', '0');
--- INSERT INTO `eova_button` VALUES ('202012','sch_index_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
 -- --------------------------------------------------------------------------------- 板块表, 每个页面索引下会有若干板块
 -- 需求点:
 -- 1. 试验功能, 客户并未提及, 不过我们可以做试验 
@@ -99,7 +94,7 @@ CREATE TABLE `sch_bankuai` (
 	-- 板块额外资源...
 	PRIMARY KEY (`id`)
 )ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
-
+-- --------------------------------------------------------------------------------- 板块视图
 DROP VIEW IF EXISTS sch_bankuai_xxsy_v;
 CREATE VIEW sch_bankuai_xxsy_v AS SELECT 
 	`id` 			AS `id`,
