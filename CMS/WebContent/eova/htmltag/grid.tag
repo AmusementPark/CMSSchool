@@ -124,6 +124,13 @@
         <%if(isTrue(obj.isCellEdit)){%>
 		// 开启编辑模式
     	myGrid.datagrid('enableCellEditing');
+    	myGrid.on("celleditenter", function (e) {
+            var index = myGrid.indexOf(e.record);
+            if (index == myGrid.getData().length - 1) {
+                var row = {};
+                myGrid.addRow(row);
+            }
+        });
     	<%}%>
         
 		var rowMenu;
