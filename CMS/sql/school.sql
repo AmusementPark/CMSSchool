@@ -382,6 +382,10 @@ CREATE VIEW sch_news_xxsy_v AS SELECT
 	`news_time` 	AS `news_time`
 FROM `sch_news` WHERE `news_index` = '1';
 
+
+----------------------------------以下的SQL需要等导入元数据之后才可执行------------------
+update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_xxsy_v_oc';
+
 -- CREATE VIEW view_drw_comment_xinwen AS SELECT 
 -- `id` AS `id`,
 -- `cmmt_to` AS `cmmt_to`,

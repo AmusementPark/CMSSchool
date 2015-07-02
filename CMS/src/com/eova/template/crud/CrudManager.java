@@ -98,6 +98,10 @@ public class CrudManager {
 				}
 			}
 
+			/**
+			 * @author Simon.Zhu
+			 * poCode即为视图和表关联的字段. 如果是VIEW元对象. 需要配置这个poCode到表的objectCode.
+			 */
 			// 当前字段的持久化对象
 			String objectCode = item.getStr("poCode");
 			// 当前字段的持久化关联字段
@@ -204,6 +208,7 @@ public class CrudManager {
 			// 获取持久化源对象Code
 			String poCode = x.getStr("poCode");
 			MetaObject eo = MetaObject.dao.getByCode(poCode);
+			if ( eo == null ) continue;
 			Db.use(eo.getDs()).deleteById(eo.getTable(), eo.getPk(), pkValue);
 		}
 

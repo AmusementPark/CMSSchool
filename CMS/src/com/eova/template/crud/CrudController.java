@@ -17,7 +17,6 @@ import com.eova.common.utils.file.ImageUtil;
 import com.eova.common.utils.util.ExceptionUtil;
 import com.eova.config.EovaConst;
 import com.eova.model.EovaLog;
-import com.eova.model.KVMapping;
 import com.eova.model.MetaItem;
 import com.eova.model.MetaObject;
 import com.jfinal.core.Controller;
@@ -185,13 +184,12 @@ public class CrudController extends Controller {
 					}
 
 					if (!xx.isEmpty(crud.getTable())) {
-						// update table
-						Db.use(crud.getDs()).save(crud.getTable(), crud.getPkName(), record);
-					} else {
-						// update view
-						CrudManager.operateView(crud.getPkName(), reMap, CrudConfig.ADD);
+					    Db.use(crud.getDs()).save(crud.getTable(), crud.getPkName(), record);
+					}  
+					else {
+					    CrudManager.operateView(crud.getPkName(), reMap, CrudConfig.ADD);
 					}
-
+					
 					// 新增后置任务
 					if (intercept != null) {
 						intercept.addAfter(ctrl, record);
@@ -257,20 +255,20 @@ public class CrudController extends Controller {
 						String[] pks = pkValues.split(",");
 						for (String pk : pks) {
 							// 根据主键删除对象
-							if (!xx.isEmpty(crud.getTable())) {
-								Db.use(crud.getDs()).deleteById(crud.getTable(), crud.getPkName(), pk);
-								List<MetaItem> eis = crud.getItemList();
-								for(MetaItem meta : eis){
-									if(MetaItem.TYPE_FILE.equals(meta.getStr("type"))){
-										String path = record.getStr(meta.getStr("en"));
-										if(path != null)
-											FileUtil.deleteByWebPath(path);
-									}
-								}
-								// 若有文件类型，删除对应的文件
-							} else {
-								// update view
-								CrudManager.deleteView(eo.getStr("code"), pk);
+						    if ( !xx.isEmpty(crud.getTable()) ) {
+						        Db.use(crud.getDs()).deleteById(crud.getTable(), crud.getPkName(), pk);
+                                List<MetaItem> eis = crud.getItemList();
+                                for(MetaItem meta : eis){
+                                    if(MetaItem.TYPE_FILE.equals(meta.getStr("type"))){
+                                        String path = record.getStr(meta.getStr("en"));
+                                        if(path != null)
+                                            FileUtil.deleteByWebPath(path);
+                                    }
+                                }
+                                // 若有文件类型，删除对应的文件
+						    }
+						    else  {
+						        CrudManager.deleteView(eo.getStr("code"), pk);
 							}
 						}
 					}
@@ -324,17 +322,6 @@ public class CrudController extends Controller {
 		final Map<String, Record> reMap = CrudManager.buildData(this, crud.getItemList(), record, crud.getPkName(), false);
 		final Object pkValue = record.get(crud.getPkName());
 		
-        /**
-         * @author Simon.Zhu
-         * 如果在元对象中设置了视图. 那么优先以视图作为操作对象.
-         */
-		if( !xx.isEmpty(crud.getView()) && !crud.getView().equals(crud.getTable()) )  {
-		    List<KVMapping> list = KVMapping.dao.getValByKey(eo.getView());
-		    reMap.put(list.get(0).getStr("val"), record);
-		} else {
-		    reMap.put(eo.getTable(), record);
-		}
-
 		// 事务(默认为TRANSACTION_READ_COMMITTED)
 		boolean flag = Db.tx(new IAtom() {
 			@Override
@@ -344,14 +331,12 @@ public class CrudController extends Controller {
 					if (intercept != null) {
 						intercept.updateBefore(ctrl, record);
 					}
-
-					if (!xx.isEmpty(crud.getView()) && !crud.getView().equals(crud.getTable())) {
-					    CrudManager.operateView(crud.getPkName(), reMap, CrudConfig.UPDATE);
-					}
-					// 表作为元对象.
-					else {
+					
+					if (!xx.isEmpty(crud.getTable())) {
 					    Db.use(crud.getDs()).update(crud.getTable(), crud.getPkName(), record);
-					}
+                    }  else {
+                        CrudManager.operateView(crud.getPkName(), reMap, CrudConfig.UPDATE);
+                    }
 
 					// 修改后置任务
 					if (intercept != null) {
