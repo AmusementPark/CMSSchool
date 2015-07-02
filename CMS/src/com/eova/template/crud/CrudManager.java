@@ -45,7 +45,7 @@ public class CrudManager {
 		for (MetaItem item : eis) {
 			// 控件类型
 			String type = item.getStr("type");
-			if (type.equals(MetaItem.TYPE_FILE)){
+			if (type.equals(MetaItem.TYPE_FILE) || type.equals(MetaItem.TYPE_IMAGE)){
 				String key = item.getStr("en");
 				String dir = FileUtil.createDir();
 				UploadFile file = c.getFile(key, dir);

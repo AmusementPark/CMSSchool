@@ -18,6 +18,7 @@ import com.eova.common.Easy;
 import com.eova.common.render.XlsRender;
 import com.eova.common.utils.xx;
 import com.eova.config.PageConst;
+import com.eova.model.KVMapping;
 import com.eova.model.MetaItem;
 import com.eova.model.MetaObject;
 import com.eova.widget.WidgetManager;
@@ -71,13 +72,41 @@ public class GridController extends Controller {
 		WidgetUtil.copyValueColumn(page.getList(), eo.getPk(), eis);
 		// 根据表达式将数据中的值翻译成汉字
 		WidgetManager.convertValueByExp(eis, page.getList());
-
+		
+		//转换图片控件的显示方式
+		dealIMG(page.getList(), eis);
+		
 		// 将分页数据转换成JSON
 		String json = JsonKit.toJson(page.getList());
 		json = "{\"total\":" + page.getTotalRow() + ",\"rows\":" + json + "}";
 		// System.out.println(json);
 
 		renderJson(json);
+	}
+	
+	//将list中图片框控件的值进行替换
+	//Will Zhang
+	private void dealIMG(List<Record> records, List<MetaItem> items){
+		if(records == null || records.size() <= 0 || items == null || items.size() <= 0){
+			return;
+		}
+		
+		String field = null;
+		for(MetaItem item : items){
+			String type = item.getStr("type");
+			if(MetaItem.TYPE_IMAGE.equals(type)){
+				field = item.getStr("en");
+				break;
+			}
+		}
+		
+		if(field == null) return;
+		
+		for(Record record : records){
+			String path = record.getStr(field);
+			String image = "<img src='" + path + "' style='width:80px; height:60px'/>";
+			record.set(field, image);
+		}
 	}
 
 	/**
@@ -133,6 +162,13 @@ public class GridController extends Controller {
 		System.out.println(json);
 
 		List<Record> records = getRecordsByJson(json, items, object.getPk());
+		//获取表名
+		String table = object.getTable();
+		if(table == null || "".equals(table)){
+			//根据视图获取表名
+			List<KVMapping> list = KVMapping.dao.getValByKey(object.getView());
+			table = list.get(0).getStr("val");
+		}
 		for (Record re : records) {
 			Db.use(object.getDs()).update(object.getTable(), object.getPk(), re);
 		}
