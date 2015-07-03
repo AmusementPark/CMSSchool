@@ -1,3 +1,11 @@
+<script>
+function afterEditCell(index, row, changes){
+	 myGrid.datagrid('updateRow',{
+						'index': index,
+						'row': row
+					});
+}
+</script>
 <table id="${id}" width="auto" height="auto"
 			data-options="
 					fit : true,
@@ -10,6 +18,7 @@
 					multiSort : false,
 					rownumbers : true,
 					pagination : true,
+					onAfterEdit: afterEditCell,
 					<%if(isEmpty(url)){%>
 					<%// 默认模式%>
 					url : '/grid/query/${obj.code}',
@@ -124,13 +133,6 @@
         <%if(isTrue(obj.isCellEdit)){%>
 		// 开启编辑模式
     	myGrid.datagrid('enableCellEditing');
-    	myGrid.on("celleditenter", function (e) {
-            var index = myGrid.indexOf(e.record);
-            if (index == myGrid.getData().length - 1) {
-                var row = {};
-                myGrid.addRow(row);
-            }
-        });
     	<%}%>
         
 		var rowMenu;
