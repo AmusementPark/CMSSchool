@@ -35,6 +35,7 @@ public class MetaItem extends BaseModel<MetaItem> {
 	public static final String TYPE_IMG = "图片框";
 	public static final String TYPE_FILE = "文件";
 	public static final String TYPE_USER = "当前用户"; //当前用户
+	public static final String TYPE_IMAGE = "图片框";
 
 	/**
 	 * 获取对象详情

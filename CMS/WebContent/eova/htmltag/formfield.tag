@@ -10,7 +10,7 @@
 	<div><#edit id="${item.en}" name="${item.en}" value="${item.value!item.valueExp}" isNoN="${item.isNotNull!}" style="width: 758px;height:150px;margin-bottom: 5px;float: left;" /></div>
 <%} else if(item.type == "复选框"){%>
 	<div><#check id="${item.en}" name="${item.en}" value="${item.value!item.valueExp}" isNoN="${item.isNotNull!}" /></div>
-<%} else if(item.type == "文件"){%>
+<%} else if(item.type == "文件" || item.type == "图片框"){%>
 	<div><#file id="${item.en}" name="${item.en}" value="${item.value!}"/></div>
 <%} else if(item.type == "图标框"){%>
     <div><#icon id="${item.en}" name="${item.en}" value="${item.value!item.valueExp}" isNoN="${item.isNotNull!}" /></div>
