@@ -8,6 +8,12 @@ INSERT INTO `eova_menu` VALUES ('106', 'sch_dyjy_mc', '德育教育', 'dir', 'ic
 INSERT INTO `eova_menu` VALUES ('107', 'sch_tsjy_mc', '特色教育', 'dir', 'icon-layoutsidebar','7', '3', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('108', 'sch_gjjl_mc', '国际交流', 'dir', 'icon-foldertable',  '8', '3', '0', '', '');
 -- --------------------------------------------------------------------------------- 学校运营子菜单
+-- 总共有4种资源类型:
+-- 1. 新闻类, 即链接点进去为文本类型.
+-- 2. 滚动类, 表现为一图片滚动新闻控件, 点进去为文本类型
+-- 3. 链接类, 链接各种超链接
+-- 4. 文件类, 文件管理.
+
 -- 学校首页
 INSERT INTO `eova_menu` VALUES ('10101', 'sch_home_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '101', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('10102', 'sch_home_gdgl_mc', '滚动管理', 'singleGrid', 'icon-layoutsidebar','2', '101', '0', '', '');
@@ -17,16 +23,22 @@ INSERT INTO `eova_menu` VALUES ('10201', 'sch_xxgk_xwgl_mc', '新闻管理', 'si
 INSERT INTO `eova_menu` VALUES ('10202', 'sch_xxgk_wjgl_mc', '文件管理', 'singleGrid', 'icon-layoutsidebar','2', '102', '0', '', '');
 -- 新闻中心
 INSERT INTO `eova_menu` VALUES ('10301', 'sch_xwzx_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '103', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10103', 'sch_xwzx_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutsidebar','3', '101', '0', '', '');
 -- 教学科研
 INSERT INTO `eova_menu` VALUES ('10401', 'sch_jxky_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '104', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10402', 'sch_jxky_wjgl_mc', '文件管理', 'singleGrid', 'icon-layoutsidebar','1', '104', '0', '', '');
 -- 党群之窗
 INSERT INTO `eova_menu` VALUES ('10501', 'sch_dqzc_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '105', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10103', 'sch_dqzc_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutsidebar','3', '101', '0', '', '');
 -- 德育教育
 INSERT INTO `eova_menu` VALUES ('10601', 'sch_dyjy_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '106', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10103', 'sch_dyjy_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutsidebar','3', '101', '0', '', '');
 -- 特色教育
 INSERT INTO `eova_menu` VALUES ('10701', 'sch_tsjy_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '107', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10103', 'sch_tsjy_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutsidebar','3', '101', '0', '', '');
 -- 国际交流
 INSERT INTO `eova_menu` VALUES ('10801', 'sch_gjjl_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '108', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10103', 'sch_gjjl_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutsidebar','3', '101', '0', '', '');
 
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_home_xwgl_mc','sch_news_oc');
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_xxgk_xwgl_mc','sch_news_oc');
@@ -178,8 +190,9 @@ insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bkmgr_tsjy
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bkmgr_gjjl_mc','sch_bankuai_gjjl_v_oc');
 
 
-insert into `sch_bankuai` values ('1001', '1', '通知公告', '1', '1');
-insert into `sch_bankuai` values ('1002', '1', '校长信箱', '2', '1');
+insert into `sch_bankuai` values ('1001', '1', '学校新闻', '1', '1');
+insert into `sch_bankuai` values ('1002', '1', '教研组',   '2', '1');
+insert into `sch_bankuai` values ('1003', '1', '资源链接', '3', '1');
 
 insert into `sch_bankuai` values ('2001', '2', '学校介绍', '1', '1');
 insert into `sch_bankuai` values ('2002', '2', '优秀教师', '2', '1');
@@ -354,7 +367,34 @@ CREATE TABLE `sch_reply_news` (
   `res_type`		VARCHAR(20)		NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------------------------------- 首页链接资源表
+-- 需求点: 无
+DROP TABLE IF EXISTS `sch_links`;
+CREATE TABLE `sch_links`(
+  `id`				INT(11)			NOT NULL AUTO_INCREMENT,
+  `lk_id`			INT(11)			NOT NULL,
+  `lk_name`			VARCHAR(120)	NOT NULL,						-- 40个字符.
+  `lk_link`			VARCHAR(300)	NOT NULL,						-- URL长度统一最多为300
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
+INSERT INTO `sch_links` VALUES ('1', '1', '校园ftp', 		'http://www.baidu.com/');
+INSERT INTO `sch_links` VALUES ('2', '2', '内部办公平台', 	'http://www.baidu.com/');
+INSERT INTO `sch_links` VALUES ('3', '3', '教务管理系统', 	'http://www.baidu.com/');
+INSERT INTO `sch_links` VALUES ('4', '4', '心理测试平台', 	'http://www.baidu.com/');
+INSERT INTO `sch_links` VALUES ('5', '5', '校讯通', 			'http://www.baidu.com/');
+INSERT INTO `sch_links` VALUES ('6', '6', '口语100人机对话', 'http://www.baidu.com/');
+-- --------------------------------------------------------------------------------- 首页滚动图片表
+DROP TABLE IF EXISTS `sch_slide`;
+CREATE TABLE `sch_slide` (
+  `id`				INT(11)			NOT NULL AUTO_INCREMENT,
+  `sli_id`			INT(11)			NOT NULL,
+  `sli_name`		VARCHAR(120)	NOT NULL,						-- 40个字符.
+  `sli_link`		VARCHAR(300)	NOT NULL,						-- URL长度统一最多为300
+  `sli_pic`			VARCHAR(300)	NOT NULL,						-- 图片资源URL
+  `sli_index`		INT(11)			NOT NULL, 						-- 排序
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------------------------------- 照片表
 
