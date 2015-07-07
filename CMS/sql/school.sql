@@ -180,11 +180,11 @@ insert into `sch_index` values ('8', '国际交流');
 -- 3. 管理员可以调整板块结构
 DROP TABLE IF EXISTS `sch_bankuai`;
 CREATE TABLE `sch_bankuai` (
-	`id` 				int(11) 		not null AUTO_INCREMENT,	-- 板块ID
-	`bk_parent`			int(11)			not null,					-- 板块所属索引
+	`id` 				int(11) 		not null AUTO_INCREMENT,	-- 板块ID 
+	`bk_parent`			int(11)			not null,					-- 板块所属索引  -- select id ID, idx_name CN from `sch_index` where id=1,2,3...;ds=eova
 	`bk_name`			varchar(60)		not null,					-- 板块名, 20个字符限定
 	`bk_index`			int				not null,					-- 板块排序
-	`bk_active`			char			not null, 					-- 板块是否激活
+	`bk_active`			char			not null, 					-- 板块是否激活 -- select value ID,name CN from `eova_dict` where `class` = 'sch_bankuai' and field = 'bk_active';ds=eova
 	-- 板块LOGO
 	-- 板块额外资源...
 	PRIMARY KEY (`id`)
@@ -296,15 +296,16 @@ CREATE TABLE `sch_links`(
   `lk_id`			INT(11)			NOT NULL,
   `lk_name`			VARCHAR(120)	NOT NULL,						-- 40个字符.
   `lk_link`			VARCHAR(300)	NOT NULL,						-- URL长度统一最多为300
+  `lk_logo`			VARCHAR(300)	NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
-INSERT INTO `sch_links` VALUES ('1', '1', '校园ftp', 		'http://www.baidu.com/');
-INSERT INTO `sch_links` VALUES ('2', '2', '内部办公平台', 	'http://www.baidu.com/');
-INSERT INTO `sch_links` VALUES ('3', '3', '教务管理系统', 	'http://www.baidu.com/');
-INSERT INTO `sch_links` VALUES ('4', '4', '心理测试平台', 	'http://www.baidu.com/');
-INSERT INTO `sch_links` VALUES ('5', '5', '校讯通', 			'http://www.baidu.com/');
-INSERT INTO `sch_links` VALUES ('6', '6', '口语100人机对话', 'http://www.baidu.com/');
+INSERT INTO `sch_links` VALUES ('1', '1', '校园ftp', 		'http://www.baidu.com/',  '');
+INSERT INTO `sch_links` VALUES ('2', '2', '内部办公平台', 	'http://www.baidu.com/',  '');
+INSERT INTO `sch_links` VALUES ('3', '3', '教务管理系统', 	'http://www.baidu.com/',  '');
+INSERT INTO `sch_links` VALUES ('4', '4', '心理测试平台', 	'http://www.baidu.com/',  '');
+INSERT INTO `sch_links` VALUES ('5', '5', '校讯通', 			'http://www.baidu.com/',  '');
+INSERT INTO `sch_links` VALUES ('6', '6', '口语100人机对话', 'http://www.baidu.com/',  '');
 -- --------------------------------------------------------------------------------- 首页滚动图片表
 DROP TABLE IF EXISTS `sch_slide`;
 CREATE TABLE `sch_slide` (
@@ -360,6 +361,8 @@ insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_news','news_topic_top');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_news','news_site_top');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_news','news_site_top');
+insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_bankuai','bk_active');
+insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_bankuai','bk_active');
 -- ================================================================================= 视图
 -- 学校首页新闻视图
 DROP VIEW IF EXISTS sch_news_xxsy_v;
@@ -373,7 +376,7 @@ CREATE VIEW sch_news_xxsy_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '1';
+FROM `sch_news` WHERE `news_index` = '1' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 学校概况新闻视图
 DROP VIEW IF EXISTS sch_news_xxgk_v;
 CREATE VIEW sch_news_xxgk_v AS SELECT 
@@ -386,7 +389,7 @@ CREATE VIEW sch_news_xxgk_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '2';
+FROM `sch_news` WHERE `news_index` = '2' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 新闻中心新闻视图
 DROP VIEW IF EXISTS sch_news_xwzx_v;
 CREATE VIEW sch_news_xwzx_v AS SELECT 
@@ -399,7 +402,7 @@ CREATE VIEW sch_news_xwzx_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '3';
+FROM `sch_news` WHERE `news_index` = '3' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 教学科研新闻视图
 DROP VIEW IF EXISTS sch_news_jxky_v;
 CREATE VIEW sch_news_jxky_v AS SELECT 
@@ -412,7 +415,7 @@ CREATE VIEW sch_news_jxky_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '4';
+FROM `sch_news` WHERE `news_index` = '4' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 党群之窗新闻视图
 DROP VIEW IF EXISTS sch_news_dqzc_v;
 CREATE VIEW sch_news_dqzc_v AS SELECT 
@@ -425,7 +428,7 @@ CREATE VIEW sch_news_dqzc_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '5';
+FROM `sch_news` WHERE `news_index` = '5' AND `news_bankuai` (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 德育教育新闻视图
 DROP VIEW IF EXISTS sch_news_dyjy_v;
 CREATE VIEW sch_news_dyjy_v AS SELECT 
@@ -438,7 +441,7 @@ CREATE VIEW sch_news_dyjy_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '6';
+FROM `sch_news` WHERE `news_index` = '6' AND `news_bankuai` (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 特色教育新闻视图
 DROP VIEW IF EXISTS sch_news_tsjy_v;
 CREATE VIEW sch_news_tsjy_v AS SELECT 
@@ -451,7 +454,7 @@ CREATE VIEW sch_news_tsjy_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '7';
+FROM `sch_news` WHERE `news_index` = '7' AND `news_bankuai` (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 国际交流新闻视图
 DROP VIEW IF EXISTS sch_news_gjjl_v;
 CREATE VIEW sch_news_gjjl_v AS SELECT 
@@ -464,7 +467,7 @@ CREATE VIEW sch_news_gjjl_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '8';
+FROM `sch_news` WHERE `news_index` = '8' AND `news_bankuai` (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- --------------------------------------------------------------------------------- 板块视图
 DROP VIEW IF EXISTS sch_bankuai_xxsy_v;
 CREATE VIEW sch_bankuai_xxsy_v AS SELECT 
@@ -547,6 +550,15 @@ update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_dqzc_v_
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_dyjy_v_oc';
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_tsjy_v_oc';
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_gjjl_v_oc';
+
+update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_xxsy_v_oc';
+update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_xxgk_v_oc';
+update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_xwzx_v_oc';
+update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_jxky_v_oc';
+update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_dqzc_v_oc';
+update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_dyjy_v_oc';
+update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_tsjy_v_oc';
+update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_gjjl_v_oc';
 
 -- CREATE VIEW view_drw_comment_xinwen AS SELECT 
 -- `id` AS `id`,
