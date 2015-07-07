@@ -22,6 +22,7 @@
 					src = node.attributes.url;
 				}
 				var opts = {
+					id: node.id,
 					title : node.text,
 					closable : true,
 					iconCls : node.iconCls,
@@ -32,8 +33,23 @@
 					border : false,
 					fit : true
 				};
-				if (mainTabs.tabs('exists', opts.title)) {
-					mainTabs.tabs('select', opts.title);
+				
+				//get same title tabs
+				var tabs = mainTabs.tabs("tabs");
+				if(tabs && tabs.length > 0){
+					var flag = true;
+					for(var index = 0 ; index < tabs.length; index ++){
+						var tab = tabs[index][0];
+						if(tab.id == opts.id){
+							mainTabs.tabs('select', index);
+							flag = false;
+							break;
+						}
+					}
+					
+					if(flag){
+						mainTabs.tabs('add', opts);
+					}
 				} else {
 					mainTabs.tabs('add', opts);
 				}
