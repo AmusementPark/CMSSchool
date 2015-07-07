@@ -63,7 +63,7 @@ public class CrudManager {
 			String value = c.getPara(key, "");
 			
 			//文件需要特殊处理
-			if (type.equals(MetaItem.TYPE_FILE)){
+			if (type.equals(MetaItem.TYPE_FILE) || type.equals(MetaItem.TYPE_IMAGE) ){
 				continue;
 			}
 			// 新增跳过自增长字段(新增时为空)
