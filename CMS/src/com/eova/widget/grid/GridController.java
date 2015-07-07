@@ -36,6 +36,11 @@ import com.jfinal.plugin.activerecord.Record;
  * 
  */
 public class GridController extends Controller {
+    
+    private void whereProcess(String sql) {
+        List<String> list = new ArrayList<String>();
+        // where news_author = ${user}, 
+    }
 
 	/**
 	 * 分页查询
@@ -62,6 +67,9 @@ public class GridController extends Controller {
 		parmList.toArray(parm);
 		// 获取排序
 		String sort = WidgetManager.getSort(this, eo);
+		
+//		parm = new Object[] {"zhang"};
+//		where = " where news_author = ? ";
 
 		// 分页查询Grid数据
 		String view = eo.getView();

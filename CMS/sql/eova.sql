@@ -64,6 +64,8 @@ INSERT INTO `eova_button` VALUES ('29','sys_auth_user',   '新增', '/eova/templ
 INSERT INTO `eova_button` VALUES ('30','sys_auth_user',   '修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
 INSERT INTO `eova_button` VALUES ('31','sys_auth_user',   '删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 INSERT INTO `eova_button` VALUES ('32','sys_auth_role',   '权限分配', '/eova/auth/btn/roleChoose.html',  '',            '5');
+
+INSERT INTO `eova_button` VALUES ('33','sys_auth_user',   '权限分配', '/eova/auth/btn/roleChoose.html',  '',            '5');
 -- ----------------------------
 -- Table structure for `eova_dict`
 -- ----------------------------
@@ -332,14 +334,25 @@ CREATE TABLE `eova_role` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------
-INSERT INTO `eova_role` VALUES ('1','0','开发者',  '所有权限', '');
+INSERT INTO `eova_role` VALUES ('1', '0', '开发者',         '所有权限', '');
 -- --------------------------------------------------------------------------
-INSERT INTO `eova_role` VALUES ('2','1','超级管理员','所有权限', '');
-INSERT INTO `eova_role` VALUES ('3','2','板块管理员','板块管理权限', '');
-INSERT INTO `eova_role` VALUES ('4','3','教职工',    '教师权限', '');
+INSERT INTO `eova_role` VALUES ('2', '1', '管理员',         '所有权限', '');
+INSERT INTO `eova_role` VALUES ('3', '2', '管理员-学校概况','板块管理权限', '');
+INSERT INTO `eova_role` VALUES ('4', '3', '管理员-新闻中心','板块管理权限', '');
+INSERT INTO `eova_role` VALUES ('5', '4', '管理员-教学科研','板块管理权限', '');
+INSERT INTO `eova_role` VALUES ('6', '5', '管理员-党群之窗','板块管理权限', '');
+INSERT INTO `eova_role` VALUES ('7', '6', '管理员-德育教育','板块管理权限', '');
+INSERT INTO `eova_role` VALUES ('8', '7', '管理员-特色教育','板块管理权限', '');
+INSERT INTO `eova_role` VALUES ('9', '8', '管理员-国际交流','板块管理权限', '');
+INSERT INTO `eova_role` VALUES ('10','9', '教职工-语文',    '教师权限', '');
+INSERT INTO `eova_role` VALUES ('11','10','教职工-数学',    '教师权限', '');
+INSERT INTO `eova_role` VALUES ('12','11','教职工-英语',    '教师权限', '');
+INSERT INTO `eova_role` VALUES ('13','12','教职工-科学',    '教师权限', '');
+INSERT INTO `eova_role` VALUES ('14','13','教职工-社会',    '教师权限', '');
+INSERT INTO `eova_role` VALUES ('15','14','教职工-综合组',  '教师权限', '');
 -- --------------------------------------------------------------------------
 -- ----------------------------
--- Table structure for `eova_role_btn`
+-- Table structure for `eova_role_btn`              
 -- ----------------------------
 DROP TABLE IF EXISTS `eova_role_btn`;
 CREATE TABLE `eova_role_btn` (
@@ -358,6 +371,7 @@ INSERT INTO `eova_role_btn` VALUES ('1',  '0', '29', '0');
 INSERT INTO `eova_role_btn` VALUES ('2',  '0', '7',  '0');
 INSERT INTO `eova_role_btn` VALUES ('3',  '0', '30', '0');
 INSERT INTO `eova_role_btn` VALUES ('4',  '0', '31', '0');
+INSERT INTO `eova_role_btn` VALUES ('42', '0', '33', '0');
 -- ------------------------------------------------------------角色管理
 INSERT INTO `eova_role_btn` VALUES ('5',  '0', '26', '0');
 INSERT INTO `eova_role_btn` VALUES ('6',  '0', '8',  '0');
