@@ -35,13 +35,13 @@
 				};
 				
 				//get same title tabs
-				var tabs = mainTabs.tabs('getTab', opts.title);
+				var tabs = mainTabs.tabs("tabs");
 				if(tabs && tabs.length > 0){
 					var flag = true;
 					for(var index = 0 ; index < tabs.length; index ++){
-						var tab = tabs[index];
+						var tab = tabs[index][0];
 						if(tab.id == opts.id){
-							mainTabs.tabs('select', opts.title);
+							mainTabs.tabs('select', index);
 							flag = false;
 							break;
 						}
