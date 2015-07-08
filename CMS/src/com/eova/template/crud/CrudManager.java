@@ -66,40 +66,41 @@ public class CrudManager {
 			
 			//文件需要特殊处理
 			if (type.equals(MetaItem.TYPE_FILE) || type.equals(MetaItem.TYPE_IMAGE) ){
-				continue;
-			}
-			// 新增跳过自增长字段(新增时为空)
-			if (xx.isEmpty(value) && type.equals(MetaItem.TYPE_AUTO)) {
-				continue;
-			}
-			if (type.equals(MetaItem.TYPE_USER)){
-				User user = (User) c.getSession().getAttribute("user");
-				value = user.getStr("loginId");
-				record.set(key, value);
+				//do nothing
 			} else {
-				// 新增时，移除禁止新增的字段
-				boolean isAdd = item.getBoolean("isAdd");
-				if (isInsert && !isAdd) {
-					record.remove(key);
+				// 新增跳过自增长字段(新增时为空)
+				if (xx.isEmpty(value) && type.equals(MetaItem.TYPE_AUTO)) {
 					continue;
 				}
-				// 更新时，移除禁止更新的字段
-				boolean isUpdate = item.getBoolean("isUpdate");
-				if (!isInsert && !isUpdate) {
-					record.remove(key);
-					continue;
-				}
-			}
-
-			// 复选框需要特转换值
-			if (type.equals(MetaItem.TYPE_CHECK)) {
-				if (xx.isEmpty(value)) {
-					value = "0";
+				if (type.equals(MetaItem.TYPE_USER)){
+					User user = (User) c.getSession().getAttribute("user");
+					value = user.getStr("loginId");
+					record.set(key, value);
 				} else {
-					value = "1";
+					// 新增时，移除禁止新增的字段
+					boolean isAdd = item.getBoolean("isAdd");
+					if (isInsert && !isAdd) {
+						record.remove(key);
+						continue;
+					}
+					// 更新时，移除禁止更新的字段
+					boolean isUpdate = item.getBoolean("isUpdate");
+					if (!isInsert && !isUpdate) {
+						record.remove(key);
+						continue;
+					}
 				}
+	
+				// 复选框需要特转换值
+				if (type.equals(MetaItem.TYPE_CHECK)) {
+					if (xx.isEmpty(value)) {
+						value = "0";
+					} else {
+						value = "1";
+					}
+				}
+			
 			}
-
 			/**
 			 * @author Simon.Zhu
 			 * poCode即为视图和表关联的字段. 如果是VIEW元对象. 需要配置这个poCode到表的objectCode.
