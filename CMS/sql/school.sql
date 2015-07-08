@@ -245,6 +245,13 @@ CREATE TABLE `sch_files` (
   `file_time`   	TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------------------------------- 文访问量表
+DROP TABLE IF EXISTS `sch_news_count`;
+CREATE TABLE `sch_news_count` (
+  `id` 				INT(11)			NOT NULL,						-- 新闻编号.
+  `count`			INT(11)			NOT NULL DEFAULT 0,				-- 新闻访问量.
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 评论表
 -- 需求点:
 -- 1. 任何一个资源都可以被评论
