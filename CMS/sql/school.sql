@@ -223,10 +223,10 @@ CREATE TABLE `sch_news` (
 -- 需求点: 此表仅为一个关联表. 用于表示某篇文章含有多少附件.
 DROP TABLE IF EXISTS `sch_news_attachment`;
 CREATE TABLE `sch_news_attachment` (
-	`id` 				INT(11) 		NOT NULL AUTO_INCREMENT,	-- ID
-	`news_id`			INT(11)			NOT NULL,					-- 新闻ID
-	`file_id`			INT(11)			NOT NULL,					-- 文件ID
-	PRIMARY KEY (`id`)
+  `id` 				INT(11) 		NOT NULL AUTO_INCREMENT,	-- ID
+  `news_id`			INT(11)			NOT NULL,					-- 新闻ID
+  `file_id`			INT(11)			NOT NULL,					-- 文件ID
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 文件表
 -- 需求点:
@@ -239,7 +239,7 @@ CREATE TABLE `sch_files` (
   `file_name`	  	varchar(150) 	NOT NULL,
   `file_cmmt`		text			NOT NULL,						-- 文件备注
   `file_type`   	varchar(10) 	NOT NULL,						-- 文件分类.
-  `file_path`  	 	varchar(200) 	NOT NULL,						-- 文件路径.  在admin不用显示
+  `file_path`  	 	varchar(300) 	NOT NULL,						-- 文件路径.  在admin不用显示
   `file_author` 	VARCHAR(30)  	NOT NULL,						-- 文件上传者.
   `file_auth`		int,											-- 文件权限
   `file_time`   	TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
