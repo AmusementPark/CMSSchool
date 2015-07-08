@@ -49,8 +49,10 @@ public class CrudManager {
 				String key = item.getStr("en");
 				String dir = FileUtil.createDir();
 				UploadFile file = c.getFile(key, dir);
-				String value = FileUtil.convertToWebPath(dir + "/" + file.getFileName());
-				record.set(key, value);
+				if(file != null){
+					String value = FileUtil.convertToWebPath(dir + "/" + file.getFileName());
+					record.set(key, value);
+				}
 			}
 		}
 		// 获取字段当前的值

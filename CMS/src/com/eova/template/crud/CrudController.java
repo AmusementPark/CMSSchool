@@ -121,6 +121,38 @@ public class CrudController extends Controller {
 
 		render("/eova/template/crud/update.html");
 	}
+	
+	/**
+	 * 修改
+	 */
+	public void toUpdateMulti() {
+
+		Crud crud = new Crud(this, CrudConfig.LIST);
+
+		// 初始化业务拦截器
+		initIntercept(crud.getBizIntercept());
+
+		// 获取基础数据
+		List<MetaItem> eis = crud.getItemList();
+
+		// 获取主键的值
+		Object pkValue = getPara(1);
+		// 根据主键获取对象
+		Record record = Db.use(crud.getDs()).findById(crud.getView(), crud.getPkName(), pkValue, "*");
+
+		// 分别根据字段获取值
+		for (MetaItem ei : eis) {
+			String key = ei.getStr("en");
+			Object value = record.get(key);
+			if (value == null) {
+				value = "";
+			}
+			ei.put("value", value);
+		}
+		setAttr("itemList", eis);
+
+		render("/eova/template/crud/updateMulti.html");
+	}
 
 	/**
 	 * 导入
