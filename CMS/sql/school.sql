@@ -230,11 +230,24 @@ CREATE TABLE `sch_news_attachment` (
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 文件表
 -- 需求点:
--- 1. 文件只考虑文本文件和图片文件
--- 2. 分为内网文件和外网文件
--- 3. 管理员负责上传重要文件
+-- 外部文件， 所有人都可以看到
+
 DROP TABLE IF EXISTS `sch_files`;
 CREATE TABLE `sch_files` (
+  `id` 				int(11) 		NOT NULL AUTO_INCREMENT,
+  `file_name`	  	varchar(150) 	NOT NULL,
+  `file_cmmt`		text			NOT NULL,						-- 文件备注
+  `file_type`   	varchar(10) 	NOT NULL,						-- 文件分类.
+  `file_path`  	 	varchar(300) 	NOT NULL,						-- 文件路径.  在admin不用显示
+  `file_author` 	VARCHAR(30)  	NOT NULL,						-- 文件上传者.
+  `file_auth`		int,											-- 文件权限
+  `file_time`   	TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+-- 管理员负责上传重要文件
+DROP TABLE IF EXISTS `sch_internal_files`;
+CREATE TABLE `sch_internal_files` (
   `id` 				int(11) 		NOT NULL AUTO_INCREMENT,
   `file_name`	  	varchar(150) 	NOT NULL,
   `file_cmmt`		text			NOT NULL,						-- 文件备注
@@ -299,6 +312,16 @@ CREATE TABLE `sch_reply_news` (
 -- 需求点: 无
 DROP TABLE IF EXISTS `sch_links`;
 CREATE TABLE `sch_links`(
+  `id`				INT(11)			NOT NULL AUTO_INCREMENT,
+  `lk_id`			INT(11)			NOT NULL,
+  `lk_name`			VARCHAR(120)	NOT NULL,						-- 40个字符.
+  `lk_link`			VARCHAR(300)	NOT NULL,						-- URL长度统一最多为300
+  `lk_logo`			VARCHAR(300)	NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `sch_outter_links`;
+CREATE TABLE `sch_outter_links`(
   `id`				INT(11)			NOT NULL AUTO_INCREMENT,
   `lk_id`			INT(11)			NOT NULL,
   `lk_name`			VARCHAR(120)	NOT NULL,						-- 40个字符.
