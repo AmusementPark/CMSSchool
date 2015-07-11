@@ -170,12 +170,21 @@ public class GridController extends Controller {
 		System.out.println(json);
 
 		List<Record> records = getRecordsByJson(json, items, object.getPk());
-		//获取表名
 		String table = object.getTable();
+		String poCode = "";
 		if(table == null || "".equals(table)){
-			//根据视图获取表名
-			List<KVMapping> list = KVMapping.dao.getValByKey(object.getView());
-			table = list.get(0).getStr("val");
+			//deal the view
+			for(MetaItem item: items){
+				poCode = item.getStr("poCode");
+				if(poCode != null && poCode != ""){
+					break;
+				}
+			}
+			
+			if(poCode != null && poCode != ""){
+				//get object
+				object = MetaObject.dao.getByCode(poCode);
+			}
 		}
 		for (Record re : records) {
 			Db.use(object.getDs()).update(object.getTable(), object.getPk(), re);
