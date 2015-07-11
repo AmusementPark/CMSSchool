@@ -334,22 +334,22 @@ CREATE TABLE `eova_role` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------
-INSERT INTO `eova_role` VALUES ('1', '0', '开发者',         '所有权限', '');
+INSERT INTO `eova_role` VALUES ('1', '0', '开发者',         '所有权限', 		'');
 -- --------------------------------------------------------------------------
-INSERT INTO `eova_role` VALUES ('2', '1', '管理员',         '所有权限', '');
-INSERT INTO `eova_role` VALUES ('3', '2', '管理员-学校概况','板块管理权限', '');
-INSERT INTO `eova_role` VALUES ('4', '3', '管理员-新闻中心','板块管理权限', '');
-INSERT INTO `eova_role` VALUES ('5', '4', '管理员-教学科研','板块管理权限', '');
-INSERT INTO `eova_role` VALUES ('6', '5', '管理员-党群之窗','板块管理权限', '');
-INSERT INTO `eova_role` VALUES ('7', '6', '管理员-德育教育','板块管理权限', '');
-INSERT INTO `eova_role` VALUES ('8', '7', '管理员-特色教育','板块管理权限', '');
-INSERT INTO `eova_role` VALUES ('9', '8', '管理员-国际交流','板块管理权限', '');
-INSERT INTO `eova_role` VALUES ('10','9', '教职工-语文',    '教师权限', '');
-INSERT INTO `eova_role` VALUES ('11','10','教职工-数学',    '教师权限', '');
-INSERT INTO `eova_role` VALUES ('12','11','教职工-英语',    '教师权限', '');
-INSERT INTO `eova_role` VALUES ('13','12','教职工-科学',    '教师权限', '');
-INSERT INTO `eova_role` VALUES ('14','13','教职工-社会',    '教师权限', '');
-INSERT INTO `eova_role` VALUES ('15','14','教职工-综合组',  '教师权限', '');
+INSERT INTO `eova_role` VALUES ('2', '1', '管理员',         '所有权限', 		'');
+INSERT INTO `eova_role` VALUES ('3', '2', '管理员-学校概况','板块管理权限', 	'');
+INSERT INTO `eova_role` VALUES ('4', '3', '管理员-新闻中心','板块管理权限', 	'');
+INSERT INTO `eova_role` VALUES ('5', '4', '管理员-教学科研','板块管理权限', 	'');
+INSERT INTO `eova_role` VALUES ('6', '5', '管理员-党群之窗','板块管理权限', 	'');
+INSERT INTO `eova_role` VALUES ('7', '6', '管理员-德育教育','板块管理权限', 	'');
+INSERT INTO `eova_role` VALUES ('8', '7', '管理员-特色教育','板块管理权限', 	'');
+INSERT INTO `eova_role` VALUES ('9', '8', '管理员-国际交流','板块管理权限', 	'');
+INSERT INTO `eova_role` VALUES ('10','9', '教职工-语文',    '教师权限',		'');
+INSERT INTO `eova_role` VALUES ('11','10','教职工-数学',    '教师权限', 		'');
+INSERT INTO `eova_role` VALUES ('12','11','教职工-英语',    '教师权限', 		'');
+INSERT INTO `eova_role` VALUES ('13','12','教职工-科学',    '教师权限', 		'');
+INSERT INTO `eova_role` VALUES ('14','13','教职工-社会',    '教师权限', 		'');
+INSERT INTO `eova_role` VALUES ('15','14','教职工-综合组',  '教师权限', 		'');
 -- --------------------------------------------------------------------------
 -- ----------------------------
 -- Table structure for `eova_role_btn`              

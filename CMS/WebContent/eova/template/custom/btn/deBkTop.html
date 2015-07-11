@@ -1,0 +1,41 @@
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-pagedelete',plain:true"
+onclick="crud_deBkTop()">
+	取消板顶
+</a>
+<script type="text/javascript">
+var crud_deBkTop = function() {
+	var doAction = function(grid, url) {
+		$.messager.confirm('请确认', '是否取消板块置顶新闻?', function(o) {
+			if (o) {
+				$.ajax({
+					url : url,
+					dataType : 'json',
+					success : function(o) {
+						if (o.success) {
+							grid.datagrid('load');
+							grid.datagrid('unselectAll');
+							slideMsg("操作成功！");
+						} else {
+							$.messager.alert("操作错误", o.msg ,'error');
+						}
+					}
+				});
+			}
+		});
+	};
+	var grid = $('#grid');
+	var array = grid.datagrid('getSelections');
+	var id2 = "";
+	var num = array.length;
+	if (num == "0") {
+		slideMsg("请选择一条记录！");
+		return;
+	}
+	for (var i = 0; i < array.length; i++) {
+		id2 = id2 + array[i].pk_val + ",";
+	}
+	doAction(grid, '/singleGrid/booleanCrud/${menu.code}-'+id2+'-0-news_topic_top');
+};
+
+
+</script>

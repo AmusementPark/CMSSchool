@@ -34,7 +34,6 @@ import com.eova.model.Role;
 import com.eova.model.RoleBtn;
 import com.eova.model.User;
 import com.eova.service.ServiceManager;
-import com.eova.template.crud.CrudConfig;
 import com.eova.template.crud.CrudController;
 import com.eova.widget.WidgetController;
 import com.eova.widget.grid.GridController;
@@ -116,13 +115,13 @@ public class EovaConfig extends JFinalConfig {
 	@Override
 	public void configRoute(Routes me) {
 		System.err.println("Config Routes Starting...");
-		me.add("/", IndexController.class);
-		me.add(CrudConfig.contro, CrudController.class);
-		me.add("/widget", WidgetController.class);
-		me.add("/grid", GridController.class);
-		me.add("/metadata", MetaDataController.class);
-		me.add("/menu", MenuController.class);
-		me.add("/auth", AuthController.class);
+		me.add("/",           IndexController.class);
+		me.add("/singleGrid", CrudController.class);
+		me.add("/widget",     WidgetController.class);
+		me.add("/grid",       GridController.class);
+		me.add("/metadata",   MetaDataController.class);
+		me.add("/menu",       MenuController.class);
+		me.add("/auth",       AuthController.class);
 
 		/* 自定义业务 */
 //		me.add("/user", UserController.class);

@@ -31,6 +31,8 @@ public class EovaLog extends BaseModel<EovaLog> {
 	/** 导入 **/
 	public static final int IMPORT = 4;
 	
+	public static final int SITETOP = 5;
+	
 	/**
 	 * 操作日志
 	 * @param con

@@ -57,6 +57,10 @@ INSERT INTO `eova_button` VALUES ('101011','sch_home_xwgl_mc','查询', '', '', 
 INSERT INTO `eova_button` VALUES ('101012','sch_home_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
 INSERT INTO `eova_button` VALUES ('101013','sch_home_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
 INSERT INTO `eova_button` VALUES ('101014','sch_home_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('101015','sch_home_xwgl_mc','板块置顶', '/eova/template/custom/btn/bkTop.html',    'crud/bkTop',    '4');
+INSERT INTO `eova_button` VALUES ('101016','sch_home_xwgl_mc','取消板顶', '/eova/template/custom/btn/deBkTop.html',  'crud/deBkTop',  '5');
+INSERT INTO `eova_button` VALUES ('101017','sch_home_xwgl_mc','全站置顶', '/eova/template/custom/btn/siteTop.html',  'crud/siteTop',  '6');
+INSERT INTO `eova_button` VALUES ('101018','sch_home_xwgl_mc','取消站顶', '/eova/template/custom/btn/deSiteTop.html','crud/deSiteTop','7');
 -- 滚动管理
 INSERT INTO `eova_button` VALUES ('101021','sch_home_gdgl_mc','查询', '', '', '0');
 INSERT INTO `eova_button` VALUES ('101022','sch_home_gdgl_mc','新增', '/eova/template/crud/btn/addMulti.html','crud/addMulti','1');
@@ -549,6 +553,7 @@ CREATE VIEW sch_bankuai_gjjl_v AS SELECT
 	`bk_index` 		AS `bk_index`,
 	`bk_active` 	AS `bk_active`
 FROM `sch_bankuai` WHERE `bk_parent` = '8';
+-- --------------------------------------------------------------------------------- 文件视图
 
 ----------------------------------以下的SQL需要等导入元数据之后才可执行------------------
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_xxsy_v_oc';

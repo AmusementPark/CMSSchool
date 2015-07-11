@@ -49,7 +49,7 @@ public class GridController extends Controller {
 
 		// Get MetaObject Code
 		String code = getPara(0);
-
+		
 		// Get MetaObject and MetaItem List
 		MetaObject eo = MetaObject.dao.getByCode(code);
 		List<MetaItem> eis = MetaItem.dao.queryByObjectCode(code);
@@ -238,7 +238,7 @@ public class GridController extends Controller {
 
 		return records;
 	}
-
+	
 	public static void main(String[] args) {
 
 		String sl = "[{'id':1,'loginId':'111'},{'id':2,'loginId':'222'}]";

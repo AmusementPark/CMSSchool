@@ -72,6 +72,80 @@ public class CrudController extends Controller {
 		info = ExceptionUtil.getStackTrace(e);
 		error = type + ":" + e.getMessage();
 	}
+	
+	/**
+	 * @author Simon.Zhu
+	 * 布尔值通用CRUD操作, 布尔值在数据库中表现为 '0' 或者 '1'
+	 */
+    public void booleanCrud() {
+        
+        final Crud crud = new Crud(this, "");
+        // 初始化业务拦截器
+        initIntercept(crud.getBizIntercept());
+        final MetaObject eo = crud.getObject();
+        
+        // 获取主键的值 格式:pkval1,pkval2,pkval3
+        String str = getPara(1);
+        final String pkValues = str.substring(0, str.length() - 1);
+        
+        //获取状态字段名
+        final String name = getPara(3);
+        final int bool = Integer.parseInt(getPara(2));
+        
+        // 设置修改数据.
+        record.set(name, bool);
+
+        // 事务(默认为TRANSACTION_READ_COMMITTED)
+        boolean flag = Db.tx(new IAtom() {
+            public boolean run() throws SQLException {
+                try {
+                    if (!xx.isEmpty(crud.getTable())) {
+                        record.set(crud.getPkName(), pkValues);
+                        Db.use(crud.getDs()).update(crud.getTable(), crud.getPkName(), record);
+                    }  
+                    else {
+                        // 如果是视图, 首先需要获取视图对应的表
+                        String oc = "";
+                        List<MetaItem> eis = crud.getItemList();
+                        for (MetaItem item : eis) {
+                            oc = item.getStr("poCode");
+                            if (!xx.isEmpty(oc)) {
+                                break;
+                            }
+                        }
+                        MetaObject eo = MetaObject.dao.getByCode(oc);
+                        record.set(eo.getPk(), pkValues);
+                        Db.use(eo.getDs()).update(eo.getTable(), eo.getPk(), record);
+                    }
+                } catch (Exception e) {
+                    buildException(e);
+                    return false;
+                }
+                return true;
+            }
+        });
+
+        if (!flag) {
+            renderJson(new Easy("操作失败<p title=\"" + info + "\">" + error + "</p>"));
+            return;
+        }
+
+        // 记录新增日志
+        EovaLog.dao.info(this, EovaLog.SITETOP, eo.getStr("code") + "[" + pkValues + "]");
+
+        // 审核成功之后
+//        if (intercept != null) {
+//            try {
+//                intercept.deleteSucceed(ctrl, pkValues);
+//            } catch (Exception e) {
+//                buildException(e);
+//                renderJson(new Easy("审核成功,后置任务执行异常!<p title=\"" + info + "\">" + error + "</p>"));
+//                return;
+//            }
+//        }
+
+        renderJson(new Easy());
+    }
 
 	/**
 	 * 新增
@@ -212,7 +286,7 @@ public class CrudController extends Controller {
 				try {
 					// 新增前置任务
 					if (intercept != null) {
-						intercept.addBefore(ctrl, record);
+                        intercept.addBefore(ctrl, record);
 					}
 
 					if (!xx.isEmpty(crud.getTable())) {
