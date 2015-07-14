@@ -276,9 +276,12 @@ CREATE TABLE `sch_news_count` (
 DROP TABLE IF EXISTS `sch_cmmt`;
 CREATE TABLE `sch_cmmt` (
   `id` 				INT(11) 		NOT NULL AUTO_INCREMENT,
-  `cmmt_author` 	INT(11) 		NOT NULL,						-- 评论者.
+  `ref_id`			INT(11)			NOT NULL,						-- 被评论新闻/文件 id
+  `cmmt_index`		INT(11)			NOT NULL,						-- 被评论新闻/课件 所属索引
+  `cmmt_type`		INT(1)			NOT NULL,						-- 0 - 新闻； 1 - 内部文件； - 2 - 外部文件
+  `cmmt_author` 	varchar(30) 		NOT NULL,						-- 评论者.
   `cmmt_content` 	TEXT			NOT NULL,						-- 评论内容
-  `cmmt_status` 	CHAR	 		DEFAULT 0,						-- 1: 未通过. 0: 待审核. 1: 已通过
+  `cmmt_status` 	CHAR	 		DEFAULT '2',						-- 0: 未通过. 2: 待审核. 1: 已通过
   `cmmt_time` 		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
@@ -576,6 +579,23 @@ CREATE VIEW sch_bankuai_gjjl_v AS SELECT
 	`bk_index` 		AS `bk_index`,
 	`bk_active` 	AS `bk_active`
 FROM `sch_bankuai` WHERE `bk_parent` = '8';
+
+DROP VIEW IF EXISTS sch_cmmt_xxsy_v;
+CREATE VIEW sch_cmmt_xxsy_v AS
+SELECT
+    `sch_cmmt`.`id`           AS `id`,
+    `sch_cmmt`.`ref_id`       AS `ref_id`,
+    `sch_cmmt`.`cmmt_index`   AS `cmmt_index`,
+    `sch_cmmt`.`cmmt_type`    AS `cmmt_type`,
+    `sch_cmmt`.`cmmt_author`  AS `cmmt_author`,
+    `sch_cmmt`.`cmmt_content` AS `cmmt_content`,
+    `sch_cmmt`.`cmmt_status`  AS `cmmt_status`,
+    `sch_cmmt`.`cmmt_time`    AS `cmmt_time`
+FROM
+    `sch_cmmt`
+WHERE
+    (
+        `sch_cmmt`.`cmmt_index` = 1);
 -- --------------------------------------------------------------------------------- 文件视图
 
 ----------------------------------以下的SQL需要等导入元数据之后才可执行------------------
