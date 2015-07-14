@@ -69,6 +69,19 @@ public class FileUtil {
 		return dir;
 	}
 	
+	/**
+	 * @author Simon.Zhu
+	 * @return
+	 */
+	public static String logosDir() {
+	    String dir = LOCAL_DIR + "/system/logos";
+	    File file = new File(dir);
+        if(!file.exists() || !file.isDirectory()){
+            file.mkdir();
+        }
+        return dir;
+	}
+	
 	public static String convertToWebPath(String localDir){
 		String result = localDir.replaceFirst(LOCAL_DIR, WEB_DIR);
 		return result;

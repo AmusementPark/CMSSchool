@@ -107,7 +107,8 @@ INSERT INTO `eova_dict` VALUES ('13', '文本域', '文本域', 'eova_item', 'ty
 INSERT INTO `eova_dict` VALUES ('14', '编辑框', '编辑框', 'eova_item', 'type');
 INSERT INTO `eova_dict` VALUES ('15', '复选框', '复选框', 'eova_item', 'type');
 INSERT INTO `eova_dict` VALUES ('16', '自增框', '自增框', 'eova_item', 'type');
-
+INSERT INTO `eova_dict` VALUES ('17', '图标框', '图标框', 'eova_item', 'type');
+INSERT INTO `eova_dict` VALUES ('18', '素材框', '素材框', 'eova_item', 'type');
 -- ----------------------------
 -- Table structure for `eova_item`
 -- ----------------------------

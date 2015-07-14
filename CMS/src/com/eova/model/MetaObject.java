@@ -63,4 +63,18 @@ public class MetaObject extends BaseModel<MetaObject> {
 	public MetaObject getByCode(String code) {
 		return MetaObject.dao.findFirst("select * from eova_object where code = ?", code);
 	}
+	
+	/**
+	 * 根据表名/视图名获取
+	 * @author Simon.Zhu
+	 * @param view
+	 * @return
+	 */
+	public MetaObject getByTableOrView(String view) {
+	    MetaObject o = null;
+	    o = MetaObject.dao.findFirst("select * from eova_object where table = ?", view);
+	    if ( o == null )
+	        return MetaObject.dao.findFirst("select * from eova_object where view = ?", view);
+	    return o;
+	}
 }

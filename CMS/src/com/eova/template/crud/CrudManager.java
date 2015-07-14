@@ -45,15 +45,24 @@ public class CrudManager {
 		for (MetaItem item : eis) {
 			// 控件类型
 			String type = item.getStr("type");
-			if (type.equals(MetaItem.TYPE_FILE) || type.equals(MetaItem.TYPE_IMAGE)){
-				String key = item.getStr("en");
-				String dir = FileUtil.createDir();
-				UploadFile file = c.getFile(key, dir);
-				if(file != null){
-					String value = FileUtil.convertToWebPath(dir + "/" + file.getFileName());
-					record.set(key, value);
-				}
+			if ( !type.equals(MetaItem.TYPE_FILE)  || 
+			     !type.equals(MetaItem.TYPE_IMAGE) || 
+			     !type.equals(MetaItem.TYPE_LOGOS) ) {
+			    continue;
 			}
+			String dir = "";
+			String key = item.getStr("en");
+			if (type.equals(MetaItem.TYPE_FILE) || type.equals(MetaItem.TYPE_IMAGE)){
+				dir = FileUtil.createDir();
+			}
+			if (type.equals(MetaItem.TYPE_LOGOS)) {
+			    dir = FileUtil.logosDir();
+			}
+            UploadFile file = c.getFile(key, dir);
+            if(file != null){
+                String value = FileUtil.convertToWebPath(dir + "/" + file.getFileName());
+                record.set(key, value);
+            }
 		}
 		// 获取字段当前的值
 		for (MetaItem item : eis) {
@@ -65,7 +74,9 @@ public class CrudManager {
 			String value = c.getPara(key, "");
 			
 			//文件需要特殊处理
-			if (type.equals(MetaItem.TYPE_FILE) || type.equals(MetaItem.TYPE_IMAGE) ){
+			if (type.equals(MetaItem.TYPE_FILE)  || 
+			    type.equals(MetaItem.TYPE_IMAGE) || 
+			    type.equals(MetaItem.TYPE_LOGOS) ){
 				//do nothing
 			} else {
 				// 新增跳过自增长字段(新增时为空)

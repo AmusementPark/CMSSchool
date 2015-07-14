@@ -52,7 +52,7 @@ public class WidgetController extends Controller {
 				e.printStackTrace();
 			}
 		}
-		String code = getPara("code");
+		String code  = getPara("code");
 		String field = getPara("field");
 		// 自定义表达式
 		if (xx.isEmpty(exp)) {
@@ -75,6 +75,30 @@ public class WidgetController extends Controller {
 
 		toFind();
 	}
+	
+	/**
+	 * @author Simon.Zhu 提取图片
+	 * @param records
+	 */
+	private void dealIMG(List<Record> records){
+        if(records == null || records.size() <= 0){
+            return;
+        }
+    
+        for(Record record : records){
+            String keys[] = record.getColumnNames();
+            for ( String key : keys ) {
+                Object val = record.get(key);
+                if (val instanceof String ) {
+                    String valst = (String) val;
+                    if (valst.endsWith(".png") || valst.endsWith(".bmp") || valst.endsWith(".jpg") || valst.endsWith(".gif")) {
+                        String image = "<img src='" + valst + "' style='width:50%'/>";
+                        record.set(key, image);
+                    }
+                }
+            }
+        }
+    }
 
 	/**
 	 * Find Dialog Grid Get JSON
@@ -84,10 +108,13 @@ public class WidgetController extends Controller {
 		String exp = getPara("exp");
 		String code = getPara("code");
 		String en = getPara("field");
+		
+		String field = "";
 		if (xx.isEmpty(exp)) {
 			// 根据表达式获取ei
 			MetaItem ei = MetaItem.dao.getByObjectCodeAndEn(code, en);
-			exp = ei.getStr("exp");
+			exp   = ei.getStr("exp");
+			field = ei.getStr("en");
 		}
 
 		// 根据表达式手工构建Eova_Item
@@ -115,6 +142,8 @@ public class WidgetController extends Controller {
 		// 分页查询Grid数据
 		String sql = from + where + sort;
 		Page<Record> page = Db.use(ds).paginate(pageNumber, pageSize, select, sql, parm);
+		
+		dealIMG(page.getList());
 
 		// 将分页数据转换成JSON
 		String json = JsonKit.toJson(page.getList());
