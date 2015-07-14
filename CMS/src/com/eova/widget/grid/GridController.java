@@ -56,7 +56,7 @@ public class GridController extends Controller {
 
 		// 获取分页参数
 		int pageNumber = getParaToInt(PageConst.PAGENUM, 1);
-		int pageSize = getParaToInt(PageConst.PAGESIZE, 95);
+		int pageSize   = getParaToInt(PageConst.PAGESIZE, 95);
 
 		// 获取条件
 		List<String> parmList = new ArrayList<String>();
@@ -102,7 +102,7 @@ public class GridController extends Controller {
 		String field = null;
 		for(MetaItem item : items){
 			String type = item.getStr("type");
-			if(MetaItem.TYPE_IMAGE.equals(type)){
+			if(MetaItem.TYPE_IMAGE.equals(type) || MetaItem.TYPE_LOGOS.equals(type)){
 				field = item.getStr("en");
 				break;
 			}
@@ -112,7 +112,7 @@ public class GridController extends Controller {
 		
 		for(Record record : records){
 			String path = record.getStr(field);
-			String image = "<img src='" + path + "' style='width:80px; height:60px'/>";
+			String image = "<img src='" + path + "' style='width:50%'/>";
 			record.set(field, image);
 		}
 	}

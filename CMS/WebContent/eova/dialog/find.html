@@ -17,7 +17,7 @@ var init = function($dialog, $input, $inputcn) {
 }
 
 var selectData = function($dialog, $input, $inputcn) {
-
+	debugger;
     var grid = $('#findGrid');
     var row = grid.datagrid('getSelected');
     try{
@@ -26,7 +26,16 @@ var selectData = function($dialog, $input, $inputcn) {
         	// 获取主键值(第一列)
         	$input.val(row.${obj.pkName});
         	// 获取翻译值(第二列)
-            $inputcn.val(row.${obj.cn});
+        	
+        	/**
+        	Simon.Zhu 提取图片URL.
+        	*/
+        	if (row.${obj.cn}.indexOf('<img') != -1)  {
+        		var img = $(row.${obj.cn});
+        		 $inputcn.val(img.attr('src'));
+        	} else {
+        		 $inputcn.val(row.${obj.cn});
+        	}
             $inputcn.validatebox('validate');
     	} else {
     		// 没选值，就清空
