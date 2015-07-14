@@ -254,7 +254,7 @@ function afterEditCell(index, row, changes){
 			cmenu = $('<div/>').appendTo('body');
 			cmenu.menu({
 				// 点击隐藏显示列
-				onClick: function(item){
+				onClick: function(item) {
 					if (item.iconCls == 'icon-ok'){
 						myGrid.datagrid('hideColumn', item.name);
 						cmenu.menu('setIcon', {

@@ -28,8 +28,8 @@ var selectData = function($dialog, $input, $inputcn) {
         	// 获取翻译值(第二列)
         	
         	/**
-        	Simon.Zhu 提取图片URL.
-        	*/
+        	 * Simon.Zhu 提取图片URL.
+        	 */
         	if (row.${obj.cn}.indexOf('<img') != -1)  {
         		var img = $(row.${obj.cn});
         		 $inputcn.val(img.attr('src'));
