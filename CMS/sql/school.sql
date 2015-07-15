@@ -59,8 +59,8 @@ INSERT INTO `eova_button` VALUES ('101011','sch_home_xwgl_mc','查询', '', '', 
 INSERT INTO `eova_button` VALUES ('101012','sch_home_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
 INSERT INTO `eova_button` VALUES ('101013','sch_home_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
 INSERT INTO `eova_button` VALUES ('101014','sch_home_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
-INSERT INTO `eova_button` VALUES ('101017','sch_home_xwgl_mc','全站置顶', '/eova/template/custom/btn/siteTop.html',  'crud/siteTop',  '6');
-INSERT INTO `eova_button` VALUES ('101018','sch_home_xwgl_mc','取消站顶', '/eova/template/custom/btn/deSiteTop.html','crud/deSiteTop','7');
+INSERT INTO `eova_button` VALUES ('101015','sch_home_xwgl_mc','全站置顶', '/eova/template/custom/btn/siteTop.html',  'crud/siteTop',  '4');
+INSERT INTO `eova_button` VALUES ('101016','sch_home_xwgl_mc','取消站顶', '/eova/template/custom/btn/deSiteTop.html','crud/deSiteTop','5');
 -- 滚动管理
 INSERT INTO `eova_button` VALUES ('101021','sch_home_gdgl_mc','查询', '', '', '0');
 INSERT INTO `eova_button` VALUES ('101022','sch_home_gdgl_mc','新增', '/eova/template/crud/btn/addMulti.html','crud/addMulti','1');
@@ -167,6 +167,8 @@ INSERT INTO `eova_button` VALUES ('201083','sch_bkmgr_gjjl_mc','修改', '/eova/
 INSERT INTO `eova_button` VALUES ('202011','sch_logos_mc','查询', '', '', '0');
 INSERT INTO `eova_button` VALUES ('202012','sch_logos_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
 INSERT INTO `eova_button` VALUES ('202013','sch_logos_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '2')
+-- --------------------------------------------------------------------------------- 链接管理按钮
+
 -- ================================================================================= 数据表部分
 -- --------------------------------------------------------------------------------- 索引表
 -- 需求点: 无
@@ -216,7 +218,7 @@ insert into `sch_bankuai` values ('2003', '2', '校园风光', '3', '1');
 DROP TABLE IF EXISTS `sch_logos`;
 CREATE TABLE `sch_logos` (
 	`id`				INT(11)			NOT NULL AUTO_INCREMENT,
-	`lg_path`			VARCHAR(300)	NOT NULL,
+	`lg_path`			VARCHAR(300)	NOT NULL,	-- select id 编号, lg_path 素材 from sch_logos where 1=1;ds=eova
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 新闻表
@@ -250,7 +252,6 @@ CREATE TABLE `sch_news_attachment` (
 -- --------------------------------------------------------------------------------- 文件表
 -- 需求点:
 -- 外部文件， 所有人都可以看到
-
 DROP TABLE IF EXISTS `sch_files`;
 CREATE TABLE `sch_files` (
   `id` 				int(11) 		NOT NULL AUTO_INCREMENT,
@@ -335,9 +336,11 @@ CREATE TABLE `sch_reply_news` (
 DROP TABLE IF EXISTS `sch_links`;
 CREATE TABLE `sch_links`(
   `id`				INT(11)			NOT NULL AUTO_INCREMENT,
+  `lk_sch_index`	INT(11)			NOT NULL,						-- 链接所属于的索引
   `lk_name`			VARCHAR(120)	NOT NULL,						-- 40个字符.
   `lk_link`			VARCHAR(300)	NOT NULL,						-- URL长度统一最多为300
   `lk_logo`			VARCHAR(300)	NOT NULL,						-- LOGO URL
+  `lk_indx`			INT				DEFAULT 0,						-- 排序
   `lk_show`			CHAR			NOT NULL, 						-- 是否可见
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
@@ -409,6 +412,8 @@ insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bkmgr_dyjy
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bkmgr_tsjy_mc','sch_bankuai_tsjy_v_oc');
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bkmgr_gjjl_mc','sch_bankuai_gjjl_v_oc');
 
+-- 链接管理对象映射
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_home_ljgl_mc','sch_links_xxsy_v_oc');
 -- ================================================================================= 字典部分
 -- 新闻置顶选项
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_news','news_topic_top');
@@ -419,6 +424,8 @@ insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_bankuai','bk_active');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_slide','sli_show');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_slide','sli_show');
+insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_links','lk_show');
+insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_links','lk_show');
 -- ================================================================================= 视图
 -- 学校首页新闻视图
 DROP VIEW IF EXISTS sch_news_xxsy_v;
@@ -611,12 +618,20 @@ SELECT
 FROM
     `sch_cmmt`
 WHERE
-    (
-        `sch_cmmt`.`cmmt_index` = 1);
+    (`sch_cmmt`.`cmmt_index` = 1);
 -- --------------------------------------------------------------------------------- 文件视图
 
 -- --------------------------------------------------------------------------------- 链接视图
-
+DROP VIEW IF EXISTS `sch_links_xxsy_v`;
+CREATE VIEW `sch_links_xxsy_v` AS SELECT
+	`id`			AS `id`,
+	`lk_sch_index`	AS `lk_sch_index`,
+  	`lk_name`		AS `lk_name`,
+  	`lk_link`		AS `lk_link`,
+  	`lk_logo`		AS `lk_logo`,
+  	`lk_indx`		AS `lk_indx`,
+  	`lk_show`		AS `lk_show`
+FROM `sch_links` WHERE `lk_sch_index` = '1';
 ----------------------------------以下的SQL需要等导入元数据之后才可执行------------------
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_xxsy_v_oc';
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_xxgk_v_oc';
@@ -635,6 +650,9 @@ update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_d
 update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_dyjy_v_oc';
 update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_tsjy_v_oc';
 update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_gjjl_v_oc';
+
+update eova_item set poCode = 'sch_links_oc' where objectCode = 'sch_links_xxsy_v_oc';
+
 
 -- CREATE VIEW view_drw_comment_xinwen AS SELECT 
 -- `id` AS `id`,
