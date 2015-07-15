@@ -75,6 +75,45 @@ public class CrudController extends Controller {
 	
 	/**
 	 * @author Simon.Zhu
+	 * 重置密码操作
+	 */
+	public void resetPsd() {
+        final Crud crud = new Crud(this, "");
+        // 初始化业务拦截器
+        initIntercept(crud.getBizIntercept());
+        final MetaObject eo = crud.getObject();
+        
+        // 获取主键的值 格式:pkval1,pkval2,pkval3
+        String str = getPara(1);
+        final String pkValues = str.substring(0, str.length() - 1);
+        
+        // 事务(默认为TRANSACTION_READ_COMMITTED)
+        boolean flag = Db.tx(new IAtom() {
+            public boolean run() throws SQLException {
+                try {
+                    record.set(crud.getPkName(), pkValues);
+                    record.set("loginPwd", "000000");
+                    Db.use(crud.getDs()).update(crud.getTable(), crud.getPkName(), record);
+                } catch (Exception e) {
+                    buildException(e);
+                    return false;
+                }
+                return true;
+            }
+        });
+
+        if (!flag) {
+            renderJson(new Easy("操作失败<p title=\""+info+"\">"+error+"</p>"));
+            return;
+        }
+
+        // 记录新增日志
+        EovaLog.dao.info(this, EovaLog.SITETOP, eo.getStr("code") + "[" + pkValues + "]");
+        renderJson(new Easy());
+	}
+	
+	/**
+	 * @author Simon.Zhu
 	 * 布尔值通用CRUD操作, 布尔值在数据库中表现为 '0' 或者 '1'
 	 */
     public void booleanCrud() {

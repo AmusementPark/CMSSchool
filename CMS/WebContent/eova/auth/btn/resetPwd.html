@@ -1,0 +1,40 @@
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-lockedit',plain:true"
+onclick="crud_resetPsd()">
+	重置密码
+</a>
+<script type="text/javascript">
+var crud_resetPsd = function() {
+	var doAction = function(grid, url) {
+		$.messager.confirm('请确认', '重置密码会导致该用户当前密码失效,是否重置?', function(o) {
+			if (o) {
+				$.ajax({
+					url : url,
+					dataType : 'json',
+					success : function(o) {
+						if (o.success) {
+							grid.datagrid('load');
+							grid.datagrid('unselectAll');
+							slideMsg("操作成功！");
+						} else {
+							$.messager.alert("操作错误", o.msg ,'error');
+						}
+					}
+				});
+			}
+		});
+	};
+	var grid = $('#grid');
+	var array = grid.datagrid('getSelections');
+	var id2 = "";
+	var num = array.length;
+	if (num == "0") {
+		slideMsg("请选择一条记录！");
+		return;
+	}
+	for (var i = 0; i < array.length; i++) {
+		id2 = id2 + array[i].pk_val + ",";
+	}
+	doAction(grid, '/singleGrid/resetPsd/${menu.code}-'+id2);
+};
+</script>
+

@@ -65,7 +65,7 @@ INSERT INTO `eova_button` VALUES ('30','sys_auth_user',   '修改', '/eova/templ
 INSERT INTO `eova_button` VALUES ('31','sys_auth_user',   '删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 INSERT INTO `eova_button` VALUES ('32','sys_auth_role',   '权限分配', '/eova/auth/btn/roleChoose.html',  '',            '5');
 
-INSERT INTO `eova_button` VALUES ('33','sys_auth_user',   '权限分配', '/eova/auth/btn/roleChoose.html',  '',            '5');
+INSERT INTO `eova_button` VALUES ('33','sys_auth_user',   '重置密码', '/eova/auth/btn/resetPwd.html',     '',           '5');
 -- ----------------------------
 -- Table structure for `eova_dict`
 -- ----------------------------
