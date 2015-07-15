@@ -18,9 +18,9 @@ import com.eova.common.Easy;
 import com.eova.common.render.XlsRender;
 import com.eova.common.utils.xx;
 import com.eova.config.PageConst;
-import com.eova.model.KVMapping;
 import com.eova.model.MetaItem;
 import com.eova.model.MetaObject;
+import com.eova.model.User;
 import com.eova.widget.WidgetManager;
 import com.eova.widget.WidgetUtil;
 import com.jfinal.core.Controller;
@@ -61,6 +61,21 @@ public class GridController extends Controller {
 		// 获取条件
 		List<String> parmList = new ArrayList<String>();
 		String where = WidgetManager.getWhere(this, eis, parmList, ' ' + eo.getStr("filterWhere"));
+
+		/**
+		 * @author Simon.Zhu
+		 * 后门部分, 系统权限只给开发者.
+		 */
+		if( code.equals("eova_role_code") || code.equals("eova_user_code") ) {
+		    Integer rid = ((User)this.getSessionAttr("user")).get("rid");
+		    if ( rid != 0 )  {
+		        if ( where.trim().length() > 0 ) {
+		            where += (" and rid > "+ rid);
+		        } else {
+		            where += " where rid > 0 ";
+		        }
+		    }
+	    }
 
 		// 转换SQL参数为Obj[]
 		Object[] parm = new Object[parmList.size()];
