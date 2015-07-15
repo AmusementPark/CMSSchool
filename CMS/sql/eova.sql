@@ -432,7 +432,7 @@ CREATE TABLE `eova_user` (
   `id`       int(11)      NOT NULL AUTO_INCREMENT,
   `rid`      int(11)      NOT NULL COMMENT '角色',
   `loginId`  varchar(30)  NOT NULL COMMENT '帐号',
-  `loginPwd` varchar(50)  NOT NULL COMMENT '密码',
+  `loginPwd` varchar(50)  NOT NULL DEFAULT '000000' COMMENT '密码',
   `nickName` varchar(255) NOT NULL COMMENT '名字',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
