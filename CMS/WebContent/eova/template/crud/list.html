@@ -18,8 +18,10 @@
 								<td><%include("/eova/template/crud/btn/query.html"){}%></td>
 								<%}%>
 								<%// 自定义功能按钮%>
-								<%for(btn in btnList){%>
-								<td><%include(btn.ui){}%></td>
+								<%for(btn in btnList){
+									var param = {"name": btn.name};
+								%>
+								<td><%include(btn.ui, param){}%></td>
 								<%}%>
 							</tr>
 						</table>

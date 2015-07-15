@@ -299,6 +299,7 @@ CREATE TABLE `sch_cmmt` (
   `cmmt_content` 	TEXT			NOT NULL,						-- 评论内容
   `cmmt_status` 	CHAR	 		DEFAULT '2',						-- 0: 未通过. 2: 待审核. 1: 已通过
   `cmmt_time` 		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
+  `cmmt_reply`		text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 回复表
@@ -614,7 +615,8 @@ SELECT
     `sch_cmmt`.`cmmt_author`  AS `cmmt_author`,
     `sch_cmmt`.`cmmt_content` AS `cmmt_content`,
     `sch_cmmt`.`cmmt_status`  AS `cmmt_status`,
-    `sch_cmmt`.`cmmt_time`    AS `cmmt_time`
+    `sch_cmmt`.`cmmt_time`    AS `cmmt_time`,
+    `sch_cmmt`.`cmmt_reply`			  AS `cmmt_reply`
 FROM
     `sch_cmmt`
 WHERE
