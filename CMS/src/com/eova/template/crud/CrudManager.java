@@ -45,8 +45,8 @@ public class CrudManager {
 		for (MetaItem item : eis) {
 			// 控件类型
 			String type = item.getStr("type");
-			if ( !type.equals(MetaItem.TYPE_FILE)  || 
-			     !type.equals(MetaItem.TYPE_IMAGE) || 
+			if ( !type.equals(MetaItem.TYPE_FILE)  && 
+			     !type.equals(MetaItem.TYPE_IMAGE) &&
 			     !type.equals(MetaItem.TYPE_LOGOS) ) {
 			    continue;
 			}
@@ -77,7 +77,7 @@ public class CrudManager {
 			if (type.equals(MetaItem.TYPE_FILE)  || 
 			    type.equals(MetaItem.TYPE_IMAGE) || 
 			    type.equals(MetaItem.TYPE_LOGOS) ){
-				//do nothing
+				value = record.getStr(key);
 			} else {
 				// 新增跳过自增长字段(新增时为空)
 				if (xx.isEmpty(value) && type.equals(MetaItem.TYPE_AUTO)) {

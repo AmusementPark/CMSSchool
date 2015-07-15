@@ -238,6 +238,7 @@ CREATE TABLE `sch_news` (
   `news_topic_top`	CHAR,										-- 是否在板块置顶.		-- select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_topic_top';ds=eova
   `news_site_top` 	CHAR,										-- 是否在全站首页置顶.   -- select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_site_top';ds=eova
   `news_time` 		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
+  `news_img` 		VARCHAR(300),								-- 置顶时显示的图片
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 新闻关联附件文件表
@@ -439,7 +440,8 @@ CREATE VIEW sch_news_xxsy_v AS SELECT
 	`news_author` 	AS `news_author`,
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
-	`news_time` 	AS `news_time`
+	`news_time` 	AS `news_time`,
+	`news_img`		AS `news_img`
 FROM `sch_news` WHERE `news_index` = '1' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 学校概况新闻视图
 DROP VIEW IF EXISTS sch_news_xxgk_v;
