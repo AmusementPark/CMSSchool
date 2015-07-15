@@ -17,8 +17,8 @@ INSERT INTO `eova_menu` VALUES ('108', 'sch_gjjl_mc', '国际交流', 'dir', 'ic
 
 -- 学校首页
 INSERT INTO `eova_menu` VALUES ('10101', 'sch_home_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '101', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('10102', 'sch_home_gdgl_mc', '轮播管理', 'singleGrid', 'icon-layoutsidebar','2', '101', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('10103', 'sch_home_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutsidebar','3', '101', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10102', 'sch_home_gdgl_mc', '轮放管理', 'singleGrid', 'icon-photos',       '2', '101', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10103', 'sch_home_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutlink',   '3', '101', '0', '', '');
 -- 学校概况
 INSERT INTO `eova_menu` VALUES ('10201', 'sch_xxgk_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '102', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('10202', 'sch_xxgk_wjgl_mc', '文件管理', 'singleGrid', 'icon-layoutsidebar','2', '102', '0', '', '');

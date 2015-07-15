@@ -3,7 +3,7 @@
  */
 (function ($) {
 
-    const TEXTBOX = "textbox";
+    var TEXTBOX = "textbox";
 
     $.fn.eovatext = function (options) {
 //        $.eovaInit(this, TextBox, TEXTBOX, options);

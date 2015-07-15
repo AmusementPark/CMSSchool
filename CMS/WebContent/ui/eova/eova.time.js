@@ -3,7 +3,7 @@
     // import
     var TextBox = $.fn.eovatext.TextBox;
 
-    const TIMEBOX = "timebox";
+    var TIMEBOX = "timebox";
 
     $.fn.eovatime = function (options) {
 //        $.eovaInit(this, FindBox, FINDBOX, options);

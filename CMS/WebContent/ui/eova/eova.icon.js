@@ -4,7 +4,7 @@
     // import
     var TextBox = $.fn.eovatext.TextBox;
 
-    const ICONBOX = "iconbox";
+    var ICONBOX = "iconbox";
 
     $.fn.eovaicon = function (options) {
 

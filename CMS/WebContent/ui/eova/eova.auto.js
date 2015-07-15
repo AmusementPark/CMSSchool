@@ -3,7 +3,7 @@
     // import
     var TextBox = $.fn.eovatext.TextBox;
 
-    const AUTOBOX = "autobox";
+    var AUTOBOX = "autobox";
 
     $.fn.eovaauto = function (options) {
 //        $.eovaInit(this, FindBox, FINDBOX, options);

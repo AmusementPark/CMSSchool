@@ -3,7 +3,7 @@
  */
 (function ($) {
 
-    const CHECKBOX = "checkbox";
+    var CHECKBOX = "checkbox";
 
     $.fn.eovacheck = function (options) {
         var list = [];

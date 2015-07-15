@@ -6,7 +6,7 @@
     // import
     var TextBox = $.fn.eovatext.TextBox;
 
-    const COMBOBOX = "combobox";
+    var COMBOBOX = "combobox";
 
     $.fn.eovacombo = function (options) {
 //        $.eovaInit(this, FindBox, FINDBOX, options);
