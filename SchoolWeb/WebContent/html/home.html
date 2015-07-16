@@ -1,12 +1,24 @@
 <%layout("/layout/default.html",{'title' : '主页'}){%>
+<script type="text/javascript" src="${ctx!}/js/sch_home.js"></script>
 
-<body ng-app>
+<body data-ng-app="sch.home">
 Hello ${name!}
 <br>
 {{"angular is alive"}}
 <br>
 <#edit id="editor" name="comment" value="${comment!}"/>
+
+	<div data-ng-controller="ngMainCtrl">
+		{{aloha}}
+	</div>
+	
+	<div data-ng-controller="ngFootCtrl">
+		{{footer}}
+	</div>
 </body>
 
 
+
+<script>
+</script>
 <%}%>
