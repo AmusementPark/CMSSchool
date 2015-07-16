@@ -194,3 +194,9 @@ div[class^="eova"] i:hover {
   cursor: pointer;
   background-position: center 0
 }
+
+.datagrid-cell a {
+	color: blue;
+ 	font-weight: bold;
+  	text-decoration: underline;
+}

@@ -77,6 +77,15 @@ function afterEditCell(index, row, changes){
 							 	return ck;
 							},
 						<%}%>
+						<%if(item.type == '文件'){%>
+							formatter:function(value, row, index, field){
+                                if(value && value.length > 10){
+                                    return '<a href="' + value + '" target="_blank">下载</a>';
+                                }
+                                return value;
+							},
+						<%}%>
+						
 						<%if(item.type == '文本框'){%>
 							formatter:function(value, row, index, field){
                                 if(value && value.length > 10){
