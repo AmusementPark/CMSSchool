@@ -37,11 +37,6 @@ import com.jfinal.plugin.activerecord.Record;
  */
 public class GridController extends Controller {
     
-    private void whereProcess(String sql) {
-        List<String> list = new ArrayList<String>();
-        // where news_author = ${user}, 
-    }
-
 	/**
 	 * 分页查询
 	 */
@@ -126,8 +121,10 @@ public class GridController extends Controller {
 		if(field == null) return;
 		
 		for(Record record : records){
-			String path = record.getStr(field);
-			String image = "<img src='" + path + "' style='width:50%'/>";
+			String path = record.getStr(field), image = "";
+			if( path != null && path.length() > 0 ) { 
+			    image = "<img src='" + path + "' style='width:50%'/>";
+			}			
 			record.set(field, image);
 		}
 	}

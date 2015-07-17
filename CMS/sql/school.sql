@@ -235,8 +235,8 @@ CREATE TABLE `sch_news` (
   `news_title` 		TEXT 			not null,					-- 新闻标题
   `news_content` 	TEXT 			not null,					-- 新闻内容 .一张HTML页面
   `news_author`		VARCHAR(30)		not null,					-- 对应USER表里的LOGINID
-  `news_topic_top`	CHAR,										-- 是否在板块置顶.		-- select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_topic_top';ds=eova
-  `news_site_top` 	CHAR,										-- 是否在全站首页置顶.   -- select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_site_top';ds=eova
+  `news_topic_top`	CHAR 			DEFAULT 0,					-- 是否在板块置顶.		-- select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_topic_top';ds=eova
+  `news_site_top` 	CHAR			DEFAULT 0,					-- 是否在全站首页置顶.   -- select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_site_top';ds=eova
   `news_time` 		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
   `news_img` 		VARCHAR(300),								-- 置顶时显示的图片
   PRIMARY KEY (`id`)
@@ -280,7 +280,7 @@ CREATE TABLE `sch_internal_files` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 文访问量表
-DROP TABLE IF EXISTS `sch_news_count`;
+DROP TABLE IF EXISTS `sch_news_pv`;
 CREATE TABLE `sch_news_count` (
   `id` 				INT(11)			NOT NULL,						-- 新闻编号.
   `count`			INT(11)			NOT NULL DEFAULT 0,				-- 新闻访问量.
@@ -357,12 +357,12 @@ CREATE TABLE `sch_outter_links`(
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
-INSERT INTO `sch_links` VALUES ('1', '1', '校园ftp', 		'http://www.baidu.com/',  '');
-INSERT INTO `sch_links` VALUES ('2', '2', '内部办公平台', 	'http://www.baidu.com/',  '');
-INSERT INTO `sch_links` VALUES ('3', '3', '教务管理系统', 	'http://www.baidu.com/',  '');
-INSERT INTO `sch_links` VALUES ('4', '4', '心理测试平台', 	'http://www.baidu.com/',  '');
-INSERT INTO `sch_links` VALUES ('5', '5', '校讯通', 			'http://www.baidu.com/',  '');
-INSERT INTO `sch_links` VALUES ('6', '6', '口语100人机对话', 'http://www.baidu.com/',  '');
+INSERT INTO `sch_links` VALUES ('1', '1', '校园ftp', 		'http://www.baidu.com/',  '', '1', '1');
+INSERT INTO `sch_links` VALUES ('2', '1', '内部办公平台', 	'http://www.baidu.com/',  '', '2', '1');
+INSERT INTO `sch_links` VALUES ('3', '1', '教务管理系统', 	'http://www.baidu.com/',  '', '3', '1');
+INSERT INTO `sch_links` VALUES ('4', '1', '心理测试平台', 	'http://www.baidu.com/',  '', '4', '1');
+INSERT INTO `sch_links` VALUES ('5', '1', '校讯通', 			'http://www.baidu.com/',  '', '5', '1');
+INSERT INTO `sch_links` VALUES ('6', '1', '口语100人机对话', 'http://www.baidu.com/',  '', '6', '1');
 -- --------------------------------------------------------------------------------- 首页滚动图片表
 DROP TABLE IF EXISTS `sch_slide`;
 CREATE TABLE `sch_slide` (
