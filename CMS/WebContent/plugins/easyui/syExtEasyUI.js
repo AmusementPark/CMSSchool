@@ -292,9 +292,11 @@ sy.modalDialog = function(options, width, height) {
 	}, options);
 	opts.modal = true;// 强制此dialog为模式化，无视传递过来的modal参数
 	if (options.url) {
-		opts.content = '<iframe id="" src="' + options.url + '" allowTransparency="true" scrolling="auto" width="100%" height="98%" frameBorder="0" name=""></iframe>';
+		opts.content = '<iframe id="modalDialog" src="" allowTransparency="true" scrolling="auto" width="100%" height="98%" frameBorder="0" name=""></iframe>';
 	}
-	return $('<div/>').dialog(opts);
+	var result =  $('<div/>').dialog(opts);
+	$("#modalDialog").attr("src", options.url);
+	return result;
 };
 
 /**
