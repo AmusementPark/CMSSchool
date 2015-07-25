@@ -30,7 +30,8 @@ INSERT INTO `eova_menu` VALUES ('10401', 'sch_jxky_xwgl_mc', '新闻管理', 'si
 INSERT INTO `eova_menu` VALUES ('10402', 'sch_jxky_wjgl_mc', '文件管理', 'singleGrid', 'icon-layoutsidebar','2', '104', '0', '', '');
 -- 党群之窗
 INSERT INTO `eova_menu` VALUES ('10501', 'sch_dqzc_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '105', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('10502', 'sch_dqzc_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutsidebar','2', '105', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10502', 'sch_dqzc_wjgl_mc', '文件管理', 'singleGrid', 'icon-layoutsidebar','2', '105', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10503', 'sch_dqzc_dygl_mc', '党员风采', 'singleGrid', 'icon-photos',       '3', '105', '0', '', '');
 -- 德育教育
 INSERT INTO `eova_menu` VALUES ('10601', 'sch_dyjy_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '106', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('10602', 'sch_dyjy_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutsidebar','2', '106', '0', '', '');
@@ -235,8 +236,8 @@ CREATE TABLE `sch_news` (
   `news_title` 		TEXT 			not null,					-- 新闻标题
   `news_content` 	TEXT 			not null,					-- 新闻内容 .一张HTML页面
   `news_author`		VARCHAR(30)		not null,					-- 对应USER表里的LOGINID
-  `news_topic_top`	CHAR,										-- 是否在板块置顶.		-- select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_topic_top';ds=eova
-  `news_site_top` 	CHAR,										-- 是否在全站首页置顶.   -- select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_site_top';ds=eova
+  `news_topic_top`	CHAR 			DEFAULT 0,					-- 是否在板块置顶.		-- select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_topic_top';ds=eova
+  `news_site_top` 	CHAR			DEFAULT 0,					-- 是否在全站首页置顶.   -- select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_site_top';ds=eova
   `news_time` 		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
   `news_img` 		VARCHAR(300),								-- 置顶时显示的图片
   PRIMARY KEY (`id`)
@@ -280,7 +281,7 @@ CREATE TABLE `sch_internal_files` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 文访问量表
-DROP TABLE IF EXISTS `sch_news_count`;
+DROP TABLE IF EXISTS `sch_news_pv`;
 CREATE TABLE `sch_news_count` (
   `id` 				INT(11)			NOT NULL,						-- 新闻编号.
   `count`			INT(11)			NOT NULL DEFAULT 0,				-- 新闻访问量.
@@ -357,12 +358,12 @@ CREATE TABLE `sch_outter_links`(
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
-INSERT INTO `sch_links` VALUES ('1', '1', '校园ftp', 		'http://www.baidu.com/',  '');
-INSERT INTO `sch_links` VALUES ('2', '2', '内部办公平台', 	'http://www.baidu.com/',  '');
-INSERT INTO `sch_links` VALUES ('3', '3', '教务管理系统', 	'http://www.baidu.com/',  '');
-INSERT INTO `sch_links` VALUES ('4', '4', '心理测试平台', 	'http://www.baidu.com/',  '');
-INSERT INTO `sch_links` VALUES ('5', '5', '校讯通', 			'http://www.baidu.com/',  '');
-INSERT INTO `sch_links` VALUES ('6', '6', '口语100人机对话', 'http://www.baidu.com/',  '');
+INSERT INTO `sch_links` VALUES ('1', '1', '校园ftp', 		'http://www.baidu.com/',  '', '1', '1');
+INSERT INTO `sch_links` VALUES ('2', '1', '内部办公平台', 	'http://www.baidu.com/',  '', '2', '1');
+INSERT INTO `sch_links` VALUES ('3', '1', '教务管理系统', 	'http://www.baidu.com/',  '', '3', '1');
+INSERT INTO `sch_links` VALUES ('4', '1', '心理测试平台', 	'http://www.baidu.com/',  '', '4', '1');
+INSERT INTO `sch_links` VALUES ('5', '1', '校讯通', 			'http://www.baidu.com/',  '', '5', '1');
+INSERT INTO `sch_links` VALUES ('6', '1', '口语100人机对话', 'http://www.baidu.com/',  '', '6', '1');
 -- --------------------------------------------------------------------------------- 首页滚动图片表
 DROP TABLE IF EXISTS `sch_slide`;
 CREATE TABLE `sch_slide` (
@@ -374,7 +375,17 @@ CREATE TABLE `sch_slide` (
   `sli_show`		CHAR			NOT NULL,						-- 是否显示  -- select value ID,name CN from `eova_dict` where `class` = 'sch_slide' and field = 'sli_show';ds=eova
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
-
+-- --------------------------------------------------------------------------------- 党员滚动图片表
+DROP TABLE IF EXISTS `sch_teachers_desc`;
+CREATE TABLE `sch_teachers_desc` (
+  `id`				INT(11)			NOT NULL AUTO_INCREMENT,
+  `sli_name`		VARCHAR(120)	NOT NULL,						-- 40个字符.
+  `sli_news`		INT(11),										-- 链接新闻ID. 可不填写
+  `sli_pic`			VARCHAR(300)	NOT NULL,						-- 图片资源URL
+  `sli_index`		INT(11)			NOT NULL, 						-- 排序
+  `sli_show`		CHAR			NOT NULL,						-- 是否显示  -- select value ID,name CN from `eova_dict` where `class` = 'sch_slide' and field = 'sli_show';ds=eova
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 照片表
 
 -- INSERT INTO eova_menu_object (`menuCode`,`objectCode`) values ('drw_news_mc','drw_news_oc');
@@ -393,6 +404,8 @@ insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bankuai_mc
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_home_gdgl_mc','sch_slide_oc');
 
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_logos_mc','sch_logos_oc');
+-- 党群之窗党员滚动
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_dqzc_dygl_mc','sch_slide_oc');
 
 -- 新闻菜单对象映射
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_home_xwgl_mc','sch_news_xxsy_v_oc');
@@ -494,7 +507,7 @@ CREATE VIEW sch_news_dqzc_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '5' AND `news_bankuai` (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+FROM `sch_news` WHERE `news_index` = '5' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 德育教育新闻视图
 DROP VIEW IF EXISTS sch_news_dyjy_v;
 CREATE VIEW sch_news_dyjy_v AS SELECT 
@@ -507,7 +520,7 @@ CREATE VIEW sch_news_dyjy_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '6' AND `news_bankuai` (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+FROM `sch_news` WHERE `news_index` = '6' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 特色教育新闻视图
 DROP VIEW IF EXISTS sch_news_tsjy_v;
 CREATE VIEW sch_news_tsjy_v AS SELECT 
@@ -520,7 +533,7 @@ CREATE VIEW sch_news_tsjy_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '7' AND `news_bankuai` (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+FROM `sch_news` WHERE `news_index` = '7' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 国际交流新闻视图
 DROP VIEW IF EXISTS sch_news_gjjl_v;
 CREATE VIEW sch_news_gjjl_v AS SELECT 
@@ -533,7 +546,7 @@ CREATE VIEW sch_news_gjjl_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '8' AND `news_bankuai` (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+FROM `sch_news` WHERE `news_index` = '8' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- --------------------------------------------------------------------------------- 板块视图
 DROP VIEW IF EXISTS sch_bankuai_xxsy_v;
 CREATE VIEW sch_bankuai_xxsy_v AS SELECT 
