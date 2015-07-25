@@ -15,6 +15,7 @@ import com.jfinal.plugin.druid.DruidPlugin;
 
 import drw.beetle.IsTrueFun;
 import drw.controller.CommonController;
+import drw.interceptor.IPInterceptor;
 
 public class DrwConfig extends JFinalConfig {
 	
@@ -31,7 +32,9 @@ public class DrwConfig extends JFinalConfig {
 		loadPropertyFile("drw.config");
 		// 开发模式
 		constant.setDevMode(getPropertyToBoolean("devMode", true));
-		
+		//获取内部ip列表
+		String ips = getProperty("internal_ip");
+		DrwConstants.internalIP = ips.split(",");
 		
 		//beetl load
 		constant.setMainRenderFactory(new BeetlRenderFactory());
@@ -48,9 +51,9 @@ public class DrwConfig extends JFinalConfig {
 	}
 
 	@Override
-	public void configInterceptor(Interceptors arg0) {
+	public void configInterceptor(Interceptors in) {
 		// TODO Auto-generated method stub
-
+		in.add(new IPInterceptor());
 	}
 
 	@Override
