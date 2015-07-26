@@ -51,7 +51,7 @@ public class DrwConfig extends JFinalConfig {
     }
 
     @Override
-    public void configInterceptor(Interceptors arg0) {
+    public void configInterceptor(Interceptors in) {
         // TODO Auto-generated method stub
         in.add(new IPInterceptor());
     }
