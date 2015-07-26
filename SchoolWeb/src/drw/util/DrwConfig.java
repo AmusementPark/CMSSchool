@@ -18,61 +18,61 @@ import drw.controller.CommonController;
 import drw.interceptor.IPInterceptor;
 
 public class DrwConfig extends JFinalConfig {
-	
-	/**
-	 * 系统启动之后  
-	 */
-	public void afterJFinalStart() {
-		System.err.println("School Web Started\n");
-	}
-	
-	@Override
-	public void configConstant(Constants constant) {
-		// 加载配置文件
-		loadPropertyFile("drw.config");
-		// 开发模式
-		constant.setDevMode(getPropertyToBoolean("devMode", true));
-		//获取内部ip列表
-		String ips = getProperty("internal_ip");
-		DrwConstants.internalIP = ips.split(",");
-			
-		//beetl load
-		constant.setMainRenderFactory(new BeetlRenderFactory());
-		GroupTemplate group = BeetlRenderFactory.groupTemplate;
-		group.registerFunction("isTrue", new IsTrueFun());
-		
-	}
+    
+    /**
+     * 系统启动之后  
+     */
+    public void afterJFinalStart() {
+        System.err.println("School Web Started\n");
+    }
+    
+    @Override
+    public void configConstant(Constants constant) {
+        // 加载配置文件
+        loadPropertyFile("drw.config");
+        // 开发模式
+        constant.setDevMode(getPropertyToBoolean("devMode", true));
+        //获取内部ip列表
+        String ips = getProperty("internal_ip");
+        DrwConstants.internalIP = ips.split(",");
+            
+        //beetl load
+        constant.setMainRenderFactory(new BeetlRenderFactory());
+        GroupTemplate group = BeetlRenderFactory.groupTemplate;
+        group.registerFunction("isTrue", new IsTrueFun());
+        
+    }
 
-	@Override
-	public void configHandler(Handlers handlers) {
-		//设置context
-		handlers.add(new ContextPathHandler("ctx"));
+    @Override
+    public void configHandler(Handlers handlers) {
+        //设置context
+        handlers.add(new ContextPathHandler("ctx"));
 
-	}
+    }
 
-	@Override
-	public void configInterceptor(Interceptors arg0) {
-		// TODO Auto-generated method stub
+    @Override
+    public void configInterceptor(Interceptors arg0) {
+        // TODO Auto-generated method stub
         in.add(new IPInterceptor());
-	}
+    }
 
-	@Override
-	public void configPlugin(Plugins plugins) {
-		// db load
-		DruidPlugin main = new DruidPlugin(getProperty("url"), getProperty("user"), getProperty("pwd"), getProperty("driver"));
-		
-		plugins.add(main);
-		
-		ActiveRecordPlugin arp = new ActiveRecordPlugin(main);
-		arp.setShowSql(true);
-		
-		plugins.add(arp);
-	}
+    @Override
+    public void configPlugin(Plugins plugins) {
+        // db load
+        DruidPlugin main = new DruidPlugin(getProperty("url"), getProperty("user"), getProperty("pwd"), getProperty("driver"));
+        
+        plugins.add(main);
+        
+        ActiveRecordPlugin arp = new ActiveRecordPlugin(main);
+        arp.setShowSql(true);
+        
+        plugins.add(arp);
+    }
 
-	@Override
-	public void configRoute(Routes routes) {
-		//config routes
-		routes.add("/", CommonController.class);
-	}
+    @Override
+    public void configRoute(Routes routes) {
+        //config routes
+        routes.add("/", CommonController.class);
+    }
 
 }

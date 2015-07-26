@@ -70,6 +70,7 @@ var isSelected = function(row){
 
 // 弹出Dialog
 var loadDialog = function(grid, name, url) {
+	debugger;
 	// 弹出窗口
  	var dialog = parent.sy.modalDialog({
  		title : name,
@@ -80,7 +81,7 @@ var loadDialog = function(grid, name, url) {
  				dialog.find('iframe').get(0).contentWindow.submitForm(dialog, grid, parent.$);
  			}
  		} ]
- 	}, 920, 500);
+ 	}, 1020, 500);
 };
 
 // 导入数据Dialog

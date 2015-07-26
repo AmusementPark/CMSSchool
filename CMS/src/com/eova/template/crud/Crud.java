@@ -92,7 +92,8 @@ public class Crud {
 	 */
 	private void init(Controller c) {
 
-		this.menuCode = c.getPara(0);
+		this.menuCode = c.getPara(0); 
+		System.err.println(c.getRequest().getRequestURI());
 
 		// 获取菜单
 		Menu menu = Menu.dao.findByCode(menuCode);

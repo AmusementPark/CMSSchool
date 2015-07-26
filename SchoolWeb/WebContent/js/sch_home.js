@@ -22,15 +22,27 @@ angular.module('sch.home')
 	//	};
 		$scope.aloha = $TITLE;
 	}])
-.directive('schHomeTopNewsBox', function(){
+.directive('schHomeLoginName', function(){
 	var dirObject = new Object();
+		dirObject.replace = true;
+		dirObject.templateUrl = './isolate_template2.html';
+		dirObject.link = function() {
+			
+		};
+	return dirObject;
+})
+.directive('schHomeLoginPswd', function(){
+	var dirObject = new Object();
+		dirObject.replace = true;
+		dirObject.templateUrl = './isolate_template2.html';
 		dirObject.link = function() {
 			
 		};
 	return dirObject;
 });
 
-angular.module('sch.home').controller('ngFootCtrl', ['$scope', '$http', '$FOOTER', 
-function($scope, $http, $FOOTER) {
-	$scope.footer = $FOOTER;
-}]);
+angular.module('sch.home')
+.controller('ngFootCtrl', ['$scope', '$http', '$FOOTER', 
+	function($scope, $http, $FOOTER) {
+		$scope.footer = $FOOTER;
+	}]);

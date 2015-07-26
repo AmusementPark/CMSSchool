@@ -7,4 +7,9 @@ public class CommonController extends Controller {
 		setAttr("name", "Will");
 		render("/html/home.html");
 	}
+	
+	public void error(){
+		setAttr("message", getAttr("message"));
+		render("/html/error.html");
+	}
 }
