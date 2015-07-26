@@ -61,7 +61,8 @@ public class GridController extends Controller {
 		 * @author Simon.Zhu
 		 * 后门部分, 系统权限只给开发者.
 		 */
-		if( code.equals("eova_role_code") || code.equals("eova_user_code") ) {
+		if( code.equals("eova_role_code") || 
+		    code.equals("eova_user_code") ) {
 		    Integer rid = ((User)this.getSessionAttr("user")).get("rid");
 		    if ( rid != 0 )  {
 		        if ( where.trim().length() > 0 ) {

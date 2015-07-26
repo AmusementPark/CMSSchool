@@ -105,6 +105,11 @@ INSERT INTO `eova_button` VALUES ('105011','sch_dqzc_xwgl_mc','查询', '', '', 
 INSERT INTO `eova_button` VALUES ('105012','sch_dqzc_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
 INSERT INTO `eova_button` VALUES ('105013','sch_dqzc_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
 INSERT INTO `eova_button` VALUES ('105014','sch_dqzc_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+-- 党员风采
+INSERT INTO `eova_button` VALUES ('105021','sch_dqzc_dyfc_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('105022','sch_dqzc_dyfc_mc','新增', '/eova/template/crud/btn/addMulti.html',    'crud/addMulti',    '1');
+INSERT INTO `eova_button` VALUES ('105023','sch_dqzc_dyfc_mc','修改', '/eova/template/crud/btn/updateMulti.html', 'crud/updateMulti', '2');
+INSERT INTO `eova_button` VALUES ('105024','sch_dqzc_dyfc_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 德育教育板块CRUD权限
 -- 新闻管理
 INSERT INTO `eova_button` VALUES ('106011','sch_dyjy_xwgl_mc','查询', '', '', '0');
@@ -282,7 +287,7 @@ CREATE TABLE `sch_internal_files` (
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 文访问量表
 DROP TABLE IF EXISTS `sch_news_pv`;
-CREATE TABLE `sch_news_count` (
+CREATE TABLE `sch_news_pv` (
   `id` 				INT(11)			NOT NULL,						-- 新闻编号.
   `count`			INT(11)			NOT NULL DEFAULT 0,				-- 新闻访问量.
   PRIMARY KEY (`id`)
@@ -376,14 +381,15 @@ CREATE TABLE `sch_slide` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 党员滚动图片表
-DROP TABLE IF EXISTS `sch_teachers_desc`;
-CREATE TABLE `sch_teachers_desc` (
+DROP TABLE IF EXISTS `sch_leaders`;
+CREATE TABLE `sch_leaders` (
   `id`				INT(11)			NOT NULL AUTO_INCREMENT,
   `sli_name`		VARCHAR(120)	NOT NULL,						-- 40个字符.
-  `sli_news`		INT(11),										-- 链接新闻ID. 可不填写
+  `sli_news`		TEXT			DEFAULT '',						-- 领导介绍
   `sli_pic`			VARCHAR(300)	NOT NULL,						-- 图片资源URL
   `sli_index`		INT(11)			NOT NULL, 						-- 排序
-  `sli_show`		CHAR			NOT NULL,						-- 是否显示  -- select value ID,name CN from `eova_dict` where `class` = 'sch_slide' and field = 'sli_show';ds=eova
+  `sli_show`		CHAR			NOT NULL,						-- 是否显示  -- select value ID,name CN from `eova_dict` where `class` = 'sch_leaders' and field = 'sli_show';ds=eova
+  `sli_time`		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 照片表
@@ -405,7 +411,7 @@ insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_home_gdgl_
 
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_logos_mc','sch_logos_oc');
 -- 党群之窗党员滚动
-insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_dqzc_dygl_mc','sch_slide_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_dqzc_dyfc_mc','sch_leaders_oc');
 
 -- 新闻菜单对象映射
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_home_xwgl_mc','sch_news_xxsy_v_oc');
@@ -441,6 +447,8 @@ insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_slide','sli_show');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_links','lk_show');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_links','lk_show');
+insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_leaders','sli_show');
+insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_leaders','sli_show');
 -- ================================================================================= 视图
 -- 学校首页新闻视图
 DROP VIEW IF EXISTS sch_news_xxsy_v;
