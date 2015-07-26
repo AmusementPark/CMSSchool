@@ -70,7 +70,6 @@ var isSelected = function(row){
 
 // 弹出Dialog
 var loadDialog = function(grid, name, url) {
-	debugger;
 	// 弹出窗口
  	var dialog = parent.sy.modalDialog({
  		title : name,
