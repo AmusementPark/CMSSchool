@@ -200,11 +200,11 @@ insert into `sch_index` values ('8', '国际交流');
 -- 3. 管理员可以调整板块结构
 DROP TABLE IF EXISTS `sch_bankuai`;
 CREATE TABLE `sch_bankuai` (
-	`id` 				int(11) 		not null AUTO_INCREMENT,	-- 板块ID 
-	`bk_parent`			int(11)			not null,					-- 板块所属索引  -- select id ID, idx_name CN from `sch_index` where id=1,2,3...;ds=eova
-	`bk_name`			varchar(60)		not null,					-- 板块名, 20个字符限定
-	`bk_index`			int				not null,					-- 板块排序
-	`bk_active`			char			not null, 					-- 板块是否激活 -- select value ID,name CN from `eova_dict` where `class` = 'sch_bankuai' and field = 'bk_active';ds=eova
+	`id` 				INT(11) 		NOT NULL AUTO_INCREMENT,	-- 板块ID 
+	`bk_parent`			INT(11)			NOT NULL,					-- 板块所属索引  -- select id ID, idx_name CN from `sch_index` where id=1,2,3...;ds=eova
+	`bk_name`			VARCHAR(60)		NOT NULL,					-- 板块名, 20个字符限定
+	`bk_index`			INT				DEFAULT 0, 					-- 排序
+	`bk_active`			CHAR			NOT NULL, 					-- 板块是否激活 -- select value ID,name CN from `eova_dict` where `class` = 'sch_bankuai' and field = 'bk_active';ds=eova
 	-- 板块LOGO
 	-- 板块额外资源...
 	PRIMARY KEY (`id`)
@@ -302,9 +302,9 @@ CREATE TABLE `sch_cmmt` (
   `ref_id`			INT(11)			NOT NULL,						-- 被评论新闻/文件 id
   `cmmt_index`		INT(11)			NOT NULL,						-- 被评论新闻/课件 所属索引
   `cmmt_type`		INT(1)			NOT NULL,						-- 0 - 新闻； 1 - 内部文件； - 2 - 外部文件
-  `cmmt_author` 	varchar(30) 		NOT NULL,						-- 评论者.
+  `cmmt_author` 	varchar(30) 		NOT NULL,					-- 评论者.
   `cmmt_content` 	TEXT			NOT NULL,						-- 评论内容
-  `cmmt_status` 	CHAR	 		DEFAULT '2',						-- 0: 未通过. 2: 待审核. 1: 已通过
+  `cmmt_status` 	CHAR	 		DEFAULT '2',					-- 0: 未通过. 2: 待审核. 1: 已通过
   `cmmt_time` 		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
   `cmmt_reply`		text,
   PRIMARY KEY (`id`)
@@ -349,7 +349,7 @@ CREATE TABLE `sch_links`(
   `lk_link`			VARCHAR(300)	NOT NULL,						-- URL长度统一最多为300
   `lk_logo`			VARCHAR(300)	NOT NULL,						-- LOGO URL
   `lk_indx`			INT				DEFAULT 0,						-- 排序
-  `lk_show`			CHAR			NOT NULL, 						-- 是否可见
+  `lk_show`			CHAR			NOT NULL DEFAULT 1,				-- 是否可见
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 全站公共链接资源表
@@ -376,8 +376,8 @@ CREATE TABLE `sch_slide` (
   `sli_name`		VARCHAR(120)	NOT NULL,						-- 40个字符.
   `sli_news`		INT(11),										-- 链接新闻ID. 可不填写
   `sli_pic`			VARCHAR(300)	NOT NULL,						-- 图片资源URL
-  `sli_index`		INT(11)			NOT NULL, 						-- 排序
-  `sli_show`		CHAR			NOT NULL,						-- 是否显示  -- select value ID,name CN from `eova_dict` where `class` = 'sch_slide' and field = 'sli_show';ds=eova
+  `sli_index`		INT				DEFAULT 0, 						-- 排序
+  `sli_show`		CHAR			NOT NULL DEFAULT 1,				-- 是否显示  -- select value ID,name CN from `eova_dict` where `class` = 'sch_slide' and field = 'sli_show';ds=eova
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 党员滚动图片表
@@ -387,8 +387,8 @@ CREATE TABLE `sch_leaders` (
   `sli_name`		VARCHAR(120)	NOT NULL,						-- 40个字符.
   `sli_news`		TEXT			DEFAULT '',						-- 领导介绍
   `sli_pic`			VARCHAR(300)	NOT NULL,						-- 图片资源URL
-  `sli_index`		INT(11)			NOT NULL, 						-- 排序
-  `sli_show`		CHAR			NOT NULL,						-- 是否显示  -- select value ID,name CN from `eova_dict` where `class` = 'sch_leaders' and field = 'sli_show';ds=eova
+  `sli_index`		INT				DEFAULT 0, 						-- 排序
+  `sli_show`		CHAR			NOT NULL DEFAULT 1,				-- 是否显示  -- select value ID,name CN from `eova_dict` where `class` = 'sch_leaders' and field = 'sli_show';ds=eova
   `sli_time`		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
@@ -666,6 +666,10 @@ update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_dqzc_v_
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_dyjy_v_oc';
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_tsjy_v_oc';
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_gjjl_v_oc';
+
+update eova_item set exp = 'select id ID, idx_name CN from `sch_index` where id=1;ds=eova', `type`='下拉框' where objectCode='sch_news_xxsy_v_oc' and en='news_index';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=1;ds=eova', `type`='下拉框'  where objectCode='sch_news_xxsy_v_oc' and en='news_bankuai';
+
 
 update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_xxsy_v_oc';
 update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_xxgk_v_oc';
