@@ -76,7 +76,15 @@ public class CrudManager {
 			//文件需要特殊处理
 			if (type.equals(MetaItem.TYPE_FILE)  || 
 			    type.equals(MetaItem.TYPE_IMAGE) || 
-			    type.equals(MetaItem.TYPE_LOGOS) ){
+			    type.equals(MetaItem.TYPE_LOGOS) ) {
+			    /**
+			     * @author Simon.Zhu
+			     */
+			    // 假如UploadFile为空, 不设置这个值, 在update操作中, 这一点尤为重要
+				if (record.getStr(key) == null || 
+				    record.getStr(key).length() == 0) {
+				    continue;
+				}
 				value = record.getStr(key);
 			} else {
 				// 新增跳过自增长字段(新增时为空)
