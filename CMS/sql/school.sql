@@ -1,13 +1,13 @@
 -- ================================================================================= 菜单部分
 -- --------------------------------------------------------------------------------- 学校运营父菜单
-INSERT INTO `eova_menu` VALUES ('101', 'sch_home_mc', '学校首页', 'dir', 'icon-layoutsidebar','1', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('102', 'sch_xxgk_mc', '学校概况', 'dir', 'icon-foldertable',  '2', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('103', 'sch_xwzx_mc', '新闻中心', 'dir', 'icon-comments',     '3', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('104', 'sch_jxky_mc', '教学科研', 'dir', 'icon-layoutsidebar','4', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('105', 'sch_dqzc_mc', '党群之窗', 'dir', 'icon-foldertable',  '5', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('106', 'sch_dyjy_mc', '德育教育', 'dir', 'icon-comments',     '6', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('107', 'sch_tsjy_mc', '特色教育', 'dir', 'icon-layoutsidebar','7', '3', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('108', 'sch_gjjl_mc', '国际交流', 'dir', 'icon-foldertable',  '8', '3', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('101', 'sch_home_mc', '学校首页', 'dir', 'icon-foldertable','1', '3', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('102', 'sch_xxgk_mc', '学校概况', 'dir', 'icon-foldertable','2', '3', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('103', 'sch_xwzx_mc', '新闻中心', 'dir', 'icon-foldertable','3', '3', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('104', 'sch_jxky_mc', '教学科研', 'dir', 'icon-foldertable','4', '3', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('105', 'sch_dqzc_mc', '党群之窗', 'dir', 'icon-foldertable','5', '3', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('106', 'sch_dyjy_mc', '德育教育', 'dir', 'icon-foldertable','6', '3', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('107', 'sch_tsjy_mc', '特色教育', 'dir', 'icon-foldertable','7', '3', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('108', 'sch_gjjl_mc', '国际交流', 'dir', 'icon-foldertable','8', '3', '0', '', '');
 -- --------------------------------------------------------------------------------- 学校运营子菜单
 -- 总共有4种资源类型:
 -- 1. 新闻类, 即链接点进去为文本类型.
@@ -249,13 +249,13 @@ CREATE TABLE `sch_news` (
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 新闻关联附件文件表
 -- 需求点: 此表仅为一个关联表. 用于表示某篇文章含有多少附件.
-DROP TABLE IF EXISTS `sch_news_attachment`;
-CREATE TABLE `sch_news_attachment` (
-  `id` 				INT(11) 		NOT NULL AUTO_INCREMENT,	-- ID
-  `news_id`			INT(11)			NOT NULL,					-- 新闻ID
-  `file_id`			INT(11)			NOT NULL,					-- 文件ID
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+-- DROP TABLE IF EXISTS `sch_news_attachment`;
+-- CREATE TABLE `sch_news_attachment` (
+--  `id` 				INT(11) 		NOT NULL AUTO_INCREMENT,	-- ID
+--  `news_id`			INT(11)			NOT NULL,					-- 新闻ID
+--  `file_id`			INT(11)			NOT NULL,					-- 文件ID
+--  PRIMARY KEY (`id`)
+-- ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 文件表
 -- 需求点:
 -- 外部文件， 所有人都可以看到
@@ -302,7 +302,7 @@ CREATE TABLE `sch_cmmt` (
   `ref_id`			INT(11)			NOT NULL,						-- 被评论新闻/文件 id
   `cmmt_index`		INT(11)			NOT NULL,						-- 被评论新闻/课件 所属索引
   `cmmt_type`		INT(1)			NOT NULL,						-- 0 - 新闻； 1 - 内部文件； - 2 - 外部文件
-  `cmmt_author` 	varchar(30) 		NOT NULL,					-- 评论者.
+  `cmmt_author` 	varchar(30) 	NOT NULL,					-- 评论者.
   `cmmt_content` 	TEXT			NOT NULL,						-- 评论内容
   `cmmt_status` 	CHAR	 		DEFAULT '2',					-- 0: 未通过. 2: 待审核. 1: 已通过
   `cmmt_time` 		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
@@ -322,13 +322,13 @@ CREATE TABLE `sch_reply` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 评论资源映射
-DROP TABLE IF EXISTS `sch_news_cmmt`;
-CREATE TABLE `sch_news_cmmt` (
-  `id`				INT(11)			NOT NULL AUTO_INCREMENT,
-  `rpy_id`			INT(11)			NOT NULL,
-  `news_id`			INT(11)			NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+-- DROP TABLE IF EXISTS `sch_news_cmmt`;
+-- CREATE TABLE `sch_news_cmmt` (
+--  `id`				INT(11)			NOT NULL AUTO_INCREMENT,
+--  `rpy_id`			INT(11)			NOT NULL,
+--  `news_id`			INT(11)			NOT NULL,
+--  PRIMARY KEY (`id`)
+-- ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 评论回复映射
 -- 需求点: 无
 DROP TABLE IF EXISTS `sch_cmmt_reply`;
