@@ -291,10 +291,13 @@ sy.modalDialog = function(options, width, height) {
 		}
 	}, options);
 	opts.modal = true;// 强制此dialog为模式化，无视传递过来的modal参数
+	var id = 'modalDialog' + new Date().getTime();
 	if (options.url) {
-		opts.content = '<iframe id="" src="' + options.url + '" allowTransparency="true" scrolling="auto" width="100%" height="98%" frameBorder="0" name=""></iframe>';
+		opts.content = '<iframe id="' + id + '" src="" allowTransparency="true" scrolling="auto" width="100%" height="98%" frameBorder="0" name=""></iframe>';
 	}
-	return $('<div/>').dialog(opts);
+	var result =  $('<div/>').dialog(opts);
+	$("#" + id).attr("src", options.url);
+	return result;
 };
 
 /**
