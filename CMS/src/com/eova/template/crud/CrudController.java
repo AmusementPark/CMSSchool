@@ -290,10 +290,16 @@ public class CrudController extends Controller {
                     // 查询此条评论是否已经存在回复
                     List<Record> lst = Db.use(crud.getDs()).find("select * from sch_cmmt_rp where rp_ref = ?", CrudController.this.getPara("id"));
                     if (lst.size() > 0) {
-                        Record rec = lst.get(0);
-                        rec.set("rp_content", record.get("rp_content"));
-                        rec.set("rp_author", record.get("rp_author"));
-                        Db.use(crud.getDs()).update("sch_cmmt_rp", crud.getPkName(), rec);
+                        Record oldr = lst.get(0);
+                        Record newr = reMap.get("sch_cmmt_oc");
+                        if(newr != null) {
+                            oldr.set("rp_content", newr.get("rp_content"));
+                            oldr.set("rp_author", newr.get("rp_author"));
+                        } else {
+                            oldr.set("rp_content", record.get("rp_content"));
+                            oldr.set("rp_author", record.get("rp_author"));
+                        }
+                        Db.use(crud.getDs()).update("sch_cmmt_rp", crud.getPkName(), oldr);
                     } else {
                         // 直接插表. sch_cmmt_rp.
                         record.set("rp_ref", CrudController.this.getPara("id"));
