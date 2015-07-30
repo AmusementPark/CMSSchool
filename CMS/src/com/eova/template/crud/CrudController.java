@@ -236,6 +236,105 @@ public class CrudController extends Controller {
 	}
 	
 	/**
+	 * @author Simon.Zhu, 评论回复
+	 */
+	public void toReplyCmmt() {
+	    Crud crud = new Crud(this, CrudConfig.LIST);
+
+        // 初始化业务拦截器
+        initIntercept(crud.getBizIntercept());
+
+        // 获取基础数据
+        List<MetaItem> eis = crud.getItemList();
+
+        // 获取主键的值
+        Object pkValue = getPara(1);
+        // 根据主键获取对象
+        Record record = Db.use(crud.getDs()).findById(crud.getView(), crud.getPkName(), pkValue, "*");
+
+        // 分别根据字段获取值
+        for (MetaItem ei : eis) {
+            String key = ei.getStr("en");
+            Object value = record.get(key);
+            if (value == null) {
+                value = "";
+            }
+            ei.put("value", value);
+        }
+        setAttr("itemList", eis);
+
+        render("/eova/template/custom/replyCmmt.html");
+	}
+	
+	public void replyCmmt() {
+	    
+	    final Crud crud = new Crud(this, CrudConfig.UPDATE);
+
+        // 初始化业务拦截器
+        initIntercept(crud.getBizIntercept());
+
+        // 获取基础数据
+        final MetaObject eo = crud.getObject();
+        final Map<String, Record> reMap = CrudManager.buildData(this, crud.getItemList(), record, crud.getPkName(), false);
+        final Object pkValue = record.get(crud.getPkName());
+        
+        // 事务(默认为TRANSACTION_READ_COMMITTED)
+        boolean flag = Db.tx(new IAtom() {
+            @Override
+            public boolean run() throws SQLException {
+                try {
+                    // 修改前置任务
+                    if (intercept != null) {
+                        intercept.updateBefore(ctrl, record);
+                    }
+                    // 查询此条评论是否已经存在回复
+                    List<Record> lst = Db.use(crud.getDs()).find("select * from sch_cmmt_rp where rp_ref = ?", CrudController.this.getPara("id"));
+                    if (lst.size() > 0) {
+                        Record rec = lst.get(0);
+                        rec.set("rp_content", record.get("rp_content"));
+                        rec.set("rp_author", record.get("rp_author"));
+                        Db.use(crud.getDs()).update("sch_cmmt_rp", crud.getPkName(), rec);
+                    } else {
+                        // 直接插表. sch_cmmt_rp.
+                        record.set("rp_ref", CrudController.this.getPara("id"));
+                        Db.use(crud.getDs()).save("sch_cmmt_rp", crud.getPkName(), record);
+                    }
+                    
+                    // 修改后置任务
+                    if (intercept != null) {
+                        intercept.updateAfter(ctrl, record);
+                    }
+                } catch (Exception e) {
+                    buildException(e);
+                    return false;
+                }
+                return true;
+            }
+        });
+
+        if (!flag) {
+            renderJson(new Easy("修改失败<p title=\"" + info + "\">" + error + "</p>"));
+            return;
+        }
+
+        // 记录新增日志
+        EovaLog.dao.info(this, EovaLog.UPDATE, eo.getStr("code") + "[" + pkValue + "]");
+
+        // 修改成功之后
+        if (intercept != null) {
+            try {
+                intercept.updateSucceed(this, record);
+            } catch (Exception e) {
+                buildException(e);
+                renderJson(new Easy("修改成功,后置任务执行异常!<p title=\"" + info + "\">" + error + "</p>"));
+                return;
+            }
+        }
+
+        renderJson(new Easy());
+	}
+	
+	/**
 	 * 修改
 	 */
 	public void toUpdateMulti() {
@@ -340,6 +439,9 @@ public class CrudController extends Controller {
 						intercept.addAfter(ctrl, record);
 					}
 				} catch (Exception e) {
+				    if ( e.getCause() instanceof SQLException ) {
+				        System.err.println("meet sql exception");
+				    }
 					buildException(e);
 					return false;
 				}

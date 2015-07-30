@@ -41,7 +41,7 @@
              '|', 'rowspacingtop', 'rowspacingbottom', 'lineheight',
  			'|', 'indent', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase',
  			'|', 'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells',
- 			'|', 'insertimage'
+ 			'|', 'insertimage', 'attachment'
          ],
  		[
  			'paragraph', 'fontfamily', 'fontsize', 'insertcode',

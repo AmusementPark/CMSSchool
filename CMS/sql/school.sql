@@ -23,24 +23,30 @@ INSERT INTO `eova_menu` VALUES ('10103', 'sch_home_ljgl_mc', '链接管理', 'si
 INSERT INTO `eova_menu` VALUES ('10201', 'sch_xxgk_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '102', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('10202', 'sch_xxgk_wjgl_mc', '文件管理', 'singleGrid', 'icon-layoutsidebar','2', '102', '0', '', '');
 -- 新闻中心
-INSERT INTO `eova_menu` VALUES ('10301', 'sch_xwzx_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '103', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('10302', 'sch_xwzx_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutsidebar','2', '103', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10301', 'sch_xwzx_xwgl_mc', '新闻管理', 'singleGrid', 'icon-page',         '1', '103', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10302', 'sch_xwzx_dnfb_mc', '对内发布', 'singleGrid', 'icon-pagekey',      '2', '103', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10303', 'sch_xwzx_plgl_mc', '评论管理', 'singleGrid', 'icon-groupadd',     '3', '103', '0', '', '');
 -- 教学科研
-INSERT INTO `eova_menu` VALUES ('10401', 'sch_jxky_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '104', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('10402', 'sch_jxky_wjgl_mc', '文件管理', 'singleGrid', 'icon-layoutsidebar','2', '104', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10401', 'sch_jxky_xwgl_mc', '新闻管理', 'singleGrid', 'icon-page',         '1', '104', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10402', 'sch_jxky_dnfb_mc', '对内发布', 'singleGrid', 'icon-pagekey',      '2', '104', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10403', 'sch_jxky_plgl_mc', '评论管理', 'singleGrid', 'icon-groupadd',     '3', '104', '0', '', '');
 -- 党群之窗
-INSERT INTO `eova_menu` VALUES ('10501', 'sch_dqzc_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '105', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('10502', 'sch_dqzc_wjgl_mc', '文件管理', 'singleGrid', 'icon-layoutsidebar','2', '105', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('10503', 'sch_dqzc_dygl_mc', '党员风采', 'singleGrid', 'icon-photos',       '3', '105', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10501', 'sch_dqzc_xwgl_mc', '新闻管理', 'singleGrid', 'icon-page',         '1', '105', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10502', 'sch_dqzc_dnfb_mc', '对内发布', 'singleGrid', 'icon-pagekey',      '2', '105', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10503', 'sch_dqzc_plgl_mc', '评论管理', 'singleGrid', 'icon-groupadd',     '3', '105', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10504', 'sch_dqzc_dygl_mc', '党员风采', 'singleGrid', 'icon-photos',       '4', '105', '0', '', '');
 -- 德育教育
-INSERT INTO `eova_menu` VALUES ('10601', 'sch_dyjy_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '106', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('10602', 'sch_dyjy_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutsidebar','2', '106', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10601', 'sch_dyjy_xwgl_mc', '新闻管理', 'singleGrid', 'icon-page',         '1', '106', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10602', 'sch_dyjy_dnfb_mc', '对内发布', 'singleGrid', 'icon-pagekey',      '2', '106', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10603', 'sch_dyjy_plgl_mc', '评论管理', 'singleGrid', 'icon-groupadd',     '3', '106', '0', '', '');
 -- 特色教育
-INSERT INTO `eova_menu` VALUES ('10701', 'sch_tsjy_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '107', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('10702', 'sch_tsjy_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutsidebar','2', '107', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10701', 'sch_tsjy_xwgl_mc', '新闻管理', 'singleGrid', 'icon-page',         '1', '107', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10702', 'sch_tsjy_dnfb_mc', '对内发布', 'singleGrid', 'icon-pagekey',      '2', '107', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10703', 'sch_tsjy_plgl_mc', '评论管理', 'singleGrid', 'icon-groupadd',     '3', '107', '0', '', '');
 -- 国际交流
-INSERT INTO `eova_menu` VALUES ('10801', 'sch_gjjl_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '108', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('10802', 'sch_gjjl_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutsidebar','2', '108', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10801', 'sch_gjjl_xwgl_mc', '新闻管理', 'singleGrid', 'icon-page',         '1', '108', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10802', 'sch_gjjl_dnfb_mc', '对内发布', 'singleGrid', 'icon-pagekey',      '2', '108', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10803', 'sch_gjjl_plgl_mc', '评论管理', 'singleGrid', 'icon-groupadd',     '3', '108', '0', '', '');
 -- --------------------------------------------------------------------------------- 板块管理菜单
 INSERT INTO `eova_menu` VALUES ('201',   'sch_bkmgr_mc',      '板块管理', 'dir', 'icon-bricks','4', '2', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('20101', 'sch_bkmgr_xxsy_mc', '学校首页', 'singleGrid', 'icon-bricks','1', '201', '0', '', '');
@@ -75,7 +81,7 @@ INSERT INTO `eova_button` VALUES ('101034','sch_home_ljgl_mc','删除', '/eova/t
 -- --------------------------------------------------------------------------------- 学校概况板块CRUD权限
 -- 新闻管理
 INSERT INTO `eova_button` VALUES ('102011','sch_xxgk_xwgl_mc','查询', '', '', '0');
-INSERT INTO `eova_button` VALUES ('102012','sch_xxgk_xwgl_mc','新增', '//eova/template/crud/btn/add.html',   '',            '1');
+INSERT INTO `eova_button` VALUES ('102012','sch_xxgk_xwgl_mc','新增', '/eova/template/crud/btn/add.html',   '',            '1');
 INSERT INTO `eova_button` VALUES ('102013','sch_xxgk_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
 INSERT INTO `eova_button` VALUES ('102014','sch_xxgk_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 INSERT INTO `eova_button` VALUES ('102015','sch_xxgk_xwgl_mc','板块置顶', '/eova/template/custom/btn/bkTop.html',    'crud/bkTop',    '4');
@@ -87,18 +93,39 @@ INSERT INTO `eova_button` VALUES ('102021','sch_xxgk_wjgl_mc','查询', '', '', 
 INSERT INTO `eova_button` VALUES ('102022','sch_xxgk_wjgl_mc','新增', '/eova/menu/btn/add.html',             '',            '1');
 INSERT INTO `eova_button` VALUES ('102023','sch_xxgk_wjgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
 INSERT INTO `eova_button` VALUES ('102024','sch_xxgk_wjgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('102025','sch_xxgk_wjgl_mc','板块置顶', '/eova/template/custom/btn/bkTop.html',    'crud/bkTop',    '4');
+INSERT INTO `eova_button` VALUES ('102026','sch_xxgk_wjgl_mc','取消板顶', '/eova/template/custom/btn/deBkTop.html',  'crud/deBkTop',  '5');
+INSERT INTO `eova_button` VALUES ('102027','sch_xxgk_wjgl_mc','全站置顶', '/eova/template/custom/btn/siteTop.html',  'crud/siteTop',  '6');
+INSERT INTO `eova_button` VALUES ('102028','sch_xxgk_wjgl_mc','取消站顶', '/eova/template/custom/btn/deSiteTop.html','crud/deSiteTop','7');
+INSERT INTO `eova_button` VALUES ('102027','sch_xxgk_wjgl_mc','全站置顶', '/eova/template/custom/btn/siteTop.html',  'crud/siteTop',  '6');
+INSERT INTO `eova_button` VALUES ('102028','sch_xxgk_wjgl_mc','取消站顶', '/eova/template/custom/btn/deSiteTop.html','crud/deSiteTop','7');
 -- --------------------------------------------------------------------------------- 新闻中心板块CRUD权限
 -- 新闻管理
 INSERT INTO `eova_button` VALUES ('103011','sch_xwzx_xwgl_mc','查询', '', '', '0');
 INSERT INTO `eova_button` VALUES ('103012','sch_xwzx_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
 INSERT INTO `eova_button` VALUES ('103013','sch_xwzx_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
 INSERT INTO `eova_button` VALUES ('103014','sch_xwzx_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+
+INSERT INTO `eova_button` VALUES ('103021','sch_xwzx_dnfb_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('103022','sch_xwzx_dnfb_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('103023','sch_xwzx_dnfb_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('103024','sch_xwzx_dnfb_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+
+INSERT INTO `eova_button` VALUES ('103031','sch_xwzx_plgl_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('103032','sch_xwzx_plgl_mc','回复', '/eova/template/crud/btn/update.html',   'crud/update',      '1');
+INSERT INTO `eova_button` VALUES ('103033','sch_xwzx_plgl_mc','通过', '/eova/template/custom/btn/approve.html','crud/booleanCrud', '2');
+INSERT INTO `eova_button` VALUES ('103034','sch_xwzx_plgl_mc','拒绝', '/eova/template/custom/btn/deny.html',   'crud/booleanCrud', '3');
 -- --------------------------------------------------------------------------------- 教学科研板块CRUD权限
 -- 新闻管理
 INSERT INTO `eova_button` VALUES ('104011','sch_jxky_xwgl_mc','查询', '', '', '0');
 INSERT INTO `eova_button` VALUES ('104012','sch_jxky_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
 INSERT INTO `eova_button` VALUES ('104013','sch_jxky_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
 INSERT INTO `eova_button` VALUES ('104014','sch_jxky_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+
+INSERT INTO `eova_button` VALUES ('104021','sch_jxky_dnfb_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('104022','sch_jxky_dnfb_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('104023','sch_jxky_dnfb_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('104024','sch_jxky_dnfb_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 党群之窗板块CRUD权限
 -- 新闻管理
 INSERT INTO `eova_button` VALUES ('105011','sch_dqzc_xwgl_mc','查询', '', '', '0');
@@ -110,24 +137,44 @@ INSERT INTO `eova_button` VALUES ('105021','sch_dqzc_dyfc_mc','查询', '', '', 
 INSERT INTO `eova_button` VALUES ('105022','sch_dqzc_dyfc_mc','新增', '/eova/template/crud/btn/addMulti.html',    'crud/addMulti',    '1');
 INSERT INTO `eova_button` VALUES ('105023','sch_dqzc_dyfc_mc','修改', '/eova/template/crud/btn/updateMulti.html', 'crud/updateMulti', '2');
 INSERT INTO `eova_button` VALUES ('105024','sch_dqzc_dyfc_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+
+INSERT INTO `eova_button` VALUES ('105031','sch_dqzc_dnfb_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('105032','sch_dqzc_dnfb_mc','新增', '/eova/template/crud/btn/add.html',    '',    '1');
+INSERT INTO `eova_button` VALUES ('105033','sch_dqzc_dnfb_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('105034','sch_dqzc_dnfb_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 德育教育板块CRUD权限
 -- 新闻管理
 INSERT INTO `eova_button` VALUES ('106011','sch_dyjy_xwgl_mc','查询', '', '', '0');
 INSERT INTO `eova_button` VALUES ('106012','sch_dyjy_xwgl_mc','新增', '/eova/menu/btn/add.html',             '',            '1');
 INSERT INTO `eova_button` VALUES ('106013','sch_dyjy_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
 INSERT INTO `eova_button` VALUES ('106014','sch_dyjy_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+
+INSERT INTO `eova_button` VALUES ('106021','sch_dyjy_dnfb_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('106022','sch_dyjy_dnfb_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('106023','sch_dyjy_dnfb_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('106024','sch_dyjy_dnfb_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 特色教育板块CRUD权限
 -- 新闻管理
 INSERT INTO `eova_button` VALUES ('107011','sch_tsjy_xwgl_mc','查询', '', '', '0');
 INSERT INTO `eova_button` VALUES ('107012','sch_tsjy_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
 INSERT INTO `eova_button` VALUES ('107013','sch_tsjy_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
 INSERT INTO `eova_button` VALUES ('107014','sch_tsjy_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+
+INSERT INTO `eova_button` VALUES ('107021','sch_tsjy_dnfb_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('107022','sch_tsjy_dnfb_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('107023','sch_tsjy_dnfb_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('107024','sch_tsjy_dnfb_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 国际交流板块CRUD权限
 -- 新闻管理
 INSERT INTO `eova_button` VALUES ('108011','sch_gjjl_xwgl_mc','查询', '', '', '0');
 INSERT INTO `eova_button` VALUES ('108012','sch_gjjl_xwgl_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
 INSERT INTO `eova_button` VALUES ('108013','sch_gjjl_xwgl_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
 INSERT INTO `eova_button` VALUES ('108014','sch_gjjl_xwgl_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+
+INSERT INTO `eova_button` VALUES ('108021','sch_gjjl_dnfb_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('108022','sch_gjjl_dnfb_mc','新增', '/eova/template/crud/btn/add.html',    '',            '1');
+INSERT INTO `eova_button` VALUES ('108023','sch_gjjl_dnfb_mc','修改', '/eova/template/crud/btn/update.html', 'crud/update', '2');
+INSERT INTO `eova_button` VALUES ('108024','sch_gjjl_dnfb_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
 -- --------------------------------------------------------------------------------- 板块管理按钮
 -- 学校首页
 INSERT INTO `eova_button` VALUES ('201011','sch_bkmgr_xxsy_mc','查询', '', '', '0');
@@ -235,16 +282,17 @@ CREATE TABLE `sch_logos` (
 -- 4. 管理员负责发布校外新闻和学校政策性新闻.
 DROP TABLE IF EXISTS `sch_news`;
 CREATE TABLE `sch_news` (
-  `id` 				int(11) 		not null AUTO_INCREMENT,	-- 新闻ID
-  `news_index`		int(11) 	    not null,					-- 新闻所属索引			-- select id ID, idx_name CN from `sch_index` where id=1,2,3...;ds=eova
-  `news_bankuai` 	int(11)			not null,					-- 新闻所属索引下板块.  	-- 放置到具体的view中: select id ID, bk_name CN from `sch_bankuai` where bk_parent=1;ds=eova
-  `news_title` 		TEXT 			not null,					-- 新闻标题
-  `news_content` 	TEXT 			not null,					-- 新闻内容 .一张HTML页面
-  `news_author`		VARCHAR(30)		not null,					-- 对应USER表里的LOGINID
+  `id` 				INT(11) 		NOT NULL AUTO_INCREMENT,	-- 新闻ID
+  `news_index`		INT(11) 	    NOT NULL,					-- 新闻所属索引			-- select id ID, idx_name CN from `sch_index` where id=1,2,3...;ds=eova
+  `news_bankuai` 	INT(11)			NOT NULL,					-- 新闻所属索引下板块.  	-- 放置到具体的view中: select id ID, bk_name CN from `sch_bankuai` where bk_parent=1;ds=eova
+  `news_title` 		TEXT 			NOT NULL,					-- 新闻标题
+  `news_content` 	TEXT 			NOT NULL,					-- 新闻内容 .一张HTML页面
+  `news_author`		VARCHAR(30)		NOT NULL,					-- 对应USER表里的LOGINID
   `news_topic_top`	CHAR 			DEFAULT 0,					-- 是否在板块置顶.		-- select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_topic_top';ds=eova
   `news_site_top` 	CHAR			DEFAULT 0,					-- 是否在全站首页置顶.   -- select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_site_top';ds=eova
   `news_time` 		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
   `news_img` 		VARCHAR(300),								-- 置顶时显示的图片
+  `news_open`		CHAR			DEFAULT 1					-- 是否公开
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 新闻关联附件文件表
@@ -259,32 +307,32 @@ CREATE TABLE `sch_news` (
 -- --------------------------------------------------------------------------------- 文件表
 -- 需求点:
 -- 外部文件， 所有人都可以看到
-DROP TABLE IF EXISTS `sch_files`;
-CREATE TABLE `sch_files` (
-  `id` 				int(11) 		NOT NULL AUTO_INCREMENT,
-  `file_name`	  	varchar(150) 	NOT NULL,
-  `file_cmmt`		text			NOT NULL,						-- 文件备注
-  `file_type`   	varchar(10) 	NOT NULL,						-- 文件分类.
-  `file_path`  	 	varchar(300) 	NOT NULL,						-- 文件路径.  在admin不用显示
-  `file_author` 	VARCHAR(30)  	NOT NULL,						-- 文件上传者.
-  `file_auth`		int,											-- 文件权限
-  `file_time`   	TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+-- DROP TABLE IF EXISTS `sch_files`;
+-- CREATE TABLE `sch_files` (
+--   `id` 				int(11) 		NOT NULL AUTO_INCREMENT,
+--   `file_name`	  	varchar(150) 	NOT NULL,
+--   `file_cmmt`		text			NOT NULL,						-- 文件备注
+--   `file_type`   	varchar(10) 	NOT NULL,						-- 文件分类.
+--   `file_path`  	 	varchar(300) 	NOT NULL,						-- 文件路径.  在admin不用显示
+--   `file_author` 	VARCHAR(30)  	NOT NULL,						-- 文件上传者.
+--   `file_auth`		int,											-- 文件权限
+--   `file_time`   	TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
+--   PRIMARY KEY (`id`)
+-- ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- 管理员负责上传重要文件
-DROP TABLE IF EXISTS `sch_internal_files`;
-CREATE TABLE `sch_internal_files` (
-  `id` 				int(11) 		NOT NULL AUTO_INCREMENT,
-  `file_name`	  	varchar(150) 	NOT NULL,
-  `file_cmmt`		text			NOT NULL,						-- 文件备注
-  `file_type`   	varchar(10) 	NOT NULL,						-- 文件分类.
-  `file_path`  	 	varchar(300) 	NOT NULL,						-- 文件路径.  在admin不用显示
-  `file_author` 	VARCHAR(30)  	NOT NULL,						-- 文件上传者.
-  `file_auth`		int,											-- 文件权限
-  `file_time`   	TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+-- DROP TABLE IF EXISTS `sch_internal_files`;
+-- CREATE TABLE `sch_internal_files` (
+--  `id` 				int(11) 		NOT NULL AUTO_INCREMENT,
+--  `file_name`	  	varchar(150) 	NOT NULL,
+-- `file_cmmt`		text			NOT NULL,						-- 文件备注
+--  `file_type`   	varchar(10) 	NOT NULL,						-- 文件分类.
+--  `file_path`  	 	varchar(300) 	NOT NULL,						-- 文件路径.  在admin不用显示
+--  `file_author` 	VARCHAR(30)  	NOT NULL,						-- 文件上传者.
+--  `file_auth`		int,											-- 文件权限
+--  `file_time`   	TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
+--  PRIMARY KEY (`id`)
+-- ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 文访问量表
 DROP TABLE IF EXISTS `sch_news_pv`;
 CREATE TABLE `sch_news_pv` (
@@ -299,26 +347,24 @@ CREATE TABLE `sch_news_pv` (
 DROP TABLE IF EXISTS `sch_cmmt`;
 CREATE TABLE `sch_cmmt` (
   `id` 				INT(11) 		NOT NULL AUTO_INCREMENT,
-  `ref_id`			INT(11)			NOT NULL,						-- 被评论新闻/文件 id
-  `cmmt_index`		INT(11)			NOT NULL,						-- 被评论新闻/课件 所属索引
-  `cmmt_type`		INT(1)			NOT NULL,						-- 0 - 新闻； 1 - 内部文件； - 2 - 外部文件
-  `cmmt_author` 	varchar(30) 	NOT NULL,					-- 评论者.
+  `cmmt_ref`		INT(11)			NOT NULL,						-- 被评论新闻/文件 id
+  `cmmt_author` 	VARCHAR(30) 	NOT NULL,						-- 评论者.
   `cmmt_content` 	TEXT			NOT NULL,						-- 评论内容
-  `cmmt_status` 	CHAR	 		DEFAULT '2',					-- 0: 未通过. 2: 待审核. 1: 已通过
-  `cmmt_time` 		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
-  `cmmt_reply`		text,
+  `cmmt_status` 	CHAR	 		DEFAULT '0',					-- 0: 未通过. 1: 已通过
+  `cmmt_time` 		TIMESTAMP 	 	DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 回复表
 -- 需求点:
 -- 1. 管理员可以回复评论.
 -- 2. 板块管理员可以回复板块. 管理员可以回复任何评论.
-DROP TABLE IF EXISTS `sch_reply`;
-CREATE TABLE `sch_reply` (
+DROP TABLE IF EXISTS `sch_cmmt_rp`;
+CREATE TABLE `sch_cmmt_rp` (
   `id`				INT(11)			NOT NULL AUTO_INCREMENT,
-  `rpy_author`		INT(11)			NOT NULL,
-  `rpy_content`		TEXT			NOT NULL,
-  `rpy_time`		TIMESTAMP NULL 	DEFAULT CURRENT_TIMESTAMP,
+  `rp_ref`			INT(11)			NOT NULL,
+  `rp_author`		VARCHAR(30)		NOT NULL,
+  `rp_content`		TEXT			NOT NULL,
+  `rp_time`			TIMESTAMP 	 	DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 评论资源映射
@@ -329,16 +375,6 @@ CREATE TABLE `sch_reply` (
 --  `news_id`			INT(11)			NOT NULL,
 --  PRIMARY KEY (`id`)
 -- ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
--- --------------------------------------------------------------------------------- 评论回复映射
--- 需求点: 无
-DROP TABLE IF EXISTS `sch_cmmt_reply`;
-CREATE TABLE `sch_reply_news` (
-  `id`				INT(11)			NOT NULL AUTO_INCREMENT,
-  `rpy_id`			INT(11)			NOT NULL,
-  `res_id`			INT(11)			NOT	NULL,
-  `res_type`		VARCHAR(20)		NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 链接资源表
 -- 需求点: 无
 DROP TABLE IF EXISTS `sch_links`;
@@ -422,6 +458,23 @@ insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_dqzc_xwgl_
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_dyjy_xwgl_mc','sch_news_dyjy_v_oc');
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_tsjy_xwgl_mc','sch_news_tsjy_v_oc');
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_gjjl_xwgl_mc','sch_news_gjjl_v_oc');
+-- 对内发布
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_xxgk_dnfb_mc','sch_news_xxgk_inner_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_xwzx_dnfb_mc','sch_news_xwzx_inner_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_jxky_dnfb_mc','sch_news_jxky_inner_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_dqzc_dnfb_mc','sch_news_dqzc_inner_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_dyjy_dnfb_mc','sch_news_dyjy_inner_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_tsjy_dnfb_mc','sch_news_tsjy_inner_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_gjjl_dnfb_mc','sch_news_gjjl_inner_v_oc');
+-- 评论审核
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_xxsy_plgl_mc','sch_cmmt_xxsy_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_xxgk_plgl_mc','sch_cmmt_xxgk_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_xwzx_plgl_mc','sch_cmmt_xwzx_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_jxky_plgl_mc','sch_cmmt_jxky_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_dqzc_plgl_mc','sch_cmmt_dqzc_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_dyjy_plgl_mc','sch_cmmt_dyjy_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_tsjy_plgl_mc','sch_cmmt_tsjy_v_oc');
+insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_gjjl_plgl_mc','sch_cmmt_gjjl_v_oc');
 
 -- 板块菜单对象映射
 insert into `eova_menu_object` (`menuCode`,`objectCode`) values ('sch_bkmgr_xxsy_mc','sch_bankuai_xxsy_v_oc');
@@ -441,6 +494,8 @@ insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_news','news_topic_top');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_news','news_site_top');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_news','news_site_top');
+insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_news','news_open');
+insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_news','news_open');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_bankuai','bk_active');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_bankuai','bk_active');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_slide','sli_show');
@@ -488,8 +543,25 @@ CREATE VIEW sch_news_xwzx_v AS SELECT
 	`news_author` 	AS `news_author`,
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
-	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '3' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+	`news_time` 	AS `news_time`,
+	`news_open`		AS `news_open`
+FROM `sch_news` WHERE `news_index` = '3' AND `news_open` = '1' 
+ 									     AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+ 								
+DROP VIEW IF EXISTS sch_news_xwzx_inner_v;
+CREATE VIEW sch_news_xwzx_inner_v AS SELECT 
+	`id` 			AS `id`,
+	`news_index` 	AS `news_index`,
+	`news_bankuai` 	AS `news_bankuai`,
+	`news_title` 	AS `news_title`,
+	`news_content` 	AS `news_content`,
+	`news_author` 	AS `news_author`,
+	`news_topic_top`AS `news_topic_top`,
+	`news_site_top` AS `news_site_top`,
+	`news_time` 	AS `news_time`,
+	`news_open`		AS `news_open`
+FROM `sch_news` WHERE `news_index` = '3' AND `news_open` = '0' 
+ 									     AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 教学科研新闻视图
 DROP VIEW IF EXISTS sch_news_jxky_v;
 CREATE VIEW sch_news_jxky_v AS SELECT 
@@ -501,8 +573,26 @@ CREATE VIEW sch_news_jxky_v AS SELECT
 	`news_author` 	AS `news_author`,
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
-	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '4' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+	`news_time` 	AS `news_time`,
+	`news_open`		AS `news_open`
+FROM `sch_news` WHERE `news_index` = '4' AND `news_open` = '1' 
+										 AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+
+DROP VIEW IF EXISTS sch_news_jxky_inner_v;
+CREATE VIEW sch_news_jxky_inner_v AS SELECT 
+	`id` 			AS `id`,
+	`news_index` 	AS `news_index`,
+	`news_bankuai` 	AS `news_bankuai`,
+	`news_title` 	AS `news_title`,
+	`news_content` 	AS `news_content`,
+	`news_author` 	AS `news_author`,
+	`news_topic_top`AS `news_topic_top`,
+	`news_site_top` AS `news_site_top`,
+	`news_time` 	AS `news_time`,
+	`news_open`		AS `news_open`
+FROM `sch_news` WHERE `news_index` = '4' AND `news_open` = '0' 
+ 										 AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+
 -- 党群之窗新闻视图
 DROP VIEW IF EXISTS sch_news_dqzc_v;
 CREATE VIEW sch_news_dqzc_v AS SELECT 
@@ -514,8 +604,25 @@ CREATE VIEW sch_news_dqzc_v AS SELECT
 	`news_author` 	AS `news_author`,
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
-	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '5' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+	`news_time` 	AS `news_time`,
+	`news_open`		AS `news_open`
+FROM `sch_news` WHERE `news_index` = '5' AND `news_open` = '1' 
+										 AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+
+DROP VIEW IF EXISTS sch_news_dqzc_inner_v;
+CREATE VIEW sch_news_dqzc_inner_v AS SELECT 
+	`id` 			AS `id`,
+	`news_index` 	AS `news_index`,
+	`news_bankuai` 	AS `news_bankuai`,
+	`news_title` 	AS `news_title`,
+	`news_content` 	AS `news_content`,
+	`news_author` 	AS `news_author`,
+	`news_topic_top`AS `news_topic_top`,
+	`news_site_top` AS `news_site_top`,
+	`news_time` 	AS `news_time`,
+	`news_open`		AS `news_open`
+FROM `sch_news` WHERE `news_index` = '5' AND `news_open` = '0' 
+										 AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 德育教育新闻视图
 DROP VIEW IF EXISTS sch_news_dyjy_v;
 CREATE VIEW sch_news_dyjy_v AS SELECT 
@@ -527,8 +634,25 @@ CREATE VIEW sch_news_dyjy_v AS SELECT
 	`news_author` 	AS `news_author`,
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
-	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '6' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+	`news_time` 	AS `news_time`,
+	`news_open`		AS `news_open`
+FROM `sch_news` WHERE `news_index` = '6' AND `news_open` = '1' 
+                                         AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+                                         
+DROP VIEW IF EXISTS sch_news_dyjy_inner_v;
+CREATE VIEW sch_news_dyjy_inner_v AS SELECT 
+	`id` 			AS `id`,
+	`news_index` 	AS `news_index`,
+	`news_bankuai` 	AS `news_bankuai`,
+	`news_title` 	AS `news_title`,
+	`news_content` 	AS `news_content`,
+	`news_author` 	AS `news_author`,
+	`news_topic_top`AS `news_topic_top`,
+	`news_site_top` AS `news_site_top`,
+	`news_time` 	AS `news_time`,
+	`news_open`		AS `news_open`
+FROM `sch_news` WHERE `news_index` = '6' AND `news_open` = '0' 
+                                         AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 特色教育新闻视图
 DROP VIEW IF EXISTS sch_news_tsjy_v;
 CREATE VIEW sch_news_tsjy_v AS SELECT 
@@ -540,8 +664,25 @@ CREATE VIEW sch_news_tsjy_v AS SELECT
 	`news_author` 	AS `news_author`,
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
-	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '7' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+	`news_time` 	AS `news_time`,
+	`news_open`		AS `news_open`
+FROM `sch_news` WHERE `news_index` = '7' AND `news_open` = '1' 
+                                         AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+                                         
+DROP VIEW IF EXISTS sch_news_tsjy_inner_v;
+CREATE VIEW sch_news_tsjy_inner_v AS SELECT 
+	`id` 			AS `id`,
+	`news_index` 	AS `news_index`,
+	`news_bankuai` 	AS `news_bankuai`,
+	`news_title` 	AS `news_title`,
+	`news_content` 	AS `news_content`,
+	`news_author` 	AS `news_author`,
+	`news_topic_top`AS `news_topic_top`,
+	`news_site_top` AS `news_site_top`,
+	`news_time` 	AS `news_time`,
+	`news_open`		AS `news_open`
+FROM `sch_news` WHERE `news_index` = '7' AND `news_open` = '0' 
+                                         AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- 国际交流新闻视图
 DROP VIEW IF EXISTS sch_news_gjjl_v;
 CREATE VIEW sch_news_gjjl_v AS SELECT 
@@ -553,8 +694,25 @@ CREATE VIEW sch_news_gjjl_v AS SELECT
 	`news_author` 	AS `news_author`,
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
-	`news_time` 	AS `news_time`
-FROM `sch_news` WHERE `news_index` = '8' AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+	`news_time` 	AS `news_time`,
+	`news_open`		AS `news_open`
+FROM `sch_news` WHERE `news_index` = '8' AND `news_open` = '1' 
+                                         AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
+                                         
+DROP VIEW IF EXISTS sch_news_gjjl_inner_v;
+CREATE VIEW sch_news_gjjl_inner_v AS SELECT 
+	`id` 			AS `id`,
+	`news_index` 	AS `news_index`,
+	`news_bankuai` 	AS `news_bankuai`,
+	`news_title` 	AS `news_title`,
+	`news_content` 	AS `news_content`,
+	`news_author` 	AS `news_author`,
+	`news_topic_top`AS `news_topic_top`,
+	`news_site_top` AS `news_site_top`,
+	`news_time` 	AS `news_time`,
+	`news_open`		AS `news_open`
+FROM `sch_news` WHERE `news_index` = '8' AND `news_open` = '0' 
+                                         AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
 -- --------------------------------------------------------------------------------- 板块视图
 DROP VIEW IF EXISTS sch_bankuai_xxsy_v;
 CREATE VIEW sch_bankuai_xxsy_v AS SELECT 
@@ -627,25 +785,127 @@ CREATE VIEW sch_bankuai_gjjl_v AS SELECT
 	`bk_index` 		AS `bk_index`,
 	`bk_active` 	AS `bk_active`
 FROM `sch_bankuai` WHERE `bk_parent` = '8';
-
+-- --------------------------------------------------------------------------------- 评论视图
+-- 学校首页
 DROP VIEW IF EXISTS sch_cmmt_xxsy_v;
-CREATE VIEW sch_cmmt_xxsy_v AS
-SELECT
-    `sch_cmmt`.`id`           AS `id`,
-    `sch_cmmt`.`ref_id`       AS `ref_id`,
-    `sch_cmmt`.`cmmt_index`   AS `cmmt_index`,
-    `sch_cmmt`.`cmmt_type`    AS `cmmt_type`,
-    `sch_cmmt`.`cmmt_author`  AS `cmmt_author`,
-    `sch_cmmt`.`cmmt_content` AS `cmmt_content`,
-    `sch_cmmt`.`cmmt_status`  AS `cmmt_status`,
-    `sch_cmmt`.`cmmt_time`    AS `cmmt_time`,
-    `sch_cmmt`.`cmmt_reply`			  AS `cmmt_reply`
-FROM
-    `sch_cmmt`
-WHERE
-    (`sch_cmmt`.`cmmt_index` = 1);
--- --------------------------------------------------------------------------------- 文件视图
-
+CREATE VIEW sch_cmmt_xxsy_v AS SELECT
+    A.`id`           	AS `id`,
+    A.`cmmt_ref`       	AS `cmmt_ref`,
+    B.`news_bankuai`    AS `news_bankuai`,
+    B.`news_title`      AS `cmmt_news_title`,  
+    A.`cmmt_author` 	AS `cmmt_author`,
+    A.`cmmt_content` 	AS `cmmt_content`,
+    A.`cmmt_status`  	AS `cmmt_status`,
+    A.`cmmt_time`    	AS `cmmt_time`,
+    C.`rp_content`   	AS `rp_content`,
+    C.`rp_author`		AS `rp_author`,
+  	C.`rp_time` 		AS `rp_time`
+FROM (`sch_cmmt` A LEFT JOIN `sch_cmmt_rp` C ON A.id = C.rp_ref) INNER JOIN sch_news B ON A.cmmt_ref = B.id AND B.news_index = '1';
+-- 学校概况
+DROP VIEW IF EXISTS sch_cmmt_xxgk_v;
+CREATE VIEW sch_cmmt_xxgk_v AS SELECT
+    A.`id`           	AS `id`,
+    A.`cmmt_ref`       	AS `cmmt_ref`,
+    B.`news_bankuai`    AS `news_bankuai`,
+    B.`news_title`      AS `cmmt_news_title`,  
+    A.`cmmt_author` 	AS `cmmt_author`,
+    A.`cmmt_content` 	AS `cmmt_content`,
+    A.`cmmt_status`  	AS `cmmt_status`,
+    A.`cmmt_time`    	AS `cmmt_time`,
+    C.`rp_content`   	AS `rp_content`,
+    C.`rp_author`		AS `rp_author`,
+  	C.`rp_time` 		AS `rp_time`
+FROM (`sch_cmmt` A LEFT JOIN `sch_cmmt_rp` C ON A.id = C.rp_ref) INNER JOIN sch_news B ON A.cmmt_ref = B.id AND B.news_index = '2';
+-- 新闻中心
+DROP VIEW IF EXISTS sch_cmmt_xwzx_v;
+CREATE VIEW sch_cmmt_xwzx_v AS SELECT
+    A.`id`           	AS `id`,
+    A.`cmmt_ref`       	AS `cmmt_ref`,
+    B.`news_bankuai`    AS `news_bankuai`,
+    B.`news_title`      AS `cmmt_news_title`,  
+    A.`cmmt_author` 	AS `cmmt_author`,
+    A.`cmmt_content` 	AS `cmmt_content`,
+    A.`cmmt_status`  	AS `cmmt_status`,
+    A.`cmmt_time`    	AS `cmmt_time`,
+    C.`rp_content`   	AS `rp_content`,
+    C.`rp_author`		AS `rp_author`,
+  	C.`rp_time` 		AS `rp_time`
+FROM (`sch_cmmt` A LEFT JOIN `sch_cmmt_rp` C ON A.id = C.rp_ref) INNER JOIN sch_news B ON A.cmmt_ref = B.id AND B.news_index = '3';
+-- 教学科研
+DROP VIEW IF EXISTS sch_cmmt_jxky_v;
+CREATE VIEW sch_cmmt_jxky_v AS SELECT
+    A.`id`           	AS `id`,
+    A.`cmmt_ref`       	AS `cmmt_ref`,
+    B.`news_bankuai`    AS `news_bankuai`,
+    B.`news_title`      AS `cmmt_news_title`,  
+    A.`cmmt_author` 	AS `cmmt_author`,
+    A.`cmmt_content` 	AS `cmmt_content`,
+    A.`cmmt_status`  	AS `cmmt_status`,
+    A.`cmmt_time`    	AS `cmmt_time`,
+    C.`rp_content`   	AS `cmmt_reply`,
+    C.`rp_author`		AS `cmmt_replyer`,
+  	C.`rp_time` 		AS `cmmt_reply_time`
+FROM (`sch_cmmt` A LEFT JOIN `sch_cmmt_rp` C ON A.id = C.rp_ref) INNER JOIN sch_news B ON A.cmmt_ref = B.id AND B.news_index = '4';
+-- 党群之窗
+DROP VIEW IF EXISTS sch_cmmt_dqzc_v;
+CREATE VIEW sch_cmmt_dqzc_v AS SELECT
+    A.`id`           	AS `id`,
+    A.`cmmt_ref`       	AS `cmmt_ref`,
+    B.`news_bankuai`    AS `news_bankuai`,
+    B.`news_title`      AS `cmmt_news_title`,  
+    A.`cmmt_author` 	AS `cmmt_author`,
+    A.`cmmt_content` 	AS `cmmt_content`,
+    A.`cmmt_status`  	AS `cmmt_status`,
+    A.`cmmt_time`    	AS `cmmt_time`,
+    C.`rp_content`   	AS `rp_content`,
+    C.`rp_author`		AS `rp_author`,
+  	C.`rp_time` 		AS `rp_time`
+FROM (`sch_cmmt` A LEFT JOIN `sch_cmmt_rp` C ON A.id = C.rp_ref) INNER JOIN sch_news B ON A.cmmt_ref = B.id AND B.news_index = '5';
+-- 德育教育
+DROP VIEW IF EXISTS sch_cmmt_dyjy_v;
+CREATE VIEW sch_cmmt_dyjy_v AS SELECT
+    A.`id`           	AS `id`,
+    A.`cmmt_ref`       	AS `cmmt_ref`,
+    B.`news_bankuai`    AS `news_bankuai`,
+    B.`news_title`      AS `cmmt_news_title`,  
+    A.`cmmt_author` 	AS `cmmt_author`,
+    A.`cmmt_content` 	AS `cmmt_content`,
+    A.`cmmt_status`  	AS `cmmt_status`,
+    A.`cmmt_time`    	AS `cmmt_time`,
+    C.`rp_content`   	AS `rp_content`,
+    C.`rp_author`		AS `rp_author`,
+  	C.`rp_time` 		AS `rp_time`
+FROM (`sch_cmmt` A LEFT JOIN `sch_cmmt_rp` C ON A.id = C.rp_ref) INNER JOIN sch_news B ON A.cmmt_ref = B.id AND B.news_index = '6';
+-- 特色教育
+DROP VIEW IF EXISTS sch_cmmt_tsjy_v;
+CREATE VIEW sch_cmmt_tsjy_v AS SELECT
+    A.`id`           	AS `id`,
+    A.`cmmt_ref`       	AS `cmmt_ref`,
+    B.`news_bankuai`    AS `news_bankuai`,
+    B.`news_title`      AS `cmmt_news_title`,  
+    A.`cmmt_author` 	AS `cmmt_author`,
+    A.`cmmt_content` 	AS `cmmt_content`,
+    A.`cmmt_status`  	AS `cmmt_status`,
+    A.`cmmt_time`    	AS `cmmt_time`,
+    C.`rp_content`   	AS `rp_content`,
+    C.`rp_author`		AS `rp_author`,
+  	C.`rp_time` 		AS `rp_time`
+FROM (`sch_cmmt` A LEFT JOIN `sch_cmmt_rp` C ON A.id = C.rp_ref) INNER JOIN sch_news B ON A.cmmt_ref = B.id AND B.news_index = '7';
+-- 国际交流
+DROP VIEW IF EXISTS sch_cmmt_gjjl_v;
+CREATE VIEW sch_cmmt_gjjl_v AS SELECT
+    A.`id`           	AS `id`,
+    A.`cmmt_ref`       	AS `cmmt_ref`,
+    B.`news_bankuai`    AS `news_bankuai`,
+    B.`news_title`      AS `cmmt_news_title`,  
+    A.`cmmt_author` 	AS `cmmt_author`,
+    A.`cmmt_content` 	AS `cmmt_content`,
+    A.`cmmt_status`  	AS `cmmt_status`,
+    A.`cmmt_time`    	AS `cmmt_time`,
+    C.`rp_content`   	AS `rp_content`,
+    C.`rp_author`		AS `rp_author`,
+  	C.`rp_time` 		AS `rp_time`
+FROM (`sch_cmmt` A LEFT JOIN `sch_cmmt_rp` C ON A.id = C.rp_ref) INNER JOIN sch_news B ON A.cmmt_ref = B.id AND B.news_index = '8';
 -- --------------------------------------------------------------------------------- 链接视图
 DROP VIEW IF EXISTS `sch_links_xxsy_v`;
 CREATE VIEW `sch_links_xxsy_v` AS SELECT
@@ -666,6 +926,14 @@ update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_dqzc_v_
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_dyjy_v_oc';
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_tsjy_v_oc';
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_gjjl_v_oc';
+
+update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_xwzx_inner_v_oc';
+update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_jxky_inner_v_oc';
+update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_dqzc_inner_v_oc';
+update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_dyjy_inner_v_oc';
+update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_tsjy_inner_v_oc';
+update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_gjjl_inner_v_oc';
+
 
 update eova_item set exp = 'select id ID, idx_name CN from `sch_index` where id=1;ds=eova', `type`='下拉框' where objectCode='sch_news_xxsy_v_oc' and en='news_index';
 update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=1;ds=eova', `type`='下拉框'  where objectCode='sch_news_xxsy_v_oc' and en='news_bankuai';

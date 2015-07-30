@@ -28,7 +28,7 @@ var eova_initComBo = function(select,div){
 	    var s = $(this).next('span').text();
 	    select.combo('setValue', v).combo('setText', s).combo('hidePanel');
 	});
-}
+};
 
 // 鼠标移入切换背景
 var eova_onMouseOverBg = function(sp){
@@ -44,9 +44,9 @@ var eova_onMouseOutBg = function(sp){
 var eova_clearVal = function(input, flag){
 	if(flag) {
 		input.val("");
-		input.validatebox('validate')
+		input.validatebox('validate');
 	}
-}
+};
 
 // ICON选择窗
 var eova_iconDialog = function(input, span) {
@@ -60,7 +60,7 @@ var eova_iconDialog = function(input, span) {
 			text : '修改',
 			handler : function() {
 				dialog.find('iframe').get(0).contentWindow.selectIcon(dialog, input, span);
-				// 初始化焦点
+				// 初始化焦点12
 				window.focus();
 			}
 		} ]
