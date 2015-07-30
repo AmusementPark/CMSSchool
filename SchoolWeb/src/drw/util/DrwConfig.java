@@ -16,6 +16,7 @@ import com.jfinal.plugin.druid.DruidPlugin;
 import drw.beetle.IsTrueFun;
 import drw.controller.CommonController;
 import drw.interceptor.IPInterceptor;
+import drw.model.News;
 
 public class DrwConfig extends JFinalConfig {
     
@@ -65,7 +66,7 @@ public class DrwConfig extends JFinalConfig {
         
         ActiveRecordPlugin arp = new ActiveRecordPlugin(main);
         arp.setShowSql(true);
-        
+        arp.addMapping("sch_news", News.class);
         plugins.add(arp);
     }
 
