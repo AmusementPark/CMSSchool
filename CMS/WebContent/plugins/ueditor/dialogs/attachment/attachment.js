@@ -33,7 +33,7 @@
         if(!id) return;
         var i, bodyId, tabs = $G('tabhead').children;
         for (i = 0; i < tabs.length; i++) {
-            bodyId = tabs[i].getAttribute('data-content-id')
+            bodyId = tabs[i].getAttribute('data-content-id');
             if (bodyId == id) {
                 domUtils.addClass(tabs[i], 'focus');
                 domUtils.addClass($G(bodyId), 'focus');
@@ -83,7 +83,7 @@
     }
 
 
-    /* 上传附件 */
+    // 上传附件
     function UploadFile(target) {
         this.$wrap = target.constructor == String ? $('#' + target) : $(target);
         this.init();
@@ -97,7 +97,7 @@
         initContainer: function () {
             this.$queue = this.$wrap.find('.filelist');
         },
-        /* 初始化容器 */
+        // 初始化容器 
         initUploader: function () {
             var _this = this,
                 $ = jQuery,    // just in case. Make sure it's not an other libaray.
@@ -241,7 +241,7 @@
                     percentages[ file.id ] = [ file.size, 0 ];
                     file.rotation = 0;
 
-                    /* 检查文件格式 */
+                    // 检查文件格式 
                     if (!file.ext || acceptExtensions.indexOf(file.ext.toLowerCase()) == -1) {
                         showError('not_allow_type');
                         uploader.removeFile(file);
@@ -349,7 +349,7 @@
 
                     switch (val) {
 
-                        /* 未选择文件 */
+                        // 未选择文件
                         case 'pedding':
                             $queue.addClass('element-invisible');
                             $statusBar.addClass('element-invisible');
@@ -358,7 +358,7 @@
                             uploader.refresh();
                             break;
 
-                        /* 可以开始上传 */
+                        // 可以开始上传
                         case 'ready':
                             $placeHolder.addClass('element-invisible');
                             $queue.removeClass('element-invisible');
@@ -368,13 +368,13 @@
                             uploader.refresh();
                             break;
 
-                        /* 上传中 */
+                        // 上传中
                         case 'uploading':
                             $progress.show(); $info.hide();
                             $upload.text(lang.uploadPause);
                             break;
 
-                        /* 暂停上传 */
+                        // 暂停上传 
                         case 'paused':
                             $progress.show(); $info.hide();
                             $upload.text(lang.uploadContinue);
@@ -407,9 +407,9 @@
                 }
 
                 if (!_this.getQueueCount()) {
-                    $upload.addClass('disabled')
+                    $upload.addClass('disabled');
                 } else {
-                    $upload.removeClass('disabled')
+                    $upload.removeClass('disabled');
                 }
 
             }
@@ -471,7 +471,7 @@
                         setState('confirm', files);
                         break;
                     case 'startUpload':
-                        /* 添加额外的GET参数 */
+                        // 添加额外的GET参数 
                         var params = utils.serializeParam(editor.queryCommandValue('serverparam')) || '',
                             url = utils.formatUrl(actionUrl + (actionUrl.indexOf('?') == -1 ? '?':'&') + 'encode=utf-8&' + params);
                         uploader.option('server', url);
