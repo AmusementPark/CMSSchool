@@ -1,0 +1,124 @@
+﻿/* CSS Document */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,dl, dt, dd, ul, ol, li, fieldset, form, lengend, button, input, textarea,th, td { margin: 0; padding: 0 }
+body,button, input, select, textarea { font-family: "宋体","Arial",HELVETICA; font-size:14px; background:#ffffff; -webkit-text-size-adjust:100% }
+h1,h2,h3,h4, h5, h6 { font-size: 100%; font-weight:normal }
+address, cite, dfn, em, var,i { font-style: normal }
+code, kbd, pre, samp, tt { font-family: "Courier New", Courier, monospace }
+small { font-size: 12px }
+ul, ol { list-style: none }
+legend { color: #000 }
+fieldset, img { border: none }
+button, input, select, textarea { font-size: 100%; vertical-align:middle }
+table { border-collapse: collapse; border-spacing:0 }
+img { vertical-align:bottom }
+body {font: 12px/1.75 "宋体","Arial",sans-serif;color: #000;}
+del {text-decoration: line-through;line-height: 20px;}
+
+a{text-decoration:none}
+a:hover{text-decoration:none}
+em{font-style:normal}
+li{list-style:none}
+img{border:0;vertical-align:middle}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word}
+.undis{display:none}
+.dis{display:block}
+.ind{text-indent:2em}
+.N-red a, a.N-red{color:#bd0a01}
+.N-black a, a.N-black{color:#000}
+.layout:after, .hd:after, .bd:after, .ft:after, .cf:after, .N-tList:after, .N-tList ul:after, .N-tList ol:after, .N-pList:after, .N-pList ul:after, .N-tpList:after, .N-tpList ul:after, .N-tpWrap:after{content:"";display:table;clear:both}
+.layout, .hd, .bd, .ft, .cf, .N-tList, .N-tList ul, .N-tList ol, .N-pList, .N-pList ul, .N-tpList, .N-tpList ul, .N-tpWrap{*zoom:1}
+@media screen{.fl, .layout .fl, .chief{float:left;display:inline}
+.fr, .layout .fr, .extra{float:right;display:inline}
+.layout{width:960px;margin:0 auto}
+.N-g4 .chief{width:780px}
+.N-g4 .extra{width:170px}
+.N-g8 .chief{width:637px}
+.N-g8 .main,.N-g8 .extra{width:313px}
+.N-g8 .sub{width:314px}
+.N-g12 .chief, .N-g12 .extra{width:475px}
+.N-g14 .chief{width:570px}
+.N-g14 .extra{width:380px}
+.N-g16 .chief{width:640px}
+.N-g16 .main{width:380px}
+.N-g16 .sub{width:250px}
+.N-g16 .extra{width:310px}
+.N-g17a .chief, .N-g17b .chief , .N-g17c .chief{width:700px}
+.N-g17a .main{width:380px}
+.N-g17a .sub{width:310px}
+.N-g17a .extra, .N-g17b .extra, .N-g17c .extra{width:250px}
+.N-g17b .main, .N-g17b .sub{width:345px}
+.N-g17c .main{ width:440px}
+.N-g17c .sub{width:250px}
+.N-g24 .chief{width:960px}
+/* clearfix */
+.movielist ul:before,.movielist ul:after,.clearfix:before,.clearfix:after { content:"";display:table } .clearfix:after { clear:both } 
+.movielist ul,.clearfix { zoom:1 }
+.ll { float:left } .r { float:right } .pr { position:relative }
+.dis { display:block }
+.undis { display:none }
+textarea { resize:none }
+a:link { outline:none; color: #000; text-decoration: none }
+a:visited { color: #000; text-decoration: none }
+a:hover, a:active { color: #ff9600; text-decoration: none }
+a:focus{ outline:0 }
+/*全局*/
+.btbox:after,.hot-read .bd li:after,.hot-comment .bd dl:after,.wb-news-mod .bd dl:after,.love-read dl:after,.essence-mod dl:after,.cf:after { content:""; display:block; clear:both; height:0px; visibility:hidden }
+.btbox,.hot-read .bd li,.hot-comment .bd dl,.wb-news-mod .bd dl,.love-read dl,.essence-mod dl,.cf { *display:inline-block; zoom:1 }
+.ff-t { font-family:Tahoma } .fw-b { font-weight:bold } .f14 { font-size:14px }
+.mar-cf { margin-bottom:0 }
+.mar-b-10 { margin-bottom:10px }
+.mar-b-30 { margin-bottom:23px }
+.mar-b-18 { margin-bottom:11px }
+.mar-t-15 { margin-top:15px }
+/*.hd h2, .hd h3{float:left;display:inline}*/
+.hd h1 {font-size:20px;}
+.hd h2 {font-size:18px;}
+.f12{font-size:12px}
+.f14{font-size:14px}
+.f16{font-size:16px}
+.f18{font-size:18px}
+.f20{font-size:20px}
+.l16{line-height:16px}
+.l17{line-height:17px}
+.l18{line-height:18px}
+.l19{line-height:19px}
+.l20{line-height:20px}
+.l21{line-height:21px}
+.l22{line-height:22px}
+.l23{line-height:23px}
+.l24{line-height:24px}
+.l25{line-height:25px}
+.l26{line-height:26px}
+.l27{line-height:27px}
+.l28{line-height:28px}
+.l29{line-height:29px}
+.l30{line-height:30px}
+.N-hot, .N-tList{margin:0 10px}
+.N-hot h2{font:normal 18px/28px simhei;text-align:center}
+.N-hot h2.l30{font-size:20px}
+.N-tList span, .N-tpList li span{float:right}
+.N-pList li{float:left;display:inline;text-align:center}
+.N-pList a{display:block}
+.N-pList p a{display:inline}
+.N-tpList em{font-weight:normal}
+.N-tpList .pic{float:left;margin-right:10px;overflow:hidden;display:inline;text-align:center}
+.N-tpList .pic img{display:block}
+.N-vBg{width:100%;height:21px;position:relative;margin-top:-21px;font:12px/21px "宋体","Arial Narrow",HELVETICA;background:rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient( N-gradientType = 0, startColorstr = '#80000000', endColorstr = '#80000000') \9;text-align:right;cursor:pointer}
+.N-vBg b{display:block;position:absolute;width:21px;height:21px;top:0;left:0;cursor:pointer}
+.N-vBg span{padding:0 5px;color:#fff;cursor:pointer}
+.N-line{height:0;font:0/0 Arial;overflow:hidden;clear:both;border-bottom:1px dashed #ccc}
+.N-iDot li, .N-iDotBlue li, .N-iDotGray li, .N-iTqq li, .N-iVideo li, .N-iVideoBlue li, .N-iVideoDeep li, .N-iVideoGreen li{background:url(http://mat1.gtimg.com/news/base2011/img/i.png) no-repeat}
+.N-iDotBlue li{background-position:0 -30px}
+.N-iTqq li{background-position:0 -60px}
+.N-iVideo li{background-position:0 -90px}
+.N-iVideoBlue li{background-position:0 -120px}
+.N-iVideoDeep li{background-position:0 -210px}
+.N-iDotGray li{background-position:0 -180px}
+.N-iVideoGreen li{background-position:0 -240px}
+.mt10{margin-top:10px}
+.mb10{margin-bottom:10px}}/*  |xGv00|f0d833f866c8d03213a65f4b74c17797 */
+.absolute{position:absolute;}
+
+.clear {clear:both;}
+

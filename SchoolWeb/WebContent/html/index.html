@@ -1,0 +1,72 @@
+<%layout("/layout/default.html",{'title' : '春晓中学主页'}){%>
+<!--banner str-->
+<div class="bannerbg">
+  <div class="banner">
+    <img src="pic/pic01.jpg" />
+  </div>
+</div>
+<!--banner end-->
+<!--gglist str-->
+<div class="gglistbg">
+  <div class="gglist">
+    <label><img src="images/banner_icon.jpg" />最新公告：</label>
+    <span><a href="#">宁波市春晓中学2014学年第二学期第十八周工作计划</a><a href="#">2014学年教师考核加分汇总表</a><a href="#">人机对话，春晓勇做先驱实践者</a></span>
+  </div>
+</div>
+<!--gglist end-->
+<!--mainbody str-->
+<div class="mainbody">
+  <div class="box325 fl">
+    <div class="hd">
+      <h2>新闻中心</h2>
+      <span class="fr"><a href="#" target="_blank">more <img src="images/more_icon.jpg" /></a></span>
+    </div>
+    <div class="bd">
+      <%if(topNews != null){%>
+      <a href="news?id=${topNews.id}" class="pic">
+        <img src="${topNews.news_img}" id="topNewsImg"/>
+      </a>
+      <a href="news?id=${topNews.id}">
+        <h3>${topNews.news_title}</h3>
+        <span>${topNews.news_time, dateFormat="yyyy-MM-dd"} <img src="images/hot.jpg" /></span>
+      </a>
+      <%}%>
+      <div class="activity">
+        <label><img src="images/new.jpg" /></label>
+        <ul>
+        <% for(news in latestNews) { %>
+          <li>·<a href="news?id=${topNews.id}">${news.news_title}</a></li>
+        <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="box660 fr">
+    <div class="box460 fl">
+      <div class="hd">
+        <h2>快捷通道</h2>
+      </div>
+      <div class="bd">
+        <ul class="Number01">
+          <li><a href="#"><img src="images/icon01.jpg" /><span>校园ftp</span></a></li>
+          <li><a href="#"><img src="images/icon02.jpg" /><span>内部办公平台</span></a></li>
+          <li><a href="#"><img src="images/icon03.jpg" /><span>教务管理系统</span></a></li>
+          <li><a href="#"><img src="images/icon04.jpg" /><span>心理测试平台</span></a></li>
+          <li><a href="#"><img src="images/icon05.jpg" /><span>校讯通</span></a></li>
+          <li><a href="#"><img src="images/icon06.jpg" /><span>口语100人机对话</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <span class="glass">
+    <a href="#"><img src="pic/pic03.jpg" /></a>
+    <a href="#"><img src="pic/pic04.jpg" /></a>
+    <a href="#"><img src="pic/pic05.jpg" /></a>
+    <a href="#"><img src="pic/pic06.jpg" /></a>
+    <a href="#"><img src="pic/pic07.jpg" /></a>
+    <a href="#"><img src="pic/pic08.jpg" /></a>
+    <span>
+  </div>
+</div>
+<!--mainbody end-->
+
+<%}%>
