@@ -14,6 +14,7 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
 
 import drw.beetle.IsTrueFun;
+import drw.controller.ActionController;
 import drw.controller.CommonController;
 import drw.interceptor.IPInterceptor;
 import drw.model.News;
@@ -74,6 +75,7 @@ public class DrwConfig extends JFinalConfig {
     public void configRoute(Routes routes) {
         //config routes
         routes.add("/", CommonController.class);
+        routes.add("/action", ActionController.class);
     }
 
 }
