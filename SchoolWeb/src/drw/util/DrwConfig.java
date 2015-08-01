@@ -17,7 +17,7 @@ import drw.beetle.IsTrueFun;
 import drw.controller.ActionController;
 import drw.controller.CommonController;
 import drw.interceptor.IPInterceptor;
-import drw.model.News;
+import drw.model.*;
 
 public class DrwConfig extends JFinalConfig {
     
@@ -68,6 +68,7 @@ public class DrwConfig extends JFinalConfig {
         ActiveRecordPlugin arp = new ActiveRecordPlugin(main);
         arp.setShowSql(true);
         arp.addMapping("sch_news", News.class);
+        arp.addMapping("sch_cmmt", Comment.class);
         plugins.add(arp);
     }
 
