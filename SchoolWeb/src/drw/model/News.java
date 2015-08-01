@@ -26,4 +26,9 @@ public class News extends BaseModel<News> {
 		String sql = "update sch_news set news_view_count = news_view_count +1 where id = ?";
 		Db.update(sql, id);
 	}
+	
+	public List<News> getNewsByIndex(int index){
+		String sql = "select * from sch_news where  news_index =? order by news_time desc ";
+		return this.find(sql, index);
+	}
 }

@@ -87,7 +87,7 @@ input.button01 {background:url(../images/fabu.jpg) no-repeat; width:103px; heigh
 		.slideTxtBox .bd li{ height:40px; font:normal 16px/40px "微软雅黑"; padding:0 10px; }
 		.slideTxtBox .bd li:hover {background:#f7f7f7;}
 		.slideTxtBox .bd li a {color:#666; }
-		.slideTxtBox .bd li i {margin:13px 9px 0 0; float:left;}
+		.slideTxtBox .bd li i {margin:13px 9px 0 0; /*float:left;**/}
 		.slideTxtBox .bd li .date{ float:right; color:#999;  }
 		
 
