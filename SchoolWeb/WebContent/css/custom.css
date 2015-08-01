@@ -2,3 +2,19 @@
 	width: 300px;
 	height: 154px;
 }
+
+#nameSpan {
+	margin: 20px 0 0 0;
+	height: 35px; 
+	float: left;
+}
+
+#nameSpan input{
+	height: 25px; 
+}
+
+
+#nameSpan label{
+	font-weight: bold;
+	font-size: 15px;
+}
