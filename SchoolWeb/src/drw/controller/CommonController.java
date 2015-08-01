@@ -32,6 +32,19 @@ public class CommonController extends BaseController {
 		render("/html/detail.html");
 	}
 	
+	public void list(){
+		try {
+			int index = Integer.parseInt(getPara("index"));
+			//获取消息列表
+			List<News> newsList = News.dao.getNewsByIndex(index);
+			setAttr("newsList", newsList);
+			setAttr("index", index);
+		} catch (Exception e){
+			dealException(e, "生成页面失败， 请联系管理员！");
+		}
+		render("/html/list.html");
+	}
+	
 	public void error(){
 		setAttr("message", getAttr("message"));
 		render("/html/error.html");

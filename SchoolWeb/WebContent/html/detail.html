@@ -33,7 +33,8 @@
                 <div class="reply">
                   <h4>你的回应......</h4>
                   <textarea class="reply_text" id="cmmt"></textarea>
-                  <label>名称</label><input type="input" ng-model="author" id="author"/> <input type="button" class="fr button01" onclick="postComment()"/>
+                  <div id="nameSpan"><label >名称: </label><input type="input" ng-model="author" id="author"/> </div>
+                  <input type="button" class="fr button01" onclick="postComment()"/>
                 </div>
                 <div class="clear"></div>
                 <% for(cmt in cmtList){%>
@@ -66,6 +67,7 @@ function postComment(){
 	}
 	$.ajax({
 		url:"action/cmmt", 
+		method: "post",
 		data: {id: ${news.id},
 			cmmt: $("#cmmt").val(),
 			author: $("#author").val()
