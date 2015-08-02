@@ -29,14 +29,43 @@
               <div class="slidebd">
                 <h3><img src="images/hd_icon01.jpg" /></h3>
 				<ul>
-				<%for(news in newsList) { %>
+				<%for(news in page.list) { %>
 					<li><i><img src="images/li_icon01.png" /></i><span class="date">${news.news_time, dateFormat="yyyy-MM-dd"}</span><a href="news?id=${news.id}" target="_blank">${news.news_title}</a></li>
 				<% } %>
 				</ul>
               </div>
              
               <div id="N-pageZone" class="tour" style="font-size: 14px">
-     				<div class="endPageConNum"><a href="#">首页</a><a href="#">上一页</a><strong>1</strong><a href="#">2</a><p>...</p><a href="#">4</a><a href="#">下一页</a><a href="#">尾页</a><div class="jump">跳转&nbsp;<input type="text" name="jump">&nbsp;页</div>
+     				<div class="endPageConNum">
+     					<a href="list?index=${index}&page=0">首页</a>
+     					<%if(page.pageNumber == 1){ %>
+     						<a href="#">上一页</a>
+     					<% } else {%>
+     					<a href="list?index=${index}&page=0">上一页</a>
+     					<% } %>
+     					
+     					<% var i = 1;
+     					while(i < page.totalPage +1) {%>
+     						<% if(i == page.pageNumber){ %>
+     							<strong>1</strong>
+     						<% } else { %>
+     						<a href="list?index=${index}&page=${i}">${i}</a>
+     					<% 	   }
+     						i = i + 1;
+     					   } %>
+     					
+     					<%if(page.pageNumber == page.totalPage) {%>
+     					<a href="#">下一页</a>
+     					<% } else { %>
+     					<a href="list?index=${index}&page=${page.pageNumber +1}">下一页</a>
+     					<% } %>
+     					
+     					<%if(page.pageNumber == page.totalPage) {%>
+     					<a href="#">尾页</a>
+     					<% } else { %>
+     					<a href="list?index=${index}&page=${page.totalPage}">尾页</a>
+     					<% } %>
+     					<div class="jump">跳转&nbsp;<input type="text" name="jump">&nbsp;页</div>
      			    </div>
    			  </div>
 			</div>

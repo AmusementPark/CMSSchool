@@ -20,6 +20,7 @@ public class CommonController extends BaseController {
 			int id = Integer.parseInt(getPara("id"));
 			News news = News.dao.findById(id);
 			setAttr("news", news);
+			setAttr("index", news.getInt("news_index"));
 			//获取板块列表
 			
 			//获取评论列表
@@ -36,15 +37,20 @@ public class CommonController extends BaseController {
 	public void list(){
 		try {
 			int index = Integer.parseInt(getPara("index"));
+			int page = 1;
+			String pageStr = getPara("page");
+			if(pageStr != null){
+				page = Integer.parseInt(getPara("page"));
+			}
 			//获取消息列表
-			List<News> newsList = News.dao.getNewsByIndex(index);
-			setAttr("newsList", newsList);
+			setAttr("page", News.dao.getNewsByIndex(index, page));
 			setAttr("index", index);
 		} catch (Exception e){
 			dealException(e, "生成页面失败， 请联系管理员！");
 		}
 		render("/html/list.html");
 	}
+	
 	
 	public void error(){
 		setAttr("message", getAttr("message"));

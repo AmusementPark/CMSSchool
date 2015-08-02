@@ -37,7 +37,9 @@ public class DrwConfig extends JFinalConfig {
         //获取内部ip列表
         String ips = getProperty("internal_ip");
         DrwConstants.internalIP = ips.split(",");
-            
+        
+        int pageSize = Integer.parseInt(getProperty("page_size"));
+        DrwConstants.pageSize = pageSize;  
         //beetl load
         constant.setMainRenderFactory(new BeetlRenderFactory());
         GroupTemplate group = BeetlRenderFactory.groupTemplate;
