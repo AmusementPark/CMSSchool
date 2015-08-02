@@ -109,24 +109,28 @@ public class GridController extends Controller {
 		if(records == null || records.size() <= 0 || items == null || items.size() <= 0){
 			return;
 		}
-		
-		String field = null;
-		for(MetaItem item : items){
+		/**
+		 * @author Simon.Zhu
+		 * 处理多个字段为图片的情况.
+		 */
+		for(MetaItem item : items) {
 			String type = item.getStr("type");
-			if(MetaItem.TYPE_IMAGE.equals(type) || MetaItem.TYPE_LOGOS.equals(type)){
-				field = item.getStr("en");
-				break;
+			if( MetaItem.TYPE_IMAGE.equals(type) || MetaItem.TYPE_LOGOS.equals(type) || MetaItem.TYPE_FIND.equals(type) ) {
+			    String field = item.getStr("en");
+				if(field == null) continue;
+				
+	            for(Record record : records) {
+	                String path = record.getStr(field), image = "";
+                    if (MetaItem.TYPE_FIND.equals(type) ) {
+                        if (path.endsWith(".png") || path.endsWith(".bmp") || path.endsWith(".jpg") || path.endsWith(".gif")) {
+                        } else continue;
+                    }
+	                if( path != null && path.length() > 0 ) { 
+	                    image = "<img src='" + path + "' style='width:50px'/>";
+	                }           
+	                record.set(field, image);
+	            }
 			}
-		}
-		
-		if(field == null) return;
-		
-		for(Record record : records){
-			String path = record.getStr(field), image = "";
-			if( path != null && path.length() > 0 ) { 
-			    image = "<img src='" + path + "' style='width:50%'/>";
-			}			
-			record.set(field, image);
 		}
 	}
 
