@@ -54,9 +54,9 @@ angular.module('sch.cmmt')
 				'cmmt': $scope.cmmt, 
 				'user': $scope.user
 			}).success(function() {
-				//window.location.href = "/home";
+				alert('评论成功，请等待管理员审核。');
 			}).error(function(msg) {
-				//$element.find('[type="submit"]').button('reset');
+				alert('评论成功，请等待管理员审核。');
 			});
 		};
 	}]);
