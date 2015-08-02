@@ -13,8 +13,7 @@ public class CommonController extends BaseController {
 		setAttr("index", 1);
 		render("/html/index.html");
 	}
-	
-	
+
 	public void news(){
 		try {
 			int id = Integer.parseInt(getPara("id"));
