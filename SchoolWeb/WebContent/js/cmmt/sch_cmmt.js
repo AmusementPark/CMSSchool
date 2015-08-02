@@ -41,7 +41,7 @@ angular.module('sch.cmmt')
 	.controller('schCmmtCtrl', ['$scope', '$http', '$POSTURL', function($scope, $http, $POSTURL) {
 		$scope.cmmt = '';
 		$scope.user = '';
-		$scope.post = function() {
+		$scope.post = function(id) {
 			if(!$scope.cmmt){
 				alert("请输入评论！");
 				return;
@@ -51,6 +51,7 @@ angular.module('sch.cmmt')
 				return;
 			}
 			$http.post($POSTURL, {
+				'id'  : id,
 				'cmmt': $scope.cmmt, 
 				'user': $scope.user
 			}).success(function() {
