@@ -12,8 +12,7 @@ public class CommonController extends BaseController {
 		setAttr("latestNews", News.dao.getLatestIndexNews());
 		render("/html/index.html");
 	}
-	
-	
+
 	public void news(){
 		try {
 			int id = Integer.parseInt(getPara("id"));
