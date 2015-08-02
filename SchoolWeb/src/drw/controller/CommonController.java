@@ -10,6 +10,7 @@ public class CommonController extends BaseController {
 		//get top  3 news
 		setAttr("topNews", News.dao.getTopIndexNews());
 		setAttr("latestNews", News.dao.getLatestIndexNews());
+		setAttr("index", 1);
 		render("/html/index.html");
 	}
 
