@@ -34,7 +34,7 @@ public class News extends BaseModel<News> {
 	public Page getNewsByIndex(int index, int pageNumber){
 		Object[] param = new Object[1];
 		param[0] = index;
-		Page page = this.paginate(pageNumber, DrwConstants.pageSize, "select news_time, news_title, news_content", " from sch_news where  news_index =? order by news_time desc", param);
+		Page page = this.paginate(pageNumber, DrwConstants.pageSize, "select id, news_time, news_title, news_content", " from sch_news where  news_index =? order by news_time desc", param);
 		
 		return page;
 	}
