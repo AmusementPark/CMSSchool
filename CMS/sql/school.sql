@@ -344,6 +344,13 @@ CREATE TABLE `sch_logos` (
 	`lg_path`			VARCHAR(300)	NOT NULL,	-- select id 编号, lg_path 素材 from sch_logos where 1=1;ds=eova
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+insert into sch_logos values (1, '/files/system/logos/icon01.jpg');
+insert into sch_logos values (2, '/files/system/logos/icon02.jpg');
+insert into sch_logos values (3, '/files/system/logos/icon03.jpg');
+insert into sch_logos values (4, '/files/system/logos/icon04.jpg');
+insert into sch_logos values (5, '/files/system/logos/icon05.jpg');
+insert into sch_logos values (6, '/files/system/logos/icon06.jpg');
 -- --------------------------------------------------------------------------------- 新闻表
 -- 需求点:
 -- 1. 板块管理员将锁定 news_topic字段.
@@ -469,12 +476,12 @@ CREATE TABLE `sch_outter_links`(
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
-INSERT INTO `sch_links` VALUES ('1', '1', '校园ftp', 		'http://www.baidu.com/',  '', '1', '1');
-INSERT INTO `sch_links` VALUES ('2', '1', '内部办公平台', 	'http://www.baidu.com/',  '', '2', '1');
-INSERT INTO `sch_links` VALUES ('3', '1', '教务管理系统', 	'http://www.baidu.com/',  '', '3', '1');
-INSERT INTO `sch_links` VALUES ('4', '1', '心理测试平台', 	'http://www.baidu.com/',  '', '4', '1');
-INSERT INTO `sch_links` VALUES ('5', '1', '校讯通', 			'http://www.baidu.com/',  '', '5', '1');
-INSERT INTO `sch_links` VALUES ('6', '1', '口语100人机对话', 'http://www.baidu.com/',  '', '6', '1');
+INSERT INTO `sch_links` VALUES ('1', '1', '校园ftp', 		'http://www.baidu.com/',  '1', '1', '1');
+INSERT INTO `sch_links` VALUES ('2', '1', '内部办公平台', 	'http://www.baidu.com/',  '2', '2', '1');
+INSERT INTO `sch_links` VALUES ('3', '1', '教务管理系统', 	'http://www.baidu.com/',  '3', '3', '1');
+INSERT INTO `sch_links` VALUES ('4', '1', '心理测试平台', 	'http://www.baidu.com/',  '4', '4', '1');
+INSERT INTO `sch_links` VALUES ('5', '1', '校讯通', 			'http://www.baidu.com/',  '5', '5', '1');
+INSERT INTO `sch_links` VALUES ('6', '1', '口语100人机对话', 'http://www.baidu.com/',  '6', '6', '1');
 -- --------------------------------------------------------------------------------- 首页滚动图片表
 DROP TABLE IF EXISTS `sch_slide`;
 CREATE TABLE `sch_slide` (
