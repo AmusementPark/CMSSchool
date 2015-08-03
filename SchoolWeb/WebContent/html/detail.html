@@ -4,94 +4,68 @@
 <script type="text/javascript" src="js/cmmt/sch_cmmt.js"></script>
 
 <div class="bannerbg news">
-  <div class="banner">
-    <img src="pic/pic09.jpg" />
-  </div>
+  	<div class="banner">
+    	<img src="pic/pic09.jpg" />
+	</div>
 </div>
 <!--banner end-->
 <!--bread str-->
 <div class="bread">
-  <a href="#">首页</a> > 新闻中心
+	<a href="#">首页</a> > 新闻中心
 </div>
 <!--bread end->
 <!--mainnews str-->
 <div class="mainnews" ng-controller="schCmmtCtrl">
 	<div class="slideTxtBox">
-	<div class="pic_class">
-		<a href="#"><img src="pic/pic03.jpg" /></a>
-		<a href="#"><img src="pic/pic04.jpg" /></a>
-		<a href="#"><img src="pic/pic05.jpg" /></a>
-		<a href="#"><img src="pic/pic06.jpg" /></a>
-		<a href="#"><img src="pic/pic07.jpg" /></a>
-		<a href="#"><img src="pic/pic08.jpg" /></a>
-	</div>
-	<div class="hd">
-		<%include("/html/base/sidelist.html"){}%>
-		<!-- 
-		<ul><li><img src="images/icon_news01.png" />  校园新闻</li><li>上级通知</li><li>周工作计划</li><li>校园公告</li></ul>
-		 -->
-	</div>
-	<div class="bd">
-		<div class="slidebd_detail">
-			<h2>${news.news_title}</h2>
-			<span class="time">发布日期：${news.news_time, dateFormat="yyyy-MM-dd hh:mm:ss"} &nbsp;&nbsp;&nbsp; <font color="#d10000">浏览量：${news.news_view_count}</font> </span>
-			<div class="newsdetail">${news.news_content}</div>
-			<div data-ng-app="sch.cmmt">
-            	<div class="reply" data-ng-controller="schCmmtCtrl">
-					<h4>你的回应......</h4>
-                    <textarea class="reply_text" data-ng-model="cmmt" id="cmmt"></textarea>
-                    <div id="nameSpan"><label >名称: </label><input type="input" data-ng-model="user" id="author"/> </div>
-                    <input type="text" data-ng-model="id" value="" style="visibility:hidden"> 
-                    <input type="button" class="fr button01" data-ng-click="post(${news.id})"/>
-                </div>
-            </div>
-			<div class="clear"></div>
-			<% for(cmt in cmtList){%>
-			<div class="replybox">
-				<h5 class="fl">${cmt.cmmt_author}</h5>
-				<span class="fr">${cmt.cmmt_time, dateFormat="yyyy-MM-dd hh:mm:ss"}</span>
-				<div class="clear"></div>
-				<p>${cmt.cmmt_content}</p>
-			</div>
-            <% } %>
-			<div id="currentCmt"></div>
+		<div class="pic_class">
+			<a href="#"><img src="pic/pic03.jpg" /></a>
+			<a href="#"><img src="pic/pic04.jpg" /></a>
+			<a href="#"><img src="pic/pic05.jpg" /></a>
+			<a href="#"><img src="pic/pic06.jpg" /></a>
+			<a href="#"><img src="pic/pic07.jpg" /></a>
+			<a href="#"><img src="pic/pic08.jpg" /></a>
 		</div>
+		<div class="hd">
+			<%include("/html/base/sidelist.html"){}%>
+			<!-- 
+			<ul><li><img src="images/icon_news01.png" />  校园新闻</li><li>上级通知</li><li>周工作计划</li><li>校园公告</li></ul>
+			 -->
+		</div>
+		<div class="bd">
+			<div class="slidebd_detail">
+				<h2>${news.news_title}</h2>
+				<span class="time">发布日期：${news.news_time, dateFormat="yyyy-MM-dd hh:mm:ss"} &nbsp;&nbsp;&nbsp; <font color="#d10000">浏览量：${news.news_view_count}</font> </span>
+				<div class="newsdetail">${news.news_content}</div>
+				<div data-ng-app="sch.cmmt">
+	            	<div class="reply" data-ng-controller="schCmmtCtrl">
+						<h4>你的回应......</h4>
+	                    <textarea class="reply_text" data-ng-model="cmmt" id="cmmt"></textarea>
+	                    <div id="nameSpan"><label >名称: </label><input type="input" data-ng-model="user" id="author"/> </div>
+	                    <input type="text" data-ng-model="id" value="" style="visibility:hidden"> 
+	                    <input type="button" class="fr button01" data-ng-click="post(${news.id})"/>
+	                </div>
+	            </div>
+				<div class="clear"></div>
+				<% for(cmt in cmtList){%>
+				<div class="replybox">
+					<h5 class="fl">${cmt.cmmt_author}</h5>
+					<span class="fr">${cmt.cmmt_time, dateFormat="yyyy-MM-dd hh:mm:ss"}</span>
+					<div class="clear"></div>
+					<p>${cmt.cmmt_content}</p>
+					<% if (cmt.rp_ref != null) {%>
+					<div class="other">
+						<h5 class="fl">${cmt.rp_author}</h5>
+	                    <span class="fr">${cmt.rp_time}</span>
+	                    <div class="clear"></div>
+	                    <p>${cmt.rp_content}</p>
+					</div>
+	                <%}%>
+				</div>
+	            <%}%>
+				<div id="currentCmt"></div>
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript">jQuery(".slideTxtBox").slide({trigger:"click",delayTime:0});</script>
 </div>
-
-<!-- 
-<script>
-function postComment(){
-	var cmt = $("#cmmt").val();
-	var author = $("#author").val();
-	if(!cmt){
-		alert("请输入评论内容");
-		return;
-	}
-	
-	if(!author){
-		alert("请输入名称");
-		return;
-	}
-	$.ajax({
-		url:"action/cmmt", 
-		method: "post",
-		data: {id: ${news.id},
-			cmmt: $("#cmmt").val(),
-			author: $("#author").val()
-		}, 
-		success: function(result){
-			if(result.success){
-				console.info("发表评论");
-				location.reload() 
-			} else {
-				alert("发表评论失败")
-			}
-		}
-	});
-}
-</script> -->
-<!--mainnews end-->
 <% } %>

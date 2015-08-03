@@ -25,12 +25,13 @@ public class CommonController extends BaseController {
 			News news = News.dao.findById(id);
 			setAttr("news", news);
 			setAttr("index", news.getInt("news_index"));
-			//获取板块列表
+			// 获取板块列表
 			
-			//获取评论列表
+			// 获取评论列表
 			List<Comment> cmtList = Comment.dao.getCommentsByNewsId(id);
 			setAttr("cmtList", cmtList);
-			//访问量加1
+			// 获取回复列表
+			// 访问量加1
 			News.dao.addOpenTimes(news.getInt("id"));
 		} catch (Exception e){
 			dealException(e, "生成新闻页面失败， 请联系管理员！");
