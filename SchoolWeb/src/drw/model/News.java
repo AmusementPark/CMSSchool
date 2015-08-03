@@ -30,12 +30,12 @@ public class News extends BaseModel<News> {
 		Db.update(sql, id);
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public Page getNewsByIndex(int index, int pageNumber){
-		Object[] param = new Object[1];
+	@SuppressWarnings("rawtypes")
+    public Page getNewsByIndex(int index, int bk, int pageNumber){
+		Object[] param = new Object[2];
 		param[0] = index;
-		Page page = this.paginate(pageNumber, DrwConstants.pageSize, "select id, news_time, news_title, news_content", " from sch_news where  news_index =? order by news_time desc", param);
-		
+		param[1] = bk;
+		Page page = this.paginate(pageNumber, DrwConstants.pageSize, "select id, news_time, news_title, news_content", " from sch_news where news_index=? and news_bankuai=? order by news_time desc", param);
 		return page;
 	}
 	

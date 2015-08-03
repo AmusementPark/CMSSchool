@@ -2,8 +2,11 @@ package drw.controller;
 
 import java.util.List;
 
+import com.jfinal.plugin.activerecord.Record;
+
 import drw.model.Comment;
 import drw.model.News;
+import drw.model.SchBanKuai;
 import drw.model.SchLinks;
 
 public class CommonController extends BaseController {
@@ -35,18 +38,33 @@ public class CommonController extends BaseController {
 		render("/html/detail.html");
 	}
 	
-	public void list(){
+	public void list() {
 		try {
 			int index = Integer.parseInt(getPara("index"));
+	        // 板块列表填充.
+            List<Record> bks = SchBanKuai.dao.getBanKuai(index);
+            setAttr("bankuais", bks);
+            
+            // 设置选中的板块
+            String bk = getPara("bk");
+            if( bk == null ) {
+                setAttr("focusBk", bks.get(0).get("id"));
+            } else {
+                setAttr("focusBk", Integer.parseInt(bk));
+            }
+            
+            // 获取新闻列表
 			int page = 1;
 			String pageStr = getPara("page");
-			if(pageStr != null){
+			if( pageStr != null){
 				page = Integer.parseInt(getPara("page"));
 			}
 			//获取消息列表
-			setAttr("page", News.dao.getNewsByIndex(index, page));
+			Integer focus = (Integer)getAttr("focusBk");
+			setAttr("page", News.dao.getNewsByIndex(index, focus, page));
 			setAttr("index", index);
-		} catch (Exception e){
+			
+		} catch (Exception e) {
 			dealException(e, "生成页面失败， 请联系管理员！");
 		}
 		render("/html/list.html");

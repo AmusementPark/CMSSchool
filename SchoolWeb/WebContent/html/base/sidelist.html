@@ -1,0 +1,10 @@
+<ul>
+	<%for (bankuai in bankuais) {%>
+		<%if (bankuai.id == focusBk) {%>
+			<li><img src="images/icon_news01.png" />
+				<a href="list?index=${bankuai.bk_parent}&bk=${bankuai.id}">${bankuai.bk_name}</a></li>
+		<%} else {%>
+			<li><a href="list?index=${bankuai.bk_parent}&bk=${bankuai.id}">${bankuai.bk_name}</a></li>
+		<%}%>
+	<%}%>
+</ul>

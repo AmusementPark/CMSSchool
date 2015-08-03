@@ -13,36 +13,35 @@
 <!--bread end->
 <!--mainnews str-->
 <div class="mainnews">
-  		<div class="slideTxtBox">
-            <div class="pic_class">
-              <a href="#"><img src="pic/pic03.jpg" /></a>
-              <a href="#"><img src="pic/pic04.jpg" /></a>
-              <a href="#"><img src="pic/pic05.jpg" /></a>
-              <a href="#"><img src="pic/pic06.jpg" /></a>
-              <a href="#"><img src="pic/pic07.jpg" /></a>
-              <a href="#"><img src="pic/pic08.jpg" /></a>
-            </div>
-			<div class="hd">
-				<ul><li><img src="images/icon_news01.png" />  校园新闻</li><li>上级通知</li><li>周工作计划</li><li>校园公告</li></ul>
-			</div>
-			<div class="bd">
-              <div class="slidebd">
+	<div class="slideTxtBox">
+		<div class="pic_class">
+       		<a href="#"><img src="pic/pic03.jpg" /></a>
+            <a href="#"><img src="pic/pic04.jpg" /></a>
+            <a href="#"><img src="pic/pic05.jpg" /></a>
+            <a href="#"><img src="pic/pic06.jpg" /></a>
+            <a href="#"><img src="pic/pic07.jpg" /></a>
+            <a href="#"><img src="pic/pic08.jpg" /></a>
+		</div>
+		<div class="hd">
+			<%include("/html/base/sidelist.html"){}%>
+		</div>
+		<div class="bd">
+        	<div class="slidebd">
                 <h3><img src="images/hd_icon01.jpg" /></h3>
 				<ul>
-				<%for(news in page.list) { %>
+				<%for(news in page.list) {%>
 					<li><i><img src="images/li_icon01.png" /></i><span class="date">${news.news_time, dateFormat="yyyy-MM-dd"}</span><a href="news?id=${news.id}" target="_blank">${news.news_title}</a></li>
-				<% } %>
+				<%}%>
 				</ul>
-              </div>
-             
-              <div id="N-pageZone" class="tour" style="font-size: 14px">
-     				<div class="endPageConNum">
-     					<a href="list?index=${index}&page=0">首页</a>
-     					<%if(page.pageNumber == 1){ %>
-     						<a href="#">上一页</a>
-     					<% } else {%>
+            </div>
+            <div id="N-pageZone" class="tour" style="font-size: 14px">
+     			<div class="endPageConNum">
+     				<a href="list?index=${index}&page=0">首页</a>
+     				<%if(page.pageNumber == 1){ %>
+     					<a href="#">上一页</a>
+     				<%} else {%>
      					<a href="list?index=${index}&page=0">上一页</a>
-     					<% } %>
+     				<%}%>
      					
      					<% var i = 1;
      					while(i < page.totalPage +1) {%>
