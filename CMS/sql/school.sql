@@ -414,7 +414,7 @@ CREATE TABLE `sch_news` (
 DROP TABLE IF EXISTS `sch_news_pv`;
 CREATE TABLE `sch_news_pv` (
   `id` 				INT(11)			NOT NULL,						-- 新闻编号.
-  `count`			INT(11)			NOT NULL DEFAULT 0,				-- 新闻访问量.
+  `count`			INT(11)			NOT NULL DEFAULT 1,				-- 新闻访问量.
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 评论表

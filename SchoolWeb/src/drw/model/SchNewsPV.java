@@ -14,6 +14,13 @@ public class SchNewsPV extends BaseModel<SchNewsPV> {
     public static final SchNewsPV dao = new SchNewsPV();
     public int pv(int id) {
         List<Record> pvr = Db.find("select count from sch_news_pv where id = ?", id);
+        if( pvr.size() == 0) {
+            Record rec = new Record();
+            rec.set("id", id);
+            rec.set("count", 1);
+            Db.save("sch_news_pv", rec);
+            return 1;
+        }
         return pvr.get(0).getInt("count");
     }
     public void inc(int id) {
