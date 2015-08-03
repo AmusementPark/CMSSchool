@@ -302,8 +302,9 @@ public class CrudController extends Controller {
                         Db.use(crud.getDs()).update("sch_cmmt_rp", crud.getPkName(), oldr);
                     } else {
                         // 直接插表. sch_cmmt_rp.
-                        record.set("rp_ref", CrudController.this.getPara("id"));
-                        Db.use(crud.getDs()).save("sch_cmmt_rp", crud.getPkName(), record);
+                        Record newr = reMap.get("sch_cmmt_oc");
+                        newr.set("rp_ref", CrudController.this.getPara("id"));
+                        Db.use(crud.getDs()).save("sch_cmmt_rp", crud.getPkName(), newr);
                     }
                     
                     // 修改后置任务

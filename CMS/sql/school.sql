@@ -968,9 +968,9 @@ CREATE VIEW sch_cmmt_jxky_v AS SELECT
     A.`cmmt_content` 	AS `cmmt_content`,
     A.`cmmt_status`  	AS `cmmt_status`,
     A.`cmmt_time`    	AS `cmmt_time`,
-    C.`rp_content`   	AS `cmmt_reply`,
-    C.`rp_author`		AS `cmmt_replyer`,
-  	C.`rp_time` 		AS `cmmt_reply_time`
+    C.`rp_content`   	AS `rp_content`,
+    C.`rp_author`		AS `rp_author`,
+  	C.`rp_time` 		AS `rp_time`
 FROM (`sch_cmmt` A LEFT JOIN `sch_cmmt_rp` C ON A.id = C.rp_ref) INNER JOIN sch_news B ON A.cmmt_ref = B.id AND B.news_index = '4';
 -- 党群之窗
 DROP VIEW IF EXISTS sch_cmmt_dqzc_v;
