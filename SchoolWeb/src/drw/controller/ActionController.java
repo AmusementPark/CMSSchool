@@ -2,11 +2,9 @@ package drw.controller;
 
 import java.io.IOException;
 
-import com.jfinal.core.Controller;
-
 import drw.model.Comment;
 
-public class ActionController extends Controller {
+public class ActionController extends BaseController {
     // Action: Post 方式提交用户评论
     public void cmmt() throws IOException {
         this.getRequest().setCharacterEncoding("UTF-8");

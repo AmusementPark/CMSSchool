@@ -48,12 +48,16 @@
       </div>
       <div class="bd">
         <ul class="Number01">
-          <li><a href="#"><img src="images/icon01.jpg" /><span>校园ftp</span></a></li>
+          <% for (link in schLinks) { %>
+          	<li><a href="${link.lk_link}"><img src="${link.lg_path}" /><span>${link.lk_name}</span></a></li>
+          	<!-- 
+          <li><a href="#"><img src="/files/system/logos/1.png" /><span>校园ftp</span></a></li>
           <li><a href="#"><img src="images/icon02.jpg" /><span>内部办公平台</span></a></li>
           <li><a href="#"><img src="images/icon03.jpg" /><span>教务管理系统</span></a></li>
           <li><a href="#"><img src="images/icon04.jpg" /><span>心理测试平台</span></a></li>
           <li><a href="#"><img src="images/icon05.jpg" /><span>校讯通</span></a></li>
-          <li><a href="#"><img src="images/icon06.jpg" /><span>口语100人机对话</span></a></li>
+          <li><a href="#"><img src="images/icon06.jpg" /><span>口语100人机对话</span></a></li> -->
+          <% } %>
         </ul>
       </div>
     </div>

@@ -4,12 +4,14 @@ import java.util.List;
 
 import drw.model.Comment;
 import drw.model.News;
+import drw.model.SchLinks;
 
 public class CommonController extends BaseController {
 	public void index(){
 		//get top  3 news
 		setAttr("topNews", News.dao.getTopIndexNews());
 		setAttr("latestNews", News.dao.getLatestIndexNews());
+		setAttr("links", SchLinks.dao.getLinks());
 		setAttr("index", 1);
 		render("/html/index.html");
 	}
@@ -55,6 +57,4 @@ public class CommonController extends BaseController {
 		setAttr("message", getAttr("message"));
 		render("/html/error.html");
 	}
-	
-	
 }
