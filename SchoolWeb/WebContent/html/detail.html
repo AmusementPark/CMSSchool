@@ -34,7 +34,7 @@
 		<div class="bd">
 			<div class="slidebd_detail">
 				<h2>${news.news_title}</h2>
-				<span class="time">发布日期：${news.news_time, dateFormat="yyyy-MM-dd hh:mm:ss"} &nbsp;&nbsp;&nbsp; <font color="#d10000">浏览量：${news.news_view_count}</font> </span>
+				<span class="time">发布日期：${news.news_time, dateFormat="yyyy-MM-dd hh:mm:ss"} &nbsp;&nbsp;&nbsp; <font color="#d10000">浏览量：${pv}</font> </span>
 				<div class="newsdetail">${news.news_content}</div>
 				<div data-ng-app="sch.cmmt">
 	            	<div class="reply" data-ng-controller="schCmmtCtrl">
@@ -55,7 +55,7 @@
 					<% if (cmt.rp_ref != null) {%>
 					<div class="other">
 						<h5 class="fl">${cmt.rp_author}</h5>
-	                    <span class="fr">${cmt.rp_time}</span>
+	                    <span class="fr">${cmt.rp_time, dateFormat="yyyy-MM-dd hh:mm:ss"}</span>
 	                    <div class="clear"></div>
 	                    <p>${cmt.rp_content}</p>
 					</div>
