@@ -25,6 +25,11 @@ public class News extends BaseModel<News> {
 		return this.find(sql);
 	}
 	
+	public List<News> getLatestNews(int count){
+		String sql = "select * from sch_news order by news_time desc limit ?";
+		return this.find(sql, count);
+	}
+	
 	public void addOpenTimes(int id){
 		String sql = "update sch_news set news_view_count = news_view_count +1 where id = ?";
 		Db.update(sql, id);
