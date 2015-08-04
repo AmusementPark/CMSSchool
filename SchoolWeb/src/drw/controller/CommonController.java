@@ -9,8 +9,29 @@ import drw.model.News;
 import drw.model.SchBanKuai;
 import drw.model.SchLinks;
 import drw.model.SchNewsPV;
+import drw.model.User;
 
 public class CommonController extends BaseController {
+	
+	public void login(){
+		render("/html/login.html");
+	}
+	
+	public void doLogin(){
+		String username = getPara("user");
+		String password = getPara("password");
+		
+		User user = User.dao.findByName(username);
+		
+		if(user == null || !password.equals(user.getStr("loginPwd"))){
+			renderJson("{\"success\": false}");
+		} else {
+			setSessionAttr("user", user);
+			renderJson("{\"success\": true}");
+		}		
+		
+	}
+	
 	public void index(){
 		//get top  3 news
 		setAttr("topNews", News.dao.getTopIndexNews());

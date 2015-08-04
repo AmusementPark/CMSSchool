@@ -1,0 +1,17 @@
+<!--header str-->
+<div class="headerbg">
+  <div class="header">
+    <a href="#"><img src="images/logo.png" /></a>
+    <span class="fr">
+    	<%
+    	var cu = session.user;
+    	if(cu == null){ %>
+    	<a href="login">请登录</a>
+    	<%} else {%>
+    	<a href="#"><img src="pic/user_pic.jpg" /> ${cu.nickName}</a>
+    	<% }%>
+    	
+    	|<a href="#">English Version</a>|<a href="#" class="on">中文</a>|</span>
+  </div>
+</div>
+<!--header end-->

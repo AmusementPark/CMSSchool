@@ -71,6 +71,7 @@ public class DrwConfig extends JFinalConfig {
         arp.setShowSql(true);
         arp.addMapping("sch_news", News.class);
         arp.addMapping("sch_cmmt", Comment.class);
+        arp.addMapping("eova_user", User.class);
         plugins.add(arp);
     }
 
