@@ -46,6 +46,16 @@ public class CommonController extends BaseController {
 		try {
 			int id = Integer.parseInt(getPara("id"));
 			News news = News.dao.findById(id);
+			
+			//检查是否内部link
+			if("0".equals(news.getStr("news_open"))){
+				User user = this.getSessionAttr("user");
+				if(user == null || user.getStr("loginId") == null){
+					this.forwardAction("/login");
+					return;
+				}
+			}
+			
 			setAttr("news", news);
 			setAttr("index", news.getInt("news_index"));
 			setAttr("pv", SchNewsPV.dao.pv(id));
