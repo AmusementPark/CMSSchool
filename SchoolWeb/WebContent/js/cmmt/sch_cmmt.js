@@ -56,9 +56,15 @@ angular.module('sch.cmmt')
 				'user': $scope.user
 			}).success(function() {
 				alert('评论成功，请等待管理员审核。');
+				clear();
 			}).error(function(msg) {
 				alert('评论成功，请等待管理员审核。');
+				clear();
 			});
+		};
+		var clear = function() {
+			$scope.cmmt = '';
+			$scope.user = '';
 		};
 	}]);
 // directives
