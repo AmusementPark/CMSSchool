@@ -18,3 +18,7 @@
 	font-weight: bold;
 	font-size: 15px;
 }
+
+.slideTxtBox .bd ul li i{
+	float: none;
+}

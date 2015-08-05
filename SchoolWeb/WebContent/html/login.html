@@ -1,0 +1,49 @@
+<%layout("/layout/simple.html",{'title' : '主页'}){%>
+<!--login str-->
+<div class="loginbg">
+  <div class="loginbox">
+    <ul style="float: left; width: 330px;">
+					<li><h2>登陆账号</h2></li>
+					<li><dl id="ddlType" class="sub-serach-switch">
+                                <dt><input type="text" id="user"></dt>
+                                <dd style="width: 120px; display: none;">
+                                    <a href="javascript:;" data-id="">全部</a> <a href="javascript:;" data-id="0">微博</a> <a href="javascript:;" data-id="1">论坛</a>
+                                    <a href="javascript:;" data-id="2">新闻</a><a href="javascript:;" data-id="3">报纸</a> <a href="javascript:;" data-id="4">电视台</a>
+                                    <a href="javascript:;" data-id="5">博客</a><a href="javascript:;" data-id="6">总数</a>
+                                </dd>
+                            </dl>
+                    </li>
+					<li><span class="password"><input type="password" id="password"></span></li>
+					<li><div class="box01"><span class="on">记住密码</span></li>
+					<li><input type="button" value="登  陆" class="inputbtn01" onclick="login()"></li>
+				</ul>
+  </div>
+</div>
+<!--login end-->
+
+
+<script>
+function login(){
+	var user = $("#user").val();
+	var password = $("#password").val();
+	if(!user){
+		$("#user").focus();
+		return;
+	}
+	
+	if(!password){
+		$("#password").focus();
+		return;
+	}
+	
+	$.post("doLogin", {user: user, password: password}, function(result){
+		if(result.success){
+			location.href = "index";
+		} else {
+			alert("用户名密码错误");
+		}
+	});
+}
+
+</script>
+<% } %>

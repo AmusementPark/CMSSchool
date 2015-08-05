@@ -10,7 +10,11 @@
 <div class="gglistbg">
   <div class="gglist">
     <label><img src="images/banner_icon.jpg" />最新公告：</label>
-    <span><a href="#">宁波市春晓中学2014学年第二学期第十八周工作计划</a><a href="#">2014学年教师考核加分汇总表</a><a href="#">人机对话，春晓勇做先驱实践者</a></span>
+    <span>
+    	<% for(announce in announces) {%>
+    	<a href="news?id=${announce.id}">${announce.news_title}</a>
+    	<% } %>
+    </span>
   </div>
 </div>
 <!--gglist end-->

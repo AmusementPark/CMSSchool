@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>${title!}</title>
+<%include("/html/base/meta.html"){}%>
+<%include("/html/base/include.html"){}%>
+</head>
+<body>
+<%include("/html/base/header.html"){}%>
+
+${layoutContent}
+
+<div class="clear"></div>
+<%include("/html/base/footer.html"){}%>
+</body>
+<script>
+    $(function () {
+        console.info("page loaded!");
+    });
+</script>
+
+</html>
