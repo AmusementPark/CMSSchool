@@ -64,8 +64,8 @@ public class CommonController extends BaseController {
 	}
 	
 	public void list() {
+	    int index = Integer.parseInt(getPara("index"));
 		try {
-			int index = Integer.parseInt(getPara("index"));
 	        // 板块列表填充.
             List<Record> bks = SchBanKuai.dao.getBanKuai(index);
             setAttr("bankuais", bks);
@@ -92,9 +92,16 @@ public class CommonController extends BaseController {
 		} catch (Exception e) {
 			dealException(e, "生成页面失败， 请联系管理员！");
 		}
-		render("/html/list.html");
+
+		switch (index) {
+		case 2:
+		    render("/html/list_xxgk.html");break;
+		case 5:
+		    render("/html/list_dqzc.html");break;
+		default:
+		    render("/html/list.html");break;
+		}
 	}
-	
 	
 	public void error(){
 		setAttr("message", getAttr("message"));
