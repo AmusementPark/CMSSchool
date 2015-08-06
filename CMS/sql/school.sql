@@ -813,6 +813,7 @@ CREATE VIEW sch_news_tsjy_inner_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`,
+	`news_img`		AS `news_img`,
 	`news_open`		AS `news_open`
 FROM `sch_news` WHERE `news_index` = '7' AND `news_open` = '0' 
                                          AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
@@ -828,6 +829,7 @@ CREATE VIEW sch_news_gjjl_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`,
+	`news_img`		AS `news_img`,
 	`news_open`		AS `news_open`
 FROM `sch_news` WHERE `news_index` = '8' AND `news_open` = '1' 
                                          AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
@@ -843,6 +845,7 @@ CREATE VIEW sch_news_gjjl_inner_v AS SELECT
 	`news_topic_top`AS `news_topic_top`,
 	`news_site_top` AS `news_site_top`,
 	`news_time` 	AS `news_time`,
+	`news_img`		AS `news_img`,
 	`news_open`		AS `news_open`
 FROM `sch_news` WHERE `news_index` = '8' AND `news_open` = '0' 
                                          AND `news_bankuai` IN (SELECT id FROM `sch_bankuai` where `bk_active` = 1);
