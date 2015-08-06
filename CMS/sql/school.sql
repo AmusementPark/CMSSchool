@@ -417,6 +417,13 @@ CREATE TABLE `sch_news_pv` (
   `count`			INT(11)			NOT NULL DEFAULT 1,				-- 新闻访问量.
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `sch_leaders_pv`;
+CREATE TABLE `sch_leaders_pv` (
+  `id` 				INT(11)			NOT NULL,						-- 新闻编号.
+  `count`			INT(11)			NOT NULL DEFAULT 1,				-- 新闻访问量.
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------------------------------- 评论表
 -- 需求点:
 -- 1. 任何一个资源都可以被评论

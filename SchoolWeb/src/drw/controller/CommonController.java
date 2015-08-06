@@ -7,6 +7,7 @@ import com.jfinal.plugin.activerecord.Record;
 import drw.model.Comment;
 import drw.model.News;
 import drw.model.SchBanKuai;
+import drw.model.SchLeader;
 import drw.model.SchLinks;
 import drw.model.SchNewsPV;
 import drw.model.User;
@@ -75,46 +76,66 @@ public class CommonController extends BaseController {
 	
 	public void list() {
 	    int index = Integer.parseInt(getPara("index"));
-		try {
-	        // 板块列表填充.
-            List<Record> bks = SchBanKuai.dao.getBanKuai(index);
-            setAttr("bankuais", bks);
-            
-            // 设置选中的板块
-            String bk = getPara("bk");
-            if( bk == null ) {
-                setAttr("focusBk", bks.get(0).get("id"));
-            } else {
-                setAttr("focusBk", Integer.parseInt(bk));
-            }
-            
-            // 获取新闻列表
-			int page = 1;
-			String pageStr = getPara("page");
-			if( pageStr != null){
-				page = Integer.parseInt(getPara("page"));
-			}
-			//获取消息列表
-			Integer focus = (Integer)getAttr("focusBk");
-			setAttr("page", News.dao.getNewsByIndex(index, focus, page));
-			setAttr("index", index);
-			
-		} catch (Exception e) {
-			dealException(e, "生成页面失败， 请联系管理员！");
-		}
-
+	    
+	    bksSetAttr();
+	    newsSetAttr();
+	    
 		switch (index) {
 		case 2:
-		    setAttr("bkicon", "images/icon_news02.png");
+		    xxgkSetAttr();
 		    render("/html/list_xxgk.html");break;
 		case 5:
-		    setAttr("bkicon", "images/icon_news03.png");
+		    dqzcSetAttr();
 		    render("/html/list_dqzc.html");break;
 		default:
 		    setAttr("bkicon", "images/icon_news01.png");
 		    render("/html/list.html");break;
 		}
 	}
+	
+	// 板块设置
+	private void bksSetAttr() {
+	    int index = Integer.parseInt(getPara("index"));
+
+        // 板块列表填充.
+	    List<Record> bks = SchBanKuai.dao.getBanKuai(index);
+	    setAttr("bankuais", bks);
+           
+        // 设置选中的板块
+	    String bk = getPara("bk");
+	    if( bk == null ) {
+	        setAttr("focusBk", bks.get(0).get("id"));
+	    } else {
+	        setAttr("focusBk", Integer.parseInt(bk));
+	    }
+	}
+	// 新闻设置
+	private void newsSetAttr() {
+        // 获取新闻列表
+	    int index = Integer.parseInt(getPara("index")),
+	        page  = 1;
+        String pageStr = getPara("page");
+        if( pageStr != null){
+            page = Integer.parseInt(getPara("page"));
+        }
+        //获取消息列表
+        Integer focus = (Integer)getAttr("focusBk");
+        setAttr("page", News.dao.getNewsByIndex(index, focus, page));
+        setAttr("index", index);
+	}
+	// 生成学校概况
+    private void xxgkSetAttr() {
+        setAttr("bkicon", "images/icon_news02.png");
+    }
+    
+	// 生成党群之窗
+	private void dqzcSetAttr() {
+	    setAttr("bkicon", "images/icon_news03.png");
+	    
+	    List<Record> leaders = SchLeader.dao.getLeaders();
+	    setAttr("leaders", leaders);
+	}
+
 	
 	public void error(){
 		setAttr("message", getAttr("message"));

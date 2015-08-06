@@ -18,46 +18,12 @@
 			<div class="hd"></div>
 			<div class="bd">
 				<ul class="picList">
+					<% for (leader in leaders) {%>
 					<li>
-						<div class="pic"><a href="#" target="_blank"><img src="pic/pic13.jpg" /></a></div>
-						<div class="title"><a href="#" target="_blank">效果图1</a></div>
+						<div class="pic"><a href="leader?id=${leader.id}" target="_blank"><img src="${leader.sli_pic}" /></a></div>
+						<div class="title"><a href="leader?id=${leader.id}" target="_blank">${leader.sli_name}</a></div>
 					</li>
-					<li>
-						<div class="pic"><a href="#" target="_blank"><img src="pic/pic13.jpg" /></a></div>
-						<div class="title"><a href="#" target="_blank">效果图2</a></div>
-					</li>
-					<li>
-						<div class="pic"><a href="#" target="_blank"><img src="pic/pic13.jpg" /></a></div>
-						<div class="title"><a href="#" target="_blank">效果图3</a></div>
-					</li>
-					<li>
-						<div class="pic"><a href="#" target="_blank"><img src="pic/pic13.jpg" /></a></div>
-						<div class="title"><a href="#" target="_blank">效果图4</a></div>
-					</li>
-					<li>
-						<div class="pic"><a href="#" target="_blank"><img src="pic/pic13.jpg" /></a></div>
-						<div class="title"><a href="#" target="_blank">效果图5</a></div>
-					</li>
-					<li>
-						<div class="pic"><a href="#" target="_blank"><img src="pic/pic13.jpg" /></a></div>
-						<div class="title"><a href="#" target="_blank">效果图6</a></div>
-					</li>
-                    <li>
-						<div class="pic"><a href="#" target="_blank"><img src="pic/pic13.jpg" /></a></div>
-						<div class="title"><a href="#" target="_blank">效果图3</a></div>
-					</li>
-					<li>
-						<div class="pic"><a href="#" target="_blank"><img src="pic/pic13.jpg" /></a></div>
-						<div class="title"><a href="#" target="_blank">效果图4</a></div>
-					</li>
-					<li>
-						<div class="pic"><a href="#" target="_blank"><img src="pic/pic13.jpg" /></a></div>
-						<div class="title"><a href="#" target="_blank">效果图5</a></div>
-					</li>
-					<li>
-						<div class="pic"><a href="#" target="_blank"><img src="pic/pic13.jpg" /></a></div>
-						<div class="title"><a href="#" target="_blank">效果图6</a></div>
-					</li>
+					<% } %>
 				</ul>
 			</div>
 		</div>
