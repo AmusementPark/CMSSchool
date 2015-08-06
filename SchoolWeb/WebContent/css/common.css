@@ -82,9 +82,11 @@ input.button01 {background:url(../images/fabu.jpg) no-repeat; width:103px; heigh
 		.slideTxtBox{ width:1000px; border:0px solid #ddd; text-align:left; min-height:640px; position:relative;}
 		.slideTxtBox .hd{ line-height:55px; width:200px; float:left; background:#fff; padding:0;   border-bottom:0px solid #ddd;  position:relative; margin:0 20px 0 0;}
 		.slideTxtBox .hd ul{ float:left; }
-		.slideTxtBox .hd ul li{ float:left; padding:0 0px 0 40px; cursor:pointer; width:160px; font:normal 16px/55px "微软雅黑"; border-bottom:1px solid #e9e9e9; background:#f4f4f4;}
-		.slideTxtBox .hd ul li.on{ height:55px;  background:url(../images/hover_icon.jpg) no-repeat; padding-right:7px; border-bottom:0px solid #7fc261; color:#fff; }
-		.slideTxtBox.dj .hd ul li.on{ height:55px;  background:url(../images/hover_icon_red.jpg) no-repeat; padding-right:7px; border-bottom:0px solid #7fc261; color:#fff; }
+		.slideTxtBox .hd ul li{ }
+		.slideTxtBox .hd ul li a {color:#666; float:left; padding:0 0px 0 40px; cursor:pointer; width:160px; font:normal 16px/55px "微软雅黑"; border-bottom:1px solid #e9e9e9; background:#f4f4f4;}
+		.slideTxtBox .hd ul li.on{}
+		.slideTxtBox .hd ul li.on a {color:#fff; height:55px;  background:url(../images/hover_icon.jpg) no-repeat; padding-right:7px; border-bottom:0px solid #7fc261; color:#fff; }
+		.slideTxtBox.dj .hd ul li.on a{ height:55px;  background:url(../images/hover_icon_red.jpg) no-repeat; padding-right:7px; border-bottom:0px solid #7fc261; color:#fff; }
 		.slideTxtBox .bd {float:left; width:780px; }
 		.slideTxtBox .bd ul{ padding:0 15px;  zoom:1;  }
 		.slideTxtBox .bd li{ height:40px; font:normal 16px/40px "微软雅黑"; padding:0 10px; }

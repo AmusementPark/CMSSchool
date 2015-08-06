@@ -95,10 +95,13 @@ public class CommonController extends BaseController {
 
 		switch (index) {
 		case 2:
+		    setAttr("bkicon", "images/icon_news02.png");
 		    render("/html/list_xxgk.html");break;
 		case 5:
+		    setAttr("bkicon", "images/icon_news03.png");
 		    render("/html/list_dqzc.html");break;
 		default:
+		    setAttr("bkicon", "images/icon_news01.png");
 		    render("/html/list.html");break;
 		}
 	}

@@ -1,32 +1,30 @@
 <%layout("/layout/default.html",{'title' : '宁波市春晓中学'}){%>
 <!--banner str-->
 <div class="bannerbg news">
-  <div class="banner">
-    <img src="pic/pic09.jpg" />
-  </div>
+	<div class="banner">
+    	<img src="pic/pic09.jpg" />
+  	</div>
 </div>
 <!--banner end-->
 <!--bread str-->
 <div class="bread">
-  <a href="#">首页</a> > 新闻中心
+  	<a href="#">首页</a> > 新闻中心
 </div>
 <!--bread end->
 <!--mainnews str-->
 <div class="mainnews">
 	<div class="slideTxtBox">
-		
 		<div class="hd">
 			<%include("/html/base/sidelist.html"){}%>
 			<div class="pic_class">
-       		<a href="#"><img src="pic/pic03.jpg" /></a>
-            <a href="#"><img src="pic/pic04.jpg" /></a>
-            <a href="#"><img src="pic/pic05.jpg" /></a>
-            <a href="#"><img src="pic/pic06.jpg" /></a>
-            <a href="#"><img src="pic/pic07.jpg" /></a>
-            <a href="#"><img src="pic/pic08.jpg" /></a>
+	       		<a href="#"><img src="pic/pic03.jpg" /></a>
+	            <a href="#"><img src="pic/pic04.jpg" /></a>
+	            <a href="#"><img src="pic/pic05.jpg" /></a>
+	            <a href="#"><img src="pic/pic06.jpg" /></a>
+	            <a href="#"><img src="pic/pic07.jpg" /></a>
+	            <a href="#"><img src="pic/pic08.jpg" /></a>
+			</div>
 		</div>
-		</div>
-		
 		<div class="bd">
         	<div class="slidebd">
                 <h3><img src="images/hd_icon01.jpg" /></h3>
@@ -37,41 +35,39 @@
 				</ul>
             </div>
             <div id="N-pageZone" class="tour" style="font-size: 14px">
-     			<div class="endPageConNum">
+				<div class="endPageConNum">
      				<a href="list?index=${index}&page=0">首页</a>
      				<%if(page.pageNumber == 1){ %>
-     					<a href="#">上一页</a>
+     				<a href="#">上一页</a>
      				<%} else {%>
-     					<a href="list?index=${index}&page=0">上一页</a>
+     				<a href="list?index=${index}&page=0">上一页</a>
      				<%}%>
      					
-     					<% var i = 1;
-     					while(i < page.totalPage +1) {%>
-     						<% if(i == page.pageNumber){ %>
-     							<strong>1</strong>
-     						<% } else { %>
-     						<a href="list?index=${index}&page=${i}">${i}</a>
-     					<% 	   }
-     						i = i + 1;
-     					   } %>
+     				<%var i = 1; while(i < page.totalPage +1) {%>
+     				<%if(i == page.pageNumber){ %>
+     					<strong>1</strong>
+     				<%} else {%>
+     					<a href="list?index=${index}&page=${i}">${i}</a>
+     				<%}
+     					i=i+1;
+     				}%>
      					
-     					<%if(page.pageNumber == page.totalPage) {%>
-     					<a href="#">下一页</a>
-     					<% } else { %>
-     					<a href="list?index=${index}&page=${page.pageNumber +1}">下一页</a>
-     					<% } %>
+   					<%if(page.pageNumber == page.totalPage) {%>
+   					<a href="#">下一页</a>
+   					<% } else { %>
+   					<a href="list?index=${index}&page=${page.pageNumber+1}">下一页</a>
+   					<% } %>
      					
-     					<%if(page.pageNumber == page.totalPage) {%>
-     					<a href="#">尾页</a>
-     					<% } else { %>
-     					<a href="list?index=${index}&page=${page.totalPage}">尾页</a>
-     					<% } %>
-     					<div class="jump">跳转&nbsp;<input type="text" name="jump">&nbsp;页</div>
-     			    </div>
-   			  </div>
+   					<%if(page.pageNumber == page.totalPage) {%>
+   					<a href="#">尾页</a>
+   					<% } else { %>
+   					<a href="list?index=${index}&page=${page.totalPage}">尾页</a>
+   					<% } %>
+     				<div class="jump">跳转&nbsp;<input type="text" name="jump">&nbsp;页</div>
+     			</div>
 			</div>
 		</div>
-		<script type="text/javascript">jQuery(".slideTxtBox").slide({trigger:"click",delayTime:0});</script>
+	</div>
 </div>
 <!--mainnews end-->
 <% } %>
