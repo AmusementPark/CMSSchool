@@ -17,19 +17,16 @@
 <!--mainnews str-->
 <div class="mainnews" ng-controller="schCmmtCtrl">
 	<div class="slideTxtBox">
-		<div class="pic_class">
-			<a href="#"><img src="pic/pic03.jpg" /></a>
-			<a href="#"><img src="pic/pic04.jpg" /></a>
-			<a href="#"><img src="pic/pic05.jpg" /></a>
-			<a href="#"><img src="pic/pic06.jpg" /></a>
-			<a href="#"><img src="pic/pic07.jpg" /></a>
-			<a href="#"><img src="pic/pic08.jpg" /></a>
-		</div>
 		<div class="hd">
 			<%include("/html/base/sidelist.html"){}%>
-			<!-- 
-			<ul><li><img src="images/icon_news01.png" />  校园新闻</li><li>上级通知</li><li>周工作计划</li><li>校园公告</li></ul>
-			 -->
+            <div class="pic_class">
+              	<a href="#"><img src="pic/pic03.jpg" /></a>
+              	<a href="#"><img src="pic/pic04.jpg" /></a>
+              	<a href="#"><img src="pic/pic05.jpg" /></a>
+              	<a href="#"><img src="pic/pic06.jpg" /></a>
+              	<a href="#"><img src="pic/pic07.jpg" /></a>
+              	<a href="#"><img src="pic/pic08.jpg" /></a>
+            </div>
 		</div>
 		<div class="bd">
 			<div class="slidebd_detail">
@@ -66,6 +63,5 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">jQuery(".slideTxtBox").slide({trigger:"click",delayTime:0});</script>
 </div>
 <% } %>

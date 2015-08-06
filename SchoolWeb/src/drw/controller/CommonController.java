@@ -48,6 +48,8 @@ public class CommonController extends BaseController {
 			int id = Integer.parseInt(getPara("id"));
 			News news = News.dao.findById(id);
 			
+			bksSetAttr((Integer)news.get("news_index"));
+			
 			//检查是否内部link
 			if("0".equals(news.getStr("news_open"))){
 				User user = this.getSessionAttr("user");
@@ -77,7 +79,7 @@ public class CommonController extends BaseController {
 	public void list() {
 	    int index = Integer.parseInt(getPara("index"));
 	    
-	    bksSetAttr();
+	    bksSetAttr(index);
 	    newsSetAttr();
 	    
 		switch (index) {
@@ -88,14 +90,12 @@ public class CommonController extends BaseController {
 		    dqzcSetAttr();
 		    render("/html/list_dqzc.html");break;
 		default:
-		    setAttr("bkicon", "images/icon_news01.png");
 		    render("/html/list.html");break;
 		}
 	}
 	
 	// 板块设置
-	private void bksSetAttr() {
-	    int index = Integer.parseInt(getPara("index"));
+	private void bksSetAttr(int index) {
 
         // 板块列表填充.
 	    List<Record> bks = SchBanKuai.dao.getBanKuai(index);
@@ -107,6 +107,15 @@ public class CommonController extends BaseController {
 	        setAttr("focusBk", bks.get(0).get("id"));
 	    } else {
 	        setAttr("focusBk", Integer.parseInt(bk));
+	    }
+	    
+	    switch (index) {
+	    case 2:
+	        setAttr("bkicon", "images/icon_news02.png");break;
+	    case 5:
+	        setAttr("bkicon", "images/icon_news03.png");break;
+	    default:
+	        setAttr("bkicon", "images/icon_news01.png");break;
 	    }
 	}
 	// 新闻设置
@@ -123,15 +132,14 @@ public class CommonController extends BaseController {
         setAttr("page", News.dao.getNewsByIndex(index, focus, page));
         setAttr("index", index);
 	}
+	
 	// 生成学校概况
     private void xxgkSetAttr() {
-        setAttr("bkicon", "images/icon_news02.png");
+       
     }
     
 	// 生成党群之窗
-	private void dqzcSetAttr() {
-	    setAttr("bkicon", "images/icon_news03.png");
-	    
+	private void dqzcSetAttr() {	    
 	    List<Record> leaders = SchLeader.dao.getLeaders();
 	    setAttr("leaders", leaders);
 	}
