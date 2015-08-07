@@ -13,6 +13,7 @@ import drw.model.SchLinks;
 import drw.model.SchNewsPV;
 import drw.model.SchSlide;
 import drw.model.User;
+import drw.model.Index;
 
 public class CommonController extends BaseController {
 	
@@ -64,6 +65,7 @@ public class CommonController extends BaseController {
 			
 			setAttr("news", news);
 			setAttr("index", news.getInt("news_index"));
+			this.indexSetAttr(news.getInt("news_index"));
 			setAttr("pv", SchNewsPV.dao.pv(id));
 			// 获取板块列表
 			
@@ -96,6 +98,7 @@ public class CommonController extends BaseController {
 	    
 	    bksSetAttr(index);
 	    newsSetAttr();
+	    indexSetAttr(index);
 	    
 		switch (index) {
 		case 2:
@@ -109,6 +112,12 @@ public class CommonController extends BaseController {
 		}
 	}
 	
+	//索引信息设置
+	private void indexSetAttr(int index){
+		Index obj = Index.dao.findById(index);
+		setAttr("indexObj", obj);
+	}
+	
 	// 板块设置
 	private void bksSetAttr(int index) {
 
@@ -118,11 +127,17 @@ public class CommonController extends BaseController {
            
         // 设置选中的板块
 	    String bk = getPara("bk");
+	    int bkId;
 	    if( bk == null ) {
-	        setAttr("bk", bks.get(0).get("id"));
+	    	bkId = bks.get(0).getInt("id");
+	        setAttr("bk", bkId);
 	    } else {
-	        setAttr("bk", Integer.parseInt(bk));
+	    	bkId = Integer.parseInt(bk);
+	        setAttr("bk", bkId);
+	        
 	    }
+	    
+	    setAttr("bkObj", SchBanKuai.dao.findById(bkId));
 	    
 	    switch (index) {
 	    case 2:
@@ -139,6 +154,7 @@ public class CommonController extends BaseController {
         List<Record> bks = SchBanKuai.dao.getBanKuai(index);
         setAttr("bankuais", bks);
         setAttr("bk", bankuai);
+        setAttr("bkObj", SchBanKuai.dao.findById(bankuai));
 
         switch (index) {
         case 2:
@@ -176,6 +192,8 @@ public class CommonController extends BaseController {
 	    List<Record> leaders = SchLeader.dao.getLeaders();
 	    setAttr("leaders", leaders);
 	}
+	
+	
 
 	
 	public void error(){
