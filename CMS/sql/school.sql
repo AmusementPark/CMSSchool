@@ -173,6 +173,11 @@ INSERT INTO `eova_button` VALUES ('105031','sch_dqzc_dnfb_mc','查询', '', '', 
 INSERT INTO `eova_button` VALUES ('105032','sch_dqzc_dnfb_mc','新增', '/eova/template/crud/btn/addMulti.html','crud/addMulti','1');
 INSERT INTO `eova_button` VALUES ('105033','sch_dqzc_dnfb_mc','修改', '/eova/template/crud/btn/updateMulti.html','crud/updateMulti', '2');
 INSERT INTO `eova_button` VALUES ('105034','sch_dqzc_dnfb_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+
+INSERT INTO `eova_button` VALUES ('105041','sch_dqzc_plgl_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('105042','sch_dqzc_plgl_mc','回复', '/eova/template/custom/btn/replyCmmt.html','crud/update',    '1');
+INSERT INTO `eova_button` VALUES ('105043','sch_dqzc_plgl_mc','通过', '/eova/template/custom/btn/approve.html','crud/booleanCrud', '2');
+INSERT INTO `eova_button` VALUES ('105044','sch_dqzc_plgl_mc','拒绝', '/eova/template/custom/btn/deny.html',   'crud/booleanCrud', '3');
 -- --------------------------------------------------------------------------------- 德育教育板块CRUD权限
 -- 新闻管理
 INSERT INTO `eova_button` VALUES ('106011','sch_dyjy_xwgl_mc','查询', '', '', '0');

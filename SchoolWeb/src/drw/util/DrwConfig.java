@@ -16,6 +16,7 @@ import com.jfinal.plugin.druid.DruidPlugin;
 import drw.beetle.IsTrueFun;
 import drw.controller.ActionController;
 import drw.controller.CommonController;
+import drw.controller.SchLeaderCtrl;
 import drw.interceptor.IPInterceptor;
 import drw.model.*;
 
@@ -69,10 +70,11 @@ public class DrwConfig extends JFinalConfig {
         
         ActiveRecordPlugin arp = new ActiveRecordPlugin(main);
         arp.setShowSql(true);
-        arp.addMapping("sch_news", News.class);
-        arp.addMapping("sch_cmmt", Comment.class);
-        arp.addMapping("eova_user", User.class);
-        arp.addMapping("sch_slide", SchSlide.class);
+        arp.addMapping("sch_news",      News.class);
+        arp.addMapping("sch_cmmt",      Comment.class);
+        arp.addMapping("eova_user",     User.class);
+        arp.addMapping("sch_slide",     SchSlide.class);
+        arp.addMapping("sch_leaders",   SchLeader.class);
         plugins.add(arp);
     }
 
@@ -81,6 +83,7 @@ public class DrwConfig extends JFinalConfig {
         //config routes
         routes.add("/", CommonController.class);
         routes.add("/action", ActionController.class);
+        routes.add("/leader", SchLeaderCtrl.class);
     }
 
 }

@@ -8,6 +8,7 @@ import drw.model.Comment;
 import drw.model.News;
 import drw.model.SchBanKuai;
 import drw.model.SchLeader;
+import drw.model.SchLeaderPV;
 import drw.model.SchLinks;
 import drw.model.SchNewsPV;
 import drw.model.SchSlide;
@@ -50,7 +51,7 @@ public class CommonController extends BaseController {
 			int id = Integer.parseInt(getPara("id"));
 			News news = News.dao.findById(id);
 			
-			bksSetAttr((Integer)news.get("news_index"));
+			bksSetAttr((Integer)news.get("news_index"), (Integer)news.get("news_bankuai"));
 			
 			//检查是否内部link
 			if("0".equals(news.getStr("news_open"))){
@@ -77,6 +78,18 @@ public class CommonController extends BaseController {
 		}
 		render("/html/detail.html");
 	}
+	
+    public void leader() {
+        int id = Integer.parseInt(getPara("id"));
+        SchLeader leader = SchLeader.dao.findById(id);
+        
+        setAttr("leader", leader);
+        setAttr("index", 5);    //写死
+        setAttr("pv", SchLeaderPV.dao.pv(id));
+        // 访问量加1
+        SchLeaderPV.dao.inc(leader.getInt("id"));
+        render("/html/detail_dyfc.html");
+    }
 	
 	public void list() {
 	    int index = Integer.parseInt(getPara("index"));
@@ -106,9 +119,9 @@ public class CommonController extends BaseController {
         // 设置选中的板块
 	    String bk = getPara("bk");
 	    if( bk == null ) {
-	        setAttr("focusBk", bks.get(0).get("id"));
+	        setAttr("bk", bks.get(0).get("id"));
 	    } else {
-	        setAttr("focusBk", Integer.parseInt(bk));
+	        setAttr("bk", Integer.parseInt(bk));
 	    }
 	    
 	    switch (index) {
@@ -120,6 +133,23 @@ public class CommonController extends BaseController {
 	        setAttr("bkicon", "images/icon_news01.png");break;
 	    }
 	}
+	
+	private void bksSetAttr(int index, int bankuai) {
+        // 板块列表填充.
+        List<Record> bks = SchBanKuai.dao.getBanKuai(index);
+        setAttr("bankuais", bks);
+        setAttr("bk", bankuai);
+
+        switch (index) {
+        case 2:
+            setAttr("bkicon", "images/icon_news02.png");break;
+        case 5:
+            setAttr("bkicon", "images/icon_news03.png");break;
+        default:
+            setAttr("bkicon", "images/icon_news01.png");break;
+        }
+	}
+	
 	// 新闻设置
 	private void newsSetAttr() {
         // 获取新闻列表
@@ -130,9 +160,10 @@ public class CommonController extends BaseController {
             page = Integer.parseInt(getPara("page"));
         }
         //获取消息列表
-        Integer focus = (Integer)getAttr("focusBk");
+        Integer focus = (Integer)getAttr("bk");
         setAttr("page", News.dao.getNewsByIndex(index, focus, page));
         setAttr("index", index);
+        setAttr("idx", index);
 	}
 	
 	// 生成学校概况

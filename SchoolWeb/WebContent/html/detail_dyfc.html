@@ -1,0 +1,38 @@
+<!-- 党员风采详细页面. 与新闻的detail页面略有差异 -->
+<%layout("/layout/default.html",{'title' : '宁波市春晓中学'}){%>
+<!--banner str-->
+<div class="bannerbg news">
+  	<div class="banner">
+    	<img src="pic/pic09.jpg" />
+	</div>
+</div>
+<!--banner end-->
+<!--bread str-->
+<div class="bread">
+	<a href="index">首页</a> > <a href="list?index=5">党群之窗</a>
+</div>
+<!--bread end->
+<!--mainnews str-->
+<div class="mainnews" ng-controller="schCmmtCtrl">
+	<div class="slideTxtBox">
+		<div class="hd">
+            <div class="pic_class">
+              	<a href="#"><img src="pic/pic03.jpg" /></a>
+              	<a href="#"><img src="pic/pic04.jpg" /></a>
+              	<a href="#"><img src="pic/pic05.jpg" /></a>
+              	<a href="#"><img src="pic/pic06.jpg" /></a>
+              	<a href="#"><img src="pic/pic07.jpg" /></a>
+              	<a href="#"><img src="pic/pic08.jpg" /></a>
+            </div>
+		</div>
+		<div class="bd">
+			<div class="slidebd_detail">
+				<h2>${leader.sli_name}</h2>
+				<span class="time">发布日期：${leader.sli_time, dateFormat="yyyy-MM-dd hh:mm:ss"} &nbsp;&nbsp;&nbsp; <font color="#d10000">浏览量：${pv}</font> </span>
+				<div class="newsdetail">${leader.sli_news}</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<% } %>
