@@ -39,7 +39,7 @@ public class CommonController extends BaseController {
 		//get top  3 news
 		setAttr("topNews", News.dao.getTopIndexNews());
 		setAttr("latestNews", News.dao.getLatestIndexNews());
-		setAttr("announces", News.dao.getLatestNews(3));
+		setAttr("announces", News.dao.getLatestNews(8));
 		setAttr("schLinks", SchLinks.dao.getLinks());
 		setAttr("schSlide", SchSlide.dao.getSlides());
 		setAttr("index", 1);

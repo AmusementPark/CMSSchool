@@ -12,7 +12,7 @@
 		<div class="bd">
 			<ul>
 			<%for(slide in schSlide) {%>
-				<li><a href="#"><span class="img" style="background: url(${slide.sli_pic}) top center no-repeat;"></span></a></li>
+				<li><a href="#"><span class="img" style="background: url(${slide.sli_pic}) top center no-repeat;"></span><span class="text">${slide.sli_name}</span></a></li>
 			<%}%>
 			</ul>
 		</div>
@@ -26,12 +26,17 @@
 <div class="gglistbg">
 	<div class="gglist">
 		<label><img src="images/banner_icon.jpg" />最新公告：</label>
-    	<span>
-	    <% for(announce in announces) {%>
-	    	<a href="news?id=${announce.id}">${announce.news_title}</a>
-	    <% } %>
-    	</span>
+    	<span><div class="txtMarquee-left">
+			<div class="bd">
+				<ul class="infoList">
+					<%for(announce in announces) {%>
+	    				<li><a href="news?id=${announce.id}">${announce.news_title}</a></li>
+	   				<%}%>
+				</ul>
+			</div>
+		</div></span>
   	</div>
+  	<script type="text/javascript">jQuery(".txtMarquee-left").slide({mainCell:".bd ul",vis:5,autoPlay:true,effect:"leftMarquee",interTime:50,trigger:"click"});</script>
 </div>
 <!--gglist end-->
 <!--mainbody str-->
