@@ -10,7 +10,7 @@ public class SchSlide extends BaseModel<SchSlide> {
     
     public static final SchSlide dao = new SchSlide();
     public List<SchSlide> getSlides() {
-        List<SchSlide> slides = this.find("select sli_pic from sch_slide");
+        List<SchSlide> slides = this.find("select sli_pic from sch_slide where sli_show = '1'");
         return slides;
     }
 }

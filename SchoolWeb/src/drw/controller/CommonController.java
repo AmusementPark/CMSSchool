@@ -10,6 +10,7 @@ import drw.model.SchBanKuai;
 import drw.model.SchLeader;
 import drw.model.SchLinks;
 import drw.model.SchNewsPV;
+import drw.model.SchSlide;
 import drw.model.User;
 
 public class CommonController extends BaseController {
@@ -39,6 +40,7 @@ public class CommonController extends BaseController {
 		setAttr("latestNews", News.dao.getLatestIndexNews());
 		setAttr("announces", News.dao.getLatestNews(3));
 		setAttr("schLinks", SchLinks.dao.getLinks());
+		setAttr("schSlide", SchSlide.dao.getSlides());
 		setAttr("index", 1);
 		render("/html/index.html");
 	}

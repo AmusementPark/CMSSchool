@@ -3,13 +3,17 @@
 <div class="bannerbg">
 	<div id="slideBox" class="slideBox">
 		<div class="hd">
-			<ul><li></li><li></li><li></li></ul>
+			<ul>
+			<%for(slide in schSlide) {%>
+				<li></li>
+			<%}%>
+			</ul>
 		</div>
 		<div class="bd">
 			<ul>
-				<li><a href="#"><span class="img"></span></a></li>
-				<li><a href="#"><span class="img"></span></a></li>
-				<li><a href="#"><span class="img"></span></a></li>
+			<%for(slide in schSlide) {%>
+				<li><a href="#" target="_blank"><span class="img" style="background: url(${slide.sli_pic}) top center no-repeat;"></span></a></li>
+			<%}%>
 			</ul>
 		</div>
 	</div>
@@ -23,9 +27,9 @@
 	<div class="gglist">
 		<label><img src="images/banner_icon.jpg" />最新公告：</label>
     	<span>
-	    	<% for(announce in announces) {%>
+	    <% for(announce in announces) {%>
 	    	<a href="news?id=${announce.id}">${announce.news_title}</a>
-	    	<% } %>
+	    <% } %>
     	</span>
   	</div>
 </div>
