@@ -23,7 +23,9 @@ INSERT INTO `eova_menu` VALUES ('10104', 'sch_home_gdgl_mc', '轮放管理', 'si
 INSERT INTO `eova_menu` VALUES ('10105', 'sch_home_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutlink',   '5', '101', '0', '', '');
 -- 学校概况
 INSERT INTO `eova_menu` VALUES ('10201', 'sch_xxgk_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '102', '0', '', '');
-INSERT INTO `eova_menu` VALUES ('10202', 'sch_xxgk_wjgl_mc', '文件管理', 'singleGrid', 'icon-layoutsidebar','2', '102', '0', '', '');
+-- INSERT INTO `eova_menu` VALUES ('10202', 'sch_xxgk_wjgl_mc', '文件管理', 'singleGrid', 'icon-layoutsidebar','2', '102', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10203', 'sch_xxgk_dnfb_mc', '对内发布', 'singleGrid', 'icon-pagekey',      '3', '102', '0', '', '');
+INSERT INTO `eova_menu` VALUES ('10204', 'sch_xxgk_plgl_mc', '评论审核', 'singleGrid', 'icon-groupadd',     '4', '102', '0', '', '');
 -- 新闻中心
 INSERT INTO `eova_menu` VALUES ('10301', 'sch_xwzx_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '103', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('10302', 'sch_xwzx_dnfb_mc', '对内发布', 'singleGrid', 'icon-pagekey',      '2', '103', '0', '', '');
@@ -100,6 +102,20 @@ INSERT INTO `eova_button` VALUES ('102015','sch_xxgk_xwgl_mc','板块置顶', '/
 INSERT INTO `eova_button` VALUES ('102016','sch_xxgk_xwgl_mc','取消板顶', '/eova/template/custom/btn/deBkTop.html',  'crud/deBkTop',  '5');
 INSERT INTO `eova_button` VALUES ('102017','sch_xxgk_xwgl_mc','全站置顶', '/eova/template/custom/btn/siteTop.html',  'crud/siteTop',  '6');
 INSERT INTO `eova_button` VALUES ('102018','sch_xxgk_xwgl_mc','取消站顶', '/eova/template/custom/btn/deSiteTop.html','crud/deSiteTop','7');
+-- 对内发布
+INSERT INTO `eova_button` VALUES ('102031','sch_xxgk_dnfb_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('102032','sch_xxgk_dnfb_mc','新增', '/eova/template/crud/btn/addMulti.html','crud/addMulti','1');
+INSERT INTO `eova_button` VALUES ('102033','sch_xxgk_dnfb_mc','修改', '/eova/template/crud/btn/updateMulti.html','crud/updateMulti', '2');
+INSERT INTO `eova_button` VALUES ('102034','sch_xxgk_dnfb_mc','删除', '/eova/template/crud/btn/dels.html',   'crud/delete', '3');
+INSERT INTO `eova_button` VALUES ('102035','sch_xxgk_dnfb_mc','板块置顶', '/eova/template/custom/btn/bkTop.html',    'crud/bkTop',    '4');
+INSERT INTO `eova_button` VALUES ('102036','sch_xxgk_dnfb_mc','取消板顶', '/eova/template/custom/btn/deBkTop.html',  'crud/deBkTop',  '5');
+INSERT INTO `eova_button` VALUES ('102037','sch_xxgk_dnfb_mc','全站置顶', '/eova/template/custom/btn/siteTop.html',  'crud/siteTop',  '6');
+INSERT INTO `eova_button` VALUES ('102038','sch_xxgk_dnfb_mc','取消站顶', '/eova/template/custom/btn/deSiteTop.html','crud/deSiteTop','7');
+-- 评论审核
+INSERT INTO `eova_button` VALUES ('102041','sch_xxgk_plgl_mc','查询', '', '', '0');
+INSERT INTO `eova_button` VALUES ('102042','sch_xxgk_plgl_mc','回复', '/eova/template/custom/btn/replyCmmt.html','crud/update',    '1');
+INSERT INTO `eova_button` VALUES ('102043','sch_xxgk_plgl_mc','通过', '/eova/template/custom/btn/approve.html','crud/booleanCrud', '2');
+INSERT INTO `eova_button` VALUES ('102044','sch_xxgk_plgl_mc','拒绝', '/eova/template/custom/btn/deny.html',   'crud/booleanCrud', '3');
 -- 文件管理
 INSERT INTO `eova_button` VALUES ('102021','sch_xxgk_wjgl_mc','查询', '', '', '0');
 INSERT INTO `eova_button` VALUES ('102022','sch_xxgk_wjgl_mc','新增', '/eova/menu/btn/add.html',             '',            '1');
