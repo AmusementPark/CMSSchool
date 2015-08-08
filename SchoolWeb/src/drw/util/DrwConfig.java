@@ -75,6 +75,8 @@ public class DrwConfig extends JFinalConfig {
         arp.addMapping("eova_user",     User.class);
         arp.addMapping("sch_slide",     SchSlide.class);
         arp.addMapping("sch_leaders",   SchLeader.class);
+        arp.addMapping("sch_index",   Index.class);
+        arp.addMapping("sch_bankuai",   SchBanKuai.class);
         plugins.add(arp);
     }
 
