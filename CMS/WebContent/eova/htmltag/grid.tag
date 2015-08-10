@@ -5,6 +5,11 @@ function afterEditCell(index, row, changes){
 						'row': row
 					});
 }
+
+function afterLoad(){
+	var gridId = "#${id}";
+	$(gridId).resize();
+}
 </script>
 <table id="${id}" width="auto" height="auto"
 			data-options="
@@ -19,6 +24,7 @@ function afterEditCell(index, row, changes){
 					rownumbers : true,
 					pagination : true,
 					onAfterEdit: afterEditCell,
+					onLoadSuccess: afterLoad,
 					<%if(isEmpty(url)){%>
 					<%// 默认模式%>
 					url : '/grid/query/${obj.code}',
