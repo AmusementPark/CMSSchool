@@ -1085,6 +1085,7 @@ update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_tsjy_v_
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_gjjl_v_oc';
 
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_xxsy_inner_v_oc';
+update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_xxkg_inner_v_oc';
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_xwzx_inner_v_oc';
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_jxky_inner_v_oc';
 update eova_item set poCode = 'sch_news_oc' where objectCode = 'sch_news_dqzc_inner_v_oc';
@@ -1105,10 +1106,22 @@ update eova_item set cn='置顶图片', type='图片框', isOrder='0', isEdit='0
 update eova_item set cn='是否公开', type='下拉框', isAdd='0', isShow='0', isOrder='0', isEdit='0', isNotNull='1', isUpdate='0' where objectCode like 'sch_news%' and objectCode != 'sch_news_oc' and en = 'news_open';
 update eova_item set isAdd='1' where objectCode like 'sch_news%inner%' and objectCode != 'sch_news_oc' and en = 'news_open';
 
-
 update eova_item set exp = 'select id ID, idx_name CN from `sch_index` where id=1;ds=eova', `type`='下拉框' where objectCode='sch_news_xxsy_v_oc' and en='news_index';
 update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=1;ds=eova', `type`='下拉框'  where objectCode='sch_news_xxsy_v_oc' and en='news_bankuai';
-
+update eova_item set exp = 'select id ID, idx_name CN from `sch_index` where id=2;ds=eova', `type`='下拉框' where objectCode='sch_news_xxkg_v_oc' and en='news_index';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=2;ds=eova', `type`='下拉框'  where objectCode='sch_news_xxkg_v_oc' and en='news_bankuai';
+update eova_item set exp = 'select id ID, idx_name CN from `sch_index` where id=3;ds=eova', `type`='下拉框' where objectCode='sch_news_xwzx_v_oc' and en='news_index';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=3;ds=eova', `type`='下拉框'  where objectCode='sch_news_xwzx_v_oc' and en='news_bankuai';
+update eova_item set exp = 'select id ID, idx_name CN from `sch_index` where id=4;ds=eova', `type`='下拉框' where objectCode='sch_news_jxky_v_oc' and en='news_index';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=4;ds=eova', `type`='下拉框'  where objectCode='sch_news_jxky_v_oc' and en='news_bankuai';
+update eova_item set exp = 'select id ID, idx_name CN from `sch_index` where id=5;ds=eova', `type`='下拉框' where objectCode='sch_news_dqzc_v_oc' and en='news_index';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=5;ds=eova', `type`='下拉框'  where objectCode='sch_news_dqzc_v_oc' and en='news_bankuai';
+update eova_item set exp = 'select id ID, idx_name CN from `sch_index` where id=6;ds=eova', `type`='下拉框' where objectCode='sch_news_dyjy_v_oc' and en='news_index';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=6;ds=eova', `type`='下拉框'  where objectCode='sch_news_dyjy_v_oc' and en='news_bankuai';
+update eova_item set exp = 'select id ID, idx_name CN from `sch_index` where id=7;ds=eova', `type`='下拉框' where objectCode='sch_news_tsjy_v_oc' and en='news_index';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=7;ds=eova', `type`='下拉框'  where objectCode='sch_news_tsjy_v_oc' and en='news_bankuai';
+update eova_item set exp = 'select id ID, idx_name CN from `sch_index` where id=8;ds=eova', `type`='下拉框' where objectCode='sch_news_gjjl_v_oc' and en='news_index';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=8;ds=eova', `type`='下拉框'  where objectCode='sch_news_gjjl_v_oc' and en='news_bankuai';
 
 update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_xxsy_v_oc';
 update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_xxgk_v_oc';
@@ -1135,21 +1148,13 @@ update eova_item set cn='评论时间', isAdd=0, isUpdate=0, isEdit=0, isNotNull
 update eova_item set cn='回复内容' where objectCode like 'sch_cmmt%' and objectCode != 'sch_cmmt_oc' and objectCode != 'sch_cmmt_rp_oc' and en = 'rp_content';
 update eova_item set cn='回复作者', isAdd=0, isUpdate=0, isEdit=0, isNotNull=0, `type`='当前用户' where objectCode like 'sch_cmmt%' and objectCode != 'sch_cmmt_oc' and objectCode != 'sch_cmmt_rp_oc' and en = 'rp_author';
 update eova_item set cn='回复时间', isAdd=0, isUpdate=0, isEdit=0, isNotNull=1 where objectCode like 'sch_cmmt%' and objectCode != 'sch_cmmt_oc' and objectCode != 'sch_cmmt_rp_oc' and en = 'rp_time';
--- CREATE VIEW view_drw_comment_xinwen AS SELECT 
--- `id` AS `id`,
--- `cmmt_to` AS `cmmt_to`,
--- `cmmt_content` AS `cmmt_content`,
--- `cmmt_author` AS `cmmt_author`,
--- `cmmt_status` AS `cmmt_status`,
--- `cmmt_time` AS `cmmt_time`
--- FROM `drw_comment` WHERE `cmmt_class_id` = 10000;	-- 新闻评论
--- ---------------------------------------------------------------------------------
--- CREATE VIEW view_drw_comment_kejian AS SELECT 
--- `id` AS `id`,
--- `cmmt_to` AS `cmmt_to`,
--- `cmmt_content` AS `cmmt_content`,
--- `cmmt_author` AS `cmmt_author`,
--- `cmmt_status` AS `cmmt_status`,
--- `cmmt_time` AS `cmmt_time`
--- FROM `drw_comment` WHERE `cmmt_class_id` = 10001;	-- 课件评论
+
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=1;ds=eova', `type`='下拉框' where objectCode='sch_cmmt_xxsy_v_oc' and en='news_bankuai';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=2;ds=eova', `type`='下拉框' where objectCode='sch_cmmt_xxgk_v_oc' and en='news_bankuai';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=3;ds=eova', `type`='下拉框' where objectCode='sch_cmmt_xwzx_v_oc' and en='news_bankuai';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=4;ds=eova', `type`='下拉框' where objectCode='sch_cmmt_jxky_v_oc' and en='news_bankuai';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=5;ds=eova', `type`='下拉框' where objectCode='sch_cmmt_dqzc_v_oc' and en='news_bankuai';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=6;ds=eova', `type`='下拉框' where objectCode='sch_cmmt_dyjy_v_oc' and en='news_bankuai';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=7;ds=eova', `type`='下拉框' where objectCode='sch_cmmt_tsjy_v_oc' and en='news_bankuai';
+update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=8;ds=eova', `type`='下拉框' where objectCode='sch_cmmt_gjjl_v_oc' and en='news_bankuai';
 -- =================================================================================
