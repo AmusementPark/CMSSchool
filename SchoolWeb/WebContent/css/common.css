@@ -14,7 +14,11 @@
 .bannerbg {background:#7e985b; width:100%; margin:8px 0 0 0;} 
 .bannerbg.news {background:#f6f8fa; height:129px;}
 .bannerbg.about {background:url(../pic/pic11.jpg) top center no-repeat; height:129px;} 
-.bannerbg.dangyuan {background:url(../pic/pic12.jpg) top center no-repeat; height:129px;} 
+.bannerbg.dangyuan {background:url(../pic/pic12.jpg) top center no-repeat; height:129px;}
+.bannerbg.deyu {background:url(../pic/pic15.jpg) top center no-repeat; height:129px;} 
+.bannerbg.tese {background:url(../pic/pic18.jpg) top center no-repeat; height:129px;} 
+.bannerbg.guoji {background:url(../pic/pic16.jpg) top center no-repeat; height:129px;} 
+.bannerbg.keyan {background:url(../pic/pic17.jpg) top center no-repeat; height:129px;} 
 .banner {width:1000px; margin:0 auto;}
 
 .gglistbg {width:100%; background:#faf5ea; line-height:50px; height:50px; overflow:hidden; margin:0 0 20px 0;}
@@ -66,7 +70,7 @@
 /* detail */
 .slidebd_detail h2 {font:normal 26px/40px "微软雅黑"; color:#333333; margin:0 20px;}
 .slidebd_detail span.time {font:normal 14px "微软雅黑"; color:#999; margin:5px 20px;}
-.slidebd_detail div.newsdetail {border-top:1px solid #ddd; margin:20px 20px 0; padding:30px 0 0; font:normal 16px/30px "微软雅黑"; color:#666; text-indent:32px;}
+.slidebd_detail p.newsdetail {border-top:1px solid #ddd; margin:20px 20px 0; padding:30px 0 0; font:normal 16px/30px "微软雅黑"; color:#666; text-indent:32px;}
 .slidebd_detail img {max-width:700px; margin:20px 20px;}
 .reply {margin:20px;}
 .reply h4 {font:normal 16px/40px "微软雅黑"; color:#007722; margin:0 0 10px 0;}
@@ -88,6 +92,7 @@ input.button01 {background:url(../images/fabu.jpg) no-repeat; width:103px; heigh
 		.slideTxtBox .hd ul li.on a {color:#fff; height:55px;  background:url(../images/hover_icon.jpg) no-repeat; padding-right:7px; border-bottom:0px solid #7fc261; color:#fff; }
 		.slideTxtBox.dj .hd ul li.on a{ height:55px;  background:url(../images/hover_icon_red.jpg) no-repeat; padding-right:7px; border-bottom:0px solid #7fc261; color:#fff; }
 		.slideTxtBox .bd {float:left; width:780px; }
+		.slideTxtBox .bd01 {float:left; width:780px; }
 		.slideTxtBox .bd ul{ padding:0 15px;  zoom:1;  }
 		.slideTxtBox .bd li{ height:40px; font:normal 16px/40px "微软雅黑"; padding:0 10px; }
 		.slideTxtBox .bd li:hover {background:#f7f7f7;}
@@ -164,3 +169,8 @@ input.button01 {background:url(../images/fabu.jpg) no-repeat; width:103px; heigh
 		.picMarquee-left .bd ul li .pic img{ width:135px; height:180px; display:block; padding:0px; border:0px solid #ccc; }
 		.picMarquee-left .bd ul li .pic a:hover img{ border-color:#999;  }
 		.picMarquee-left .bd ul li .title{ line-height:24px;   }
+
+
+/* 校园风光 */
+.slidebd .Number02 li a {display:block; background:#f7f7f7; float:left; width:240px; margin:0 20px 10px 0; font:normal 14px/40px "微软雅黑"; color:#666; text-align:center;}
+.slidebd .Number02 {margin: 0 -20px 15px 20px;}

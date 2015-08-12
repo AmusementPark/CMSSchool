@@ -104,9 +104,21 @@ public class CommonController extends BaseController {
 		case 2:
 		    xxgkSetAttr();
 		    render("/html/list_xxgk.html");break;
+		case 4:
+		    jxkySetAttr();
+		    render("/html/list_jxky.html");break;
 		case 5:
 		    dqzcSetAttr();
 		    render("/html/list_dqzc.html");break;
+		case 6: 
+		    dyjySetAttr();
+		    render("/html/list_dyjy.html");break;
+		case 7: 
+		    tsjySetAttr();
+            render("/html/list_tsjy.html");break;
+        case 8: 
+            gjjlSetAttr();
+            render("/html/list_gjjl.html");break;
 		default:
 		    render("/html/list.html");break;
 		}
@@ -144,6 +156,13 @@ public class CommonController extends BaseController {
 	        setAttr("bkicon", "images/icon_news02.png");break;
 	    case 5:
 	        setAttr("bkicon", "images/icon_news03.png");break;
+	    case 6:
+	        setAttr("bkicon", "images/icon_news06.png");break;
+	    case 7:
+            setAttr("bkicon", "images/icon_news05.png");break;
+	    case 8:
+	    case 4:
+            setAttr("bkicon", "images/icon_news07.png");break;
 	    default:
 	        setAttr("bkicon", "images/icon_news01.png");break;
 	    }
@@ -161,6 +180,13 @@ public class CommonController extends BaseController {
             setAttr("bkicon", "images/icon_news02.png");break;
         case 5:
             setAttr("bkicon", "images/icon_news03.png");break;
+        case 6:
+            setAttr("bkicon", "images/icon_news06.png");break;
+        case 7:
+            setAttr("bkicon", "images/icon_news05.png");break;
+        case 8:
+        case 4:
+            setAttr("bkicon", "images/icon_news07.png");break;
         default:
             setAttr("bkicon", "images/icon_news01.png");break;
         }
@@ -193,8 +219,21 @@ public class CommonController extends BaseController {
 	    setAttr("leaders", leaders);
 	}
 	
+	private void jxkySetAttr() {
+	    
+	}
 	
-
+	private void dyjySetAttr() {
+	    
+	}
+	
+	private void tsjySetAttr() {
+	    
+	}
+	
+	private void gjjlSetAttr() {
+	    
+	}
 	
 	public void error(){
 		setAttr("message", getAttr("message"));
