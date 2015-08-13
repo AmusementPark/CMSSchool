@@ -1102,7 +1102,7 @@ update eova_item set cn='新闻作者', type='当前用户', isAdd='0', isUpdate
 update eova_item set cn='板块置顶', type='下拉框', isAdd='0', isUpdate='0', isEdit='0', exp="select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_topic_top';ds=eova" where objectCode like 'sch_news%' and objectCode != 'sch_news_oc' and en = 'news_topic_top';
 update eova_item set cn='全站置顶', type='下拉框', isAdd='0', isUpdate='0', isEdit='0', exp="select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_site_top';ds=eova" where objectCode like 'sch_news%' and objectCode != 'sch_news_oc' and en = 'news_site_top';
 update eova_item set cn='发布时间', type='时间框' where objectCode like 'sch_news%' and objectCode != 'sch_news_oc' and en = 'news_time';
-update eova_item set cn='置顶图片', type='图片框', isOrder='0', isEdit='0', isNotNull='0' where objectCode like 'sch_news%' and objectCode != 'sch_news_oc' and en = 'news_img';
+update eova_item set cn='缩略图片', type='图片框', isOrder='0', isEdit='0', isNotNull='0' where objectCode like 'sch_news%' and objectCode != 'sch_news_oc' and en = 'news_img';
 update eova_item set cn='是否公开', type='下拉框', isAdd='0', isShow='0', isOrder='0', isEdit='0', isNotNull='1', isUpdate='0' where objectCode like 'sch_news%' and objectCode != 'sch_news_oc' and en = 'news_open';
 update eova_item set isAdd='1' where objectCode like 'sch_news%inner%' and objectCode != 'sch_news_oc' and en = 'news_open';
 
@@ -1157,4 +1157,6 @@ update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk
 update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=6;ds=eova', `type`='下拉框' where objectCode='sch_cmmt_dyjy_v_oc' and en='news_bankuai';
 update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=7;ds=eova', `type`='下拉框' where objectCode='sch_cmmt_tsjy_v_oc' and en='news_bankuai';
 update eova_item set exp = 'select id ID, bk_name CN from `sch_bankuai` where bk_parent=8;ds=eova', `type`='下拉框' where objectCode='sch_cmmt_gjjl_v_oc' and en='news_bankuai';
+
+update eova_item set exp = "select value ID,name CN from `eova_dict` where `class` = 'sch_news' and field = 'news_open' and name='否';ds=eova" where objectCode like 'sch_news%inner_v%' and en='news_open'
 -- =================================================================================
