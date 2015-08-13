@@ -70,10 +70,11 @@
 /* detail */
 .slidebd_detail h2 {font:normal 26px/40px "微软雅黑"; color:#333333; margin:0 20px;}
 .slidebd_detail span.time {font:normal 14px "微软雅黑"; color:#999; margin:5px 20px;}
-.slidebd_detail p.newsdetail {border-top:1px solid #ddd; margin:20px 20px 0; padding:30px 0 0; font:normal 16px/30px "微软雅黑"; color:#666; text-indent:32px;}
+.slidebd_detail div.newsdetail {border-top:1px solid #ddd; margin:20px 20px 0; padding:30px 0 0; font:normal 16px/30px "微软雅黑"; color:#666; text-indent:32px;}
 .slidebd_detail img {max-width:700px; margin:20px 20px;}
 .reply {margin:20px;}
 .reply h4 {font:normal 16px/40px "微软雅黑"; color:#007722; margin:0 0 10px 0;}
+input.text01 { width:173px; height:36px; border:1px solid #ddd; margin:20px 0 0 0; padding:0 10px;}
 input.button01 {background:url(../images/fabu.jpg) no-repeat; width:103px; height:36px; border:none; margin:20px 0 0 0;}
 .reply_text {width:738px; border:1px solid #ddd; height:200px;}
 .replybox {margin:20px; background:#f7f8f7; padding:10px 20px 20px;}

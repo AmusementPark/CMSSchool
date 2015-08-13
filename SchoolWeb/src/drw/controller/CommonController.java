@@ -146,7 +146,6 @@ public class CommonController extends BaseController {
 	    } else {
 	    	bkId = Integer.parseInt(bk);
 	        setAttr("bk", bkId);
-	        
 	    }
 	    
 	    setAttr("bkObj", SchBanKuai.dao.findById(bkId));
@@ -161,6 +160,7 @@ public class CommonController extends BaseController {
 	    case 7:
             setAttr("bkicon", "images/icon_news05.png");break;
 	    case 8:
+            setAttr("bkicon", "images/icon_news08.png");break;
 	    case 4:
             setAttr("bkicon", "images/icon_news07.png");break;
 	    default:
@@ -185,6 +185,7 @@ public class CommonController extends BaseController {
         case 7:
             setAttr("bkicon", "images/icon_news05.png");break;
         case 8:
+            setAttr("bkicon", "images/icon_news08.png");break;
         case 4:
             setAttr("bkicon", "images/icon_news07.png");break;
         default:
@@ -220,19 +221,12 @@ public class CommonController extends BaseController {
 	}
 	
 	private void jxkySetAttr() {
-	    
 	}
-	
 	private void dyjySetAttr() {
-	    
 	}
-	
 	private void tsjySetAttr() {
-	    
 	}
-	
 	private void gjjlSetAttr() {
-	    
 	}
 	
 	public void error(){
