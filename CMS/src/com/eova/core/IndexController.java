@@ -158,8 +158,10 @@ public class IndexController extends Controller {
 		String name = role.getStr("name");
 		if(name.indexOf("教职工-") >= 0){
 			setSessionAttr("group", user.getInt("rid"));
+			setSessionAttr("groupName", name.substring(4));
 		} else {
 			setSessionAttr("group", null);
+			setSessionAttr("groupName", null);
 		}
 	}
 

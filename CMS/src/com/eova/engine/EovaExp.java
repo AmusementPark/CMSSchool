@@ -12,6 +12,7 @@ import java.util.List;
 import com.eova.model.MetaItem;
 import com.eova.model.MetaObject;
 import com.eova.common.utils.xx;
+import com.jfinal.core.Controller;
 
 public class EovaExp {
 	public static void main(String[] args) {
@@ -29,14 +30,36 @@ public class EovaExp {
 		System.out.println("sa="+getSelectItem(exp));
 		
 	}
-
+	
 	public static String getWhere(String exp){
 		int where = exp.indexOf("where");
 		if (where == -1) {
 			return "";
 		}
 		int end = exp.indexOf(";");
-		return exp.substring(where, end);
+		return exp.substring(where, end).replaceAll("\\{groupName\\}", " ");
+	}
+
+	public static String getWhere(String exp, Controller c){
+		int where = exp.indexOf("where");
+		String result = "";
+		if (where == -1) {
+			result = " 1=1 ";
+		}else {
+			int end = exp.indexOf(";");
+			result = exp.substring(where, end);
+		}
+		
+		
+		if(result.indexOf("{groupName}") > 0 && c != null){
+			String groupName = c.getSessionAttr("groupName");
+			if(groupName != null){
+				result = result.replaceAll("\\{groupName\\}", " and bk_name = '" + groupName + "'");
+			} else {
+				result = result.replaceAll("\\{groupName\\}", " ");
+			}
+		}
+		return result;
 	}
 	
 	/**

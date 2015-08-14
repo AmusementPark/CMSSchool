@@ -204,7 +204,7 @@ public class WidgetController extends Controller {
 		// 下拉框表达式 别名固定为 ID,CN,否则页面无法获取
 		String select = EovaExp.getSelect(exp);
 		String from = EovaExp.getFrom(exp);
-		String where = EovaExp.getWhere(exp);
+		String where = EovaExp.getWhere(exp, this);
 		String ds = EovaExp.getDs(exp);
 
 		// 获取条件
