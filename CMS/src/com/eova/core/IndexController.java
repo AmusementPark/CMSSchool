@@ -18,6 +18,7 @@ import java.util.TreeMap;
 import com.eova.common.Easy;
 import com.eova.common.utils.xx;
 import com.eova.model.Menu;
+import com.eova.model.Role;
 import com.eova.model.User;
 import com.eova.service.sm;
 import com.jfinal.core.Controller;
@@ -141,9 +142,25 @@ public class IndexController extends Controller {
 		}
 		// 登录成功
 		setSessionAttr("user", user);
+		
+		setInvestGroup(user);
+		
+		//设置用户所在的教研组
+		
 		// 重定向到首页
 		redirect("/");
 
+	}
+	
+	
+	private void setInvestGroup(User user){
+		Role role = Role.dao.findFirst("select * from eova_role where rid = ? ", user.getInt("rid"));
+		String name = role.getStr("name");
+		if(name.indexOf("教职工-") >= 0){
+			setSessionAttr("group", user.getInt("rid"));
+		} else {
+			setSessionAttr("group", null);
+		}
 	}
 
 	/**

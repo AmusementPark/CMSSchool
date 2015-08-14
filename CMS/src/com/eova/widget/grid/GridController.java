@@ -36,6 +36,20 @@ import com.jfinal.plugin.activerecord.Record;
  * 
  */
 public class GridController extends Controller {
+	
+	private String generateFilter(MetaObject eo){
+		String result = ' ' + eo.getStr("filterWhere");
+		//如果用户是教研组成员， 仅显示教研组的内容
+		Integer group = this.getSessionAttr("group");
+		String objName = eo.getStr("name");
+		if(group != null && objName.equals("新闻管理")){
+			if(result.trim().equals(""))
+				result += " where 1=1 ";
+			result += " and news_author in ( select loginId from eova_user where rid = " + group + " ) ";
+		}
+		
+		return result;
+	}
     
 	/**
 	 * 分页查询
@@ -55,7 +69,11 @@ public class GridController extends Controller {
 
 		// 获取条件
 		List<String> parmList = new ArrayList<String>();
-		String where = WidgetManager.getWhere(this, eis, parmList, ' ' + eo.getStr("filterWhere"));
+		
+		//生成过滤条件
+		String filterWhere = generateFilter(eo);
+		
+		String where = WidgetManager.getWhere(this, eis, parmList, filterWhere);
 
 		/**
 		 * @author Simon.Zhu
