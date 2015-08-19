@@ -40,7 +40,7 @@ public class News extends BaseModel<News> {
 		Object[] param = new Object[2];
 		param[0] = index;
 		param[1] = bk;
-		Page page = this.paginate(pageNumber, DrwConstants.pageSize, "select id, news_time, news_title, news_content", " from sch_news where news_index=? and news_bankuai=? order by news_time desc", param);
+		Page page = this.paginate(pageNumber, DrwConstants.pageSize, "select * ", " from sch_news where news_index=? and news_bankuai=? order by news_time desc", param);
 		return page;
 	}
 	

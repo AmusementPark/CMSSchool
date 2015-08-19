@@ -103,7 +103,12 @@ public class CommonController extends BaseController {
 		switch (index) {
 		case 2:
 		    xxgkSetAttr();
-		    render("/html/list_xxgk.html");break;
+		    if( getAttr("_disp") != null && getAttr("_disp").equals("1")) {
+		        render("/html/list_xxgk_pic.html");
+		    } else {
+		        render("/html/list_xxgk.html"); 
+		    }
+		    break;
 		case 4:
 		    jxkySetAttr();
 		    render("/html/list_jxky.html");break;
@@ -148,6 +153,12 @@ public class CommonController extends BaseController {
 	        setAttr("bk", bkId);
 	    }
 	    
+	    for( int i=0; i<bks.size(); i++) {
+	        if( (Integer)bks.get(i).get("id") == bkId ) {
+	            setAttr("_disp", bks.get(i).get("bk_disp"));
+	        }
+	    }
+	    
 	    setAttr("bkObj", SchBanKuai.dao.findById(bkId));
 	    
 	    switch (index) {
@@ -174,7 +185,7 @@ public class CommonController extends BaseController {
         setAttr("bankuais", bks);
         setAttr("bk", bankuai);
         setAttr("bkObj", SchBanKuai.dao.findById(bankuai));
-
+        
         switch (index) {
         case 2:
             setAttr("bkicon", "images/icon_news02.png");break;

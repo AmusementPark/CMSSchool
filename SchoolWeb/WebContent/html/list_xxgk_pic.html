@@ -1,12 +1,12 @@
 <%layout("/layout/default.html",{'title' : '宁波市春晓中学'}){%>
 <!--banner str-->
 <div class="bannerbg about">
-  	<div class="banner"></div>
+	<div class="banner"></div>
 </div>
 <!--banner end-->
 <!--bread str-->
 <div class="bread">
-  	<a href="index">首页</a> > ${indexObj.idx_name}
+	<a href="index">首页</a> > ${indexObj.idx_name}
 </div>
 <!--bread end->
 <!--mainnews str-->
@@ -14,17 +14,17 @@
 	<div class="slideTxtBox"> 
 		<div class="hd">
 			<%include("/html/base/sidelist.html"){}%>
-       		<%include("/html/base/jxkyside.html"){}%>
+			<%include("/html/base/jxkyside.html"){}%>
 		</div>
-		<div class="bd">
-            <div class="slidebd">
-              	<h3><img src="images/hd_icon02.jpg" /></h3>
-                <ul>
-	                <%for(news in page.list) {%>
-					<li><i><img src="images/li_icon01.png" /></i><span class="date">${news.news_time, dateFormat="yyyy-MM-dd"}</span><a href="news?id=${news.id}" target="_blank">${news.news_title}</a></li>
-					<%}%>
+		<div class="bd01">
+			<div class="slidebd">
+				<h3><img src="images/hd_icon02.jpg" /></h3>
+				<ul class="Number02">
+				<%for(news in page.list) {%>
+					<li><a href="news?id=${news.id}" target="_blank"><i><img src="${news.news_img}" width="240" /></i>${news.news_title}</a></li>
+				<%}%>
 				</ul>
-              	<div id="N-pageZone" class="tour" style="font-size: 14px">
+				<div id="N-pageZone" class="tour" style="font-size: 14px">
               		<div class="endPageConNum">
 	     				<a href="list?index=${index}&page=0">首页</a>
 	     				<%if(page.pageNumber == 1){ %>
@@ -55,7 +55,7 @@
 	   					<% } %>
      				</div>
       			</div>
-        	</div>
+			</div>
 		</div>
 	</div>
 </div>

@@ -23,7 +23,6 @@ INSERT INTO `eova_menu` VALUES ('10104', 'sch_home_gdgl_mc', '轮放管理', 'si
 INSERT INTO `eova_menu` VALUES ('10105', 'sch_home_ljgl_mc', '链接管理', 'singleGrid', 'icon-layoutlink',   '5', '101', '0', '', '');
 -- 学校概况
 INSERT INTO `eova_menu` VALUES ('10201', 'sch_xxgk_xwgl_mc', '新闻管理', 'singleGrid', 'icon-layoutsidebar','1', '102', '0', '', '');
--- INSERT INTO `eova_menu` VALUES ('10202', 'sch_xxgk_wjgl_mc', '文件管理', 'singleGrid', 'icon-layoutsidebar','2', '102', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('10203', 'sch_xxgk_dnfb_mc', '对内发布', 'singleGrid', 'icon-pagekey',      '3', '102', '0', '', '');
 INSERT INTO `eova_menu` VALUES ('10204', 'sch_xxgk_plgl_mc', '评论审核', 'singleGrid', 'icon-groupadd',     '4', '102', '0', '', '');
 -- 新闻中心
@@ -339,12 +338,11 @@ insert into `sch_index` values ('8', '国际交流');
 DROP TABLE IF EXISTS `sch_bankuai`;
 CREATE TABLE `sch_bankuai` (
 	`id` 				INT(11) 		NOT NULL AUTO_INCREMENT,	-- 板块ID 
-	`bk_parent`			INT(11)			NOT NULL,					-- 板块所属索引  -- select id ID, idx_name CN from `sch_index` where id=1,2,3...;ds=eova
+	`bk_parent`			INT(11)			NOT NULL,					-- 板块所属索引 -- select id ID, idx_name CN from `sch_index` where id=1,2,3...;ds=eova
 	`bk_name`			VARCHAR(60)		NOT NULL,					-- 板块名, 20个字符限定
 	`bk_index`			INT				DEFAULT 0, 					-- 排序
 	`bk_active`			CHAR			NOT NULL, 					-- 板块是否激活 -- select value ID,name CN from `eova_dict` where `class` = 'sch_bankuai' and field = 'bk_active';ds=eova
-	-- 板块LOGO
-	-- 板块额外资源...
+	`bk_disp`			CHAR			DEFAULT 0,					-- 展现方式: 0-文字列表, 1-图片列表
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
@@ -612,6 +610,8 @@ insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','否','sch_
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','是','sch_leaders','sli_show');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','拒绝','sch_cmmt','cmmt_status');
 insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','通过','sch_cmmt','cmmt_status');
+insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('0','列表展现','sch_bankuai','bk_disp');
+insert into `eova_dict` (`value`,`name`,`class`,`field`) values ('1','图标展现','sch_bankuai','bk_disp');
 -- ================================================================================= 视图
 -- 学校首页新闻视图
 DROP VIEW IF EXISTS sch_news_xxsy_v;
@@ -877,7 +877,8 @@ CREATE VIEW sch_bankuai_xxsy_v AS SELECT
 	`bk_parent` 	AS `bk_parent`,
 	`bk_name` 		AS `bk_name`,
 	`bk_index` 		AS `bk_index`,
-	`bk_active` 	AS `bk_active`
+	`bk_active` 	AS `bk_active`,
+	`bk_disp`		AS `bk_disp`
 FROM `sch_bankuai` WHERE `bk_parent` = '1';
 
 DROP VIEW IF EXISTS sch_bankuai_xxgk_v;
@@ -886,7 +887,8 @@ CREATE VIEW sch_bankuai_xxgk_v AS SELECT
 	`bk_parent` 	AS `bk_parent`,
 	`bk_name` 		AS `bk_name`,
 	`bk_index` 		AS `bk_index`,
-	`bk_active` 	AS `bk_active`
+	`bk_active` 	AS `bk_active`,
+	`bk_disp`		AS `bk_disp`
 FROM `sch_bankuai` WHERE `bk_parent` = '2';
 
 DROP VIEW IF EXISTS sch_bankuai_xwzx_v;
@@ -895,7 +897,8 @@ CREATE VIEW sch_bankuai_xwzx_v AS SELECT
 	`bk_parent` 	AS `bk_parent`,
 	`bk_name` 		AS `bk_name`,
 	`bk_index` 		AS `bk_index`,
-	`bk_active` 	AS `bk_active`
+	`bk_active` 	AS `bk_active`,
+	`bk_disp`		AS `bk_disp`
 FROM `sch_bankuai` WHERE `bk_parent` = '3';
 
 DROP VIEW IF EXISTS sch_bankuai_jxky_v;
@@ -904,7 +907,8 @@ CREATE VIEW sch_bankuai_jxky_v AS SELECT
 	`bk_parent` 	AS `bk_parent`,
 	`bk_name` 		AS `bk_name`,
 	`bk_index` 		AS `bk_index`,
-	`bk_active` 	AS `bk_active`
+	`bk_active` 	AS `bk_active`,
+	`bk_disp`		AS `bk_disp`
 FROM `sch_bankuai` WHERE `bk_parent` = '4';
 
 DROP VIEW IF EXISTS sch_bankuai_dqzc_v;
@@ -913,7 +917,8 @@ CREATE VIEW sch_bankuai_dqzc_v AS SELECT
 	`bk_parent` 	AS `bk_parent`,
 	`bk_name` 		AS `bk_name`,
 	`bk_index` 		AS `bk_index`,
-	`bk_active` 	AS `bk_active`
+	`bk_active` 	AS `bk_active`,
+	`bk_disp`		AS `bk_disp`
 FROM `sch_bankuai` WHERE `bk_parent` = '5';
 
 DROP VIEW IF EXISTS sch_bankuai_dyjy_v;
@@ -922,7 +927,8 @@ CREATE VIEW sch_bankuai_dyjy_v AS SELECT
 	`bk_parent` 	AS `bk_parent`,
 	`bk_name` 		AS `bk_name`,
 	`bk_index` 		AS `bk_index`,
-	`bk_active` 	AS `bk_active`
+	`bk_active` 	AS `bk_active`,
+	`bk_disp`		AS `bk_disp`
 FROM `sch_bankuai` WHERE `bk_parent` = '6';
 
 DROP VIEW IF EXISTS sch_bankuai_tsjy_v;
@@ -931,7 +937,8 @@ CREATE VIEW sch_bankuai_tsjy_v AS SELECT
 	`bk_parent` 	AS `bk_parent`,
 	`bk_name` 		AS `bk_name`,
 	`bk_index` 		AS `bk_index`,
-	`bk_active` 	AS `bk_active`
+	`bk_active` 	AS `bk_active`,
+	`bk_disp`		AS `bk_disp`
 FROM `sch_bankuai` WHERE `bk_parent` = '7';
 
 DROP VIEW IF EXISTS sch_bankuai_gjjl_v;
@@ -940,7 +947,8 @@ CREATE VIEW sch_bankuai_gjjl_v AS SELECT
 	`bk_parent` 	AS `bk_parent`,
 	`bk_name` 		AS `bk_name`,
 	`bk_index` 		AS `bk_index`,
-	`bk_active` 	AS `bk_active`
+	`bk_active` 	AS `bk_active`,
+	`bk_disp`		AS `bk_disp`
 FROM `sch_bankuai` WHERE `bk_parent` = '8';
 -- --------------------------------------------------------------------------------- 评论视图
 -- 学校首页
@@ -1131,6 +1139,14 @@ update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_d
 update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_dyjy_v_oc';
 update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_tsjy_v_oc';
 update eova_item set poCode = 'sch_bankuai_oc' where objectCode = 'sch_bankuai_gjjl_v_oc';
+
+update eova_item set poCode='sch_bankuai_oc', cn='编号', type='自增框', isNotNull='0' where objectCode like 'sch_bankuai_%v%' and en='id';
+update eova_item set poCode='sch_bankuai_oc', cn='板块索引', type='下拉框', isNotNull='1', exp="select id ID, idx_name CN from `sch_index` where id=1;ds=eova" where objectCode like 'sch_bankuai_%v%' and en='bk_parent';
+update eova_item set poCode='sch_bankuai_oc', cn='板块名字', type='文本框', isNotNull='1' where objectCode like 'sch_bankuai_%v%' and en='bk_name';
+update eova_item set poCode='sch_bankuai_oc', cn='排序', type='文本框', isNotNull='0' where objectCode like 'sch_bankuai_%v%' and en='bk_index';
+update eova_item set poCode='sch_bankuai_oc', cn='是否可见', type='下拉框', isNotNull='1', exp="select value ID,name CN from `eova_dict` where `class`='sch_bankuai' and field='bk_active';ds=eova" where objectCode like 'sch_bankuai_%v%' and en='bk_active';
+update eova_item set poCode='sch_bankuai_oc', cn='展现方式', type='下拉框', isNotNull='1', exp="select value ID,name CN from `eova_dict` where `class`='sch_bankuai' and field='bk_disp';ds=eova" where objectCode like 'sch_bankuai_%v%' and en='bk_disp';
+
 
 update eova_item set poCode = 'sch_links_oc' where objectCode = 'sch_links_xxsy_v_oc';
 

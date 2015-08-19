@@ -37,7 +37,8 @@
 	            	<div class="reply" data-ng-controller="schCmmtCtrl">
 						<h4>你的回应......</h4>
 	                    <textarea class="reply_text" data-ng-model="cmmt" id="cmmt"></textarea>
-	                    <div id="nameSpan"><label >名称: </label><input type="input" data-ng-model="user" id="author"/> </div>
+	                    <input type="text" data-ng-model="user" id="author" class="fl text01" placeholder="请输入您的姓名...." />
+	                    <!-- <div id="nameSpan"><label >名称: </label><input type="input" data-ng-model="user" id="author"/> </div> -->
 	                    <input type="text" data-ng-model="id" value="" style="visibility:hidden"> 
 	                    <input type="button" class="fr button01" data-ng-click="post(${news.id})"/>
 	                </div>

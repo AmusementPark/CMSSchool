@@ -174,4 +174,4 @@ input.button01 {background:url(../images/fabu.jpg) no-repeat; width:103px; heigh
 
 /* 校园风光 */
 .slidebd .Number02 li a {display:block; background:#f7f7f7; float:left; width:240px; margin:0 20px 10px 0; font:normal 14px/40px "微软雅黑"; color:#666; text-align:center;}
-.slidebd .Number02 {margin: 0 -20px 15px 20px;}
+.slidebd .Number02 {margin: 0 -20px 15px 20px; overflow:hidden;}
