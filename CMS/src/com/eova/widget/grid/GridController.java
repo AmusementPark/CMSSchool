@@ -139,6 +139,7 @@ public class GridController extends Controller {
 				
 	            for(Record record : records) {
 	                String path = record.getStr(field), image = "";
+	                if (path == null) continue;
                     if (MetaItem.TYPE_FIND.equals(type) ) {
                         if (path.endsWith(".png") || path.endsWith(".bmp") || path.endsWith(".jpg") || path.endsWith(".gif")) {
                         } else continue;

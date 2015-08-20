@@ -1,9 +1,9 @@
 <ul>
 	<%for (bankuai in bankuais) {%>
 		<%if (bankuai.id == bk) {%>
-			<li class="on"><a href="list?index=${bankuai.bk_parent}&bk=${bankuai.id}"><img src="${bkicon}" />${bankuai.bk_name}</a></li>
+			<li class="on"><a href="list?index=${bankuai.bk_parent}&bk=${bankuai.id}"><img src="${bkicon}" />&nbsp;&nbsp;${bankuai.bk_name}</a></li>
 		<%} else {%>
-			<li><a href="list?index=${bankuai.bk_parent}&bk=${bankuai.id}"><img src="${bkicon}" />${bankuai.bk_name}</a></li>
+			<li><a href="list?index=${bankuai.bk_parent}&bk=${bankuai.id}"><img src="${bkicon}" />&nbsp;&nbsp;${bankuai.bk_name}</a></li>
 		<%}%>
 	<%}%>
 </ul>
