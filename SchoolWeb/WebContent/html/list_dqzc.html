@@ -49,11 +49,11 @@
 				</ul>
                 <div id="N-pageZone" class="tour" style="font-size: 14px">
       				<div class="endPageConNum">
-	     				<a href="list?index=${index}&page=0&bk=${bk}">首页</a>
+	     				<a href="list?index=${index}&page=1&bk=${bk}">首页</a>
 	     				<%if(page.pageNumber == 1){ %>
 	     				<a href="#">上一页</a>
 	     				<%} else {%>
-	     				<a href="list?index=${index}&page=0&bk=${bk}">上一页</a>
+	     				<a href="list?index=${index}&page=${page.pageNumber-1}&bk=${bk}">上一页</a>
 	     				<%}%>
 	     					
 	     				<%var i = 1; while(i < page.totalPage +1) {%>
