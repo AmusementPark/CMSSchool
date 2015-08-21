@@ -158,7 +158,7 @@ public class IndexController extends Controller {
 		String name = role.getStr("name");
 		if(name.indexOf("教研") >= 0){
 			setSessionAttr("group", user.getInt("rid"));
-			setSessionAttr("groupName", name.substring(4));
+			setSessionAttr("groupName", name.substring(5));
 		} else {
 			setSessionAttr("group", null);
 			setSessionAttr("groupName", null);
