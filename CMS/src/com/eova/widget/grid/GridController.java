@@ -145,7 +145,7 @@ public class GridController extends Controller {
                         } else continue;
                     }
 	                if( path != null && path.length() > 0 ) { 
-	                    image = "<img src='" + path + "' style='width:50px;height:40px'/>";
+	                    image = "<img src='" + path + "' style='height:44px;'/>";
 	                }           
 	                record.set(field, image);
 	            }
