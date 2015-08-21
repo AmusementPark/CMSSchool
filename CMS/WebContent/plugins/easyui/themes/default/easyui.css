@@ -1093,7 +1093,9 @@
   float: left;
   width: 10000px;
 }
-.datagrid-header-row,
+.datagrid-header-row {
+  height: 25px;
+}
 .datagrid-row {
   height: 50px;
 }
