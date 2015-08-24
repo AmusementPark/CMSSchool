@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import static com.jfinal.core.Const.I18N_LOCALE;
 import com.jfinal.i18n.I18N;
+import com.jfinal.kit.JsonKit;
 import com.jfinal.kit.StrKit;
 import com.jfinal.render.ContentType;
 import com.jfinal.render.Render;
@@ -947,7 +948,7 @@ public abstract class Controller {
 	 * Example: renderJson("{\"message\":\"Please input password!\"}");
 	 */
 	public void renderJson(String jsonText) {
-		render = renderFactory.getJsonRender(jsonText);
+		render = renderFactory.getTextRender(jsonText);
 	}
 	
 	/**
@@ -956,7 +957,7 @@ public abstract class Controller {
 	 * Example: renderJson(new User().set("name", "JFinal").set("age", 18));
 	 */
 	public void renderJson(Object object) {
-		render = renderFactory.getJsonRender(object);
+		render = renderFactory.getTextRender(JsonKit.toJson(object));
 	}
 	
 	/**
