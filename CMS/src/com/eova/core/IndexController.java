@@ -159,9 +159,11 @@ public class IndexController extends Controller {
 		if(name.indexOf("教研") >= 0){
 			setSessionAttr("group", user.getInt("rid"));
 			setSessionAttr("groupName", name.substring(5));
+			setSessionAttr("loginId", user.getStr("loginId"));
 		} else {
 			setSessionAttr("group", null);
 			setSessionAttr("groupName", null);
+			setSessionAttr("loginId", user.getStr("loginId"));
 		}
 	}
 
