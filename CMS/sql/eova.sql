@@ -350,7 +350,8 @@ INSERT INTO `eova_role` VALUES ('11','10','教职工-数学',    '教师权限',
 INSERT INTO `eova_role` VALUES ('12','11','教职工-英语',    '教师权限', 		'');
 INSERT INTO `eova_role` VALUES ('13','12','教职工-科学',    '教师权限', 		'');
 INSERT INTO `eova_role` VALUES ('14','13','教职工-社会',    '教师权限', 		'');
-INSERT INTO `eova_role` VALUES ('15','14','教职工-综合组',  '教师权限', 		'');
+INSERT INTO `eova_role` VALUES ('15','14','教职工-综合',    '教师权限', 		'');
+INSERT INTO `eova_role` VALUES ('16','15','教职工',         '普通教职工',    '');
 -- --------------------------------------------------------------------------
 -- ----------------------------
 -- Table structure for `eova_role_btn`              

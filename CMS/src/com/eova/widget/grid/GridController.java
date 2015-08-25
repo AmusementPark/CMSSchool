@@ -74,7 +74,17 @@ public class GridController extends Controller {
 		String filterWhere = generateFilter(eo);
 		
 		String where = WidgetManager.getWhere(this, eis, parmList, filterWhere);
-
+		// filterWhere %yuwen_t|shuxue_t|...%
+		if( where.indexOf("{groupName}") != 0 ) {
+		    String loginId = getSessionAttr("loginId");
+		    if( loginId != null ) {
+		        where = where.replaceAll("\\{groupName\\}", loginId);
+		    } 
+		    else {
+		        where = where.replaceAll("\\{groupName\\}", "");
+		    }
+		}
+		
 		/**
 		 * @author Simon.Zhu
 		 * 后门部分, 系统权限只给开发者.
