@@ -28,9 +28,12 @@ public class IPInterceptor implements Interceptor {
 		}
 		
 		if(!isInternal){
-			ai.getController().setAttr("message", "非内网用户无法访问!");
-			ai.getController().forwardAction("/error");
-			return;
+//			ai.getController().setAttr("message", "非内网用户无法访问!");
+//			ai.getController().forwardAction("/error");
+//			return;
+			ai.getController().setSessionAttr("isInternal", false);
+		} else {
+			ai.getController().setSessionAttr("isInternal", true);
 		}
 		ai.invoke();
 	}
