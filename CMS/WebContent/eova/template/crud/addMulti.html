@@ -23,6 +23,7 @@
 		
 	};
 	var submitForm = function($dialog, $grid, $pjq) {
+		showLoading($dialog);
 		if ($.html5Validate.isAllpass($('#addForm'))) {
 			submitNow($dialog, $grid, $pjq);
 		}
@@ -41,8 +42,26 @@
 			} else {
 				$pjq_w.messager.alert('提示', result.msg, 'error');
 			}
+			
+			hideLoading($dialog);
 		}
 	};
+	
+	
+	function showLoading($dialog){
+		$("<div class=\"datagrid-mask\" style=\"display:block\"></div>").appendTo($dialog);
+		var msg = $("<div class=\"datagrid-mask-msg\" style=\"display:block;left:50%\"></div>").html("正在处理...").appendTo($dialog);
+		msg._outerHeight(40);
+	    msg.css({
+	        marginLeft: ( - msg.outerWidth() / 2),
+	        lineHeight: (msg.height() + "px")
+	    });
+	}
+
+	function hideLoading($dialog){
+		$dialog.children("div.datagrid-mask-msg").remove();
+		$dialog.children("div.datagrid-mask").remove();
+	}
 </script>
 <body>
 <#form id="addForm" name="addForm" items="${itemList}" isMulti="true" target="respFrame"/>
