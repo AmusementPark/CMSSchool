@@ -57,7 +57,8 @@ public class CommonController extends BaseController {
 			//检查是否内部link
 			if("0".equals(news.getStr("news_open"))){
 				User user = this.getSessionAttr("user");
-				if(user == null || user.getStr("loginId") == null){
+				boolean isInternal = this.getSessionAttr("isInternal");
+				if((user == null || user.getStr("loginId") == null) && !isInternal){
 					this.forwardAction("/login");
 					return;
 				}
