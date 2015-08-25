@@ -97,7 +97,7 @@ public class EovaConfig extends JFinalConfig {
 
 		// 设置全局变量
 		Map<String, Object> sharedVars = new HashMap<String, Object>();
-		String CDN = getProperty("domain_cdn", "http://127.0.0.1");
+		String CDN = getProperty("domain_cdn", "");
 		sharedVars.put("CDN", CDN);
 
 		// Load Template Const
@@ -137,16 +137,16 @@ public class EovaConfig extends JFinalConfig {
 		
 		String url, user, pwd;
 		String eova_url, eova_user, eova_pwd;
-		if (isLocal()) {
-			// 本地环境
-			url = getProperty("local_url");
-			user = getProperty("local_user");
-			pwd = getProperty("local_pwd");
-			
-			eova_url = getProperty("local_eova_url");
-			eova_user = getProperty("local_eova_user");
-			eova_pwd = getProperty("local_eova_pwd");
-		} else {
+//		if (isLocal()) {
+//			// 本地环境
+//			url = getProperty("local_url");
+//			user = getProperty("local_user");
+//			pwd = getProperty("local_pwd");
+//			
+//			eova_url = getProperty("local_eova_url");
+//			eova_user = getProperty("local_eova_user");
+//			eova_pwd = getProperty("local_eova_pwd");
+//		} else {
 			// 正式环境
 			url = getProperty("url");
 			user = getProperty("user");
@@ -155,7 +155,7 @@ public class EovaConfig extends JFinalConfig {
 			eova_url = getProperty("eova_url");
 			eova_user = getProperty("eova_user");
 			eova_pwd = getProperty("eova_pwd");
-		}
+//		}
 		
 		// 设置Mysql方言
 		WallFilter wall = new WallFilter();
