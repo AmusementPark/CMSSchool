@@ -12,7 +12,7 @@
 .menu li:hover a.btn {background-image:url(../images/default_icon_hover.jpg);}
 
 .bannerbg {background:#7e985b; width:100%; margin:8px 0 0 0;} 
-.bannerbg.news {background:#f6f8fa; height:129px;}
+.bannerbg.news {background:url(../pic/pic09.jpg) top center no-repeat; height:129px;}
 .bannerbg.about {background:url(../pic/pic11.jpg) top center no-repeat; height:129px;} 
 .bannerbg.dangyuan {background:url(../pic/pic12.jpg) top center no-repeat; height:129px;}
 .bannerbg.deyu {background:url(../pic/pic15.jpg) top center no-repeat; height:129px;} 

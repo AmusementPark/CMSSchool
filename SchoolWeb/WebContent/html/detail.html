@@ -3,10 +3,8 @@
 <script type="text/javascript" src="plugin/angular/angular.js"></script>
 <script type="text/javascript" src="js/cmmt/sch_cmmt.js"></script>
 
-<div class="bannerbg news">
-  	<div class="banner">
-    	<img src="pic/pic09.jpg" />
-	</div>
+<div class="bannerbg ${banner}">
+  	<div class="banner"></div>
 </div>
 <!--banner end-->
 <!--bread str-->
@@ -16,7 +14,7 @@
 <!--bread end->
 <!--mainnews str-->
 <div class="mainnews" ng-controller="schCmmtCtrl">
-	<div class="slideTxtBox">
+	<div class="slideTxtBox ${isDqzc}">
 		<div class="hd">
 			<%include("/html/base/sidelist.html"){}%>
             <div class="pic_class">

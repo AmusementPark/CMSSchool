@@ -54,6 +54,22 @@ public class CommonController extends BaseController {
 			
 			bksSetAttr((Integer)news.get("news_index"), (Integer)news.get("news_bankuai"));
 			
+			Integer newsIndex = (Integer)news.get("news_index");
+			switch (newsIndex) {
+			case 2: setAttr("banner", "about");break;
+			case 3: setAttr("banner", "news");break;
+			case 4: setAttr("banner", "keyan");break;
+			case 5: setAttr("banner", "dangyuan");break;
+			case 6: setAttr("banner", "deyu");break;
+			case 7: setAttr("banner", "tese");break;
+			case 8: setAttr("banner", "guoji");break;
+			}
+			if (newsIndex == 5) {
+			    setAttr("isDqzc", "dj");
+			} else {
+			    setAttr("isDqzc", "");
+			}
+			
 			//检查是否内部link
 			if("0".equals(news.getStr("news_open"))){
 				User user = this.getSessionAttr("user");
@@ -86,6 +102,7 @@ public class CommonController extends BaseController {
         int id = Integer.parseInt(getPara("id"));
         SchLeader leader = SchLeader.dao.findById(id);
         
+        setAttr("banner", "dangyuan");
         setAttr("leader", leader);
         setAttr("index", 5);    //写死
         setAttr("pv", SchLeaderPV.dao.pv(id));
