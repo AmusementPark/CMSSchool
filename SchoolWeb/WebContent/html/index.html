@@ -47,7 +47,7 @@
       		<span class="fr"><a href="#" target="_blank">more <img src="images/more_icon.jpg" /></a></span>
     	</div>
     	<div class="bd">
-      	<%if(topNews != null){%>
+      	<%if(has(topNews)){%>
 	      	<a href="news?id=${topNews.id}" class="pic">
 	        	<img src="${topNews.news_img}" id="topNewsImg"/>
 	      	</a>
