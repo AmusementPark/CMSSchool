@@ -49,7 +49,11 @@
     	<div class="bd">
       	<%if(has(topNews)){%>
 	      	<a href="news?id=${topNews.id}" class="pic">
-	        	<img src="${topNews.news_img}" id="topNewsImg"/>
+	      	    <%if(topNews.news_img != "") {%>
+	        		<img src="${topNews.news_img}" id="topNewsImg"/>
+	        	<%}else{%>
+	        		<img src="images/top_news_default.jpg" id="topNewsImg"/>
+	        	<%}%>
 	      	</a>
 	      	<a href="news?id=${topNews.id}">
 	        	<h3>${topNews.news_title}</h3>
