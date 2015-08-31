@@ -80,7 +80,7 @@ var loadDialog = function(grid, name, url) {
  				dialog.find('iframe').get(0).contentWindow.submitForm(dialog, grid, parent.$);
  			}
  		} ]
- 	}, 1020, 500);
+ 	}, 820, 560);
 };
 
 // 导入数据Dialog
