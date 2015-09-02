@@ -2,7 +2,7 @@
 <script>
 $(function() {
 	$("#roleMenu").treegrid({
-        url: '/auth/getFunJson',
+        url: '${ctx}/auth/getFunJson',
         method: 'get',
         rownumbers: true,
         idField: 'id',

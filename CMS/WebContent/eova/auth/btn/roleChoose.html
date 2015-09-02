@@ -9,7 +9,7 @@ var eova_roleChoose = function() {
 	if (isSelected(row)){
 		var dialog = parent.sy.modalDialog({
 	 		title : '['+ row.name +']可用功能选择',
-	 		url : '/auth/toRoleChoose/' + row.id,
+	 		url : '${ctx}/auth/toRoleChoose/' + row.id,
 	 		buttons : [ {
 	 			text : '确定',
 	 			handler : function() {

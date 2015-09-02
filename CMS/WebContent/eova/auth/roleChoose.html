@@ -69,7 +69,7 @@ var checkKey = function(key){
 
 $(function() {
 	$("#roleMenu").treegrid({
-        url: '/auth/getFunJson',
+        url: '${ctx}/auth/getFunJson',
         method: 'get',
         rownumbers: true,
         idField: 'id',
@@ -100,7 +100,7 @@ $(function() {
         onLoadSuccess : function (){
         	// 功能加载完成之后加载已分配功能
         	$.ajax({
-                url: '/auth/getRoleFunJson/${rid}',
+                url: '${ctx}/auth/getRoleFunJson/${rid}',
                 dataType: 'json',
                 success: function(data) {
                 	console.log("成功...");
@@ -134,7 +134,7 @@ var slideMsg = function(str,$pjq){
     });
 };
 var submitForm = function($dialog, $grid, $pjq) {
-	var url = "/auth/roleChoose/" + ${rid};
+	var url = "${ctx}/auth/roleChoose/" + ${rid};
 	var o ={'checks': getCheckIds()};
 	showLoading($dialog);
     
