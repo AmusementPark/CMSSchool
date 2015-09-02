@@ -40,7 +40,9 @@ public class Menu extends BaseModel<Menu> {
 	public String getUrl(){
 		String url = this.getStr("url");
 		if (xx.isEmpty(url)) {
-			return '/' + this.getStr("type") + "/list/" +this.getStr("code");
+			//return "/" + this.getStr("type") + "/list/" +this.getStr("code");
+		    //Simon.Zhu
+		    return this.getStr("type") + "/list/" +this.getStr("code");
 		}
 		return url;
 	}

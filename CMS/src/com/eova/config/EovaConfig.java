@@ -43,6 +43,7 @@ import com.jfinal.config.Interceptors;
 import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
+import com.jfinal.ext.handler.ContextPathHandler;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.plugin.druid.DruidStatViewHandler;
@@ -125,7 +126,6 @@ public class EovaConfig extends JFinalConfig {
 
 		/* 自定义业务 */
 //		me.add("/user", UserController.class);
-
 	}
 
 	/**
@@ -236,6 +236,7 @@ public class EovaConfig extends JFinalConfig {
 		// 添加DruidHandler
 		DruidStatViewHandler dvh = new DruidStatViewHandler("/druid");
 		me.add(dvh);
+		me.add(new ContextPathHandler("ctx"));
 	}
 
 	/**
