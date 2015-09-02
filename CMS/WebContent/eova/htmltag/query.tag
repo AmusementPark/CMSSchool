@@ -19,7 +19,7 @@
 							<div id="${item.en}" name="${QUERY + item.en}" value="${item.value!}" class="eova-combo"></div>
 	                        <script>
 	                        $('#${item.en}').eovacombo({
-	                            url: '/widget/comboJson/${item.objectCode}-${item.en}',
+	                            url: '${ctx}/widget/comboJson/${item.objectCode}-${item.en}',
 	                            valueField : 'ID',
 	                            textField : 'CN'
 	                        });

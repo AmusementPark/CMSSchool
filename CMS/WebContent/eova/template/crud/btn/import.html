@@ -5,6 +5,6 @@ onclick="crud_import()">
 <script type="text/javascript">
 var crud_import = function() {
 	var grid = $('#grid');
-	importDialog(grid, '导入${obj.name}数据', '/singleGrid/toImportXls/${menu.code}');
+	importDialog(grid, '导入${obj.name}数据', '${ctx}/singleGrid/toImportXls/${menu.code}');
 };
 </script>

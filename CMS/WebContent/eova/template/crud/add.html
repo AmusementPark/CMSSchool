@@ -10,7 +10,7 @@
 	    });
 	};
 	var submitNow = function($dialog, $grid, $pjq) {
-		var url = "/singleGrid/add/${menu.code}";
+		var url = "${ctx}/singleGrid/add/${menu.code}";
 		$.post(url, sy.serializeObject($('#addForm')), function(result) {
 			if (result.success) {
 				//$pjq.messager.alert('提示', result.msg, 'info');

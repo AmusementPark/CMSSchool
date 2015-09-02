@@ -15,6 +15,6 @@ var crud_deletes = function() {
 	for (var i = 0; i < array.length; i++) { //组成一个字符串，ID主键用逗号隔开  
 		id2 = id2 + array[i].pk_val + ",";
 	}
-	confirmDel(grid, '/singleGrid/delete/${menu.code}-' + id2);
+	confirmDel(grid, '${ctx}/singleGrid/delete/${menu.code}-' + id2);
 };
 </script>

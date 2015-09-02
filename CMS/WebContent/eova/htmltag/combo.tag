@@ -2,7 +2,7 @@
 data-options="required : ${isNoN!false} ${!isEmpty(options!) ? ', ' + options : '' }"></div>
 <script>
 $('#${id!}').eovacombo({
-    url: '/widget/comboJson/${code}-${field}',
+    url: '${ctx}/widget/comboJson/${code}-${field}',
     valueField : 'ID',
     textField : 'CN'
 });

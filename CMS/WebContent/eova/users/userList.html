@@ -1,4 +1,4 @@
-<form id="pagerForm" method="post" action="/user/list">
+<form id="pagerForm" method="post" action="${ctx}/user/list">
 	<input type="hidden" name="${PAGENUM}" value="${userPage.pageNumber}" />
 	<input type="hidden" name="${PAGESIZE}" value="${userPage.pageSize}" />
 	<input type="hidden" name="orderField" value="${orderField!}" />
@@ -13,7 +13,7 @@ $(document).ready(function(){
 </script>
 <div layoutH="26" width="100%">
 	<div class="pageContent"> 
-		<form id="searchForm" onsubmit="return navTabSearch(this);" action="/user/list" method="post">
+		<form id="searchForm" onsubmit="return navTabSearch(this);" action="${ctx}/user/list" method="post">
 			<div class="pageHeader">
 				<div class="panel ${panelState!}">
 					<h1>快速查询</h1>

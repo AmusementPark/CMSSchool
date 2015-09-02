@@ -10,7 +10,7 @@ var slideMsg = function(str,$pjq){
     });
 };
 var submitNow = function($dialog, $grid, $pjq) {
-	var url = "/singleGrid/update/${menu.code}";
+	var url = "${ctx}/singleGrid/update/${menu.code}";
 	//console.log(url);
 	$("#updateForm")[0].action = url;
 	$("#updateForm")[0].submit();

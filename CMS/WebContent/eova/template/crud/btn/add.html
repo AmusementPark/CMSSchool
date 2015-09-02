@@ -5,6 +5,6 @@ onclick="crud_add()">
 <script type="text/javascript">
 var crud_add = function() {
 	var grid = $('#grid');
-	loadDialog(grid, '添加${obj.name}', '/singleGrid/toAdd/${menu.code}');
+	loadDialog(grid, '添加${obj.name}', '${ctx}/singleGrid/toAdd/${menu.code}');
 };
 </script>

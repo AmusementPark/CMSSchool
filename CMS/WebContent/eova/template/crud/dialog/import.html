@@ -1,7 +1,7 @@
 <%layout("/eova/layout/default.html",{'title' : '导入数据'}){%>
 <body>
 <div style="padding: 5px;text-align: center;">
-<form target="ajaxUpload" id="importForm" action="/singleGrid/importXls/${menu.code}" method="POST" enctype="multipart/form-data">
+<form target="ajaxUpload" id="importForm" action="${ctx}/singleGrid/importXls/${menu.code}" method="POST" enctype="multipart/form-data">
 	<input type="file" id="upfile" name="upfile" value="上传" formaction="importForm">
 <!-- 	<input type="submit" value="提交"> -->
 </form>

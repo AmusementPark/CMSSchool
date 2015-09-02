@@ -14,7 +14,7 @@ var crud_update = function() {
 	}
 	if (isSelected(row)){
 		//${obj.pkName}
-	 	loadDialog(grid, '修改${obj.name}', '/singleGrid/toUpdate/${menu.code}-' + row.pk_val);
+	 	loadDialog(grid, '修改${obj.name}', '${ctx}/singleGrid/toUpdate/${menu.code}-' + row.pk_val);
 	}
 };
 </script>

@@ -14,7 +14,7 @@
 	var $grid_w;
 	var $pjq_w;
 	var submitNow = function($dialog, $grid, $pjq) {
-		var url="/singleGrid/add/${menu.code}"
+		var url="${ctx}/singleGrid/add/${menu.code}"
 		$("#addForm")[0].action = url;
 		$("#addForm")[0].submit();
 		$dialog_w = $dialog;

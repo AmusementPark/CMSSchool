@@ -14,7 +14,7 @@ var reply_cmmt = function() {
 	}
 	if (isSelected(row)){
 		//${obj.pkName}
-	 	loadDialog(grid, '修改${obj.name}', '/singleGrid/toReplyCmmt/${menu.code}-' + row.pk_val);
+	 	loadDialog(grid, '修改${obj.name}', '${ctx}/singleGrid/toReplyCmmt/${menu.code}-' + row.pk_val);
 	}
 };
 </script>

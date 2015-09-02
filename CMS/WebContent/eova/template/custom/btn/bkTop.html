@@ -35,6 +35,6 @@ var crud_bkTop = function() {
 	for (var i = 0; i < array.length; i++) {
 		id2 = id2 + array[i].pk_val + ",";
 	}
-	doAction(grid, '/singleGrid/booleanCrud/${menu.code}-'+id2+'-1-news_topic_top');
+	doAction(grid, '${ctx}/singleGrid/booleanCrud/${menu.code}-'+id2+'-1-news_topic_top');
 };
 </script>

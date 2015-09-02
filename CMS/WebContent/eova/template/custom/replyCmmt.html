@@ -10,7 +10,7 @@ var slideMsg = function(str,$pjq){
     });
 };
 var submitNow = function($dialog, $grid, $pjq) {
-	var url = "/singleGrid/replyCmmt/${menu.code}";
+	var url = "${ctx}/singleGrid/replyCmmt/${menu.code}";
 	//console.log(url);
 	$.post(url, sy.serializeObject($('#updateForm')), function(result) {
 		console.log(result);

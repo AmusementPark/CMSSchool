@@ -27,7 +27,7 @@ function afterLoad(){
 					onLoadSuccess: afterLoad,
 					<%if(isEmpty(url)){%>
 					<%// 默认模式%>
-					url : '/grid/query/${obj.code}',
+					url : '${ctx}/grid/query/${obj.code}',
 					<%}else{%>
 					<%// 自定义URL%>
 					url : '${url}',
@@ -103,7 +103,7 @@ function afterLoad(){
                         <%// Grid Cell Editor,对象和字段允许行内编辑自增，自增长禁止编辑%>
                         <%if(isTrue(obj.isCellEdit) && isTrue(item.isEdit) && !isTrue(item.isAuto)){%>
                             editor:{type:'${item.editor}',options:{
-                                url: '/widget/comboJson/${item.objectCode}-${item.en}',
+                                url: '${ctx}/widget/comboJson/${item.objectCode}-${item.en}',
                                 valueField : 'ID',
                                 textField : 'CN'
                             }},
