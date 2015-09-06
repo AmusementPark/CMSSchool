@@ -28,7 +28,6 @@ public class EovaExp {
 		System.out.println("cn="+getCn(exp));
 		
 		System.out.println("sa="+getSelectItem(exp));
-		
 	}
 	
 	public static String getWhere(String exp){
@@ -37,7 +36,9 @@ public class EovaExp {
 			return "";
 		}
 		int end = exp.indexOf(";");
-		return exp.substring(where, end).replaceAll("\\{groupName\\}", " ");
+		String ret = exp.substring(where, end).replaceAll("\\{groupName\\}", " ");
+		ret = ret.replaceAll("\\{loginId\\}", "0");
+		return ret;
 	}
 
 	public static String getWhere(String exp, Controller c){
@@ -59,6 +60,9 @@ public class EovaExp {
 				result = result.replaceAll("\\{groupName\\}", " ");
 			}
 		}
+        if( result.indexOf("{loginId}") != -1 && c != null ) {
+            result = result.replaceAll("\\{loginId\\}", c.getSessionAttr("rid")+"");
+        }
 		return result;
 	}
 	

@@ -32,12 +32,12 @@ public class CommonController extends BaseController {
 		} else {
 			setSessionAttr("user", user);
 			renderJson("{\"success\": true}");
-		}		
-		
+		}
 	}
 	
 	public void index(){
 		//get top  3 news
+	    String param = this.getPara();
 	    List<News> topNews = News.dao.getLatestIndexNews();
 	    System.err.println(topNews.get(0).getStr("news_img"));
 		setAttr("topNews", topNews.get(0));
@@ -95,7 +95,7 @@ public class CommonController extends BaseController {
 			// 访问量加1
 			SchNewsPV.dao.inc(news.getInt("id"));
 		} catch (Exception e){
-			dealException(e, "生成新闻页面失败， 请联系管理员！");
+		    renderError(404);
 		}
 		render("/html/detail.html");
 	}
@@ -114,39 +114,43 @@ public class CommonController extends BaseController {
     }
 	
 	public void list() {
-	    int index = Integer.parseInt(getPara("index"));
-	    
-	    bksSetAttr(index);
-	    newsSetAttr();
-	    indexSetAttr(index);
-	    
-		switch (index) {
-		case 2:
-		    xxgkSetAttr();
-		    if( getAttr("_disp") != null && getAttr("_disp").equals("1")) {
-		        render("/html/list_xxgk_pic.html");
-		    } else {
-		        render("/html/list_xxgk.html"); 
-		    }
-		    break;
-		case 4:
-		    jxkySetAttr();
-		    render("/html/list_jxky.html");break;
-		case 5:
-		    dqzcSetAttr();
-		    render("/html/list_dqzc.html");break;
-		case 6: 
-		    dyjySetAttr();
-		    render("/html/list_dyjy.html");break;
-		case 7: 
-		    tsjySetAttr();
-            render("/html/list_tsjy.html");break;
-        case 8: 
-            gjjlSetAttr();
-            render("/html/list_gjjl.html");break;
-		default:
-		    render("/html/list.html");break;
-		}
+	    try {
+	        int index = Integer.parseInt(getPara("index"));
+	        
+	        bksSetAttr(index);
+	        newsSetAttr();
+	        indexSetAttr(index);
+	        
+	        switch (index) {
+	        case 2:
+	            xxgkSetAttr();
+	            if( getAttr("_disp") != null && getAttr("_disp").equals("1")) {
+	                render("/html/list_xxgk_pic.html");
+	            } else {
+	                render("/html/list_xxgk.html"); 
+	            }
+	            break;
+	        case 4:
+	            jxkySetAttr();
+	            render("/html/list_jxky.html");break;
+	        case 5:
+	            dqzcSetAttr();
+	            render("/html/list_dqzc.html");break;
+	        case 6: 
+	            dyjySetAttr();
+	            render("/html/list_dyjy.html");break;
+	        case 7: 
+	            tsjySetAttr();
+	            render("/html/list_tsjy.html");break;
+	        case 8: 
+	            gjjlSetAttr();
+	            render("/html/list_gjjl.html");break;
+	        default:
+	            render("/html/list.html");break;
+	        }
+	    } catch (Exception e) {
+	        renderError(404);
+	    }
 	}
 	
 	//索引信息设置

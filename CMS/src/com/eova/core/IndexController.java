@@ -156,14 +156,16 @@ public class IndexController extends Controller {
 	private void setInvestGroup(User user){
 		Role role = Role.dao.findFirst("select * from eova_role where rid = ? ", user.getInt("rid"));
 		String name = role.getStr("name");
-		if(name.indexOf("教研") >= 0){
+		if( name.indexOf("教研") >= 0 ){
 			setSessionAttr("group", user.getInt("rid"));
 			setSessionAttr("groupName", name.substring(5));
 			setSessionAttr("loginId", user.getStr("loginId"));
+			setSessionAttr("rid", user.getInt("rid"));
 		} else {
 			setSessionAttr("group", null);
 			setSessionAttr("groupName", null);
 			setSessionAttr("loginId", user.getStr("loginId"));
+			setSessionAttr("rid", user.getInt("rid"));
 		}
 	}
 
