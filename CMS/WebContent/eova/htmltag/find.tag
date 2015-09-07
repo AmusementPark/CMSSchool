@@ -2,14 +2,16 @@
 // 默认URL
 var findUrl = "";
 if(!isEmpty(code) && !isEmpty(field)){
-	findUrl = "/widget/find?code=" + code +"&field="+ field;
+	//Simon.Zhu 写死
+	findUrl = "/admin/widget/find?code=" + code +"&field="+ field;
 }
 if(!isEmpty(url!)){
 	// 自定义URL
 	findUrl = url;
 } else {
 	// 自定义表达式
-	findUrl = "/widget/find?";
+	//Simon.Zhu 写死
+	findUrl = "/admin/widget/find?";
 	// 存在自定义表达式
 	if(!isEmpty(exp)){
 		findUrl = findUrl + "exp=" + exp; 

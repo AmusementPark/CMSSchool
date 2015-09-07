@@ -93,7 +93,8 @@
         var $textbox = this.$textbox;
 
         if ($valuebox.val()) {
-            var url = '/widget/findCnByEn/' + this.code + '-' + this.field + '-' + this.value;
+        	// Simon.Zhu.  这里必须写死....
+            var url = '/admin/widget/findCnByEn/' + this.code + '-' + this.field + '-' + this.value;
             $.ajax({
                 url: url,
                 dataType: 'text',

@@ -40,8 +40,8 @@ public class WidgetController extends Controller {
 	 * 查找框Dialog
 	 */
 	public void find() {
-
-		String url = "/widget/findJson?";
+	    // Simon.Zhu. 写死
+		String url = "/admin/widget/findJson?";
 		
 		String exp = getPara("exp");
 		if(exp != null){
