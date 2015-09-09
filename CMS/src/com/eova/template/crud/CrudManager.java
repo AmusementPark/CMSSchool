@@ -6,11 +6,14 @@
  */
 package com.eova.template.crud;
 
+import java.io.File;
+import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import com.eova.common.utils.xx;
 import com.eova.config.PageConst;
@@ -60,7 +63,13 @@ public class CrudManager {
 			}
             UploadFile file = c.getFile(key, dir);
             if(file != null){
-                String value = FileUtil.convertToWebPath(dir + "/" + file.getFileName());
+            	String name = file.getFileName();
+            	//转换文件名
+            	File f = file.getFile();
+            	int index = name.indexOf(".");
+            	String newName = dir + "/" + UUID.randomUUID() + name.substring(index);
+            	f.renameTo(new File(newName));
+                String value = FileUtil.convertToWebPath(newName);
                 record.set(key, value);
             }
 		}
