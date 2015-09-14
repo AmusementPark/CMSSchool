@@ -39,6 +39,8 @@ public class AuthInterceptor implements Interceptor {
 //			String sql = "select m.urlCmd from eova_menu m where m.urlCmd != ''";
 //			sql +=" and m.id in(select bid from eova_role_btn where rid = ?)";
 			
+			///grid/query/sch_cmmt_jxky_v_oc
+			
 			// 查询当前角色已授权菜单URL
 			StringBuilder sb = new StringBuilder();
 			sb.append("select m.urlCmd from eova_button b");

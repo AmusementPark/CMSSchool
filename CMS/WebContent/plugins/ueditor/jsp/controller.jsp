@@ -9,11 +9,10 @@
 	response.setHeader("Content-Type" , "text/html");
 	
 	User user = (User)request.getSession().getAttribute("user");
-	System.out.println(user.get("loginId"));
-	
+
 	String rootPath = application.getRealPath( "/" );
-	
 	String action = request.getParameter("action");
+
 	String result = new ActionEnter( request, rootPath ).exec();
 	if( action!=null && 
 	   (action.equals("listfile") || action.equals("listimage") ) ){

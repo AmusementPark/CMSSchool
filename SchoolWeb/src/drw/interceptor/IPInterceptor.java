@@ -13,8 +13,9 @@ public class IPInterceptor implements Interceptor {
 	public void intercept(ActionInvocation ai) {
 		// TODO Auto-generated method stub
 		String address = ai.getController().getRequest().getRemoteAddr();
+		String uri = ai.getController().getRequest().getRequestURI();
 		System.out.println("request ip: " + address);
-		
+		System.out.println("uri: "+uri);
 		if(ai.getActionKey().equals("/error")){
 			ai.invoke();
 			return;
