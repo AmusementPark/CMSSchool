@@ -455,7 +455,7 @@ BEGIN
 DECLARE sTemp VARCHAR(4000);
 DECLARE sTempChd VARCHAR(4000);
 SET sTemp = '$';
-SET sTempChd = cast(rootId as char)
+SET sTempChd = cast(rootId as char);
 WHILE sTempChd is not NULL DO
 SET sTemp = CONCAT(sTemp,',',sTempChd);
 SELECT group_concat(id) INTO sTempChd FROM eova_menu where FIND_IN_SET(parentId, sTempChd)>0;

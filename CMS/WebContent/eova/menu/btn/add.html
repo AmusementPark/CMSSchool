@@ -1,10 +1,7 @@
-<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-pageadd',plain:true"
-onclick="crud_add()">
-	新增
-</a>
+<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-pageadd',plain:true" onclick="crud_add()">新增</a>
 <script type="text/javascript">
 var crud_add = function() {
 	var grid = $('#grid');
-	loadDialog(grid, '添加${obj.name}', '/menu/toAdd');
+	loadDialog(grid, '添加${obj.name}', '${ctx}/menu/toAdd');
 };
 </script>

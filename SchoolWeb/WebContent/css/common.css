@@ -5,7 +5,7 @@
 .headerbg .header span a:hover,.headerbg .header span a.on {color:#4e944e;}
 
 .menu {width:1000px; margin:8px auto 0;}
-.menu li a{font:normal 14px/40px "微软雅黑"; height:40px; float:left; padding:0 25px; margin:0 10px 0 5px;}
+.menu li a{font:normal 14px/40px "微软雅黑"; height:40px; float:left; padding:0 13px; margin:0 10px 0 5px;}
 .menu li a.btn { background-image:url(../images/default_icon.jpg); background-repeat:no-repeat; background-position:22px 8px; padding:0 25px 0 50px;}
 .menu li.on a.btn { background-image:url(../images/default_icon_hover.jpg); background-repeat:no-repeat; background-position:22px 8px; padding:0 25px 0 50px;}
 .menu li.on a,.menu li:hover a {background-color:#7fc261; color:#fff;}

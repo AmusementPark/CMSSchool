@@ -7,7 +7,7 @@ var eova_importMetaData = function() {
 	var grid = $('#grid');
 	var row = grid.datagrid('getSelected');
 	if (isSelected(row)){
-		loadDialog(grid, '基本功能设置', '/menu/toMenuFun/' + row.code );
+		loadDialog(grid, '基本功能设置', '${ctx}/menu/toMenuFun/' + row.code );
 	}
 };
 </script>
