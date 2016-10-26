@@ -47,7 +47,8 @@
 }
 
 .form input[type='checkbox'],.form input[type='radio'] {
-	width: 20px;
+	width: 25px;
+	height: 25px;
 }
 
 fieldset {

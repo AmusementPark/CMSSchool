@@ -165,12 +165,12 @@ div[class^="eova"] i:hover {
 	float: left;
 }
 .eova-form-field{
-	width: 280px;
+	width: 250px;
 	margin-left: 10px;
 }
 .eova-form-lbl{
 	line-height: 25px;
-	width: 90px;
+	width: 80px;
 }
 
 /* plugin validate error,提升优先级 */

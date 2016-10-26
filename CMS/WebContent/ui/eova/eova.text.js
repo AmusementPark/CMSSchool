@@ -37,7 +37,7 @@
     var TextBox = $.fn.eovatext.TextBox = function (dom, options) {
         this.$dom = $(dom);
         this.defaults = {
-            width: 180,
+            width: 160,
             btnTitle: '点击清空文本',
             btnIcon: '',
             isReadonly: false,

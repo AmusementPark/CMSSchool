@@ -23,8 +23,9 @@
 		
 	};
 	var submitForm = function($dialog, $grid, $pjq) {
-		showLoading($dialog);
+		//showLoading($dialog);
 		if ($.html5Validate.isAllpass($('#addForm'))) {
+			showLoading($dialog);
 			submitNow($dialog, $grid, $pjq);
 		}
 	};

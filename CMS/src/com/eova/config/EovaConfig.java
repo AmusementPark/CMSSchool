@@ -52,6 +52,8 @@ import com.jfinal.plugin.ehcache.EhCachePlugin;
 public class EovaConfig extends JFinalConfig {
 
 	private long startTime = 0;
+	
+	public static String CTX = null;
 
 	/**
 	 * 系统启动之后
@@ -100,6 +102,8 @@ public class EovaConfig extends JFinalConfig {
 		Map<String, Object> sharedVars = new HashMap<String, Object>();
 		String CDN = getProperty("domain_cdn", "");
 		sharedVars.put("CDN", CDN);
+		
+		CTX = CDN;
 
 		// Load Template Const
 		PageConst.init(sharedVars);
@@ -116,13 +120,14 @@ public class EovaConfig extends JFinalConfig {
 	@Override
 	public void configRoute(Routes me) {
 		System.err.println("Config Routes Starting...");
-		me.add("/",           IndexController.class);
-		me.add("/singleGrid", CrudController.class);
-		me.add("/widget",     WidgetController.class);
-		me.add("/grid",       GridController.class);
-		me.add("/metadata",   MetaDataController.class);
-		me.add("/menu",       MenuController.class);
-		me.add("/auth",       AuthController.class);
+
+		me.add("/",   			IndexController.class);
+		me.add("/singleGrid", 	CrudController.class);
+		me.add("/widget",     	WidgetController.class);
+		me.add("/grid",       	GridController.class);
+		me.add("/metadata",   	MetaDataController.class);
+		me.add("/menu",   		MenuController.class);
+		me.add("/auth",       	AuthController.class);
 
 		/* 自定义业务 */
 //		me.add("/user", UserController.class);

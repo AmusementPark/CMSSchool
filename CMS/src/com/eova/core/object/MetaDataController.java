@@ -11,6 +11,7 @@ import java.util.List;
 
 import com.eova.common.Easy;
 import com.eova.common.utils.xx;
+import com.eova.config.EovaConfig;
 import com.eova.config.EovaConst;
 import com.eova.config.PageConst;
 import com.eova.engine.EovaExp;
@@ -48,7 +49,7 @@ public class MetaDataController extends Controller {
 
 		String ds = getPara(0);
 		String db = EovaConst.DBMAP.get(ds);
-		String type = getPara(1);
+		String type = getPara(1); 
 
 		// 根据表达式获取ei
 		String exp = "select table_name 编码,table_name 表名  from information_schema." + type + "s where table_schema = '" + db + "';ds=eova";
@@ -60,7 +61,7 @@ public class MetaDataController extends Controller {
 
 		setAttr("obj", eo);
 		setAttr("itemList", eis);
-		setAttr("action", "/metadata/findJson/" + db + '-' + type);
+		setAttr("action", EovaConfig.CTX+"/metadata/findJson/" + db + '-' + type);
 
 		render("/eova/dialog/find.html");
 	}

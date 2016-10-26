@@ -1,7 +1,7 @@
 <div class="combo" style="width: 
 <%
 if(isEmpty(width)){
-print(178);
+print(158);
 } else {
 print(parseInt(width)+22);
 }
@@ -18,7 +18,7 @@ data-options="${isTrue(isNoN!) ? "required:true" : ""}"
 autocomplete="off" 
 style="
 cursor: pointer;
-width: ${isEmpty(width) ? 176:width}px;
+width: ${isEmpty(width) ? 156:width}px;
 height: ${isEmpty(height) ? 20:height}px;
 font-size: 10px;
 " /></div>

@@ -23,7 +23,7 @@
 		</tr>
 		<tr>
 			<th>元数据表</th>
-			<td><#find id="table" name="table" isNoN="true" url="/metadata/find/eova-table" /></td>
+			<td><#find id="table" name="table" isNoN="true" url="${ctx}/metadata/find/eova-table" /></td>
 		</tr>
 		<tr>
 			<th>元对象名称</th>
@@ -38,7 +38,7 @@
 <script type="text/javascript">
 // 元类型变更时级联变更元数据表查找框URL
 var valueChange = function(){
-	var url = '/metadata/find/' + $('#ds').combobox('getValue') + '-' + $('#type').combobox('getValue');
+	var url = '${ctx}/metadata/find/' + $('#ds').combobox('getValue') + '-' + $('#type').combobox('getValue');
 	console.log(url);
 	$('#table').attr('url', url);
 }
@@ -52,7 +52,7 @@ var slideMsg = function(str,$pjq){
 };
 var fm = $('#myForm');
 var submitNow = function($dialog, $grid, $pjq) {
-	var url = "/metadata/importData";
+	var url = "${ctx}/metadata/importData";
 	$.post(url, sy.serializeObject(fm), function(result) {
 		if (result.success) {
 			//$pjq.messager.alert('提示', result.msg, 'info');

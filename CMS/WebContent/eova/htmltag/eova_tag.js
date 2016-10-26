@@ -55,7 +55,7 @@ var eova_iconDialog = function(input, span) {
 	var dialog = parent.sy.modalDialog({
 		id : 'icon_ok',
 		title : '修改ICON',
-		url : '/toIcon',
+		url : '${ctx}/toIcon',
 		buttons : [ {
 			text : '修改',
 			handler : function() {
